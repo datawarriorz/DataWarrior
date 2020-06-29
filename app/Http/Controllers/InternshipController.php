@@ -24,6 +24,7 @@ class InternshipController extends Controller
      public function showintership(){
       
         
+      
         $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
         $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
         $internship=InternshipPreferences::where('user_id','=',Auth::user()->user_id)->get();

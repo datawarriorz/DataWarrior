@@ -7,11 +7,14 @@ use App\Jobexperience;
 use App\UserSkills;
 use App\User;
 use App\InternshipPreferences;
+use App\UserQualification;
+use App\QualificationTypes;
+
 use Auth;
 use Illuminate\Support\Facades\Validator;
 
 
-class Internship extends Controller
+class InternshipController extends Controller
 {
     //
     public function __construct()
@@ -24,7 +27,10 @@ class Internship extends Controller
         $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
         $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
         $internship=InternshipPreferences::where('user_id','=',Auth::user()->user_id)->get();
-       return view('internship',['skills'=>$skills,'jobexp'=>$jobexp,'internship'=>$internship]);
+        $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
+            $qualificationType=QualificationTypes::all();
+       return view('internship',['skills'=>$skills,'jobexp'=>$jobexp,'internship'=>$internship,'eduDetails' => $eduDetails,'qualificationType'=>$qualificationType]);
+       
        
       
     }
@@ -52,6 +58,16 @@ class Internship extends Controller
         $jobexp->enddate=$request->enddate;
         $jobexp->description=$request->description;
         $jobexp->currentjob=$request->currentjob;
+        $qualification =new UserQualification();
+        $qualification->user_id=Auth::user()->user_id;
+        $qualification->college_name=$request->college_name;
+        $qualification->qualtype_id=$request->qualificationtype;
+        $qualification->University=$request->university;
+        $qualification->start_date=$request->start_date;
+        $qualification->end_date=$request->end_date;
+        $qualification->percentage=$request->percentage;
+        $qualification->course_name=$request->course_name;
+        $qualification->grade=$request->grade;
         
 
         $validator=Validator::make($request->all(), [
@@ -69,6 +85,13 @@ class Internship extends Controller
             'description' => 'required|min:3',
             'enddate' =>'required',
             'startdate' =>'required',
+            'college_name' => 'required|min:3',
+            'university' => 'required|min:3',
+            'percentage' => 'required|numeric',
+            'course_name' => 'required|min:3',
+            'garde' => 'required',
+            'end_date' =>'required',
+            'start_date' =>'required',
 
             
             
@@ -82,6 +105,8 @@ class Internship extends Controller
         $internship->save();
         $skills->save();
         $jobexp->save();
+        $qualification->save();
+
 
       
     }

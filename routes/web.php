@@ -45,10 +45,9 @@ Route::get('/skills', 'ProfileController@skills')->middleware('auth');
 Route::post('/updateskills', 'ProfileController@updateSkills')->middleware('auth');
 Route::post('/deleteskills', 'ProfileController@deleteSkills')->middleware('auth');
 
-Route::get('/internship', 'Internship@showintership')->middleware('auth');
-Route::post('/internshipform', 'Internship@applyInternship')->middleware('auth');
-Route::post('/internshipskills', 'Internship@internshipSkills')->middleware('auth');
-Route::post('/internshipexp', 'Internship@v')->middleware('auth');
+Route::get('/internship', 'InternshipController@showintership')->middleware('auth');
+Route::post('/internshipform', 'InternshipController@applyInternship')->middleware('auth');
+
 
 
 

@@ -110,7 +110,8 @@ class ProfileController extends Controller
         $qualification->save();
 
         
-        return redirect('/qualification');
+        return Redirect::back();
+
         
         
 
@@ -119,7 +120,8 @@ class ProfileController extends Controller
     
        $res=UserQualification::where('id','=',$request->qualid)->delete();
         
-       return redirect('/qualification');
+       return Redirect::back();
+
 
 
     }
@@ -173,7 +175,8 @@ public function updateJobexperience(Request $request){
     $jobexp->save();
 
     
-    return redirect('/jobexperience');
+    return Redirect::back();
+
     
     
 
@@ -182,7 +185,8 @@ public function deleteJobexperience(Request $request){
 
    $res=Jobexperience::where('jobid','=',$request->jobid)->delete();
     
-   return redirect('/jobexperience');
+   return Redirect::back();
+
 
 
 }
@@ -213,7 +217,7 @@ public function updateSkills(Request $request){
   $skills->skill3=$request->skill3;
 
   $skills->save();
-  return redirect('/skills');
+  return Redirect::back();
 
 
 }
@@ -221,7 +225,7 @@ public function deleteSkills(Request $request){
 
     $res=UserSkills::where('userskills_id','=',$request->userskills_id)->delete();
      
-    return redirect('/skills');
+    return Redirect::back();
  
  
  }

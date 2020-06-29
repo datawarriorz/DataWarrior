@@ -48,6 +48,7 @@ class Internship extends Controller
             'location' => 'required',
             
             
+            
         ],[]);
         if ($validator->fails()) // on validator found any error 
       {

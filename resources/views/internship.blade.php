@@ -3,15 +3,13 @@
 @section('content')
 
 <link rel="stylesheet" href="./css/internship.css">
-
-
-
-
- <!-- <div class="internship-container">
+<hr class="thick">
+<!-- <div class="internship-container">
 
     </div> -->
-    <div class="internship-container">
-        <div id="regForm">
+<div class="internship-container">
+    <div id="regForm">
+        <form class="" method="POST" action="internshipform">
             <div id="tab1">
                 <h2>New User?</h2>
                 <h2>Click 'Next' To Fill Internship Application Details</h2>
@@ -22,189 +20,347 @@
                 </div>
             </div>
             <div id="tab2">
-                <form  class="" method="POST" action="internshipform">
-    @csrf
-                    
-                    <h3>User Preference</h3>
-                    <p></p>
-                    1st Preferred Domain
-                    <p><input type="text" class="form-control" id="validationCustom01" placeholder="Eg. Java"
-                            name="preffereddomain1" autocomplete="off" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    </p>
-                    2nd Preferred Domain
-                    <p><input type="text" class="form-control" id="validationCustom01" placeholder="Eg. Oracle Database"
-                            name="preffereddomain2" autocomplete="off" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    </p>
-                    3rd Preferred Domain
-                    <p><input type="text" class="form-control" id="validationCustom01" placeholder="Eg. Web Development"
-                            name="preffereddomain3" autocomplete="off" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    </p>
-                    <label for="validationCustom04">Select Preferred Stipend</label>
-                    <p>
-                        <select name="stipend" class="custom-select">
-                            <option selected value="1">1-5000</option>
-                            <option value="2">5000-10000</option>
-                            <option value="3">10000-15000</option>
-                            <option value="4">15000-20000</option>
-                            <option value="5">20000-25000</option>
-                        </select>
-                    </p>
-                    Location
-                    <p><input type="text" class="form-control" id="validationCustom01" placeholder="Eg. Mumbai"
-                            name="location" autocomplete="off" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    </p>
-                    <button type="submit" class="waves-effect waves-light">
-                        Save
-                    </button>
-                    <div style="overflow:auto;">
-                        <div style="float:right;">
-                            <button class="waves-effect waves-light" id="prev1" type="button">Previous</button>
-                            <button class="waves-effect waves-light" id="next2" type="button">Next</button>
+                @csrf
+                <h3>User Preference</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <p></p>
+                        1st Preferred Domain
+                        <p><input type="text" class="form-control" id="validationCustom01" placeholder="Eg. Java"
+                                name="preffereddomain1" autocomplete="off" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        </p>
+                        2nd Preferred Domain
+                        <p><input type="text" class="form-control" id="validationCustom01"
+                                placeholder="Eg. Oracle Database" name="preffereddomain2" autocomplete="off" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        </p>
+                        3rd Preferred Domain
+                        <p><input type="text" class="form-control" id="validationCustom01"
+                                placeholder="Eg. Web Development" name="preffereddomain3" autocomplete="off" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        </p>
+                        Select Preferred Stipend
+                        <p>
+                            <select name="stipend" class="custom-select">
+                                <option selected value="1">1-5000</option>
+                                <option value="2">5000-10000</option>
+                                <option value="3">10000-15000</option>
+                                <option value="4">15000-20000</option>
+                                <option value="5">20000-25000</option>
+                            </select>
+                        </p>
+                        Location
+                        <p><input type="text" class="form-control" id="validationCustom01" placeholder="Eg. Mumbai"
+                                name="location" autocomplete="off" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        </p>
+                        <div style="overflow:auto;">
+                            <div style="float:right;">
+                                <button class="waves-effect waves-light" id="prev1" type="button">Previous</button>
+                                <button class="waves-effect waves-light" id="next2" type="button">Next</button>
+                            </div>
                         </div>
                     </div>
-            </form>
+                </div>
             </div>
             <div id="tab3">
-                <h3>Add your Skills</h3>
+                <h3>Add New Qualification</h3>
                 <br>
-                <form  class="" method="POST" action="/internshipsskills">
-                    @csrf
-                    @if(count($errors)) 
-                                <div class="alert alert-danger">
-                                    <strong>Whoops!</strong> There were some problems with your input.
-                                    <br/>
-                                    <ul>
-                                        @foreach($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                    @endif
-                    <fieldset>
-                
-                <div class="form-group">
-                    <label for="skill1">Skill 1:</label>
-                <input type="text" name='skill1' required class="form-control" value={{old('skill1')}}>
-                
-                </div>
-                <div class="form-group">
-                    <label for="skill2">Skill 2:</label>
-                <input type="text" name='skill2' required class="form-control" value={{old('skill2')}}>
-                
-                </div>
-                
-                <div class="form-group">
-                    <label for="skill3">Skill 3:</label>
-                <input type="text" name='skill3' class="form-control" value={{old('skill3')}}>
-                
-                </div>
-                
-                
-                <fieldset class="form-group form-inline">
-                <div class="form-group row mb-0">
-                    <div class="col-md-6 offset-md-5">
-                        <button type="submit" class="btn">
-                            Save
-                        </button>
+                <div class="card">
+                    <div class="card-body">
+                        @csrf
+                        @if(count($errors))
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.
+                            <br />
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
+                        <div class="form-group">
+                            <label for="qualificationtype">Qualification Type</label>
+                            <select class="form-control" id="qualificationtype" name="qualificationtype">
+                                @foreach ($qualificationType as $qt)
+                                <option value={{$qt->qualtype_id}}>{{ $qt->qualification_type }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="course_name">Course Name</label>
+                            <input type="text" name='course_name' required class="form-control"
+                                value={{old('course_name')}}>
+                        </div>
+                        <div class="form-group">
+                            <label for="college_name">College/Institute Name</label>
+                            <input type="text" name='college_name' required class="form-control"
+                                value={{old('college_name')}}>
+                        </div>
+                        <div class="form-group">
+                            <label for="college_name">Univeristy</label>
+                            <input type="text" name='university' class="form-control" value={{old('university')}}>
+                        </div>
+                        <div class="form-group">
+                            <label for="Percentage">Percentage</label>
+                            <input type="text" name='percentage' class="form-control" value={{old('percentage')}}>
+                        </div>
+                        <div class="form-group">
+                            <label for="grade">Grade</label>
+                            <input type="text" name='grade' class="form-control" value={{old('grade')}}>
+                        </div>
+                        <div class="form-group">
+                            <label for="start_date">Start Date</label>
+
+                            <input type="date" name="start_date" required class="form-control"
+                                value={{old('start_date')}}>
+                        </div>
+                        <div class="form-group">
+                            <label for="end_date">End Date</label>
+                            <input type="date" name="end_date" required class="form-control" value={{old('end_date')}}>
+                        </div>
+                        <div style="overflow:auto;">
+                            <div style="float:right;">
+                                <button id="prev2" type="button">Previous</button>
+                                <button id="next3" type="button">Next</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </fieldset>
-                </form>
-                <div style="overflow:auto;">
-                    <div style="float:right;">
-                        <button id="prev2" type="button">Previous</button>
-                        <button id="next3" type="button">Next</button>
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Qualification Type</th>
+                                    <th scope="col">Course Name</th>
+                                    <th scope="col">College Name</th>
+                                    <th scope="col">Univeristy</th>
+                                    <th scope="col">Percentage</th>
+                                    <th scope="col">Grade</th>
+                                    <th scope="col">Start Date</th>
+                                    <th scope="col">End Date</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($eduDetails as $ed)
+                                <tr>
+
+                                    <td> @foreach ($qualificationType as $qt)
+                                        @if($qt->qualtype_id==$ed->qualtype_id)
+                                        {{$qt->qualification_type}}
+
+                                        @endif
+                                        @endforeach
+
+                                    </td>
+                                    <td>{{$ed->course_name}}</td>
+                                    <td>{{$ed->college_name}}</td>
+                                    <td>{{$ed->University}}</td>
+                                    <td>{{$ed->percentage}}</td>
+                                    <td>{{$ed->grade}}</td>
+                                    <td>{{substr($ed->start_date,0,10)}}</td>
+                                    <td>{{substr($ed->end_date,0,10)}}</td>
+                                    <td>
+                                        <form method="POST" action="/deletequalification">
+                                            @csrf
+                                            <input type="hidden" name="qualid" value={{$ed->id}} />
+                                            <button type="submit" class="btn btn-danger" onclick="">Delete</button>
+                                        </form>
+                                    </td>
+
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
             <div id="tab4">
-
-                <h3>Job Experience Details</h3>
-                <form method="POST" action="/internshipexp">
-                    @csrf
-                    @if(count($errors))
-                    <div class="alert alert-danger">
-                        <strong>Whoops!</strong> There were some problems with your input.
-                        <br/>
-                        <ul>
-                            @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                <h3>Add your Skills</h3>
+                <br>
+                @csrf
+                @if(count($errors))
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.
+                    <br />
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
                 @endif
-                
-                    <div class="card">
-                      <div class="card-body">
-                        
+                <div class="card">
+                    <div class="card-body">
                         <div class="form-group">
-                        <label for="Fname">Profile</label>
-                        <input type="text" name='profile' required class="form-control" value={{old('profile')}}>
+                            <label for="skill1">Skill 1:</label>
+                            <input type="text" name='skill1' required class="form-control" value={{old('skill1')}}>
                         </div>
                         <div class="form-group">
-                        <label for="Lname">Organisation</label>
-                        <input type="text" name='organisation' required class="form-control" value={{old('oraganisation')}}>
+                            <label for="skill2">Skill 2:</label>
+                            <input type="text" name='skill2' required class="form-control" value={{old('skill2')}}>
                         </div>
                         <div class="form-group">
-                        <label for="InputEmail">Location</label>
-                        <input type="text" class="form-control" id="location" required name='location' value={{old('location')}}>
+                            <label for="skill3">Skill 3:</label>
+                            <input type="text" name='skill3' class="form-control" value={{old('skill3')}}>
                         </div>
-                       <div class="form-group">
-                    <label for="start_date">Start Date</label>
-                
-                    <input type="date" name="startdate" required class="form-control" value={{old('start_date')}}>
-                </div>
-                
-                <div class="form-group">
-                    <label for="end_date">End Date</label>
-                <input type="date" name="enddate" required class="form-control" value={{old('end_date')}}>
-                
-                </div>
-                
-                <div class="form-group form-inline" >
-                   
-                <input type="checkbox" name="currentjob" id="currentjob"  class="form-control" value="yes" > <label>Currently working</label>
-                
-                </div>
-                <div class="form-group">
-                    <label>Description</label>
-                    <textarea  rows="4" class="form-control" id="description" required name='description' value={{old('description')}}></textarea>
-                    </div>
-                       
-                    <fieldset class="form-group form-inline">
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-5">
-                                <button type="submit" class="btn">
-                                    Save
-                                </button>
+                        <div style="overflow:auto;">
+                            <div style="float:right;">
+                                <button id="prev3" type="button">Previous</button>
+                                <button id="next4" type="button">Next</button>
                             </div>
                         </div>
-                        </fieldset>
-                        
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Sr. No.</th>
+                                    <th scope="col">Skill 1</th>
+                                    <th scope="col">Skill 2</th>
+                                    <th scope="col">Skill 3</th>
 
-                <div style="overflow:auto;">
-                    <div style="float:right;">
-                        <button id="prev3" type="button">Previous</button>
-                        <button id="next4" type="button">Next</button>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $i=0; ?>
+                                @foreach($skills as $skill)
+                                <tr>
+
+                                    <?php $i++; ?>
+                                    <td><?php echo $i;?>
+                                    </td>
+                                    <td>{{$skill->skill1}}</td>
+                                    <td>{{$skill->skill2}}</td>
+                                    <td>{{$skill->skill3}}</td>
+
+                                    <td>
+                                        <form method="POST" action="/deleteskills">
+                                            @csrf
+                                            <input type="hidden" name="userskills_id" value={{$skill->userskills_id}} />
+                                            <button type="submit" class="btn btn-danger" onclick="">Delete</button>
+                                        </form>
+                                    </td>
+
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-            </form>
-        </div>
-            </div>
             <div id="tab5">
+                <h3>Job Experience Details</h3>
+                @csrf
+                @if(count($errors))
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.
+                    <br />
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="Fname">Profile</label>
+                            <input type="text" name='profile' required class="form-control" value={{old('profile')}}>
+                        </div>
+                        <div class="form-group">
+                            <label for="Lname">Organisation</label>
+                            <input type="text" name='organisation' required class="form-control"
+                                value={{old('oraganisation')}}>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputEmail">Location</label>
+                            <input type="text" class="form-control" id="location" required name='location'
+                                value={{old('location')}}>
+                        </div>
+                        <div class="form-group">
+                            <label for="start_date">Start Date</label>
+                            <input type="date" name="startdate" required class="form-control"
+                                value={{old('start_date')}}>
+                        </div>
+                        <div class="form-group">
+                            <label for="end_date">End Date</label>
+                            <input type="date" name="enddate" required class="form-control" value={{old('end_date')}}>
+                        </div>
+                        <div class="form-group form-inline">
+                            <input type="checkbox" name="currentjob" id="currentjob" class="form-control" value="yes">
+                            <label>Currently working</label>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea rows="4" class="form-control" id="description" required name='description'
+                                value={{old('description')}}></textarea>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Profile</th>
+                                    <th scope="col">Organisation</th>
+                                    <th scope="col">Location</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Current Job</th>
+
+                                    <th scope="col">Start Date</th>
+                                    <th scope="col">End Date</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($jobexp as $je)
+                                <tr>
+
+
+                                    <td>{{$je->profile}}</td>
+                                    <td>{{$je->organisation}}</td>
+                                    <td>{{$je->location}}</td>
+                                    <td>{{$je->description}}</td>
+                                    <td>{{$je->currentjob}}</td>
+                                    <td>{{substr($je->startdate,0,10)}}</td>
+                                    <td>{{substr($je->enddate,0,10)}}</td>
+                                    <td>
+                                        <form method="POST" action="/deleteJobexperience">
+                                            @csrf
+                                            <input type="hidden" name="jobid" value={{$je->jobid}} />
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="tab6">
                 <h3>Application Form</h3>
                 <div style="overflow:auto;">
                     <div style="float:right;">
@@ -213,15 +369,16 @@
                     </div>
                 </div>
             </div>
-            <div style="text-align:center;margin-top:40px;">
-                <span class="step active"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-            </div>
+        </form>
+        <div style="text-align:center;margin-top:40px;">
+            <span class="step active"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
         </div>
     </div>
 </div>
-       
+</div>
+
 @endsection

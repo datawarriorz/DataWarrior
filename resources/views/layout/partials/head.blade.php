@@ -146,7 +146,7 @@
             document.getElementById("af4").innerHTML = "10000-15000";
         } else if (afd4 == 4) {
             document.getElementById("af4").innerHTML = "15000-20000";
-        } else(afd4 == 5) {
+        } else {
             document.getElementById("af4").innerHTML = "20000-25000";
         }
 

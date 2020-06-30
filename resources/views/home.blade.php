@@ -59,8 +59,8 @@
         </form>
     </div>
 </div>
+<hr class="thick">
 <div class="content-container">
-    <hr class="thick">
     <div class="container content1 text-center">
         <div class="container text-center">
             <h1>SERVICES</h1>

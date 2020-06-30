@@ -33,14 +33,14 @@
                         </div>
                         </p>
                         2nd Preferred Domain
-                        <p><input type="text" class="form-control" id="validationCustom02"
+                        <p><input type="text" class="form-control" id="validationCustom01"
                                 placeholder="Eg. Oracle Database" name="preffereddomain2" autocomplete="off" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                         </p>
                         3rd Preferred Domain
-                        <p><input type="text" class="form-control" id="validationCustom03"
+                        <p><input type="text" class="form-control" id="validationCustom01"
                                 placeholder="Eg. Web Development" name="preffereddomain3" autocomplete="off" required>
                         <div class="valid-feedback">
                             Looks good!
@@ -48,7 +48,7 @@
                         </p>
                         Select Preferred Stipend
                         <p>
-                            <select name="stipend" class="custom-select" id="stipendid">
+                            <select name="stipend" class="custom-select">
                                 <option selected value="1">1-5000</option>
                                 <option value="2">5000-10000</option>
                                 <option value="3">10000-15000</option>
@@ -57,7 +57,7 @@
                             </select>
                         </p>
                         Location
-                        <p><input type="text" class="form-control" id="validationCustom05" placeholder="Eg. Mumbai"
+                        <p><input type="text" class="form-control" id="validationCustom01" placeholder="Eg. Mumbai"
                                 name="location" autocomplete="off" required>
                         <div class="valid-feedback">
                             Looks good!
@@ -137,9 +137,8 @@
                         </div>
                     </div>
                 </div>
-                <br>
                 <div class="card">
-                    <div class="card-body" style="overflow-x: scroll;">
+                    <div class="card-body">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -227,7 +226,7 @@
                 </div>
                 <br>
                 <div class="card">
-                    <div class="card-body" style="overflow-x: scroll;">
+                    <div class="card-body">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -314,17 +313,12 @@
                             <textarea rows="4" class="form-control" id="description" required name='description'
                                 value={{old('description')}}></textarea>
                         </div>
-                        <div style="overflow:auto;">
-                            <div style="float:right;">
-                                <button id="prev4" type="button">Previous</button>
-                                <button id="next5" type="button">Next</button>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <br>
                 <div class="card">
-                    <div class="card-body" style="overflow-x: scroll;">
+                    <div class="card-body">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -333,6 +327,7 @@
                                     <th scope="col">Location</th>
                                     <th scope="col">Description</th>
                                     <th scope="col">Current Job</th>
+
                                     <th scope="col">Start Date</th>
                                     <th scope="col">End Date</th>
                                     <th scope="col">Action</th>
@@ -367,140 +362,16 @@
             </div>
             <div id="tab6">
                 <h3>Application Form</h3>
-                <div class="card">
-                    <div class="card-body">
-                        <table class="table">
-                            <tr>
-                                <th colspan="2">User Preferrence</th>
-
-                            </tr>
-                            <tr>
-                                <td>1st Preferred Domain</td>
-                                <td><label id="af1"></label></td>
-
-                            </tr>
-                            <tr>
-                                <td>2nd Preferred Domain </td>
-                                <td><label id="af2"></label></td>
-
-                            </tr>
-                            <tr>
-                                <td>3rd Preferred Domain </td>
-                                <td><label id="af3"></label></td>
-
-                            </tr>
-                            <tr>
-                                <td>Selected Preferred Stipend </td>
-                                <td><label id="af4"></label></td>
-
-                            </tr>
-                            <tr>
-                                <td>Preferred Location</td>
-                                <td><label id="af5"></label></td>
-
-                            </tr>
-                            <tr>
-                                <th colspan="2">Qualification</th>
-                            </tr>
-                            <tr>
-                                <td>Qualification Type</td>
-                                <td><label id="af6"></label></td>
-
-                            </tr>
-                            <tr>
-                                <td>Course Name </td>
-                                <td><label id="af7"></label></td>
-
-                            </tr>
-                            <tr>
-                                <td>College/Institute Name</td>
-                                <td><label id="af8"></label></td>
-
-                            </tr>
-                            <tr>
-                                <td>Univeristy </td>
-                                <td><label id="af9"></label></td>
-
-                            </tr>
-                            <tr>
-                                <td>Percentage</td>
-                                <td><label id="af10"></label></td>
-
-                            </tr>
-                            <tr>
-                                <td>Grade </td>
-                                <td><label id="af11"></label></td>
-                            </tr>
-                            <tr>
-                                <td>Start Date </td>
-                                <td><label id="af12"></label></td>
-                            </tr>
-                            <tr>
-                                <td>End Date </td>
-                                <td><label id="af13"></label></td>
-                            </tr>
-                            <tr>
-                                <th colspan="2">Skills</th>
-                            </tr>
-                            <tr>
-                                <td>Skill 1</td>
-                                <td><label id="af14"></label></td>
-                            </tr>
-                            <tr>
-                                <td>Skill 2</td>
-                                <td><label id="af15"></label></td>
-                            </tr>
-                            <tr>
-                                <td>Skill 3</td>
-                                <td><label id="af16"></label></td>
-                            </tr>
-                            </tr>
-                            <tr>
-                                <th colspan="2">Job Experience</th>
-                            </tr>
-                            <tr>
-                                <td> Profile </td>
-                                <td><label id="af17"></label></td>
-                            </tr>
-                            <tr>
-                                <td>Organisation</td>
-                                <td><label id="af18"></label></td>
-                            </tr>
-                            <tr>
-                                <td>Location</td>
-                                <td><label id="af19"></label></td>
-                            </tr>
-                            <tr>
-                                <td>Start Date </td>
-                                <td><label id="af20"></label></td>
-                            </tr>
-                            <tr>
-                                <td>End Date </td>
-                                <td><label id="af21"></label></td>
-                            </tr>
-                            <tr>
-                                <td>Currently Working</td>
-                                <td><label id="af22"></label></td>
-                            </tr>
-                            <tr>
-                                <td>Description</td>
-                                <td><label id="af23"></label></td>
-                            </tr>
-                        </table>
-
-                        <div style="overflow:auto;">
-                            <div style="float:right;">
-                                <button id="prev5" type="button">Previous</button>
-                                <button id="next6" type="button">Submit</button>
-                            </div>
-                        </div>
+                <div style="overflow:auto;">
+                    <div style="float:right;">
+                        <button id="prev4" type="button">Previous</button>
+                        <button id="next5" type="button">Submit</button>
                     </div>
                 </div>
             </div>
         </form>
         <div style="text-align:center;margin-top:40px;">
             <span class="step active"></span>
-            <span class="step"></span>
             <span class="step"></span>
             <span class="step"></span>
             <span class="step"></span>

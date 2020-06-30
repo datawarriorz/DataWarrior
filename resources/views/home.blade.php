@@ -2,7 +2,7 @@
 
 @section('content')
 <link rel="stylesheet" href="./css/home.css" />
-
+<hr class="thick">
 <div class="container carousel-container">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -59,7 +59,6 @@
         </form>
     </div>
 </div>
-
 <div class="content-container">
     <hr class="thick">
     <div class="container content1 text-center">
@@ -104,7 +103,6 @@
     </div>
     <hr class="thick">
 </div>
-
 <div class="content-container text-center">
     <div class="container text-center">
         <h1>CONTACT US</h1>

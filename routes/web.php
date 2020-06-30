@@ -47,6 +47,7 @@ Route::post('/deleteskills', 'ProfileController@deleteSkills')->middleware('auth
 
 Route::get('/internship', 'InternshipController@showintership')->middleware('auth');
 Route::post('/internshipform', 'InternshipController@applyInternship')->middleware('auth');
+Route::get('/internshipfinal', 'InternshipController@intershipfinalform')->middleware('auth');
 
 
 

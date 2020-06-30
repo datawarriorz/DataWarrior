@@ -108,8 +108,26 @@ class InternshipController extends Controller
         $jobexp->save();
         $qualification->save();
 
+        return redirect('/internshipfinal');
+
 
       
     }
+    public function intershipfinalform(){
+      
+        
+      
+        $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
+        $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
+        $internship=InternshipPreferences::where('user_id','=',Auth::user()->user_id)->get();
+        $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
+        $qualificationType=QualificationTypes::all();
+        return view('internshipfinal',['skills'=>$skills,'jobexp'=>$jobexp,'internship'=>$internship,'eduDetails' => $eduDetails,'qualificationType'=>$qualificationType]);
+       
+       
+      
+    }
+
+    
    
 }

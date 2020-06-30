@@ -9,7 +9,7 @@
     </div> -->
 <div class="internship-container">
     <div id="regForm">
-        <form class="" method="POST" action="internshipform">
+        <form class="" method="POST" action="/internshipform">
             <div id="tab1">
                 <h2>New User?</h2>
                 <h2>Click 'Next' To Fill Internship Application Details</h2>

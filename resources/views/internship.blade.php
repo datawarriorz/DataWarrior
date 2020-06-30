@@ -368,7 +368,7 @@
             <div id="tab6">
                 <h3>Application Form</h3>
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="overflow-x:scroll">
                         <table class="table">
                             <tr>
                                 <th colspan="2">User Preferrence</th>

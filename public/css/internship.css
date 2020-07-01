@@ -112,6 +112,10 @@ h3{
     }
 }
 
+.form-success {
+    border-color: #129512;
+}
+
 @media screen and (max-width: 800px) {
     #regForm {
         background-color: #ffffff;

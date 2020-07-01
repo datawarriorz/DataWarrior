@@ -26,30 +26,30 @@
                 <div class="card">
                     <div class="card-body">
                         <p></p>
-                        1st Preferred Domain
-                        <p><input type="text" class="form-control" id="validationCustom01" placeholder="Eg. Java"
-                                name="preffereddomain1" autocomplete="off" required>
+                        1st Preferred Domain :
+                        <p><input type="text" class="form-control fc-tab2" id="validationCustom01"
+                                placeholder="Eg. Java" name="preffereddomain1" autocomplete="off" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                         </p>
-                        2nd Preferred Domain
-                        <p><input type="text" class="form-control" id="validationCustom02"
+                        2nd Preferred Domain :
+                        <p><input type="text" class="form-control fc-tab2" id="validationCustom02"
                                 placeholder="Eg. Oracle Database" name="preffereddomain2" autocomplete="off" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                         </p>
-                        3rd Preferred Domain
-                        <p><input type="text" class="form-control" id="validationCustom03"
+                        3rd Preferred Domain :
+                        <p><input type="text" class="form-control fc-tab2" id="validationCustom03"
                                 placeholder="Eg. Web Development" name="preffereddomain3" autocomplete="off" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                         </p>
-                        Select Preferred Stipend
+                        Select Preferred Stipend :
                         <p>
-                            <select name="stipend" class="custom-select" id="stipendid">
+                            <select name="stipend" class="custom-select fc-tab2" id="stipendid">
                                 <option selected value="1">1-5000</option>
                                 <option value="2">5000-10000</option>
                                 <option value="3">10000-15000</option>
@@ -57,15 +57,23 @@
                                 <option value="5">20000-25000</option>
                             </select>
                         </p>
-                        Location
-                        <p><input type="text" class="form-control" id="validationCustom05" placeholder="Eg. Mumbai"
-                                name="location" autocomplete="off" required>
+                        Location :
+                        <p><input type="text" class="form-control fc-tab2" id="validationCustom05"
+                                placeholder="Eg. Mumbai" name="location" autocomplete="off" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                         </p>
                         <p>
+                        <div class="form-group form-inline">
+                            <label> Do you want to apply for career counselling/guidance?</label>
+                            <input type="checkbox" name="counseling" id="counseling" class="form-control" value="yes"
+                                style="margin-left: 8px;margin-top: 2px;">
+                        </div>
+                        </p>
+                        <p>
                         <div id="tab2-error" class="alert alert-danger">
+                            <strong>Alert!</strong>
                             <ul>
                                 <label id="tab2-label"></label>
                             </ul>

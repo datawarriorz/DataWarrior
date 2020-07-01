@@ -49,7 +49,9 @@ Route::get('/internship', 'InternshipController@showintership')->middleware('aut
 Route::post('/internshipform', 'InternshipController@applyInternship')->middleware('auth');
 Route::get('/internshipfinal', 'InternshipController@intershipfinalform')->middleware('auth');
 
-
+Route::get('/job', 'JobController@showjob')->middleware('auth');
+Route::post('/jobform', 'JobController@applyJob')->middleware('auth');
+Route::get('/jobfinal', 'JobController@jobfinalform')->middleware('auth');
 
 
 

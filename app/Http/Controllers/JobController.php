@@ -6,44 +6,43 @@ use Illuminate\Http\Request;
 use App\Jobexperience;
 use App\UserSkills;
 use App\User;
-use App\InternshipPreferences;
+use App\JobPreferences;
 use App\UserQualification;
 use App\QualificationTypes;
 
 use Auth;
 use Illuminate\Support\Facades\Validator;
 
-
-class InternshipController extends Controller
+class JobController extends Controller
 {
     //
     public function __construct()
     {
         $this->middleware('auth')->except('logout');
     }
-     public function showintership(){
+     public function showjob(){
       
         $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
         $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
-        $internship=InternshipPreferences::where('user_id','=',Auth::user()->user_id)->get();
+        $job=JobPreferences::where('user_id','=',Auth::user()->user_id)->get();
         $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
             $qualificationType=QualificationTypes::all();
-       return view('internship',['skills'=>$skills,'jobexp'=>$jobexp,'internship'=>$internship,'eduDetails' => $eduDetails,'qualificationType'=>$qualificationType]);
+       return view('job',['skills'=>$skills,'jobexp'=>$jobexp,'job'=>$job,'eduDetails' => $eduDetails,'qualificationType'=>$qualificationType]);
        
     }
 
 
-    public function applyInternship(Request $request){
+    public function applyJob(Request $request){
     
 
-        $internship =new InternshipPreferences();
-        $internship->user_id=Auth::user()->user_id;
-        $internship->preferreddomain1=$request->preferreddomain1;
-        $internship->preferreddomain2=$request->preferreddomain2;
-        $internship->preferreddomain3=$request->preferreddomain3;
-        $internship->stipend=$request->stipend;
-        $internship->location=$request->location;
-        $internship->counseling=$request->counseling;
+        $job =new JobPreferences();
+        $job->user_id=Auth::user()->user_id;
+        $job->preferreddomain1=$request->preferreddomain1;
+        $job->preferreddomain2=$request->preferreddomain2;
+        $job->preferreddomain3=$request->preferreddomain3;
+        $job->salary=$request->salary;
+        $job->location=$request->location;
+        $job->counseling=$request->counseling;
         $skills=new UserSkills();
         $skills->user_id=Auth::user()->user_id;
         $skills->skill1=$request->skill1;
@@ -74,7 +73,7 @@ class InternshipController extends Controller
             'preferreddomain1' => 'required|min:3',
             'preferreddomain2' => 'required|min:3',
             'preferreddomain3' => 'required|min:3',
-            'stipend' => 'required|numeric',
+            'salary' => 'required|numeric',
             'location' => 'required',
             'skill1' => 'required|min:3',
             'skill2' => 'required|min:3',
@@ -99,31 +98,30 @@ class InternshipController extends Controller
         ],[]);
         if ($validator->fails()) // on validator found any error 
       {
-        return redirect('/internship')->withErrors($validator)->withInput();
+        return redirect('/job')->withErrors($validator)->withInput();
       }
         
 
-        $internship->save();
+        $job->save();
         $skills->save();
         $jobexp->save();
         $qualification->save();
 
-        return redirect('/internshipfinal');
+        return redirect('/jobfinal');
 
 
       
     }
-    public function intershipfinalform(){
+    public function jobfinalform(){
       
         $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
         $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
-        $internship=InternshipPreferences::where('user_id','=',Auth::user()->user_id)->get();
+        $job=JobPreferences::where('user_id','=',Auth::user()->user_id)->get();
         $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
         $qualificationType=QualificationTypes::all();
-        return view('internshipfinal',['skills'=>$skills,'jobexp'=>$jobexp,'internship'=>$internship,'eduDetails' => $eduDetails,'qualificationType'=>$qualificationType]);
+        return view('jobfinal',['skills'=>$skills,'jobexp'=>$jobexp,'job'=>$job,'eduDetails' => $eduDetails,'qualificationType'=>$qualificationType]);
        
     }
 
     
-   
 }

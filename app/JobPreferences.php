@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class InternshipPreferences extends Model  
+class JobPreferences extends Model  
 {
 
     
@@ -14,14 +14,14 @@ class InternshipPreferences extends Model
      *
      * @var string
      */
-    protected $table = 'internship_preferences';
+    protected $table = 'job_preferences';
 
     /**
      * Attributes that should be mass-assignable.
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'preferreddomain1', 'preferreddomain2', 'preferreddomain3', 'stipend', 'location', 'counseling', 'status', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'preferreddomain1', 'preferreddomain2', 'preferreddomain3', 'salary', 'location', 'counseling', 'status', 'created_at', 'updated_at'];
 
     /**
      * The attributes excluded from the model's JSON form.

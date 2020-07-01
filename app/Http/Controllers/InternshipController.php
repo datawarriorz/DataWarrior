@@ -70,37 +70,7 @@ class InternshipController extends Controller
         $qualification->grade=$request->grade;
         
 
-        $validator=Validator::make($request->all(), [
-            'preferreddomain1' => 'required|min:3',
-            'preferreddomain2' => 'required|min:3',
-            'preferreddomain3' => 'required|min:3',
-            'stipend' => 'required|numeric',
-            'location' => 'required',
-            'skill1' => 'required|min:3',
-            'skill2' => 'required|min:3',
-            'skill3' => 'required|min:3',
-            'profile' => 'required|min:3',
-            'organisation' => 'required|min:3',
-            'location' => 'required|min:3',
-            'description' => 'required|min:3',
-            'enddate' =>'required',
-            'startdate' =>'required',
-            'college_name' => 'required|min:3',
-            'university' => 'required|min:3',
-            'percentage' => 'required|numeric',
-            'course_name' => 'required|min:3',
-            'garde' => 'required',
-            'end_date' =>'required',
-            'start_date' =>'required',
-            
-
-            
-            
-        ],[]);
-        if ($validator->fails()) // on validator found any error 
-      {
-        return redirect('/internship')->withErrors($validator)->withInput();
-      }
+     
         
 
         $internship->save();

@@ -168,8 +168,11 @@ input.invalid {
 #tab2,
 #tab2-error,
 #tab3,
+#tab3-error,
 #tab4,
+#tab4-error,
 #tab5,
+#tab5-error,
 #tab6 {
     display: none;
 }

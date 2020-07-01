@@ -21,28 +21,28 @@
             </div>
             <div id="tab2" class="needs-validation-tab2">
                 @csrf
-                <h3>User Preference</h3>
+                <h3>Internship Preference</h3>
 
                 <div class="card">
                     <div class="card-body">
                         <p></p>
                         1st Preferred Domain :
                         <p><input type="text" class="form-control fc-tab2" id="validationCustom01"
-                                placeholder="Eg. Java" name="preffereddomain1" autocomplete="off" required>
+                                placeholder="Eg. Java" name="preferreddomain1" autocomplete="off" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                         </p>
                         2nd Preferred Domain :
                         <p><input type="text" class="form-control fc-tab2" id="validationCustom02"
-                                placeholder="Eg. Oracle Database" name="preffereddomain2" autocomplete="off" required>
+                                placeholder="Eg. Oracle Database" name="preferreddomain2" autocomplete="off" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                         </p>
                         3rd Preferred Domain :
                         <p><input type="text" class="form-control fc-tab2" id="validationCustom03"
-                                placeholder="Eg. Web Development" name="preffereddomain3" autocomplete="off" required>
+                                placeholder="Eg. Web Development" name="preferreddomain3" autocomplete="off" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -67,7 +67,7 @@
                         <p>
                         <div class="form-group form-inline">
                             <label> Do you want to apply for career counselling/guidance?</label>
-                            <input type="checkbox" name="counseling" id="counseling" class="form-control" value="yes"
+                            <input type="checkbox" name="counselling" id="counselling" class="form-control" value="yes"
                                 style="margin-left: 8px;margin-top: 2px;">
                         </div>
                         </p>
@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div id="tab3">
-                <h3>Add New Qualification</h3>
+                <h3>Highest Qualification</h3>
                 <br>
                 <div class="card">
                     <div class="card-body">
@@ -106,45 +106,60 @@
                         </div>
                         @endif
                         <div class="form-group">
-                            <label for="qualificationtype">Qualification Type</label>
-                            <select class="form-control" id="qualificationtype" name="qualificationtype">
+                            <label for="qualificationtype">Qualification Type :</label>
+                            <select class="form-control custom-select" id="qualificationtype" name="qualificationtype">
+
                                 @foreach ($qualificationType as $qt)
                                 <option value={{$qt->qualtype_id}}>{{ $qt->qualification_type }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="course_name">Course Name</label>
+                            <label for="course_name">Course Name :</label>
                             <input type="text" name='course_name' required class="form-control"
+                                placeholder="Eg. Bachelors in Computer Science" autocomplete="off"
                                 value={{old('course_name')}}>
                         </div>
                         <div class="form-group">
-                            <label for="college_name">College/Institute Name</label>
+                            <label for="college_name">College/Institute Name :</label>
                             <input type="text" name='college_name' required class="form-control"
-                                value={{old('college_name')}}>
+                                placeholder="Eg. Wilson College" autocomplete="off" value={{old('college_name')}}>
                         </div>
                         <div class="form-group">
-                            <label for="college_name">Univeristy</label>
-                            <input type="text" name='university' class="form-control" value={{old('university')}}>
+                            <label for="college_name">Univeristy :</label>
+                            <input type="text" name='university' class="form-control"
+                                placeholder="Eg. Mumbai University" autocomplete="off" value={{old('university')}}>
                         </div>
                         <div class="form-group">
-                            <label for="Percentage">Percentage</label>
-                            <input type="text" name='percentage' class="form-control" value={{old('percentage')}}>
+                            <label for="Percentage">Percentage :</label>
+                            <input type="text" name='percentage' class="form-control" placeholder="Eg. 70.08"
+                                autocomplete="off" value={{old('percentage')}}>
                         </div>
                         <div class="form-group">
-                            <label for="grade">Grade</label>
-                            <input type="text" name='grade' class="form-control" value={{old('grade')}}>
+                            <label for="grade">Grade :</label>
+                            <input type="text" name='grade' class="form-control" placeholder="Eg. A" autocomplete="off"
+                                value={{old('grade')}}>
                         </div>
                         <div class="form-group">
-                            <label for="start_date">Start Date</label>
-
-                            <input type="date" name="start_date" required class="form-control"
+                            <label for="start_date">Start Date :</label>
+                            <input type="text" placeholder="Click here to Select Date." name="start_date"
+                                autocomplete="off" onfocus="(this.type='date')" required class="form-control"
                                 value={{old('start_date')}}>
                         </div>
                         <div class="form-group">
-                            <label for="end_date">End Date</label>
-                            <input type="date" name="end_date" required class="form-control" value={{old('end_date')}}>
+                            <label for="end_date">End Date :</label>
+                            <input type="text" placeholder="Click here to Select Date." name="end_date"
+                                autocomplete="off" onfocus="(this.type='date')" required class="form-control"
+                                value={{old('end_date')}}>
                         </div>
+                        <p>
+                        <div id="tab3-error" class="alert alert-danger">
+                            <strong>Alert!</strong>
+                            <ul>
+                                <label id="tab3-label"></label>
+                            </ul>
+                        </div>
+                        </p>
                         <div style="overflow:auto;">
                             <div style="float:right;">
                                 <button id="prev2" type="button">Previous</button>
@@ -222,15 +237,16 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="skill1">Skill 1:</label>
-                            <input type="text" name='skill1' required class="form-control" value={{old('skill1')}}>
+                            <label for="skill1">Skill 1 :</label>
+                            <input type="text" name='skill1' required class="form-control" placeholder="Eg. B"
+                                autocomplete="off" value={{old('skill1')}}>
                         </div>
                         <div class="form-group">
-                            <label for="skill2">Skill 2:</label>
+                            <label for="skill2">Skill 2 :</label>
                             <input type="text" name='skill2' required class="form-control" value={{old('skill2')}}>
                         </div>
                         <div class="form-group">
-                            <label for="skill3">Skill 3:</label>
+                            <label for="skill3">Skill 3 :</label>
                             <input type="text" name='skill3' class="form-control" value={{old('skill3')}}>
                         </div>
                         <div style="overflow:auto;">
@@ -507,7 +523,7 @@
                         <div style="overflow:auto;">
                             <div style="float:right;">
                                 <button id="prev5" type="button">Previous</button>
-                                <button id="next6" type="button">Submit</button>
+                                <button id="next6" type="submit">Submit</button>
                             </div>
                         </div>
                     </div>

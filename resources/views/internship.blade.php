@@ -19,9 +19,10 @@
                     </div>
                 </div>
             </div>
-            <div id="tab2">
+            <div id="tab2" class="needs-validation-tab2">
                 @csrf
                 <h3>User Preference</h3>
+
                 <div class="card">
                     <div class="card-body">
                         <p></p>
@@ -61,6 +62,13 @@
                                 name="location" autocomplete="off" required>
                         <div class="valid-feedback">
                             Looks good!
+                        </div>
+                        </p>
+                        <p>
+                        <div id="tab2-error" class="alert alert-danger">
+                            <ul>
+                                <label id="tab2-label"></label>
+                            </ul>
                         </div>
                         </p>
                         <div style="overflow:auto;">

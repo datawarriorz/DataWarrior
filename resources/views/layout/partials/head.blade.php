@@ -41,18 +41,23 @@
         });
         $("#prev1").click(function() {
             var n = 0;
+            $("#tab2-error").hide("fast");
             $("#tab2").hide("slow");
             StepBackIndicator(n);
             $("#tab1").show("slow");
             window.scrollTo(0, 0);
         });
         $("#next2").click(function() {
-            var n = 1;
-            $("#tab2").hide("slow");
-            StepIndicator(n);
-            $("#tab3").show("slow");
-            document.getElementsByClassName("step")[n].className += " finish";
-            window.scrollTo(0, 0);
+            if (ValidateTab2()) {
+                var n = 1;
+                $("#tab2").hide("slow");
+                StepIndicator(n);
+                $("#tab3").show("slow");
+                document.getElementsByClassName("step")[n].className += " finish";
+                window.scrollTo(0, 0);
+            } else {
+                $("#tab2-error").show("slow");
+            }
         });
         $("#prev2").click(function() {
             var n = 1;
@@ -128,14 +133,13 @@
     }
 
     function AppForm() {
-
+        //tab2 data transfer to application form
         var afd1 = document.querySelector('[name="preffereddomain1"]').value;
         document.getElementById("af1").innerHTML = afd1;
         var afd2 = document.querySelector('[name="preffereddomain2"]').value;
         document.getElementById("af2").innerHTML = afd2;
         var afd3 = document.querySelector('[name="preffereddomain3"]').value;
         document.getElementById("af3").innerHTML = afd3;
-        // var stipendobj = document.querySelector('[name="stipend"]').value;
         var stipendobj = document.getElementById("stipendid");
         var afd4 = stipendobj.options[stipendobj.selectedIndex].value;
         if (afd4 == 1) {
@@ -149,11 +153,11 @@
         } else {
             document.getElementById("af4").innerHTML = "20000-25000";
         }
-
         var afd5 = document.querySelector('[name="location"]').value;
         document.getElementById("af5").innerHTML = afd5;
+        //tab2 data transfer over
 
-        var afd5 = document.getElementsByName("location");
+
         var afd6 = document.getElementsByName("qualificationtype");
         var afd7 = document.getElementsByName("course_name");
         var afd8 = document.getElementsByName("college_name");
@@ -172,5 +176,39 @@
         var afd21 = document.getElementsByName("enddate");
         var afd22 = document.getElementsByName("currentjob");
         var afd23 = document.getElementsByName("description");
+    }
+
+    function ValidateTab2() {
+        var afd1 = document.querySelector('[name="preffereddomain1"]').value;
+        var afd2 = document.querySelector('[name="preffereddomain2"]').value;
+        var afd3 = document.querySelector('[name="preffereddomain3"]').value;
+        var afd5 = document.querySelector('[name="location"]').value;
+        var txt = "";
+        var spaceregex = /^[ ]+$/;
+        var spaceresult1 = spaceregex.test(afd1);
+        var spaceresult2 = spaceregex.test(afd2);
+        var spaceresult3 = spaceregex.test(afd3);
+        var spaceresult5 = spaceregex.test(afd5);
+        if (afd1 != "" && afd2 != "" && afd3 != "" && afd5 != "" && spaceresult1 == false && spaceresult2 == false &&
+            spaceresult3 == false && spaceresult5 == false) {
+            var regex = /^[a-zA-Z0-9 +,]{2,30}$/;
+            var result1 = regex.test(afd1);
+            var result2 = regex.test(afd2);
+            var result3 = regex.test(afd3);
+            var result4 = regex.test(afd5);
+            if (result1 == true && result2 == true && result3 == true && result5 == true) {
+                // txt = 'Looks good';
+                // document.getElementById("tab2-label").innerHTML = txt;
+                return true;
+            } else {
+                txt = 'The input text length must be between 2 to 100 and in UpperCase or LowerCase';
+                document.getElementById("tab2-label").innerHTML = txt;
+                return false;
+            }
+        } else {
+            txt = 'All values are required';
+            document.getElementById("tab2-label").innerHTML = txt;
+            return false;
+        }
     }
 </script>

@@ -21,7 +21,7 @@ class InternshipPreferences extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'preferreddomain1', 'preferreddomain2', 'preferreddomain3', 'stipend', 'location', 'counselling', 'status', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'preferreddomain1', 'preferreddomain2', 'preferreddomain3', 'stipend', 'internshiplocation', 'counselling', 'status', 'created_at', 'updated_at'];
 
     /**
      * The attributes excluded from the model's JSON form.

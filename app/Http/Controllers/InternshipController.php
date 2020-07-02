@@ -42,7 +42,7 @@ class InternshipController extends Controller
         $internship->preferreddomain2=$request->preferreddomain2;
         $internship->preferreddomain3=$request->preferreddomain3;
         $internship->stipend=$request->stipend;
-        $internship->location=$request->location;
+        $internship->internshiplocation=$request->internshiplocation;
         $internship->counselling=$request->counselling;
         $skills=new UserSkills();
         $skills->user_id=Auth::user()->user_id;

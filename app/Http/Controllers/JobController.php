@@ -41,7 +41,7 @@ class JobController extends Controller
         $job->preferreddomain2=$request->preferreddomain2;
         $job->preferreddomain3=$request->preferreddomain3;
         $job->salary=$request->salary;
-        $job->location=$request->location;
+        $job->joblocation=$request->joblocation;
         $job->counselling=$request->counselling;
         $skills=new UserSkills();
         $skills->user_id=Auth::user()->user_id;

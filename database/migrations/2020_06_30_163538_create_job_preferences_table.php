@@ -21,7 +21,7 @@ class CreateJobPreferencesTable extends Migration
             $table->string('preferreddomain2')->nullable();
             $table->string('preferreddomain3')->nullable();
             $table->BigInteger('salary');
-            $table->string('location');
+            $table->string('joblocation');
             $table->string('counselling')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();

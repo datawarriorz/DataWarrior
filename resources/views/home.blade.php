@@ -70,7 +70,7 @@
             <div class="col-sm-6 col-md-6 col-lg-6">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="container-items">
-                        <h5 class="container-items-header">- Interships -</h5>
+                        <h5 class="container-items-header">- Internships -</h5>
                         <p>"Explore yourself...be an intern!"<br><a href="/internship">Click here for
                                 details</a></p>
                     </div>

@@ -28,21 +28,21 @@
                         <p></p>
                         1st Preferred Domain :
                         <p><input type="text" class="form-control fc-tab2" id="validationCustom01"
-                                placeholder="Eg. Java" name="preferreddomain1" autocomplete="off" required>
+                                placeholder="Eg. Java" name="preferreddomain1" autocomplete="on" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                         </p>
                         2nd Preferred Domain :
                         <p><input type="text" class="form-control fc-tab2" id="validationCustom02"
-                                placeholder="Eg. Oracle Database" name="preferreddomain2" autocomplete="off" required>
+                                placeholder="Eg. Oracle Database" name="preferreddomain2" autocomplete="on" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                         </p>
                         3rd Preferred Domain :
                         <p><input type="text" class="form-control fc-tab2" id="validationCustom03"
-                                placeholder="Eg. Web Development" name="preferreddomain3" autocomplete="off" required>
+                                placeholder="Eg. Web Development" name="preferreddomain3" autocomplete="on" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -59,7 +59,7 @@
                         </p>
                         Location :
                         <p><input type="text" class="form-control fc-tab2" id="validationCustom05"
-                                placeholder="Eg. Mumbai" name="location" autocomplete="off" required>
+                                placeholder="Eg. Mumbai" name="internshiplocation" autocomplete="on" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -108,7 +108,6 @@
                         <div class="form-group">
                             <label for="qualificationtype">Qualification Type :</label>
                             <select class="form-control custom-select" id="qualificationtype" name="qualificationtype">
-
                                 @foreach ($qualificationType as $qt)
                                 <option value={{$qt->qualtype_id}}>{{ $qt->qualification_type }}</option>
                                 @endforeach
@@ -117,39 +116,39 @@
                         <div class="form-group">
                             <label for="course_name">Course Name :</label>
                             <input type="text" name='course_name' required class="form-control"
-                                placeholder="Eg. Bachelors in Computer Science" autocomplete="off"
+                                placeholder="Eg. Bachelors in Computer Science" autocomplete="on"
                                 value={{old('course_name')}}>
                         </div>
                         <div class="form-group">
                             <label for="college_name">College/Institute Name :</label>
                             <input type="text" name='college_name' required class="form-control"
-                                placeholder="Eg. Wilson College" autocomplete="off" value={{old('college_name')}}>
+                                placeholder="Eg. Wilson College" autocomplete="on" value={{old('college_name')}}>
                         </div>
                         <div class="form-group">
                             <label for="college_name">Univeristy :</label>
                             <input type="text" name='university' class="form-control"
-                                placeholder="Eg. Mumbai University" autocomplete="off" value={{old('university')}}>
+                                placeholder="Eg. Mumbai University" autocomplete="on" value={{old('university')}}>
                         </div>
                         <div class="form-group">
                             <label for="Percentage">Percentage :</label>
                             <input type="text" name='percentage' class="form-control" placeholder="Eg. 70.08"
-                                autocomplete="off" value={{old('percentage')}}>
+                                autocomplete="on" value={{old('percentage')}}>
                         </div>
                         <div class="form-group">
                             <label for="grade">Grade :</label>
-                            <input type="text" name='grade' class="form-control" placeholder="Eg. A" autocomplete="off"
+                            <input type="text" name='grade' class="form-control" placeholder="Eg. A" autocomplete="on"
                                 value={{old('grade')}}>
                         </div>
                         <div class="form-group">
                             <label for="start_date">Start Date :</label>
                             <input type="text" placeholder="Click here to Select Date." name="start_date"
-                                autocomplete="off" onfocus="(this.type='date')" required class="form-control"
+                                autocomplete="on" onfocus="(this.type='date')" required class="form-control"
                                 value={{old('start_date')}}>
                         </div>
                         <div class="form-group">
                             <label for="end_date">End Date :</label>
                             <input type="text" placeholder="Click here to Select Date." name="end_date"
-                                autocomplete="off" onfocus="(this.type='date')" required class="form-control"
+                                autocomplete="on" onfocus="(this.type='date')" required class="form-control"
                                 value={{old('end_date')}}>
                         </div>
                         <p>
@@ -239,7 +238,7 @@
                         <div class="form-group">
                             <label for="skill1">Skill 1 :</label>
                             <input type="text" name='skill1' required class="form-control" placeholder="Eg. B"
-                                autocomplete="off" value={{old('skill1')}}>
+                                autocomplete="on" value={{old('skill1')}}>
                         </div>
                         <div class="form-group">
                             <label for="skill2">Skill 2 :</label>
@@ -249,6 +248,14 @@
                             <label for="skill3">Skill 3 :</label>
                             <input type="text" name='skill3' class="form-control" value={{old('skill3')}}>
                         </div>
+                        <p>
+                        <div id="tab4-error" class="alert alert-danger">
+                            <strong>Alert!</strong>
+                            <ul>
+                                <label id="tab4-label"></label>
+                            </ul>
+                        </div>
+                        </p>
                         <div style="overflow:auto;">
                             <div style="float:right;">
                                 <button id="prev3" type="button">Previous</button>
@@ -315,37 +322,50 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="Fname">Profile</label>
-                            <input type="text" name='profile' required class="form-control" value={{old('profile')}}>
+                            <label for="Fname">Profile :</label>
+                            <input type="text" name="profile" class="form-control" placeholder="Eg. Software Developer"
+                                autocomplete="on" value={{old('profile')}}>
                         </div>
                         <div class="form-group">
-                            <label for="Lname">Organisation</label>
-                            <input type="text" name='organisation' required class="form-control"
-                                value={{old('oraganisation')}}>
+                            <label for="Lname">Organisation :</label>
+                            <input type="text" name="organisation" class="form-control"
+                                placeholder="Eg. ABC Private Limited" autocomplete="on" value={{old('oraganisation')}}>
                         </div>
                         <div class="form-group">
-                            <label for="InputEmail">Location</label>
-                            <input type="text" class="form-control" id="location" required name='location'
-                                value={{old('location')}}>
+                            <label for="InputEmail">Location :</label>
+                            <input type="text" name="joblocation" class="form-control" placeholder="Eg. Mumbai"
+                                autocomplete="on" id="joblocation" value={{old('location')}}>
+                        </div>
+                        <div class="form-group form-inline">
+                            <label>Currently Working ?</label>
+                            <input type="checkbox" name="currentjob" class="form-control" id="currentjob" value="yes"
+                                onclick="onCheckCounselling(this);" style="margin-left: 8px;margin-top: 2px;">
                         </div>
                         <div class="form-group">
-                            <label for="start_date">Start Date</label>
-                            <input type="date" name="startdate" required class="form-control"
+                            <label for="start_date">Start Date :</label>
+                            <input type="text" name="startdate" class="form-control" id="jobstartdate"
+                                onfocus="(this.type='date')" placeholder="Click here to Select Date."
                                 value={{old('start_date')}}>
                         </div>
                         <div class="form-group">
-                            <label for="end_date">End Date</label>
-                            <input type="date" name="enddate" required class="form-control" value={{old('end_date')}}>
-                        </div>
-                        <div class="form-group form-inline">
-                            <input type="checkbox" name="currentjob" id="currentjob" class="form-control" value="yes">
-                            <label>Currently working</label>
+                            <label for="end_date">End Date :</label>
+                            <input type="text" name="enddate" class="form-control" id="jobenddate"
+                                onfocus="(this.type='date')" placeholder="Click here to Select Date."
+                                value={{old('end_date')}}>
                         </div>
                         <div class="form-group">
-                            <label>Description</label>
-                            <textarea rows="4" class="form-control" id="description" required name='description'
-                                value={{old('description')}}></textarea>
+                            <label>Description :</label>
+                            <textarea name="description" class="form-control" id="description" placeholder="Eg. Mumbai"
+                                autocomplete="on" rows="4" value={{old('description')}}></textarea>
                         </div>
+                        <p>
+                        <div id="tab4-error" class="alert alert-danger">
+                            <strong>Alert!</strong>
+                            <ul>
+                                <label id="tab4-label"></label>
+                            </ul>
+                        </div>
+                        </p>
                         <div style="overflow:auto;">
                             <div style="float:right;">
                                 <button id="prev4" type="button">Previous</button>
@@ -432,6 +452,10 @@
 
                             </tr>
                             <tr>
+                                <td>Applied for Carrier Counselling/Guidance</td>
+                                <td><label id="afdnew1"></label></td>
+                            </tr>
+                            <tr>
                                 <th colspan="2">Qualification</th>
                             </tr>
                             <tr>
@@ -511,12 +535,12 @@
                                 <td><label id="af21"></label></td>
                             </tr>
                             <tr>
-                                <td>Currently Working</td>
-                                <td><label id="af22"></label></td>
+                                <td>Currently Working?</td>
+                                <td><label id="afdnew2"></label></td>
                             </tr>
                             <tr>
                                 <td>Description</td>
-                                <td><label id="af23"></label></td>
+                                <td><label id="af22"></label></td>
                             </tr>
                         </table>
 

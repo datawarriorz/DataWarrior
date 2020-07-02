@@ -333,8 +333,8 @@
                         </div>
                         <div class="form-group">
                             <label for="InputEmail">Location :</label>
-                            <input type="text" name="joblocation" class="form-control" placeholder="Eg. Mumbai"
-                                autocomplete="on" id="joblocation" value={{old('location')}}>
+                            <input type="text" name="location" class="form-control" placeholder="Eg. Mumbai"
+                                autocomplete="on" id="location" value={{old('location')}}>
                         </div>
                         <div class="form-group form-inline">
                             <label>Currently Working ?</label>

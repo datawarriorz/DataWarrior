@@ -144,17 +144,17 @@
     }
 
     function onCheckCounselling(checkbox) {
-        var dateElement1 = document.getElementById('jobstartdate');
-        dateElement1.disabled = checkbox.checked;
+        // var dateElement1 = document.getElementById('jobstartdate');
+        // dateElement1.disabled = checkbox.checked;
         var dateElement2 = document.getElementById('jobenddate');
         dateElement2.disabled = checkbox.checked;
         if (checkbox.checked) {
             //dateElement.value = new Date().toISOString().substr(0, 10);
-            dateElement1.valueAsDate = "";
+            //dateElement1.valueAsDate = "";
             dateElement2.valueAsDate = "";
         } else
-            dateElement1.value = '';
-        dateElement2.value = '';
+            //dateElement1.value = '';
+            dateElement2.value = '';
     }
 
     function AppForm() {
@@ -224,7 +224,7 @@
         document.getElementById("af17").innerHTML = afd17;
         var afd18 = document.querySelector('[name="organisation"]').value;
         document.getElementById("af18").innerHTML = afd18;
-        var afd19 = document.querySelector('[name="joblocation"]').value;
+        var afd19 = document.querySelector('[name="location"]').value;
         document.getElementById("af19").innerHTML = afd19;
         var afd20 = document.querySelector('[name="startdate"]').value;
         document.getElementById("af20").innerHTML = afd20;

@@ -38,7 +38,10 @@
 
                 </div>
                 @if($internship=="internship")
+                <div class="form-group">
                     <input type="hidden" name="internship" value="internship" />
+                </div>
+
                 @endif
 
 

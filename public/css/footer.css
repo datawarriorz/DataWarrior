@@ -1,31 +1,42 @@
-.footer-link{
-    color:#000;
-  }
-  .fcontainer{
+.footer-link {
+    color: #000;
+}
+
+.fcontainer {
     background-color: white;
     /* font-family: minion pro; */
-  }
-  .footer {
+}
+
+.footer-wrapper {
+    background-color: white;
+}
+
+.footer {
     background-color: white;
     padding: 25px;
-  }
-  .footer-link-header{
-    color:#da5827;
-  }
-  .footer1-table td, .footer1-table th{
-   border: none;
-   padding: 0px;
-  }
-  .fcontent2            {
+}
+
+.footer-link-header {
+    color: #da5827;
+}
+
+.footer1-table td,
+.footer1-table th {
+    border: none;
+    padding: 0px;
+}
+
+.fcontent2 {
     padding: 0px;
     background-color: white;
-  }
-  .footer-container2-section2{
+}
+
+.footer-container2-section2 {
     font-size: 15px;
     margin-top: 18px;
-  }
-  
-  .footer-icon1 {
+}
+
+.footer-icon1 {
     position: relative;
     font-size: 20px;
     color: #da5827;
@@ -40,40 +51,45 @@
     text-decoration: none;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-  }
-  .footer-icon1:after {
+}
+
+.footer-icon1:after {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    border: 2px solid  #da5827;
+    border: 2px solid #da5827;
     content: '';
     z-index: -1;
     border-radius: 50%;
-  }
-  .footer-icon1:before {
+}
+
+.footer-icon1:before {
     color: #fff;
-  }
-  .footer-icon1:before,
-  .footer-icon1:after {
+}
+
+.footer-icon1:before,
+.footer-icon1:after {
     -webkit-transition: all 0.45s ease-in-out;
     transition: all 0.45s ease-in-out;
-  }
-  .footer-icon1:hover,
-  .footer-icon1:active,
-  .footer-icon1.hover {
-    color:  #da5827;
-  }
-  .footer-icon1:hover:after,
-  .footer-icon1:active:after,
-  .footer-icon1.hover:after {
-    border-color:  #da5827 transparent  #da5827 transparent;
+}
+
+.footer-icon1:hover,
+.footer-icon1:active,
+.footer-icon1.hover {
+    color: #da5827;
+}
+
+.footer-icon1:hover:after,
+.footer-icon1:active:after,
+.footer-icon1.hover:after {
+    border-color: #da5827 transparent #da5827 transparent;
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-  }
-  
-  .footer-icon2 {
+}
+
+.footer-icon2 {
     position: relative;
     font-size: 20px;
     color: #9ca27e;
@@ -88,8 +104,9 @@
     text-decoration: none;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-  }
-  .footer-icon2:after {
+}
+
+.footer-icon2:after {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -99,24 +116,28 @@
     content: '';
     z-index: -1;
     border-radius: 50%;
-  }
-  .footer-icon2:before {
+}
+
+.footer-icon2:before {
     color: #fff;
-  }
-  .footer-icon2:before,
-  .footer-icon2:after {
+}
+
+.footer-icon2:before,
+.footer-icon2:after {
     -webkit-transition: all 0.45s ease-in-out;
     transition: all 0.45s ease-in-out;
-  }
-  .footer-icon2:hover,
-  .footer-icon2:active,
-  .footer-icon2.hover {
+}
+
+.footer-icon2:hover,
+.footer-icon2:active,
+.footer-icon2.hover {
     color: #9ca27e;
-  }
-  .footer-icon2:hover:after,
-  .footer-icon2:active:after,
-  .footer-icon2.hover:after {
-    border-color:#9ca27e transparent #9ca27e transparent;
+}
+
+.footer-icon2:hover:after,
+.footer-icon2:active:after,
+.footer-icon2.hover:after {
+    border-color: #9ca27e transparent #9ca27e transparent;
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-  }
+}

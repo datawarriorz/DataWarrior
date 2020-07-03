@@ -101,9 +101,6 @@
                                     <th scope="col">Skill 1</th>
                                     <th scope="col">Skill 2</th>
                                     <th scope="col">Skill 3</th>
-
-
-
                                 </tr>
                                 <br>
 
@@ -112,7 +109,6 @@
                                 <?php $i=0; ?>
                                 @foreach($skills as $skill)
                                 <tr>
-
                                     <?php $i++; ?>
                                     <td><?php echo $i;?>
                                     </td>

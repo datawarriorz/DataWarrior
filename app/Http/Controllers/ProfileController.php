@@ -153,7 +153,12 @@ public function updateJobexperience(Request $request){
     $jobexp->startdate=$request->startdate;
     $jobexp->enddate=$request->enddate;
     $jobexp->description=$request->description;
+    if($request->currentjob==NULL){
+        $jobexp->currentjob="No";
+    }
+    else{
     $jobexp->currentjob=$request->currentjob;
+    }
     
     //dd($qualification);
 

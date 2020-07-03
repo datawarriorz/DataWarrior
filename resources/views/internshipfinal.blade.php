@@ -101,6 +101,7 @@
                                     <th scope="col">Skill 1</th>
                                     <th scope="col">Skill 2</th>
                                     <th scope="col">Skill 3</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                                 <br>
 

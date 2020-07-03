@@ -23,7 +23,7 @@ class CreateJobExperienceTable extends Migration
             $table->date('startdate');
             $table->date('enddate')->nullable();
             $table->string('description');
-            $table->string('currentjob')->nullable();
+            $table->string('currentjob')->nullable()->default('No');
             $table->timestamps();
         });
     }

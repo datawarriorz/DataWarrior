@@ -108,13 +108,17 @@
             window.scrollTo(0, 0);
         });
         $("#next5").click(function() {
-            AppForm();
-            var n = 4;
-            $("#tab5").hide("slow");
-            StepIndicator(n);
-            $("#tab6").show("slow");
-            document.getElementsByClassName("step")[n].className += " finish";
-            window.scrollTo(0, 0);
+            if (ValidateTab5()) {
+                AppForm();
+                var n = 4;
+                $("#tab5").hide("slow");
+                StepIndicator(n);
+                $("#tab6").show("slow");
+                document.getElementsByClassName("step")[n].className += " finish";
+                window.scrollTo(0, 0);
+            } else {
+                $("#tab5-error").show("slow");
+            }
         });
         $("#prev5").click(function() {
             var n = 4;
@@ -165,19 +169,8 @@
         document.getElementById("af2").innerHTML = afd2;
         var afd3 = document.querySelector('[name="preferreddomain3"]').value;
         document.getElementById("af3").innerHTML = afd3;
-        var stipendobj = document.getElementById("stipendid");
-        var afd4 = stipendobj.options[stipendobj.selectedIndex].value;
-        if (afd4 == 1) {
-            document.getElementById("af4").innerHTML = "1-5000";
-        } else if (afd4 == 2) {
-            document.getElementById("af4").innerHTML = "5000-10000";
-        } else if (afd4 == 3) {
-            document.getElementById("af4").innerHTML = "10000-15000";
-        } else if (afd4 == 4) {
-            document.getElementById("af4").innerHTML = "15000-20000";
-        } else {
-            document.getElementById("af4").innerHTML = "20000-25000";
-        }
+        var afd4 = document.querySelector('[name="stipend"]').value;
+        document.getElementById("af4").innerHTML = afd4;
         var afd5 = document.querySelector('[name="internshiplocation"]').value;
         document.getElementById("af5").innerHTML = afd5;
         //afdnew cause added later
@@ -247,24 +240,35 @@
         var afd2 = document.querySelector('[name="preferreddomain2"]').value;
         var afd3 = document.querySelector('[name="preferreddomain3"]').value;
         var afd4 = document.querySelector('[name="internshiplocation"]').value;
+        var afd5 = document.querySelector('[name="stipend"]').value;
         var txt = "";
         var spaceregex = /^[ ]+$/;
         var spaceresult1 = spaceregex.test(afd1);
         var spaceresult2 = spaceregex.test(afd2);
         var spaceresult3 = spaceregex.test(afd3);
         var spaceresult4 = spaceregex.test(afd4);
-        if (afd1 != "" && afd2 != "" && afd3 != "" && afd4 != "" && spaceresult1 == false && spaceresult2 == false &&
-            spaceresult3 == false && spaceresult4 == false) {
+        var spaceresult5 = spaceregex.test(afd5);
+        if (afd1 != "" && afd2 != "" && afd3 != "" && afd4 != "" && afd5 != "" &&
+            spaceresult1 == false && spaceresult2 == false &&
+            spaceresult3 == false && spaceresult4 == false && spaceresult5 == false) {
             var regex = /^[a-zA-Z0-9 +,]{2,30}$/;
+            var stipend_regex = /^[0-9]{1,5}$/;
             var result1 = regex.test(afd1);
             var result2 = regex.test(afd2);
             var result3 = regex.test(afd3);
             var result4 = regex.test(afd4);
+            var result5 = stipend_regex.test(afd5);
             if (result1 == true && result2 == true && result3 == true && result4 == true) {
                 //need to write border green red code and more nested if else later
                 // x = document.getElementsByClassName("fc-tab2");
                 // x.className = x.className += " form-success";
-                return true;
+                if (result5 == true) {
+                    return true;
+                } else {
+                    txt = 'Only numbers allowed in stipend';
+                    document.getElementById("tab2-label").innerHTML = txt;
+                    return false;
+                }
             } else {
                 txt = 'The input text length must be between 2 to 100 and in UpperCase or LowerCase';
                 document.getElementById("tab2-label").innerHTML = txt;
@@ -363,24 +367,23 @@
     }
 
     function ValidateTab5() {
-        var afd1 = document.querySelector('[name="skill1"]').value;
-        var afd15 = document.querySelector('[name="skill2"]').value;
-        var afd16 = document.querySelector('[name="skill3"]').value;
-        var afd14 = document.querySelector('[name="skill1"]').value;
-        var afd15 = document.querySelector('[name="skill2"]').value;
-        var afd16 = document.querySelector('[name="skill3"]').value;
+        var afd1 = document.querySelector('[name="profile"]').value;
+        var afd2 = document.querySelector('[name="organisation"]').value;
+        var afd3 = document.querySelector('[name="location"]').value;
+        var afd4 = document.querySelector('[name="description"]').value;
         var txt = "";
         var spaceregex = /^[ ]+$/;
-        var spaceresult1 = spaceregex.test(afd14);
-        var spaceresult2 = spaceregex.test(afd15);
-        var spaceresult3 = spaceregex.test(afd16);
-        if (afd14 != "" && afd15 != "" && afd16 != "" && spaceresult1 == false && spaceresult2 == false &&
-            spaceresult3 == false) {
+        var spaceresult1 = spaceregex.test(afd1);
+        var spaceresult2 = spaceregex.test(afd2);
+        var spaceresult3 = spaceregex.test(afd3);
+        var spaceresult4 = spaceregex.test(afd4);
+        if (afd1 != "" && afd2 != "" && afd3 != "" && afd4 != "" && spaceresult1 == false && spaceresult2 == false &&
+            spaceresult3 == false && spaceresult4 == false) {
             var regex = /^[a-zA-Z0-9 +,]{2,100}$/;
-            var result1 = regex.test(afd14);
-            var result2 = regex.test(afd15);
-            var result3 = regex.test(afd16);
-
+            var result1 = regex.test(afd1);
+            var result2 = regex.test(afd2);
+            var result3 = regex.test(afd3);
+            var result4 = regex.test(afd4);
             if (result1 == true && result2 == true && result3 == true && result4 == true) {
                 //need to write border green red code and more nested if else later
                 // x = document.getElementsByClassName("fc-tab2");
@@ -388,12 +391,12 @@
                 return true;
             } else {
                 txt = 'The input text length must be between 2 to 100 and in UpperCase or LowerCase';
-                document.getElementById("tab4-label").innerHTML = txt;
+                document.getElementById("tab5-label").innerHTML = txt;
                 return false;
             }
         } else {
             txt = 'All values are required!';
-            document.getElementById("tab4-label").innerHTML = txt;
+            document.getElementById("tab5-label").innerHTML = txt;
             return false;
         }
     }

@@ -193,8 +193,13 @@ public function deleteJobexperience(Request $request){
 
 public function skills(Request $request){
     $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
+    $internshipskills="skills";
+    if($request->internshipskills=="internshipskills"){
+        $internshipskills="internshipskills";
+        return view('profile/skillprofile',['skills'=>$skills,'internshipskills'=>$internshipskills]);
+    }
 
-    return view('profile/skillprofile',['skills'=>$skills]);
+    return view('profile/skillprofile',['skills'=>$skills,'internshipskills'=>$internshipskills]);
 
 
 

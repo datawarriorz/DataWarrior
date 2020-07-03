@@ -42,6 +42,7 @@ Route::post('/updateJobexperience', 'ProfileController@updateJobexperience')->mi
 Route::post('/deleteJobexperience', 'ProfileController@deleteJobexperience')->middleware('auth');
 
 Route::get('/skills', 'ProfileController@skills')->middleware('auth');
+Route::post('/skills', 'ProfileController@skills')->middleware('auth');
 Route::post('/updateskills', 'ProfileController@updateSkills')->middleware('auth');
 Route::post('/deleteskills', 'ProfileController@deleteSkills')->middleware('auth');
 

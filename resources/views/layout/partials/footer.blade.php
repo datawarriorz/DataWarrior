@@ -1,7 +1,7 @@
 <hr class="thick">
 <link rel="stylesheet" href="./css/footer.css" />
-  <footer class="container fcontainer text-center">
-    <div class="container fcontent1 text-center">
+<footer class="fcontainer text-center">
+    <div class="fcontent1 text-center">
         <div class="row container-column">
             <div class="col-sm-12 col-md-6 col-lg-3">
                 <div class="col-sm-12 col-md-12 col-lg-12">
@@ -153,5 +153,3 @@
     </div>
     <br>
 </footer>
-
-

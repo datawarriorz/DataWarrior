@@ -17,7 +17,7 @@
                                 <th scope="col">3rd Preferred Domain</th>
                                 <th scope="col">Stipend</th>
                                 <th scope="col">Location</th>
-                                <th scope="col">Career Council</th>
+                                <th scope="col">Career Counsel</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,8 +27,8 @@
                                 <td>{{$in->preferreddomain2}}</td>
                                 <td>{{$in->preferreddomain3}}</td>
                                 <td>{{$in->stipend}}</td>
-                                <td>{{$in->location}}</td>
-
+                                <td>{{$in->internshiplocation}}</td>
+                                <td>{{$in->counselling}}</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -102,7 +102,11 @@
                                     <th scope="col">Skill 2</th>
                                     <th scope="col">Skill 3</th>
 
+
+
                                 </tr>
+                                <br>
+
                             </thead>
                             <tbody>
                                 <?php $i=0; ?>
@@ -125,7 +129,15 @@
                                     </td>
 
                                 </tr>
+
                                 @endforeach
+                                <tr>
+                                    <form method="POST" action="/skills">
+                                        @csrf
+                                        <input type="hidden" name="internshipskills" value="internshipskills" />
+                                        <button type="submit" class="btn btn-danger" onclick="">Add</button>
+                                    </form>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

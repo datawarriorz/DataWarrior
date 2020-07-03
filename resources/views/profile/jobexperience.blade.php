@@ -112,6 +112,9 @@
         @endforeach
       </tbody>
     </table>
+    @if($internship=="internship")
+    <a href="/internshipfinal" class="btn btn-primary">View Internship form</a>
+    @endif
   </div>
 </div>
 @endsection

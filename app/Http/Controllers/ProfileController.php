@@ -67,8 +67,13 @@ class ProfileController extends Controller
             
             $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
             $qualificationType=QualificationTypes::all();
-            
-            return view('profile/qualificationProfile',['eduDetails' => $eduDetails,'qualificationType'=>$qualificationType]);
+            $internship="";
+            if($request->internship=="internship"){
+                $internship="internship";
+                return view('profile/qualificationProfile',['eduDetails' => $eduDetails,'qualificationType'=>$qualificationType,'internship'=>$internship]);
+
+            }
+            return view('profile/qualificationProfile',['eduDetails' => $eduDetails,'qualificationType'=>$qualificationType,'internship'=>$internship]);
         
       
         
@@ -133,8 +138,12 @@ class ProfileController extends Controller
             
         $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
        
-        
-        return view('profile/jobexperience',['jobexp'=>$jobexp]);
+        $internship="";
+    if($request->internship=="internship"){
+        $internship="internship";
+        return view('profile/jobexperience',['jobexp'=>$jobexp,'internship'=>$internship]);
+    }
+        return view('profile/jobexperience',['jobexp'=>$jobexp,'internship'=>$internship]);
     
   
     
@@ -198,13 +207,13 @@ public function deleteJobexperience(Request $request){
 
 public function skills(Request $request){
     $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
-    $internshipskills="skills";
-    if($request->internshipskills=="internshipskills"){
-        $internshipskills="internshipskills";
-        return view('profile/skillprofile',['skills'=>$skills,'internshipskills'=>$internshipskills]);
+    $internship="";
+    if($request->internship=="internship"){
+        $internship="internship";
+        return view('profile/skillprofile',['skills'=>$skills,'internship'=>$internship]);
     }
 
-    return view('profile/skillprofile',['skills'=>$skills,'internshipskills'=>$internshipskills]);
+    return view('profile/skillprofile',['skills'=>$skills,'internship'=>$internship]);
 
 
 

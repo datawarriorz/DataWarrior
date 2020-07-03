@@ -130,7 +130,7 @@
                                 <tr>
                                     <form method="POST" action="/skills">
                                         @csrf
-                                        <input type="hidden" name="internshipskills" value="internshipskills" />
+                                        <input type="hidden" name="internship" value="internship" />
                                         <button type="submit" class="btn btn-danger" onclick="">Add</button>
                                     </form>
                                 </tr>

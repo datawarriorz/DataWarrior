@@ -90,7 +90,7 @@
 
             </tbody>
         </table>
-        @if($internshipskills=="internshipskills")
+        @if($internship=="internship")
         <a href="/internshipfinal" class="btn btn-primary">View Internship form</a>
         @endif
     </div>

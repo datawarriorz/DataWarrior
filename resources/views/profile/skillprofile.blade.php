@@ -37,6 +37,9 @@
                     <input type="text" name='skill3' class="form-control" value={{old('skill3')}}>
 
                 </div>
+                @if($internship=="internship")
+                    <input type="hidden" name="internship" value="internship" />
+                @endif
 
 
                 <fieldset class="form-group form-inline">

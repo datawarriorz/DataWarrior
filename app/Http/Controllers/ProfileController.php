@@ -236,7 +236,12 @@ public function updateSkills(Request $request){
   $skills->skill3=$request->skill3;
 
   $skills->save();
+  if($request->internship=="internship"){
+    return Redirect::back()->with(['internship'=>$internship]);
+
+  }
   return Redirect::back();
+
 
 
 }

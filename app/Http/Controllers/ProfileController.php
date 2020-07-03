@@ -236,13 +236,15 @@ public function updateSkills(Request $request){
   $skills->skill3=$request->skill3;
 
   $skills->save();
+  $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
+
   $internship="";
   if($request->internship=="internship"){
     $internship="internship";
-    return Redirect::back()->with(['internship'=>$internship]);
-
+    return view('profile/skillprofile',['skills'=>$skills,'internship'=>$internship]);
   }
-  return Redirect::back();
+  return view('profile/skillprofile',['skills'=>$skills,'internship'=>$internship]);
+
 
 
 

@@ -39,7 +39,7 @@
                 </div>
                 @if($internship=="internship")
                 <div class="form-group">
-                    <input type="hidden" name="internship" value="internship" />
+                    <input type="hidden" name="internship" class="form-control" value="internship" />
                 </div>
 
                 @endif

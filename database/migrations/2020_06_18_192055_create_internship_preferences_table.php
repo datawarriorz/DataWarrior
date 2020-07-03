@@ -20,7 +20,7 @@ class CreateInternshipPreferencesTable extends Migration
             $table->string('preferreddomain1');
             $table->string('preferreddomain2')->nullable();
             $table->string('preferreddomain3')->nullable();
-            $table->string('stipend');
+            $table->BigInteger('stipend');
             $table->string('internshiplocation');
             $table->string('counselling')->nullable();
             $table->string('status')->nullable();

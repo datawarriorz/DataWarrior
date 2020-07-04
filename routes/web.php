@@ -34,10 +34,12 @@ Route::post('/updateUser', 'ProfileController@updateUser')->middleware('auth');
 
 
 Route::get('/qualification', 'ProfileController@qualificationDetails')->middleware('auth');
+Route::post('/qualification', 'ProfileController@qualificationDetails')->middleware('auth');
 Route::post('/updateQualification', 'ProfileController@updateQualification')->middleware('auth');
 Route::post('/deletequalification', 'ProfileController@deleteQualification')->middleware('auth');
 
 Route::get('/jobexperience', 'ProfileController@jobExperience')->middleware('auth');
+Route::post('/jobexperience', 'ProfileController@jobExperience')->middleware('auth');
 Route::post('/updateJobexperience', 'ProfileController@updateJobexperience')->middleware('auth');
 Route::post('/deleteJobexperience', 'ProfileController@deleteJobexperience')->middleware('auth');
 
@@ -46,9 +48,9 @@ Route::post('/skills', 'ProfileController@skills')->middleware('auth');
 Route::post('/updateskills', 'ProfileController@updateSkills')->middleware('auth');
 Route::post('/deleteskills', 'ProfileController@deleteSkills')->middleware('auth');
 
-Route::get('/internship', 'InternshipController@showintership')->middleware('auth');
+Route::get('/internship', 'InternshipController@showinternship')->middleware('auth');
 Route::post('/internshipform', 'InternshipController@applyInternship')->middleware('auth');
-Route::get('/internshipfinal', 'InternshipController@intershipfinalform')->middleware('auth');
+Route::get('/internshipfinal', 'InternshipController@showinternship')->middleware('auth');
 
 Route::get('/job', 'JobController@showjob')->middleware('auth');
 Route::post('/jobform', 'JobController@applyJob')->middleware('auth');

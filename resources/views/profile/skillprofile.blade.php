@@ -86,6 +86,12 @@
                         <form method="POST" action="/deleteskills">
                             @csrf
                             <input type="hidden" name="userskills_id" value={{$skill->userskills_id}} />
+                            @if($internship=="internship")
+                            <div class="form-group">
+                                <input type="hidden" name="internship" class="form-control" value="internship" />
+                            </div>
+            
+                            @endif
                             <button type="submit" class="btn btn-danger" onclick="">Delete</button>
                         </form>
 

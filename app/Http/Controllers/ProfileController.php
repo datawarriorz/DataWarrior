@@ -61,7 +61,7 @@ class ProfileController extends Controller
         }
 
     }
-    public function qualificationDetails(){
+    public function qualificationDetails(Request $request){
         
        
             
@@ -70,7 +70,6 @@ class ProfileController extends Controller
             $internship="";
             if($request->internship=="internship"){
                 $internship="internship";
-                return view('profile/qualificationProfile',['eduDetails' => $eduDetails,'qualificationType'=>$qualificationType,'internship'=>$internship]);
 
             }
             return view('profile/qualificationProfile',['eduDetails' => $eduDetails,'qualificationType'=>$qualificationType,'internship'=>$internship]);
@@ -115,33 +114,32 @@ class ProfileController extends Controller
         $qualification->save();
 
         
-        return Redirect::back();
+        return redirect('/qualification');
 
-        
-        
 
     }
     public function deleteQualification(Request $request){
     
        $res=UserQualification::where('id','=',$request->qualid)->delete();
-        
-       return Redirect::back();
+       if($request->internship=="internship"){
+        $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
+        $qualificationType=QualificationTypes::all();
+        $internship="internship";
+        return view('profile/qualificationProfile',['eduDetails' => $eduDetails,'qualificationType'=>$qualificationType,'internship'=>$internship]);
 
-
+    }
+        return Redirect::back();
 
     }
 
 
-    public function jobExperience(){
-        
-       
+    public function jobExperience(Request $request){
             
         $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
        
         $internship="";
     if($request->internship=="internship"){
         $internship="internship";
-        return view('profile/jobexperience',['jobexp'=>$jobexp,'internship'=>$internship]);
     }
         return view('profile/jobexperience',['jobexp'=>$jobexp,'internship'=>$internship]);
     
@@ -189,19 +187,20 @@ public function updateJobexperience(Request $request){
     $jobexp->save();
 
     
-    return Redirect::back();
+    return redirect('/jobexperience');
 
-    
-    
 
 }
 public function deleteJobexperience(Request $request){
 
    $res=Jobexperience::where('jobid','=',$request->jobid)->delete();
-    
-   return Redirect::back();
-
-
+   
+   if($request->internship=="internship"){
+    $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
+    $internship="internship";
+    return view('profile/jobexperience',['jobexp'=>$jobexp,'internship'=>$internship]);
+}
+    return Redirect::back();
 
 }
 
@@ -236,15 +235,12 @@ public function updateSkills(Request $request){
   $skills->skill3=$request->skill3;
 
   $skills->save();
-  $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
-
-  $internship="";
   if($request->internship=="internship"){
+    $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
     $internship="internship";
     return view('profile/skillprofile',['skills'=>$skills,'internship'=>$internship]);
-  }
-  return view('profile/skillprofile',['skills'=>$skills,'internship'=>$internship]);
-
+}
+  return redirect('/skills');
 
 
 
@@ -252,8 +248,13 @@ public function updateSkills(Request $request){
 public function deleteSkills(Request $request){
 
     $res=UserSkills::where('userskills_id','=',$request->userskills_id)->delete();
-     
-    return Redirect::back();
+    if($request->internship=="internship"){
+        $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
+        $internship="internship";
+        return view('profile/skillprofile',['skills'=>$skills,'internship'=>$internship]);
+
+    }
+     return Redirect::back();
  
  
  }

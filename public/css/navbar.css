@@ -20,9 +20,15 @@
 }
 
 .nav-link {
-    margin-top: 5px;
+    margin-top: 17px;
     width: 150px;
+    max-height: 200px;
     color: black;
+    text-align: center;
+}
+
+.nav-link:hover {
+    color: #DA5827;
 }
 
 .nav-link-right {
@@ -31,6 +37,16 @@
 
 .navbar-expand-lg .navbar-nav .nav-link {
     padding-left: 20px;
+}
+
+.nav-link-header {
+    border-bottom: 2px solid transparent;
+}
+
+.nav-link-header:hover {
+    border-bottom: 2px solid #DA5827;
+    transition: ease-out;
+    transform-origin: center;
 }
 
 
@@ -46,7 +62,7 @@
     color: white;
     font-size: 17px;
     border-radius: 25px;
-    background-color: #da5827;
+    background-color: #DA5827;
 }
 
 .navbar-brand {

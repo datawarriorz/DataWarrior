@@ -119,6 +119,7 @@
                                     <td><a class="footer-link" href="#">Case Studies</a></td>
                                 </tr>
                             </table>
+                            <br>
                         </div>
                     </div>
                 </div>

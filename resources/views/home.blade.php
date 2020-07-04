@@ -77,17 +77,18 @@
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="container-items">
-                        <h5 class="container-items-header">- Jobs -</h5>
-                        <p>"Somewhere...someone is looking for you"<br><a href="/internship">Click here for
+                        <h5 class="container-items-header">- Certification -</h5>
+                        <p>"Growth...through continuous learning"<br><a href="/internship">Click here for
                                 details</a></p>
+
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="container-items">
-                        <h5 class="container-items-header">- Certification -</h5>
-                        <p>"Growth...through continuous learning"<br><a href="/internship">Click here for
+                        <h5 class="container-items-header">- Jobs -</h5>
+                        <p>"Somewhere...someone is looking for you"<br><a href="/job">Click here for
                                 details</a></p>
                     </div>
                 </div>

@@ -22,12 +22,25 @@ class JobController extends Controller
     }
      public function showjob(){
       
+        
+        $job=JobPreferences::where('user_id','=',Auth::user()->user_id)->get();
+        
+        if(count($job)!=0){
+            $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
+            $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
+            
+            $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
+                $qualificationType=QualificationTypes::all();
+            return view('jobfinal',['skills'=>$skills,'jobexp'=>$jobexp,'job'=>$job,'eduDetails' => $eduDetails,'qualificationType'=>$qualificationType]);
+
+        }
         $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
         $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
-        $job=JobPreferences::where('user_id','=',Auth::user()->user_id)->get();
+        
         $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
-        $qualificationType=QualificationTypes::all();
+            $qualificationType=QualificationTypes::all();
        return view('job',['skills'=>$skills,'jobexp'=>$jobexp,'job'=>$job,'eduDetails' => $eduDetails,'qualificationType'=>$qualificationType]);
+       
        
     }
 
@@ -35,6 +48,7 @@ class JobController extends Controller
     public function applyJob(Request $request){
     
 
+      
         $job =new JobPreferences();
         $job->user_id=Auth::user()->user_id;
         $job->preferreddomain1=$request->preferreddomain1;
@@ -42,7 +56,13 @@ class JobController extends Controller
         $job->preferreddomain3=$request->preferreddomain3;
         $job->salary=$request->salary;
         $job->joblocation=$request->joblocation;
+        if($request->counselling==NULL){
+            $job->counselling="No";
+        }
+        else{
         $job->counselling=$request->counselling;
+
+        }
         $skills=new UserSkills();
         $skills->user_id=Auth::user()->user_id;
         $skills->skill1=$request->skill1;
@@ -56,7 +76,12 @@ class JobController extends Controller
         $jobexp->startdate=$request->startdate;
         $jobexp->enddate=$request->enddate;
         $jobexp->description=$request->description;
+        if($request->currentjob==NULL){
+            $jobexp->currentjob="No";
+        }
+        else{
         $jobexp->currentjob=$request->currentjob;
+        }
         $qualification =new UserQualification();
         $qualification->user_id=Auth::user()->user_id;
         $qualification->college_name=$request->college_name;
@@ -68,60 +93,14 @@ class JobController extends Controller
         $qualification->course_name=$request->course_name;
         $qualification->grade=$request->grade;
         
-
-    //     $validator=Validator::make($request->all(), [
-    //         'preferreddomain1' => 'required|min:3',
-    //         'preferreddomain2' => 'required|min:3',
-    //         'preferreddomain3' => 'required|min:3',
-    //         'salary' => 'required|numeric',
-    //         'location' => 'required',
-    //         'skill1' => 'required|min:3',
-    //         'skill2' => 'required|min:3',
-    //         'skill3' => 'required|min:3',
-    //         'profile' => 'required|min:3',
-    //         'organisation' => 'required|min:3',
-    //         'location' => 'required|min:3',
-    //         'description' => 'required|min:3',
-    //         'enddate' =>'required',
-    //         'startdate' =>'required',
-    //         'college_name' => 'required|min:3',
-    //         'university' => 'required|min:3',
-    //         'percentage' => 'required|numeric',
-    //         'course_name' => 'required|min:3',
-    //         'garde' => 'required',
-    //         'end_date' =>'required',
-    //         'start_date' =>'required',
-            
-
-            
-            
-    //     ],[]);
-    //     if ($validator->fails()) // on validator found any error 
-    //   {
-    //     return redirect('/job')->withErrors($validator)->withInput();
-    //   }
-        
-
         $job->save();
         $skills->save();
         $jobexp->save();
         $qualification->save();
 
         return redirect('/jobfinal');
-
-
       
     }
-    public function jobfinalform(){
-      
-        $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
-        $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
-        $job=JobPreferences::where('user_id','=',Auth::user()->user_id)->get();
-        $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
-        $qualificationType=QualificationTypes::all();
-        return view('jobfinal',['skills'=>$skills,'jobexp'=>$jobexp,'job'=>$job,'eduDetails' => $eduDetails,'qualificationType'=>$qualificationType]);
-       
-    }
-
+   
     
 }

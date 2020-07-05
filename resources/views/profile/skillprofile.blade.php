@@ -37,9 +37,15 @@
                     <input type="text" name='skill3' class="form-control" value={{old('skill3')}}>
 
                 </div>
-                @if($internship=="internship")
+                @if($process=="internship")
                 <div class="form-group">
-                    <input type="hidden" name="internship" class="form-control" value="internship" />
+                    <input type="hidden" name="process" class="form-control" value="internship" />
+                </div>
+
+                @endif
+                @if($process=="job")
+                <div class="form-group">
+                    <input type="hidden" name="process" class="form-control" value="job" />
                 </div>
 
                 @endif
@@ -86,9 +92,15 @@
                         <form method="POST" action="/deleteskills">
                             @csrf
                             <input type="hidden" name="userskills_id" value={{$skill->userskills_id}} />
-                            @if($internship=="internship")
+                            @if($process=="internship")
                             <div class="form-group">
-                                <input type="hidden" name="internship" class="form-control" value="internship" />
+                                <input type="hidden" name="process" class="form-control" value="internship" />
+                            </div>
+            
+                            @endif
+                            @if($process=="job")
+                            <div class="form-group">
+                                <input type="hidden" name="process" class="form-control" value="job" />
                             </div>
             
                             @endif
@@ -102,8 +114,11 @@
 
             </tbody>
         </table>
-        @if($internship=="internship")
+        @if($process=="internship")
         <a href="/internshipfinal" class="btn btn-primary">View Internship form</a>
+        @endif
+        @if($process=="job")
+        <a href="/jobfinal" class="btn btn-primary">View Job Application form</a>
         @endif
     </div>
 </div>

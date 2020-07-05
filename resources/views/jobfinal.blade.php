@@ -2,7 +2,7 @@
 
 @section('content')
 <link rel="stylesheet" href="./css/jobfinal.css">
-<div class="internship-container">
+<div class="job-container">
     <div id="InternFinalForm">
         <div>
             <!-- <div class="card">
@@ -34,9 +34,9 @@
                                 <td>{{$in->joblocation}}</td>
                                 <td>{{$in->counselling}}</td>
                                 <td>
-                                    <form method="POST" action="/">
+                                    <form method="POST" action="#">
                                         @csrf
-                                        <input type="hidden" name="qualid" value={{$in->id}} />
+                                        <input type="hidden" name="#" value="#" />
                                         <button type="submit" class="btn-danger" onclick="">Delete</button>
                                     </form>
                                 </td>
@@ -82,13 +82,13 @@
                                     <td>{{substr($ed->start_date,0,10)}}</td>
                                     <td>{{substr($ed->end_date,0,10)}}</td>
                                     <td>
-                                        <form method="POST" action="/deleteskills">
+                                        {{-- <form method="POST" action="/deleteskills">
                                             @csrf
                                             <input type="hidden" name="userskills_id" value={{$ed->id}}
                                             />
                                             <button type="submit" class="btn-danger" onclick="">Edit</button>
                                         </form>
-                                    </td>
+                                    </td> --}}
                                     <td>
                                         <form method="POST" action="/deletequalification">
                                             @csrf
@@ -100,9 +100,9 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <form class="text-center" method="POST" action="/">
+                        <form class="text-center" method="POST" action="/qualification">
                             @csrf
-                            <input type="hidden" name="qualification" value="qualification" />
+                            <input type="hidden" name="process" value="job" />
                             <button type="submit" class="btn-success" onclick="">Add</button>
                         </form>
                     </div>
@@ -134,13 +134,13 @@
                                     <td>{{$skill->skill2}}</td>
                                     <td>{{$skill->skill3}}</td>
 
-                                    <td>
+                                    {{-- <td>
                                         <form method="POST" action="/deleteskills">
                                             @csrf
                                             <input type="hidden" name="userskills_id" value={{$skill->userskills_id}} />
                                             <button type="submit" class="btn-danger" onclick="">Edit</button>
                                         </form>
-                                    </td>
+                                    </td> --}}
                                     <td>
                                         <form method="POST" action="/deleteskills">
                                             @csrf
@@ -155,7 +155,7 @@
                         </table>
                         <form class="text-center" method="POST" action="/skills">
                             @csrf
-                            <input type="hidden" name="internship" value="internship" />
+                            <input type="hidden" name="process" value="job" />
                             <button type="submit" class="btn-success" onclick="">Add</button>
                         </form>
                     </div>
@@ -200,9 +200,9 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <form class="text-center" method="POST" action="/">
+                        <form class="text-center" method="POST" action="/jobexperience">
                             @csrf
-                            <input type="hidden" name="jobexp" value="jobexp" />
+                            <input type="hidden" name="process" value="job" />
                             <button type="submit" class="btn-success" onclick="">Add</button>
                         </form>
                     </div>

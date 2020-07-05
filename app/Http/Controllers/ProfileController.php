@@ -59,7 +59,7 @@ class ProfileController extends Controller
             return view('profile/mainProfile',['message' => 'Something went wrong','user' => Auth::user()]);
 
         }
-
+        
     }
     public function qualificationDetails(Request $request){
         
@@ -67,12 +67,16 @@ class ProfileController extends Controller
             
             $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
             $qualificationType=QualificationTypes::all();
-            $internship="";
-            if($request->internship=="internship"){
-                $internship="internship";
+            $process="";
+            if($request->process=="internship"){
+                $process="internship";
 
             }
-            return view('profile/qualificationProfile',['eduDetails' => $eduDetails,'qualificationType'=>$qualificationType,'internship'=>$internship]);
+            if($request->process=="job"){
+                $process="job";
+
+            }
+            return view('profile/qualificationProfile',['eduDetails' => $eduDetails,'qualificationType'=>$qualificationType,'process'=>$process]);
         
       
         
@@ -100,7 +104,7 @@ class ProfileController extends Controller
             'university' => 'required|min:3',
             'percentage' => 'required|numeric',
             'course_name' => 'required|min:3',
-            'garde' => 'required',
+            'grade' => 'required',
             'end_date' =>'required',
             'start_date' =>'required',
             
@@ -112,7 +116,20 @@ class ProfileController extends Controller
         
 
         $qualification->save();
-
+        if($request->process=="internship"){
+            $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
+            $qualificationType=QualificationTypes::all();
+    
+            $process="internship";
+            return view('profile/qualificationProfile',['eduDetails'=>$eduDetails,'process'=>$process,'qualificationType'=>$qualificationType]);
+        }
+        if($request->process=="job"){
+            $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
+            $qualificationType=QualificationTypes::all();
+    
+            $process="job";
+            return view('profile/qualificationProfile',['eduDetails'=>$eduDetails,'process'=>$process,'qualificationType'=>$qualificationType]);
+        }
         
         return redirect('/qualification');
 
@@ -121,11 +138,18 @@ class ProfileController extends Controller
     public function deleteQualification(Request $request){
     
        $res=UserQualification::where('id','=',$request->qualid)->delete();
-       if($request->internship=="internship"){
+       if($request->process=="internship"){
         $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
         $qualificationType=QualificationTypes::all();
-        $internship="internship";
-        return view('profile/qualificationProfile',['eduDetails' => $eduDetails,'qualificationType'=>$qualificationType,'internship'=>$internship]);
+        $process="internship";
+        return view('profile/qualificationProfile',['eduDetails' => $eduDetails,'qualificationType'=>$qualificationType,'process'=>$process]);
+
+    }
+    if($request->process=="job"){
+        $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
+        $qualificationType=QualificationTypes::all();
+        $process="job";
+        return view('profile/qualificationProfile',['eduDetails' => $eduDetails,'qualificationType'=>$qualificationType,'process'=>$process]);
 
     }
         return Redirect::back();
@@ -137,11 +161,14 @@ class ProfileController extends Controller
             
         $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
        
-        $internship="";
-    if($request->internship=="internship"){
-        $internship="internship";
+        $process="";
+    if($request->process=="internship"){
+        $process="internship";
     }
-        return view('profile/jobexperience',['jobexp'=>$jobexp,'internship'=>$internship]);
+    if($request->process=="job"){
+        $process="job";
+    }
+        return view('profile/jobexperience',['jobexp'=>$jobexp,'process'=>$process]);
     
   
     
@@ -185,7 +212,19 @@ public function updateJobexperience(Request $request){
     
 
     $jobexp->save();
+    if($request->process=="internship"){
+        $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
 
+        $process="internship";
+        return view('profile/jobexperience',['jobexp'=>$jobexp,'process'=>$process]);
+    }
+    if($request->process=="job"){
+        $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
+
+        $process="job";
+        return view('profile/jobexperience',['jobexp'=>$jobexp,'process'=>$process]);
+    }
+      
     
     return redirect('/jobexperience');
 
@@ -195,10 +234,15 @@ public function deleteJobexperience(Request $request){
 
    $res=Jobexperience::where('jobid','=',$request->jobid)->delete();
    
-   if($request->internship=="internship"){
+   if($request->process=="internship"){
     $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
-    $internship="internship";
-    return view('profile/jobexperience',['jobexp'=>$jobexp,'internship'=>$internship]);
+    $process="internship";
+    return view('profile/jobexperience',['jobexp'=>$jobexp,'process'=>$process]);
+}
+if($request->process=="job"){
+    $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
+    $process="job";
+    return view('profile/jobexperience',['jobexp'=>$jobexp,'process'=>$process]);
 }
     return Redirect::back();
 
@@ -206,13 +250,17 @@ public function deleteJobexperience(Request $request){
 
 public function skills(Request $request){
     $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
-    $internship="";
-    if($request->internship=="internship"){
-        $internship="internship";
-        return view('profile/skillprofile',['skills'=>$skills,'internship'=>$internship]);
+    $process="";
+    if($request->process=="internship"){
+        $process="internship";
+        return view('profile/skillprofile',['skills'=>$skills,'process'=>$process]);
+    }
+    if($request->process=="job"){
+        $process="job";
+        return view('profile/skillprofile',['skills'=>$skills,'process'=>$process]);
     }
 
-    return view('profile/skillprofile',['skills'=>$skills,'internship'=>$internship]);
+    return view('profile/skillprofile',['skills'=>$skills,'process'=>$process]);
 
 
 
@@ -235,10 +283,15 @@ public function updateSkills(Request $request){
   $skills->skill3=$request->skill3;
 
   $skills->save();
-  if($request->internship=="internship"){
+  if($request->process=="internship"){
     $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
-    $internship="internship";
-    return view('profile/skillprofile',['skills'=>$skills,'internship'=>$internship]);
+    $process="internship";
+    return view('profile/skillprofile',['skills'=>$skills,'process'=>$process]);
+}
+if($request->process=="job"){
+    $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
+    $process="job";
+    return view('profile/skillprofile',['skills'=>$skills,'process'=>$process]);
 }
   return redirect('/skills');
 
@@ -248,10 +301,16 @@ public function updateSkills(Request $request){
 public function deleteSkills(Request $request){
 
     $res=UserSkills::where('userskills_id','=',$request->userskills_id)->delete();
-    if($request->internship=="internship"){
+    if($request->process=="internship"){
         $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
-        $internship="internship";
-        return view('profile/skillprofile',['skills'=>$skills,'internship'=>$internship]);
+        $process="internship";
+        return view('profile/skillprofile',['skills'=>$skills,'process'=>$process]);
+
+    }
+    if($request->process=="job"){
+        $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
+        $process="job";
+        return view('profile/skillprofile',['skills'=>$skills,'process'=>$process]);
 
     }
      return Redirect::back();

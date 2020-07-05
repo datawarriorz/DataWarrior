@@ -78,14 +78,23 @@
                                         <form method="POST" action="/deletequalification">
                                             @csrf
                                             <input type="hidden" name="qualid" value={{$ed->id}} />
+                                        
                                             <button type="submit" class="btn btn-danger" onclick="">Delete</button>
                                         </form>
                                     </td>
 
                                 </tr>
                                 @endforeach
+                                <tr>
+                                    <form method="POST" action="/qualification">
+                                        @csrf
+                                        <input type="hidden" name="process" value="internship" />
+                                        <button type="submit" class="btn btn-danger" onclick="">Add</button>
+                                    </form>
+                                </tr>
                             </tbody>
                         </table>
+                        
                     </div>
                 </div>
             </div>
@@ -131,7 +140,7 @@
                                 <tr>
                                     <form method="POST" action="/skills">
                                         @csrf
-                                        <input type="hidden" name="internship" value="internship" />
+                                        <input type="hidden" name="process" value="internship" />
                                         <button type="submit" class="btn btn-danger" onclick="">Add</button>
                                     </form>
                                 </tr>
@@ -177,6 +186,11 @@
                                     </td>
                                 </tr>
                                 @endforeach
+                                <tr><form method="POST" action="/jobexperience">
+                                    @csrf
+                                    <input type="hidden" name="process" value="internship" />
+                                    <button type="submit" class="btn btn-danger" onclick="">Add</button>
+                                </form></tr>
                             </tbody>
                         </table>
                     </div>

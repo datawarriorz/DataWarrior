@@ -67,7 +67,18 @@
 <input type="date" name="end_date" required class="form-control" value={{old('end_date')}}>
 
 </div>
+@if($process=="internship")
+<div class="form-group">
+    <input type="hidden" name="process" class="form-control" value="internship" />
+</div>
 
+@endif
+@if($process=="job")
+<div class="form-group">
+    <input type="hidden" name="process" class="form-control" value="job" />
+</div>
+
+@endif
 
 <fieldset class="form-group form-inline">
 <div class="form-group row mb-0">
@@ -122,6 +133,18 @@
                 <form   method="POST" action="/deletequalification">
                     @csrf
                     <input type="hidden" name="qualid" value={{$ed->id}} />
+                    @if($process=="internship")
+                    <div class="form-group">
+                        <input type="hidden" name="process" class="form-control" value="internship" />
+                    </div>
+    
+                    @endif
+                    @if($process=="job")
+                    <div class="form-group">
+                        <input type="hidden" name="process" class="form-control" value="job" />
+                    </div>
+    
+                    @endif
                     <button type="submit" class="btn btn-danger" onclick="">Delete</button>
                 </form>
                 </td>
@@ -130,8 +153,11 @@
               @endforeach
             </tbody>
           </table>
-          @if($internship=="internship")
+          @if($process=="internship")
           <a href="/internshipfinal" class="btn btn-primary">View Internship form</a>
+          @endif
+          @if($process=="job")
+          <a href="/jobfinal" class="btn btn-primary">View Job Application form</a>
           @endif
     </div>
     </div>

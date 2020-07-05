@@ -57,7 +57,18 @@
         <input type="textarea" class="form-control" id="description" required name='description'
           value={{old('description')}}>
       </div>
+      @if($process=="internship")
+      <div class="form-group">
+          <input type="hidden" name="process" class="form-control" value="internship" />
+      </div>
 
+      @endif
+      @if($process=="job")
+      <div class="form-group">
+          <input type="hidden" name="process" class="form-control" value="job" />
+      </div>
+
+      @endif
       <fieldset class="form-group form-inline">
         <div class="form-group row mb-0">
 
@@ -105,6 +116,18 @@
               @csrf
               <input type="hidden" name="jobid" value={{$je->jobid}} />
               <button type="submit" class="btn btn-danger">Delete</button>
+              @if($process=="internship")
+              <div class="form-group">
+                  <input type="hidden" name="process" class="form-control" value="internship" />
+              </div>
+
+              @endif
+              @if($process=="job")
+              <div class="form-group">
+                  <input type="hidden" name="process" class="form-control" value="job" />
+              </div>
+
+              @endif
             </form>
           </td>
 
@@ -112,8 +135,11 @@
         @endforeach
       </tbody>
     </table>
-    @if($internship=="internship")
+    @if($process=="internship")
     <a href="/internshipfinal" class="btn btn-primary">View Internship form</a>
+    @endif
+    @if($process=="job")
+    <a href="/jobfinal" class="btn btn-primary">View Internship form</a>
     @endif
   </div>
 </div>

@@ -28,6 +28,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('login/google', 'Auth\LoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
 
+Route::get('/dashboard', 'DashboardController@showDashboard')->middleware('auth');
+
+
+Route::get('/viewprofile', 'ProfileController@viewProfile')->middleware('auth');
+
 Route::post('/profile', 'ProfileController@showProfile')->middleware('auth');
 Route::get('/profile', 'ProfileController@showProfile')->middleware('auth');
 Route::post('/updateUser', 'ProfileController@updateUser')->middleware('auth');

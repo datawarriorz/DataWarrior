@@ -9,6 +9,8 @@ use App\UserQualification;
 use App\QualificationTypes;
 use App\Jobexperience;
 use App\UserSkills;
+use App\InternshipPreferences;
+use App\JobPreferences;
 use Exception;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +30,25 @@ class ProfileController extends Controller
         $currentuser=User::where('user_id',Auth::user()->user_id)->first();
 
         return view('profile/mainProfile',['user' => $currentuser,'message' => '']);
-       
+        
+      
+    }
+    public function viewProfile(){
+      
+        $internship=InternshipPreferences::where('user_id','=',Auth::user()->user_id)->get();
+        $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
+        $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();  
+        $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
+        $qualificationType=QualificationTypes::all();
+        $job=JobPreferences::where('user_id','=',Auth::user()->user_id)->get();
+        $userdetails=User::where('user_id',Auth::user()->user_id)->first();
+       return view('viewprofile',['skills'=>$skills,
+                                'jobexp'=>$jobexp,
+                                'internship'=>$internship,
+                                'eduDetails' => $eduDetails,
+                                'qualificationType'=>$qualificationType,
+                                'job'=>$job,
+                                'userdetails'=>$userdetails]);
       
     }
     public function updateUser(Request $request){

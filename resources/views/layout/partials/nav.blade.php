@@ -62,13 +62,10 @@
                             @csrf
                         </form>
 
-                        <a class="dropdown-item" href="/profile" onclick="event.preventDefault();
-                                document.getElementById('profile').submit();">
+                        <a class="dropdown-item" href="/viewprofile" >
                             Profile
                         </a>
-                        <form id="profile" action="/profile" method="POST" style="display: none;">
-                            @csrf
-                        </form>
+                       
 
                     </div>
                 </li>

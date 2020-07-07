@@ -25,7 +25,7 @@ class ProfileController extends Controller
         $this->middleware('auth')->except('logout');
     }
 
-    public function showProfile(){
+    public function userDetails(){
       
         $currentuser=User::where('user_id',Auth::user()->user_id)->first();
 
@@ -42,7 +42,7 @@ class ProfileController extends Controller
         $qualificationType=QualificationTypes::all();
         $job=JobPreferences::where('user_id','=',Auth::user()->user_id)->get();
         $userdetails=User::where('user_id',Auth::user()->user_id)->first();
-       return view('viewprofile',['skills'=>$skills,
+       return view('profile.profile',['skills'=>$skills,
                                 'jobexp'=>$jobexp,
                                 'internship'=>$internship,
                                 'eduDetails' => $eduDetails,

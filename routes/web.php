@@ -33,9 +33,11 @@ Route::get('/dashboard', 'DashboardController@showDashboard')->middleware('auth'
 
 Route::get('/viewprofile', 'ProfileController@viewProfile')->middleware('auth');
 
-Route::post('/profile', 'ProfileController@showProfile')->middleware('auth');
-Route::get('/profile', 'ProfileController@showProfile')->middleware('auth');
-Route::post('/updateUser', 'ProfileController@updateUser')->middleware('auth');
+Route::get('/userdetails', 'ProfileController@userDetails')->middleware('auth');
+Route::post('/userdetails', 'ProfileController@userDetails')->middleware('auth');
+
+
+Route::post('/updateuserdetials', 'ProfileController@updateUser')->middleware('auth');
 
 
 Route::get('/qualification', 'ProfileController@qualificationDetails')->middleware('auth');

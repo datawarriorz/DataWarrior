@@ -15,7 +15,7 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="/dashboard">
-                        <p class="nav-link-header"><i class="fas fa-home"></i>Dashboard</p>
+                        <p class="nav-link-header"><i class="fas fa-home"></i> Dashboard</p>
                     </a>
                 </li>
                 <li class="nav-item navli">

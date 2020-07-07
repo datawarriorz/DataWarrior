@@ -23,16 +23,16 @@
                                 </span></p>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="userdetails-tab" data-toggle="tab" href="#userdetails" role="tab" aria-controls="userdetails" aria-selected="true">User Details</a>
+                            <a class="nav-link profilenav active" id="userdetails-tab" data-toggle="tab" href="#userdetails" role="tab" aria-controls="userdetails" aria-selected="true">User Details</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="education-tab" data-toggle="tab" href="#education" role="tab" aria-controls="education" aria-selected="false">Education</a>
+                            <a class="nav-link profilenav" id="education-tab" data-toggle="tab" href="#education" role="tab" aria-controls="education" aria-selected="false">Education</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="jobexperience-tab" data-toggle="tab" href="#jobexperience" role="tab" aria-controls="jobexperience" aria-selected="false">Job Experience</a>
+                            <a class="nav-link profilenav" id="jobexperience-tab" data-toggle="tab" href="#jobexperience" role="tab" aria-controls="jobexperience" aria-selected="false">Job Experience</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="skills" aria-selected="false">Skills</a>
+                            <a class="nav-link profilenav" id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="skills" aria-selected="false">Skills</a>
                         </li>
                     </ul>
                 </div>

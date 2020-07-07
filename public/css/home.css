@@ -73,23 +73,29 @@
   } */
 
 .search-container {
-    height: 102px;
+    height: 73px;
     padding: 30px;
+    padding-top: 8px;
 }
 
 .search-container .btn1 {
     color: White;
-    border: 1px solid #0b0b08;
-    background: #0b0b08;
+    border: 1px solid #19202b;
+    background: #19202b;
     font-size: 17px;
     cursor: pointer;
 }
 
 .search-container .btn2 {
     color: white;
-    background: #555551;
+    background: #19202b;
     font-size: 17px;
     cursor: pointer;
+}
+
+.btn.disabled,
+.btn:disabled {
+    opacity: 1;
 }
 
 
@@ -135,6 +141,7 @@
 
 .content1 {
     padding: 20px;
+    padding-top: 0px;
 }
 
 .container-items {

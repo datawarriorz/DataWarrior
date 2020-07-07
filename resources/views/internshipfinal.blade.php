@@ -5,35 +5,58 @@
 <div class="internship-container">
     <div id="InternFinalForm">
         <div>
-            <h4 class="text-center" style="margin-bottom:1.5rem;margin-top: -21px;">Internship Application Details</h4>
+            <h4 class="text-center" style="margin-bottom:1.5rem;margin-top: -21px;">Application Overview</h4>
             @csrf
             <div class="card">
-                <div class="card-body" style="overflow-x: scroll;">
+                <div class="card-body">
                     <h4>Internship Preferences</h4>
-                    <table class="table text-center">
-                        <thead>
-                            <tr>
-                                <th scope="col">1st Preferred Domain</th>
-                                <th scope="col">2nd Preferred Domain</th>
-                                <th scope="col">3rd Preferred Domain</th>
-                                <th scope="col">Stipend</th>
-                                <th scope="col">Location</th>
-                                <th scope="col">Career Counsel</th>
-                            </tr>
-                        </thead>
+                    <table class="table">
                         <tbody>
                             @foreach($internship as $in)
                             <tr>
+                                <td scope="col">1st Preferred Domain</td>
+                                <td>:</td>
                                 <td>{{$in->preferreddomain1}}</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">2nd Preferred Domain</td>
+                                <td>:</td>
                                 <td>{{$in->preferreddomain2}}</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">3rd Preferred Domain</td>
+                                <td>:</td>
                                 <td>{{$in->preferreddomain3}}</td>
-                                <td>{{$in->stipend}}</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">Stipend</td>
+                                <td>:</td>
+                                <td>{{$in->stipend}} /-</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">Location</td>
+                                <td>:</td>
                                 <td>{{$in->internshiplocation}}</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">Career Counsel</td>
+                                <td>:</td>
                                 <td>{{$in->counselling}}</td>
                             </tr>
+                            <tr>
+                                <td scope="col"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
                             @endforeach
                         </tbody>
                     </table>
+                    <form class="text-center" metdod="POST" action="/">
+                        @csrf
+                        <input type="hidden" name="prefid" value={{$in->id}} />
+                        <button type="submit" class="btn-danger" onclick="">Edit <i class="fas fa-edit"></i> </button>
+                    </form>
                 </div>
             </div>
             <br>
@@ -41,19 +64,19 @@
                 <div class="card-body" style="overflow-x: scroll;">
                     <h4>Highest Qualification</h4>
                     <table class="table text-center">
-                        <thead>
+                        <tdead>
                             <tr>
-                                <th scope="col">Qualification Type</th>
-                                <th scope="col">Course Name</th>
-                                <th scope="col">College Name</th>
-                                <th scope="col">Univeristy</th>
-                                <th scope="col">Percentage</th>
-                                <th scope="col">Grade</th>
-                                <th scope="col">Start Date</th>
-                                <th scope="col">End Date</th>
-                                <th scope="col">Action</th>
+                                <td scope="col">Qualification Type</td>
+                                <td scope="col">Course Name</td>
+                                <td scope="col">College Name</td>
+                                <td scope="col">Univeristy</td>
+                                <td scope="col">Percentage</td>
+                                <td scope="col">Grade</td>
+                                <td scope="col">Start Date</td>
+                                <td scope="col">End Date</td>
+                                <td scope="col">Action</td>
                             </tr>
-                        </thead>
+                        </tdead>
                         <tbody>
                             @foreach($eduDetails as $ed)
                             <tr>
@@ -71,7 +94,7 @@
                                 <td>{{substr($ed->start_date,0,10)}}</td>
                                 <td>{{substr($ed->end_date,0,10)}}</td>
                                 <td>
-                                    <form method="POST" action="/deletequalification">
+                                    <form metdod="POST" action="/deletequalification">
                                         @csrf
                                         <input type="hidden" name="qualid" value={{$ed->id}} />
 
@@ -82,7 +105,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <form class="text-center" method="POST" action="/qualification">
+                    <form class="text-center" metdod="POST" action="/qualification">
                         @csrf
                         <input type="hidden" name="process" value="internship" />
                         <button type="submit" class="btn-success" onclick="">Add</button>
@@ -94,15 +117,15 @@
                 <div class="card-body" style="overflow-x: scroll;">
                     <h4>Skills</h4>
                     <table class="table text-center">
-                        <thead>
+                        <tdead>
                             <tr>
-                                <th>Sr. No.</th>
-                                <th scope="col">Skill 1</th>
-                                <th scope="col">Skill 2</th>
-                                <th scope="col">Skill 3</th>
-                                <th scope="col">Action</th>
+                                <td>Sr. No.</td>
+                                <td scope="col">Skill 1</td>
+                                <td scope="col">Skill 2</td>
+                                <td scope="col">Skill 3</td>
+                                <td scope="col">Action</td>
                             </tr>
-                        </thead>
+                        </tdead>
                         <tbody>
                             <?php $i=0; ?>
                             @foreach($skills as $skill)
@@ -114,7 +137,7 @@
                                 <td>{{$skill->skill2}}</td>
                                 <td>{{$skill->skill3}}</td>
                                 <td>
-                                    <form method="POST" action="/deleteskills">
+                                    <form metdod="POST" action="/deleteskills">
                                         @csrf
                                         <input type="hidden" name="userskills_id" value={{$skill->userskills_id}} />
                                         <button type="submit" class="btn-danger" onclick="">Delete</button>
@@ -124,7 +147,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <form class="text-center" method="POST" action="/skills">
+                    <form class="text-center" metdod="POST" action="/skills">
                         @csrf
                         <input type="hidden" name="process" value="internship" />
                         <button type="submit" class="btn-success" onclick="">Add</button>
@@ -136,18 +159,18 @@
                 <div class="card-body" style="overflow-x: scroll;">
                     <h4>Job Experience Details</h4>
                     <table class="table text-center">
-                        <thead>
+                        <tdead>
                             <tr>
-                                <th scope="col">Profile</th>
-                                <th scope="col">Organisation</th>
-                                <th scope="col">Location</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Current Job</th>
-                                <th scope="col">Start Date</th>
-                                <th scope="col">End Date</th>
-                                <th scope="col">Action</th>
+                                <td scope="col">Profile</td>
+                                <td scope="col">Organisation</td>
+                                <td scope="col">Location</td>
+                                <td scope="col">Description</td>
+                                <td scope="col">Current Job</td>
+                                <td scope="col">Start Date</td>
+                                <td scope="col">End Date</td>
+                                <td scope="col">Action</td>
                             </tr>
-                        </thead>
+                        </tdead>
                         <tbody>
                             @foreach($jobexp as $je)
                             <tr>
@@ -159,7 +182,7 @@
                                 <td>{{substr($je->startdate,0,10)}}</td>
                                 <td>{{substr($je->enddate,0,10)}}</td>
                                 <td>
-                                    <form method="POST" action="/deleteJobexperience">
+                                    <form metdod="POST" action="/deleteJobexperience">
                                         @csrf
                                         <input type="hidden" name="jobid" value={{$je->jobid}} />
                                         <button type="submit" class="btn-danger">Delete</button>
@@ -169,7 +192,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <form class="text-center" method="POST" action="/jobexperience">
+                    <form class="text-center" metdod="POST" action="/jobexperience">
                         @csrf
                         <input type="hidden" name="process" value="internship" />
                         <button type="submit" class="btn-success" onclick="">Add</button>

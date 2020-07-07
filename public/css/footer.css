@@ -1,23 +1,24 @@
 .footer-link {
-    color: #000;
+    color: White;
 }
 
 .fcontainer {
-    background-color: white;
+    background-color: #19202b;
     /* font-family: minion pro; */
 }
 
 .footer-wrapper {
-    background-color: white;
+    background-color: #19202b;
 }
 
 .footer {
-    background-color: white;
+    background-color: #19202b;
     padding: 25px;
 }
 
 .footer-link-header {
-    color: #da5827;
+    /* color: #da5827; */
+    color: White;
 }
 
 .footer1-table td,
@@ -28,7 +29,7 @@
 
 .fcontent2 {
     padding: 0px;
-    background-color: white;
+    background-color: #19202b;
 }
 
 .footer-container2-section2 {
@@ -39,7 +40,8 @@
 .footer-icon1 {
     position: relative;
     font-size: 20px;
-    color: #da5827;
+    /* color: #da5827; */
+    color: white;
     width: 45px;
     margin: 4px;
     height: 45px;

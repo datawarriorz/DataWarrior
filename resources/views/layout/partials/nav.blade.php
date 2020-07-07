@@ -3,8 +3,9 @@
 
 <div class="navbar-container">
     <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="#"><img class="navbar-brand-img" alt="Logo" class="nav-img"
-                src="./images/logo.png" /></a>
+
+        <a class="navbar-brand" href="/"><img class="navbar-brand-img" alt="Logo" class="nav-img"
+                src="./images/logo2.png" /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -14,22 +15,22 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="/">
-                        <p class="nav-link-header">HOME</p>
+                        <p class="nav-link-header"><i class="fas fa-home"></i> Home</p>
                     </a>
                 </li>
                 <li class="nav-item navli">
                     <a class="nav-link" href="#">
-                        <p class="nav-link-header">SERVICES</p>
+                        <p class="nav-link-header"><i class="fas fa-wrench"></i> Services</p>
                     </a>
                 </li>
                 <li class="nav-item navli">
                     <a class="nav-link" href="#">
-                        <p class="nav-link-header">ABOUT US</p>
+                        <p class="nav-link-header"><i class="fas fa-info-circle"></i> About Us</p>
                     </a>
                 </li>
                 <li class="nav-item navli">
                     <a class="nav-link" href="#">
-                        <p class="nav-link-header">CONTACT</p>
+                        <p class="nav-link-header"><i class="fas fa-phone-alt"></i> Contact Us</p>
                     </a>
                 </li>
             </ul>
@@ -47,30 +48,35 @@
                 @endif
                 @else
                 <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
+                    <a id="navbarDropdown" class="navbar-icon1 dropdown-toggle" href="#" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-circle"></i>
                     </a>
-
-
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item">
+                            {{ Auth::user()->first_name }} {{ Auth::user()->last_name}}
+                        </a>
+                        <a class="dropdown-item" href="/viewprofile">
+                            <i class="fas fa-user-circle"></i> Profile
+                        </a>
+                        <a class="dropdown-item" href="/">
+                            <i class="fas fa-clipboard-list"></i> My Applications
+                        </a>
+                        <a class="dropdown-item" href="/viewprofile">
+                            <i class="fas fa-user-cog"></i> Settings
+                        </a>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                            <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-
-                        <a class="dropdown-item" href="/viewprofile" >
-                            Profile
-                        </a>
-                       
-
                     </div>
                 </li>
                 @endguest
             </ul>
         </div>
     </nav>
+    <hr class="thick1">
 </div>

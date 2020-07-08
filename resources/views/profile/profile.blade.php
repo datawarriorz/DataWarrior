@@ -10,7 +10,7 @@
             <div class="profile-head">
                 <h5>{{$userdetails->first_name}}{{$userdetails->last_name}}</h5>
                 <h6>{{$userdetails->email}}</h6>
-                <p class="proile-rating">Date of Birth : <span>{{$userdetails->date_of_birtd}}</span></p>
+                <p class="proile-rating">Date of Birth : <span>{{$userdetails->date_of_birth}}</span></p>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link profilenav active" id="userdetails-tab" data-toggle="tab" href="#userdetails" role="tab" aria-controls="userdetails" aria-selected="true">User Details</a>
@@ -19,7 +19,7 @@
                         <a class="nav-link profilenav" id="education-tab" data-toggle="tab" href="#education" role="tab" aria-controls="education" aria-selected="false">Education</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link profilenav" id="jobexperience-tab" data-toggle="tab" href="#jobexperience" role="tab" aria-controls="jobexperience" aria-selected="false">Job Experience</a>
+                        <a class="nav-link profilenav" id="jobexperience-tab" data-toggle="tab" href="#jobexperience" role="tab" aria-controls="jobexperience" aria-selected="false">Experience</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link profilenav" id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="skills" aria-selected="false">Skills</a>
@@ -34,29 +34,28 @@
                 <div class="tab-pane fade show active" id="userdetails" role="tabpanel" aria-labelledby="home-tab">
                     <br>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-3 col-sm-3 col-md-3">
                             <label>Name</label>
                         </div>
-                        <div class="col-md-6">
-                            <p>{{$userdetails->first_name}}
+                        <div class="col-9 col-sm-9 col-md-9">
+                            <p>: {{$userdetails->first_name}}
                                 {{$userdetails->last_name}}</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-sm-3 col-md-3 ">
                             <label>Email</label>
                         </div>
-                        <div class="col-md-6">
-                    
-                    <p>{{$userdetails->email}}</p>
+                        <div class="col-sm-9 col-md-9">
+                        <p>: {{$userdetails->email}}</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-sm-3 col-md-3 ">
                             <label>Phone</label>
                         </div>
-                        <div class="col-md-6">
-                        <p>
+                        <div class="col-sm-9 col-md-9">
+                        <p>: 
                             @if(!empty($userdetails->contact_no))
                             $userdetails->contact_no
                                     @else
@@ -67,11 +66,11 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-sm-3 col-md-3 ">
                             <label>Email Verification</label>
                         </div>
-                        <div class="col-md-6">
-                            <p>
+                        <div class="col-sm-9 col-md-9">
+                            <p>: 
                                 @if(!empty($userdetails->email_verified_at))
                                 Verified
                                 @else
@@ -81,11 +80,11 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-sm-3 col-md-3 ">
                             <label>Gender</label>
                         </div>
-                        <div class="col-md-6">
-                            <p>
+                        <div class="col-sm-9 col-md-9">
+                            <p>: 
                                 @if(!empty($userdetails->gender))
                                 $userdetails->gender
                                 @else
@@ -95,7 +94,7 @@
                         </div>
                     </div>
                     <br>
-                    <a href="/userdetails"><button type="button" class="btn-danger">Edit User Details</button></a>
+                    <a href="/userdetails"><button type="button" class="btn tab-edit-btn">Edit User Details <i class="fas fa-edit"></i></button></a>
                 </div>
 
                 <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
@@ -134,7 +133,7 @@
                         </tbody>
                     </table>
                     <br>
-                    <a href="/qualification"><button type="button" class="btn-danger">Edit Education Details</button></a>
+                    <a href="/qualification"><button type="button" class="btn tab-edit-btn">Edit Education Details <i class="fas fa-edit"></i></button></a>
 
                 </div>
                 
@@ -167,7 +166,7 @@
                         </tbody>
                     </table>
                     <br>
-                    <a href="/jobexperience"><button type="button" class="btn-danger">Edit Job Experience</button></a>
+                    <a href="/jobexperience"><button type="button" class="btn tab-edit-btn">Edit Experience <i class="fas fa-edit"></i></button></a>
                 </div>
 
                 <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
@@ -186,7 +185,7 @@
                         </div>
                     </div>
                     <br>
-                    <a href="/skills"><button type="button" class="btn-danger">Edit Skills</button></a>
+                    <a href="/skills"><button type="button" class="btn tab-edit-btn">Edit Skills <i class="fas fa-edit"></i></button></a>
                 </div>
             </div>
         </div>

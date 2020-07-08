@@ -1,8 +1,8 @@
 
 Before Login
 	#Home(individual images of services with desc - rewamp)
-		Login
-		Register
+		$Login
+		$Register
 After Login
 	Dashboard
 		Summary/links for services and resume
@@ -12,14 +12,14 @@ After Login
 		Applied/On-Going Certifications
 		Blog/Articles Summary*
 	Services
-		#Internship 
-		#Job
+		Internship 
+		Job
 		Project
 		Certifications
 		Blog/Articles*
-	#Resume
+	Profile
 		Profile Summary
-			Personal Details
+			$Personal Details
 				PD Edit
 			Qualification
 				Edit 
@@ -27,10 +27,12 @@ After Login
 				Edit
 			Skills
 				Edit
-			
 
 	TODO
+		$clean code
 		my Application
+		adding personal about section in profile summary instead of email and dob
+		skill db structure change asap before it gets complex
 
 
 

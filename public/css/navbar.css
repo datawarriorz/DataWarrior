@@ -1,5 +1,7 @@
 .navbar {
     font-family: 'Google Sans', Roboto, Arial, sans-serif;
+    /* font-family: 'Segoe UI', SegoeUI, 'Segoe WP', Tahoma, Arial, sans-serif; */
+    /* font-family: newsgoth BT; */
     font-size: 18px;
     font-weight: 400;
     line-height: 0;
@@ -7,18 +9,10 @@
     hyphens: auto;
     word-break: break-word;
     word-wrap: break-word;
-    color: #202124;
     text-align: center;
-    /* background-color: #19202b; */
-    background-color: #171f2a;
     padding: 0px;
-    font-weight: 400;
-    color: #6418a2;
-    /* font-family: 'Segoe UI', SegoeUI, 'Segoe WP', Tahoma, Arial, sans-serif; */
-    /* font-family: newsgoth BT; */
-    /*opacity: 0.7;
-height:71px;
-position: absolute;*/
+    color: White;
+    background-color: #171f2a;
 }
 
 .navbar-brand {
@@ -37,22 +31,12 @@ position: absolute;*/
 .nav-link {
     margin-top: 17px;
     width: 100%;
-    color: White;
+    color: inherit;
 }
 
 .nav-link:hover {
     color: #fa7817;
 }
-
-.nav-link-right {
-    padding: 0px;
-}
-
-
-/* 
-.navbar-expand-lg .navbar-nav .nav-link {
-padding-left: 20px;
-} */
 
 .nav-link-header {
     border-bottom: 2px solid transparent;
@@ -64,33 +48,40 @@ padding-left: 20px;
 }
 
 
-/* 
-.nav-link-header:hover {
-border-bottom: 2px solid #DA5827;
-transition: ease-out;
-transform-origin: center;
-} */
-
-
-/* .nav-link-header:hover{
-background-color: #555551;
-}*/
-
-.btn {
-    color: white;
-}
+/*Before Login*/
 
 .navbtn {
-    color: white;
-    font-size: 17px;
+    color: White;
+    background-color: #171f2a;
+    border: 2px solid white;
     border-radius: 25px;
-    border-color: #171f2a;
-    background-color: White;
+    font-size: 17px;
+}
+
+.navbtn:hover {
+    color: #fa7817;
+    background-color: #171f2a;
+    border: 2px solid #fa7817;
+    border-radius: 25px;
+    font-size: 17px;
+}
+
+.nav-link-right {
+    color: #171f2a;
+    background-color: #171f2a;
+    margin-left: 10px;
+    padding: 0px;
 }
 
 .nav-right {
     margin: 11px;
 }
+
+
+/* Before Login End*/
+
+
+/* After Login - User Icon + Dropdown*/
 
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='Black' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
@@ -100,14 +91,6 @@ background-color: #555551;
     border-color: white;
     border-block-width: 2.5px;
     border: 1px;
-}
-
-.dropdown-menu {
-    width: 11.5rem;
-}
-
-.dropdown-item {
-    line-height: 1.5;
 }
 
 .navbar-expand-lg .navbar-nav .dropdown-menu-right {
@@ -124,7 +107,15 @@ background-color: #555551;
     }
 }
 
-.navbar-icon1 {
+.dropdown-menu {
+    width: 11.5rem;
+}
+
+.dropdown-item {
+    line-height: 1.5;
+}
+
+.user-icon {
     position: relative;
     font-size: 29px;
     color: White;
@@ -140,7 +131,7 @@ background-color: #555551;
     box-sizing: border-box;
 }
 
-.navbar-icon1:hover {
+.user-icon:hover {
     color: #fa7817;
     text-decoration: none;
 }
@@ -150,20 +141,5 @@ background-color: #555551;
     padding-left: 2px;
 }
 
-.thick1 {
-    border: 0;
-    height: 3px;
-    background-image: linear-gradient(90deg, #ff8a00, #e52e71);
-    width: 100%;
-    margin-top: 0rem;
-    margin-bottom: 0rem;
-}
 
-.thick {
-    border: 0;
-    height: 4px;
-    background-image: linear-gradient(90deg, #ff8a00, #e52e71);
-    border-radius: 5px;
-    width: 83%;
-    margin-top: 0rem;
-}
+/* After Login End */

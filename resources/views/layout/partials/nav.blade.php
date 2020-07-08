@@ -1,6 +1,4 @@
-<link rel="stylesheet" href="./css/navbar.css">
-
-
+<link rel="stylesheet" href="./css/navbar.css" />
 <div class="navbar-container">
     <nav class="navbar navbar-expand-lg">
 
@@ -34,6 +32,7 @@
                     </a>
                 </li>
             </ul>
+
             <ul class="navbar-nav nav-right justify-content-end">
                 @guest
                 <li class="nav-item">
@@ -48,7 +47,7 @@
                 @endif
                 @else
                 <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="navbar-icon1 dropdown-toggle" href="#" role="button"
+                    <a id="navbarDropdown" class="user-icon dropdown-toggle" href="#" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user-circle"></i>
                     </a>
@@ -78,5 +77,5 @@
             </ul>
         </div>
     </nav>
-    <hr class="thick1">
+    <hr class="seperator1">
 </div>

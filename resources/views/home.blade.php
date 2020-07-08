@@ -2,7 +2,8 @@
 
 @section('content')
 <link rel="stylesheet" href="./css/home.css" />
-<!-- <div class="container carousel-container">
+<br>
+<div class="container carousel-container">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -39,7 +40,7 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-</div> -->
+</div>
 <div class="container search-container text-center" style="width: 100%;">
     <div class="row">
         <form action="" style="width: 100%;">

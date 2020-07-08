@@ -1,14 +1,17 @@
 .footer-wrapper {
-    font-family: 'Google Sans', Roboto, Arial, sans-serif;
-    background-color: white;
+    /* font-family: 'Google Sans', Roboto, Arial, sans-serif; */
+    font-size: 16px;
+    font-weight: 400;
+    background-color: #171f2a;
     width: 100%;
 }
 
 .footer-link-header {
-    color: inherit;
+    color: White;
 }
 
 .footer-link {
+    color: white;
     text-decoration: none;
 }
 
@@ -37,10 +40,13 @@
     margin-top: 18px;
 }
 
+.fab {
+    margin-top: 12px;
+}
+
 .footer-icon1 {
     position: relative;
     font-size: 20px;
-    /* color: #da5827; */
     color: White;
     width: 45px;
     margin: 4px;
@@ -61,7 +67,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    border: 2px solid #007bff;
+    border: 2px solid White;
     content: '';
     z-index: -1;
     border-radius: 50%;
@@ -80,68 +86,13 @@
 .footer-icon1:hover,
 .footer-icon1:active,
 .footer-icon1.hover {
-    color: #da5827;
+    color: #fa7817;
 }
 
 .footer-icon1:hover:after,
 .footer-icon1:active:after,
 .footer-icon1.hover:after {
-    border-color: #da5827 transparent #da5827 transparent;
+    border-color: #fa7817 transparent #fa7817 transparent;
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
 }
-
-
-/*
-.footer-icon2 {
-    position: relative;
-    font-size: 20px;
-    color: #9ca27e;
-    width: 45px;
-    margin: 4px;
-    height: 45px;
-    line-height: 45px;
-    display: inline-block;
-    text-align: center;
-    -webkit-perspective: 50em;
-    perspective: 50em;
-    text-decoration: none;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.footer-icon2:after {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border: 2px solid #9ca27e;
-    content: '';
-    z-index: -1;
-    border-radius: 50%;
-}
-
-.footer-icon2:before {
-    color: #fff;
-}
-
-.footer-icon2:before,
-.footer-icon2:after {
-    -webkit-transition: all 0.45s ease-in-out;
-    transition: all 0.45s ease-in-out;
-}
-
-.footer-icon2:hover,
-.footer-icon2:active,
-.footer-icon2.hover {
-    color: #9ca27e;
-}
-
-.footer-icon2:hover:after,
-.footer-icon2:active:after,
-.footer-icon2.hover:after {
-    border-color: #9ca27e transparent #9ca27e transparent;
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-} */

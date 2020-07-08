@@ -13,7 +13,6 @@
                             <h5>
                                 {{$userdetails->first_name}}
                                 {{$userdetails->last_name}}
-
                             </h5>
                             <h6>
                                 {{$userdetails->email}}

@@ -10,10 +10,10 @@
     color: #202124;
     text-align: center;
     /* background-color: #19202b; */
-    background-color: #6418a2;
+    background-color: #171f2a;
     padding: 0px;
     font-weight: 400;
-    color: White;
+    color: #6418a2;
     /* font-family: 'Segoe UI', SegoeUI, 'Segoe WP', Tahoma, Arial, sans-serif; */
     /* font-family: newsgoth BT; */
     /*opacity: 0.7;
@@ -84,7 +84,8 @@ background-color: #555551;
     color: white;
     font-size: 17px;
     border-radius: 25px;
-    background-color: #DA5827;
+    border-color: #171f2a;
+    background-color: White;
 }
 
 .nav-right {
@@ -92,7 +93,7 @@ background-color: #555551;
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='White' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='Black' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 .navbar-toggler {
@@ -155,6 +156,7 @@ background-color: #555551;
     background-image: linear-gradient(90deg, #ff8a00, #e52e71);
     width: 100%;
     margin-top: 0rem;
+    margin-bottom: 0rem;
 }
 
 .thick {

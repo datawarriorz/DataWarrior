@@ -2,25 +2,22 @@
 
 <html lang="en">
 
- <head>
+<head>
 
-   @include('layout.partials.head')
+  @include('layout.partials.head')
 
- </head>
+</head>
 
- <body>
+<body>
 
+  @include('layout.partials.nav')
 
-@include('layout.partials.nav')
+  @yield('content')
 
+  @include('layout.partials.footer')
 
+  @include('layout.partials.footer-scripts')
 
-@yield('content')
-
-@include('layout.partials.footer')
-
-@include('layout.partials.footer-scripts')
-
- </body>
+</body>
 
 </html>

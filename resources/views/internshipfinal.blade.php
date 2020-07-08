@@ -55,7 +55,7 @@
                     <form class="text-center" metdod="POST" action="/">
                         @csrf
                         <input type="hidden" name="prefid" value={{$in->id}} />
-                        <button type="submit" class="btn-danger" onclick="">Edit <i class="fas fa-edit"></i> </button>
+                        <button type="submit" class="btn-primary" onclick="">Edit <i class="fas fa-edit"></i> </button>
                     </form>
                 </div>
             </div>

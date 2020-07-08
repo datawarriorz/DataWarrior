@@ -75,7 +75,6 @@
 .search-container {
     height: 73px;
     padding: 30px;
-    padding-top: 8px;
 }
 
 .search-container .btn1 {
@@ -126,7 +125,6 @@
 
 .content-container {
     padding: 20px;
-    padding-top: 0px;
     font-family: nyala;
 }
 

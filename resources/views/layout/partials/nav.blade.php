@@ -36,8 +36,8 @@
             <ul class="navbar-nav nav-right justify-content-end">
                 @guest
                 <li class="nav-item">
-                    <a class="nav-link-right" href="{{ route('login') }}"><button type="button"
-                            class="btn navbtn">LOGIN</button></a>
+                    <a class="nav-link-right" href="{{ route('login') }}"><button type="button" class="btn navbtn">SIGN
+                            IN</button></a>
                 </li>
                 @if (Route::has('register'))
                 <li class="nav-item">

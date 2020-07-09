@@ -287,9 +287,8 @@ public function skills(Request $request){
 }
 public function updateSkills(Request $request){
     $validator=Validator::make($request->all(), [
-        'skill1' => 'required|min:3',
-        'skill2' => 'required|min:3',
-        'skill3' => 'required|min:3',
+        'skill' => 'required|min:3',
+        
         
     ],[]);
     if ($validator->fails()) // on validator found any error 
@@ -298,9 +297,8 @@ public function updateSkills(Request $request){
   }
   $skills=new UserSkills();
   $skills->user_id=Auth::user()->user_id;
-  $skills->skill1=$request->skill1;
-  $skills->skill2=$request->skill2;
-  $skills->skill3=$request->skill3;
+  $skills->skill=$request->skill;
+  
 
   $skills->save();
   if($request->process=="internship"){

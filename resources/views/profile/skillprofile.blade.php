@@ -22,21 +22,11 @@
             <fieldset>
                 <legend>Add your Skills </legend>
                 <div class="form-group">
-                    <label for="skill1">Skill 1:</label>
-                    <input type="text" name='skill1' required class="form-control" value={{old('skill1')}}>
+                    <label for="skill1">Skill:</label>
+                    <input type="text" name='skill' required class="form-control" value={{old('skill')}}>
 
                 </div>
-                <div class="form-group">
-                    <label for="skill2">Skill 2:</label>
-                    <input type="text" name='skill2' required class="form-control" value={{old('skill2')}}>
-
-                </div>
-
-                <div class="form-group">
-                    <label for="skill3">Skill 3:</label>
-                    <input type="text" name='skill3' class="form-control" value={{old('skill3')}}>
-
-                </div>
+                
                 @if($process=="internship")
                 <div class="form-group">
                     <input type="hidden" name="process" class="form-control" value="internship" />
@@ -70,9 +60,8 @@
             <thead>
                 <tr>
                     <th>Sr. No.</th>
-                    <th scope="col">Skill 1</th>
-                    <th scope="col">Skill 2</th>
-                    <th scope="col">Skill 3</th>
+                    <th scope="col">Skills</th>
+                    
 
                 </tr>
             </thead>
@@ -84,9 +73,8 @@
                     <?php $i++; ?>
                     <td><?php echo $i;?>
                     </td>
-                    <td>{{$skill->skill1}}</td>
-                    <td>{{$skill->skill2}}</td>
-                    <td>{{$skill->skill3}}</td>
+                    <td>{{$skill->skill}}</td>
+                    
 
                     <td>
                         <form method="POST" action="/deleteskills">

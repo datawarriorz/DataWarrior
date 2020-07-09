@@ -178,9 +178,8 @@
                         <div class="col-md-6">
                             <p><?php $i=0; ?>
                                 @foreach($skills as $skill)
-                                {{$skill->skill1}},
-                                {{$skill->skill2}},
-                                {{$skill->skill3}},
+                                {{$skill->skill}},
+                                
                                 @endforeach</p>
                         </div>
                     </div>

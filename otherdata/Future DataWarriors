@@ -32,14 +32,21 @@ After Login
 	TODO
 		$clean code
 		my Application
-		adding personal about section in profile summary instead of email and dob
-		skill db structure change asap before it gets complex -done please add proper styling
+		adding personal about section in profile summary instead of email and dob-iteration1
+		$skill db structure change asap before it gets complex
 
 
 
-
+	cert flow
 		apply for certification->certification result->selctone->certdetails->apply->ackmessgae->2link nav	
 													 ->request for cert->certreqform->submit->ackmessgae->2link nav	
+
+	priority list
+	Skills
+	Home
+	Dashboard
+	implementing career counselling in flow(discuss)
+
 	
 
 	

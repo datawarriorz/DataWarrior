@@ -290,6 +290,7 @@ public function updateSkills(Request $request){
         'skill' => 'required|min:3',
         
         
+        
     ],[]);
     if ($validator->fails()) // on validator found any error 
   {
@@ -298,7 +299,7 @@ public function updateSkills(Request $request){
   $skills=new UserSkills();
   $skills->user_id=Auth::user()->user_id;
   $skills->skill=$request->skill;
-  
+  $skills->experience_level=$request->experience_level;
 
   $skills->save();
   if($request->process=="internship"){

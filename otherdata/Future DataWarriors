@@ -16,6 +16,7 @@ After Login
 		Job
 		Project
 		Certifications
+			maincertpage
 		Blog/Articles*
 	Profile
 		Profile Summary
@@ -32,10 +33,13 @@ After Login
 		$clean code
 		my Application
 		adding personal about section in profile summary instead of email and dob
-		skill db structure change asap before it gets complex
+		skill db structure change asap before it gets complex -done please add proper styling
 
 
 
+
+		apply for certification->certification result->selctone->certdetails->apply->ackmessgae->2link nav	
+													 ->request for cert->certreqform->submit->ackmessgae->2link nav	
 	
 
 	

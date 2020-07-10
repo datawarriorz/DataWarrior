@@ -16,7 +16,7 @@ class CreateCertificationTable extends Migration
         Schema::create('certification', function (Blueprint $table) {
             $table->id('cert_id');
             $table->string('title');
-            $table->BigInterger('price')->nullable();
+            $table->unsignedBigInteger('price')->nullable();
             $table->string('description')->nullable();
             $table->string('provider')->nullable();
             $table->string('validationperiod')->nullable();

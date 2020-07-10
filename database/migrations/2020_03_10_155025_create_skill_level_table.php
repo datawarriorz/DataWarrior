@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCertificationRequestedTable extends Migration
+class CreateSkillLevelTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateCertificationRequestedTable extends Migration
      */
     public function up()
     {
-        Schema::create('certification_requested', function (Blueprint $table) {
-            $table->id('cert_req_id');
-            $table->string('title');
-            $table->string('description')->nullable();
-            $table->string('provider')->nullable();
+        Schema::create('skill_level', function (Blueprint $table) {
+            $table->id('skill_level_id');
+            $table->string('skill_level_name');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateCertificationRequestedTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('certification_requested');
+        Schema::dropIfExists('skill_level');
     }
 }

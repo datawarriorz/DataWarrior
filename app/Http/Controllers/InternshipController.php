@@ -28,7 +28,7 @@ class InternshipController extends Controller
         if(count($internship)!=0){
             $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
             $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
-            
+            $skilllevel=SkillLevel::all();
             $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
                 $qualificationType=QualificationTypes::all();
             return view('internshipfinal',['skills'=>$skills,'jobexp'=>$jobexp,'internship'=>$internship,'eduDetails' => $eduDetails,'qualificationType'=>$qualificationType]);
@@ -36,10 +36,10 @@ class InternshipController extends Controller
         }
         $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
         $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
-        
+        $skilllevel=SkillLevel::all();
         $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
             $qualificationType=QualificationTypes::all();
-       return view('internship',['skills'=>$skills,'jobexp'=>$jobexp,'internship'=>$internship,'eduDetails' => $eduDetails,'qualificationType'=>$qualificationType]);
+       return view('internship',['skills'=>$skills,'jobexp'=>$jobexp,'internship'=>$internship,'eduDetails' => $eduDetails,'qualificationType'=>$qualificationType,'skilllevel'=>$skilllevel]);
        
     }
 

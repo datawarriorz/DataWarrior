@@ -19,6 +19,8 @@ class CreateUserSkillsTable extends Migration
             $table->unsignedBigInteger('experience_level');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users');
+            $table->unsignedBigInteger('skill_level_id');
+            $table->foreign('skill_level_id')->references('skill_level_id')->on('skill_level');
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserSkills extends Model  
+class SkillLevel extends Model  
 {
 
     
@@ -14,14 +14,14 @@ class UserSkills extends Model
      *
      * @var string
      */
-    protected $table = 'user_skills';
+    protected $table = 'skill_level';
 
     /**
      * Attributes that should be mass-assignable.
      *
      * @var array
      */
-    protected $fillable = ['userskills_id', 'skill_name', 'experience_level', 'user_id', 'skill_level_id', 'created_at', 'updated_at'];
+    protected $fillable = ['skill_level_id', 'skill_level_name', 'created_at', 'updated_at'];
 
     /**
      * The attributes excluded from the model's JSON form.

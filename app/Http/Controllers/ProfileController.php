@@ -50,24 +50,23 @@ class ProfileController extends Controller
     public function updateUser(Request $request)
     {
         try {
-            Validator::make($request->all(), [
-                'firstname' => 'required|min:3|max:35',
-                'lastname' => 'required|min:3|max:35',
-                'email' => 'required|email|unique:users',
-                'contact_no' => 'required|numeric|unique:users',
-                'password' => 'required|min:3|max:20',
-                'confirm' => 'required|min:3|max:20|same:password',
-                'dateofbirth' => 'required',
-            ]);
-            User::where('user_id', Auth::user()->user_id)->update(
-                ['first_name' => $request->first_name,
-        'last_name' => $request->last_name,
-        'email' => $request->email,
-        'contact_no' => $request->contact_no,
-        'date_of_birth' => $request->date_of_birth,
-        'gender' => $request->gender,
-        ]
-            );
+            // Validator::make($request->all(), [
+            //     'firstname' => 'required|min:3|max:35',
+            //     'lastname' => 'required|min:3|max:35',
+            //     'email' => 'required|email|unique:users',
+            //     'contact_no' => 'required|numeric|unique:users',
+            //     'password' => 'required|min:3|max:20',
+            //     'confirm' => 'required|min:3|max:20|same:password',
+            //     'dateofbirth' => 'required',
+            // ]);
+        User::where('user_id', Auth::user()->user_id)->update([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'contact_no' => $request->contact_no,
+            'date_of_birth' => $request->date_of_birth,
+            'gender' => $request->gender,
+        ]);
             return Redirect::back()->with(['message' => 'Records Updated','user' => Auth::user()]);
         } catch (Exception $e) {
             return view('profile/mainProfile', ['message' => 'Something went wrong','user' => Auth::user()]);
@@ -102,19 +101,19 @@ class ProfileController extends Controller
         $qualification->grade=$request->grade;
         //dd($qualification);
 
-        $validator=Validator::make($request->all(), [
-            'college_name' => 'required|min:3',
-            'university' => 'required|min:3',
-            'percentage' => 'required|numeric',
-            'course_name' => 'required|min:3',
-            'grade' => 'required',
-            'end_date' =>'required',
-            'start_date' =>'required',
+        // $validator=Validator::make($request->all(), [
+        //     'college_name' => 'required|min:3',
+        //     'university' => 'required|min:3',
+        //     'percentage' => 'required|numeric',
+        //     'course_name' => 'required|min:3',
+        //     'grade' => 'required',
+        //     'end_date' =>'required',
+        //     'start_date' =>'required',
             
-        ], []);
-        if ($validator->fails()) { // on validator found any error
-            return redirect('/qualification')->withErrors($validator)->withInput();
-        }
+        // ], []);
+        // if ($validator->fails()) { // on validator found any error
+        //     return redirect('/qualification')->withErrors($validator)->withInput();
+        // }
         
 
         $qualification->save();
@@ -187,18 +186,18 @@ class ProfileController extends Controller
     
         //dd($qualification);
 
-        $validator=Validator::make($request->all(), [
-        'profile' => 'required|min:3',
-        'organisation' => 'required|min:3',
-        'location' => 'required|min:3',
-        'description' => 'required|min:3',
-        'enddate' =>'required',
-        'startdate' =>'required',
+    //     $validator=Validator::make($request->all(), [
+    //     'profile' => 'required|min:3',
+    //     'organisation' => 'required|min:3',
+    //     'location' => 'required|min:3',
+    //     'description' => 'required|min:3',
+    //     'enddate' =>'required',
+    //     'startdate' =>'required',
         
-    ], []);
-        if ($validator->fails()) { // on validator found any error
-            return redirect('/jobexperience')->withErrors($validator)->withInput();
-        }
+    // ], []);
+    //     if ($validator->fails()) { // on validator found any error
+    //         return redirect('/jobexperience')->withErrors($validator)->withInput();
+    //     }
     
 
         $jobexp->save();

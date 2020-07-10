@@ -298,7 +298,7 @@ public function updateSkills(Request $request){
   }
   $skills=new UserSkills();
   $skills->user_id=Auth::user()->user_id;
-  $skills->skill=$request->skill;
+  $skills->skill_name=$request->skill_name;
   $skills->experience_level=$request->experience_level;
 
   $skills->save();

@@ -13,16 +13,20 @@
                 <p class="proile-rating">Date of Birth : <span>{{$userdetails->date_of_birth}}</span></p>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link profilenav active" id="userdetails-tab" data-toggle="tab" href="#userdetails" role="tab" aria-controls="userdetails" aria-selected="true">User Details</a>
+                        <a class="nav-link profilenav active" id="userdetails-tab" data-toggle="tab" href="#userdetails"
+                            role="tab" aria-controls="userdetails" aria-selected="true">User Details</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link profilenav" id="education-tab" data-toggle="tab" href="#education" role="tab" aria-controls="education" aria-selected="false">Education</a>
+                        <a class="nav-link profilenav" id="education-tab" data-toggle="tab" href="#education" role="tab"
+                            aria-controls="education" aria-selected="false">Education</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link profilenav" id="jobexperience-tab" data-toggle="tab" href="#jobexperience" role="tab" aria-controls="jobexperience" aria-selected="false">Experience</a>
+                        <a class="nav-link profilenav" id="jobexperience-tab" data-toggle="tab" href="#jobexperience"
+                            role="tab" aria-controls="jobexperience" aria-selected="false">Experience</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link profilenav" id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="skills" aria-selected="false">Skills</a>
+                        <a class="nav-link profilenav" id="skills-tab" data-toggle="tab" href="#skills" role="tab"
+                            aria-controls="skills" aria-selected="false" onClick="experience()">Skills</a>
                     </li>
                 </ul>
             </div>
@@ -47,7 +51,7 @@
                             <label>Email</label>
                         </div>
                         <div class="col-sm-9 col-md-9">
-                        <p>: {{$userdetails->email}}</p>
+                            <p>: {{$userdetails->email}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -55,14 +59,14 @@
                             <label>Phone</label>
                         </div>
                         <div class="col-sm-9 col-md-9">
-                        <p>: 
-                            @if(!empty($userdetails->contact_no))
-                            $userdetails->contact_no
-                                    @else
-                                    -
-                                    @endif
-                            {{$userdetails->contact_no}}
-                        </p>
+                            <p>:
+                                @if(!empty($userdetails->contact_no))
+                                $userdetails->contact_no
+                                @else
+                                -
+                                @endif
+                                {{$userdetails->contact_no}}
+                            </p>
                         </div>
                     </div>
                     <div class="row">
@@ -70,7 +74,7 @@
                             <label>Email Verification</label>
                         </div>
                         <div class="col-sm-9 col-md-9">
-                            <p>: 
+                            <p>:
                                 @if(!empty($userdetails->email_verified_at))
                                 Verified
                                 @else
@@ -84,7 +88,7 @@
                             <label>Gender</label>
                         </div>
                         <div class="col-sm-9 col-md-9">
-                            <p>: 
+                            <p>:
                                 @if(!empty($userdetails->gender))
                                 $userdetails->gender
                                 @else
@@ -94,97 +98,118 @@
                         </div>
                     </div>
                     <br>
-                    <a href="/userdetails"><button type="button" class="btn tab-edit-btn">Edit User Details <i class="fas fa-edit"></i></button></a>
+                    <a href="/userdetails"><button type="button" class="btn tab-edit-btn">Edit User Details <i
+                                class="fas fa-edit"></i></button></a>
                 </div>
 
                 <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
-                    <br>       
+                    <br>
                     <table class="table">
                         <thead>
                             <tr>
-                            <td scope="col">Qualification Type</td>
-                            <td scope="col">Course Name</td>
-                            <td scope="col">College Name</td>
-                            <td scope="col">Univeristy</td>
-                            <td scope="col">Percentage</td>
-                            <td scope="col">Grade</td>
-                            <td scope="col">Start Date</td>
-                            <td scope="col">End Date</td>
+                                <td scope="col">Qualification Type</td>
+                                <td scope="col">Course Name</td>
+                                <td scope="col">College Name</td>
+                                <td scope="col">Univeristy</td>
+                                <td scope="col">Percentage</td>
+                                <td scope="col">Grade</td>
+                                <td scope="col">Start Date</td>
+                                <td scope="col">End Date</td>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($eduDetails as $ed)
                             <tr>
-                            <td>  @foreach ($qualificationType as $qt)
-                                @if($qt->qualtype_id==$ed->qualtype_id)
+                                <td> @foreach ($qualificationType as $qt)
+                                    @if($qt->qualtype_id==$ed->qualtype_id)
                                     {{$qt->qualification_type}}
-                                @endif
-                                @endforeach
-                            </td>
-                            <td>{{$ed->course_name}}</td>
-                            <td>{{$ed->college_name}}</td>
-                            <td>{{$ed->University}}</td>
-                            <td>{{$ed->percentage}}</td>
-                            <td>{{$ed->grade}}</td>
-                            <td>{{substr($ed->start_date,0,10)}}</td>
-                            <td>{{substr($ed->end_date,0,10)}}</td>
+                                    @endif
+                                    @endforeach
+                                </td>
+                                <td>{{$ed->course_name}}</td>
+                                <td>{{$ed->college_name}}</td>
+                                <td>{{$ed->University}}</td>
+                                <td>{{$ed->percentage}}</td>
+                                <td>{{$ed->grade}}</td>
+                                <td>{{substr($ed->start_date,0,10)}}</td>
+                                <td>{{substr($ed->end_date,0,10)}}</td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
                     <br>
-                    <a href="/qualification"><button type="button" class="btn tab-edit-btn">Edit Education Details <i class="fas fa-edit"></i></button></a>
+                    <a href="/qualification"><button type="button" class="btn tab-edit-btn">Edit Education Details <i
+                                class="fas fa-edit"></i></button></a>
 
                 </div>
-                
+
                 <div class="tab-pane fade" id="jobexperience" role="tabpanel" aria-labelledby="jobexperience-tab">
-                    <br>       
+                    <br>
                     <table class="table">
                         <thead>
                             <tr>
-                            <td scope="col">Profile</td>
-                            <td scope="col">Organisation</td>
-                            <td scope="col">Location</td>
-                            <td scope="col">Description</td>
-                            <td scope="col">Current Job</td>
-                            <td scope="col">Start Date</td>
-                            <td scope="col">End Date</td>
+                                <td scope="col">Profile</td>
+                                <td scope="col">Organisation</td>
+                                <td scope="col">Location</td>
+                                <td scope="col">Description</td>
+                                <td scope="col">Current Job</td>
+                                <td scope="col">Start Date</td>
+                                <td scope="col">End Date</td>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($jobexp as $je)
                             <tr>
-                            <td>{{$je->profile}}</td>
-                            <td>{{$je->organisation}}</td>
-                            <td>{{$je->location}}</td>
-                            <td>{{$je->description}}</td>
-                            <td>{{$je->currentjob}}</td>
-                            <td>{{substr($je->startdate,0,10)}}</td>
-                            <td>{{substr($je->enddate,0,10)}}</td>
+                                <td>{{$je->profile}}</td>
+                                <td>{{$je->organisation}}</td>
+                                <td>{{$je->location}}</td>
+                                <td>{{$je->description}}</td>
+                                <td>{{$je->currentjob}}</td>
+                                <td>{{substr($je->startdate,0,10)}}</td>
+                                <td>{{substr($je->enddate,0,10)}}</td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
                     <br>
-                    <a href="/jobexperience"><button type="button" class="btn tab-edit-btn">Edit Experience <i class="fas fa-edit"></i></button></a>
+                    <a href="/jobexperience"><button type="button" class="btn tab-edit-btn">Edit Experience <i
+                                class="fas fa-edit"></i></button></a>
                 </div>
 
                 <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
                     <br>
                     <div class="row">
-                        <div class="col-md-6">
-                            <label>Skills</label>
-                        </div>
-                        <div class="col-md-6">
-                            <p><?php $i=0; ?>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td scope="col">Sr. No</td>
+                                    <td scope="col">Skill Name</td>
+                                    <td scope="col">Experience Level</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $i=0; ?>
                                 @foreach($skills as $skill)
-                                {{$skill->skill}},
-                                
-                                @endforeach</p>
+                                <?php $i++; ?>
+                                <tr>
+                                    <td><?php echo $i;?>
+                                    </td>
+                                    <td>
+                                        {{$skill->skill_name}}
+                                    </td>
+                                    <td>
+                                        {{$skill->experience_level}}
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <div class=" col-md-6">
                         </div>
                     </div>
                     <br>
-                    <a href="/skills"><button type="button" class="btn tab-edit-btn">Edit Skills <i class="fas fa-edit"></i></button></a>
+                    <a href="/skills"><button type="button" class="btn tab-edit-btn">Edit Skills <i
+                                class="fas fa-edit"></i></button></a>
                 </div>
             </div>
         </div>

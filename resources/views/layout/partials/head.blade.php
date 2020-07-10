@@ -11,23 +11,24 @@
 
 <!-- <script type="text/javascript" src="{{ asset('js/internship.js') }}"></script> -->
 <script>
-    (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-                form.addEventListener('submit', function(event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
+    // (function() {
+    //     'use strict';
+    //     window.addEventListener('load', function() {
+    //         // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    //         var forms = document.getElementsByClassName('needs-validation');
+    //         // Loop over them and prevent submission
+    //         var validation = Array.prototype.filter.call(forms, function(form) {
+    //             form.addEventListener('submit', function(event) {
+    //                 if (form.checkValidity() === false) {
+    //                     event.preventDefault();
+    //                     event.stopPropagation();
+    //                 }
+    //                 form.classList.add('was-validated');
+    //             }, false);
+    //         });
+    //     }, false);
+    // })();
+
     $(document).ready(function() {
         $("#next1").click(function() {
             //if(validateTab1()){
@@ -379,7 +380,8 @@
         var spaceresult2 = spaceregex.test(afd2);
         var spaceresult3 = spaceregex.test(afd3);
         var spaceresult4 = spaceregex.test(afd4);
-        if (afd1 != "" && afd2 != "" && afd3 != "" && afd4 != "" && spaceresult1 == false && spaceresult2 == false &&
+        if (afd1 != "" && afd2 != "" && afd3 != "" && afd4 != "" && spaceresult1 == false && spaceresult2 ==
+            false &&
             spaceresult3 == false && spaceresult4 == false) {
             var regex = /^[a-zA-Z0-9 +,]{2,100}$/;
             var result1 = regex.test(afd1);

@@ -1,46 +1,33 @@
 @extends('profile.profilelayout')
 
 @section('profilecontent')
-
-
 <div class="card">
     <div class="card-body">
-
         <form class="form-inline form-horizontal" method="POST" action="/updateskills">
-            @csrf
-            @if(count($errors))
-            <div class="alert alert-danger">
-                <strong>Whoops!</strong> There were some problems with your input.
-                <br />
-                <ul>
-                    @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
             <fieldset>
                 <legend>Add your Skills </legend>
                 <div class="form-group">
                     <label for="skill1">Skill:</label>
-                    <input type="text" name='skill' required class="form-control" value={{old('skill')}}>
-
+                    <input type="text" name="skill_name" required class="form-control" value={{old('skill_name')}}>
                 </div>
-                
+                <div class="form-group">
+                    <label for="skill1">Experience Level:</label>
+                    <select class="form-control custom-select" id="experience_level" name="experience_level">
+                        <option value="0">Beginner</option>
+                        <option value="1">Intermediate</option>
+                        <option value="2">Professional</option>
+                    </select>
+                </div>
                 @if($process=="internship")
                 <div class="form-group">
                     <input type="hidden" name="process" class="form-control" value="internship" />
                 </div>
-
                 @endif
                 @if($process=="job")
                 <div class="form-group">
                     <input type="hidden" name="process" class="form-control" value="job" />
                 </div>
-
                 @endif
-
-
                 <fieldset class="form-group form-inline">
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
@@ -50,32 +37,48 @@
                         </div>
                     </div>
                 </fieldset>
+                @csrf
+                @if(count($errors))
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.
+                    <br />
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
         </form>
-
     </div>
 </div>
 <div class="card">
     <div class="card-body">
         <table class="table">
+
             <thead>
                 <tr>
                     <th>Sr. No.</th>
-                    <th scope="col">Skills</th>
-                    
-
+                    <th scope="col">Skill Name</th>
+                    <th scope="col">Skill Experience Level</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
+
             <tbody>
                 <?php $i=0; ?>
                 @foreach($skills as $skill)
                 <tr>
-
-                    <?php $i++; ?>
-                    <td><?php echo $i;?>
+                    <td>
+                        <?php $i++; ?>
+                        <?php echo $i;?>
                     </td>
-                    <td>{{$skill->skill}}</td>
-                    
-
+                    <td>
+                        {{$skill->skill_name}}
+                    </td>
+                    <td class="skill_experience_level">
+                        {{$skill->experience_level}}
+                    </td>
                     <td>
                         <form method="POST" action="/deleteskills">
                             @csrf
@@ -84,22 +87,17 @@
                             <div class="form-group">
                                 <input type="hidden" name="process" class="form-control" value="internship" />
                             </div>
-            
                             @endif
                             @if($process=="job")
                             <div class="form-group">
                                 <input type="hidden" name="process" class="form-control" value="job" />
                             </div>
-            
                             @endif
                             <button type="submit" class="btn btn-danger" onclick="">Delete</button>
                         </form>
-
                     </td>
-
                 </tr>
                 @endforeach
-
             </tbody>
         </table>
         @if($process=="internship")

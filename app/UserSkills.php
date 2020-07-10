@@ -21,7 +21,7 @@ class UserSkills extends Model
      *
      * @var array
      */
-    protected $fillable = ['userskills_id', 'skill_name', 'experience_level', 'user_id', 'skill_level_id', 'created_at', 'updated_at'];
+    protected $fillable = ['userskills_id', 'skill_name', 'user_id', 'skill_level_id', 'created_at', 'updated_at'];
 
     /**
      * The attributes excluded from the model's JSON form.

@@ -13,9 +13,9 @@
                 <div class="form-group">
                     <label for="skill1">Experience Level:</label>
                     <select class="form-control custom-select" id="skill_level_id" name="skill_level_id">
-                        <option value="0">Beginner</option>
-                        <option value="1">Intermediate</option>
-                        <option value="2">Professional</option>
+                        @foreach($skillLevel as $sl)
+                        <option value={{$sl->skill_level_id}}>{{$sl->skill_level_name}}</option>
+                        @endforeach
                     </select>
                 </div>
                 @if($process=="internship")

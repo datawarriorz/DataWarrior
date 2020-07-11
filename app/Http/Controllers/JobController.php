@@ -9,7 +9,7 @@ use App\User;
 use App\JobPreferences;
 use App\UserQualification;
 use App\QualificationTypes;
-
+use App\SkillLevel;
 use Auth;
 use Illuminate\Support\Facades\Validator;
 

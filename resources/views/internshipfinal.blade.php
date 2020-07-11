@@ -64,7 +64,7 @@
                 <div class="card-body" style="overflow-x: scroll;">
                     <h4>Highest Qualification</h4>
                     <table class="table text-center">
-                        <tdead>
+                        <thead>
                             <tr>
                                 <td scope="col">Qualification Type</td>
                                 <td scope="col">Course Name</td>
@@ -76,7 +76,7 @@
                                 <td scope="col">End Date</td>
                                 <td scope="col">Action</td>
                             </tr>
-                        </tdead>
+                        </thead>
                         <tbody>
                             @foreach($eduDetails as $ed)
                             <tr>
@@ -117,7 +117,7 @@
                 <div class="card-body" style="overflow-x: scroll;">
                     <h4>Skills</h4>
                     <table class="table text-center">
-                        <tdead>
+                        <thead>
                             <tr>
                                 <td>Sr. No.</td>
                                 <td scope="col">Skill 1</td>
@@ -125,7 +125,7 @@
                                 <td scope="col">Skill 3</td>
                                 <td scope="col">Action</td>
                             </tr>
-                        </tdead>
+                        </thead>
                         <tbody>
                             <?php $i=0; ?>
                             @foreach($skills as $skill)
@@ -159,7 +159,7 @@
                 <div class="card-body" style="overflow-x: scroll;">
                     <h4>Job Experience Details</h4>
                     <table class="table text-center">
-                        <tdead>
+                        <thead>
                             <tr>
                                 <td scope="col">Profile</td>
                                 <td scope="col">Organisation</td>
@@ -170,7 +170,7 @@
                                 <td scope="col">End Date</td>
                                 <td scope="col">Action</td>
                             </tr>
-                        </tdead>
+                        </thead>
                         <tbody>
                             @foreach($jobexp as $je)
                             <tr>

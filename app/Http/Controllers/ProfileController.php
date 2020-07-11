@@ -41,13 +41,15 @@ class ProfileController extends Controller
         $qualificationType=QualificationTypes::all();
         $job=JobPreferences::where('user_id', '=', Auth::user()->user_id)->get();
         $userdetails=User::where('user_id', Auth::user()->user_id)->first();
+        $skillLevel=SkillLevel::all();
         return view('profile.profile', ['skills'=>$skills,
                                 'jobexp'=>$jobexp,
                                 'internship'=>$internship,
                                 'eduDetails' => $eduDetails,
                                 'qualificationType'=>$qualificationType,
                                 'job'=>$job,
-                                'userdetails'=>$userdetails]);
+                                'userdetails'=>$userdetails,
+                                'skillLevel'=>$skillLevel]);
     }
     public function updateUser(Request $request)
     {
@@ -61,7 +63,7 @@ class ProfileController extends Controller
             //     'confirm' => 'required|min:3|max:20|same:password',
             //     'dateofbirth' => 'required',
             // ]);
-        User::where('user_id', Auth::user()->user_id)->update([
+            User::where('user_id', Auth::user()->user_id)->update([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
@@ -188,18 +190,18 @@ class ProfileController extends Controller
     
         //dd($qualification);
 
-    //     $validator=Validator::make($request->all(), [
-    //     'profile' => 'required|min:3',
-    //     'organisation' => 'required|min:3',
-    //     'location' => 'required|min:3',
-    //     'description' => 'required|min:3',
-    //     'enddate' =>'required',
-    //     'startdate' =>'required',
+        //     $validator=Validator::make($request->all(), [
+        //     'profile' => 'required|min:3',
+        //     'organisation' => 'required|min:3',
+        //     'location' => 'required|min:3',
+        //     'description' => 'required|min:3',
+        //     'enddate' =>'required',
+        //     'startdate' =>'required',
         
-    // ], []);
-    //     if ($validator->fails()) { // on validator found any error
-    //         return redirect('/jobexperience')->withErrors($validator)->withInput();
-    //     }
+        // ], []);
+        //     if ($validator->fails()) { // on validator found any error
+        //         return redirect('/jobexperience')->withErrors($validator)->withInput();
+        //     }
     
 
         $jobexp->save();
@@ -239,6 +241,7 @@ class ProfileController extends Controller
     public function skills(Request $request)
     {
         $skills=UserSkills::where('user_id', '=', Auth::user()->user_id)->get();
+        $skillLevel=SkillLevel::all();
         $process="";
         if ($request->process=="internship") {
             $process="internship";
@@ -249,7 +252,7 @@ class ProfileController extends Controller
             return view('profile/skillprofile', ['skills'=>$skills,'process'=>$process]);
         }
 
-        return view('profile/skillprofile', ['skills'=>$skills,'process'=>$process]);
+        return view('profile/skillprofile', ['skills'=>$skills,'process'=>$process,'skillLevel'=>$skillLevel]);
     }
     public function updateSkills(Request $request)
     {

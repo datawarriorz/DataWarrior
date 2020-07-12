@@ -78,7 +78,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="container-items">
                         <h5 class="container-items-header">- Certification -</h5>
-                        <p>"Growth...through continuous learning"<br><a href="/internship">Click here for
+                        <p>"Growth...through continuous learning"<br><a href="/certification">Click here for
                                 details</a></p>
 
                     </div>
@@ -95,8 +95,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="container-items">
                         <h5 class="container-items-header">- Projects -</h5>
-                        <p>"Change the world...one project at a time"<br><a href="/internship">Click here for
-                                details</a></p>
+                        <p>"Change the world...one project at a time"<br><a href="#">Coming Soon</a></p>
                     </div>
                 </div>
             </div>

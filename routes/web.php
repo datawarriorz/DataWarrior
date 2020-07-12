@@ -64,3 +64,7 @@ Route::get('/job', 'JobController@showjob')->middleware('auth');
 Route::post('/jobform', 'JobController@applyJob')->middleware('auth');
 Route::get('/jobform', 'JobController@applyJob')->middleware('auth');
 Route::get('/jobfinal', 'JobController@showjob')->middleware('auth');
+
+
+Route::get('/certification', 'CertificationController@showallcertification')->middleware('auth');
+Route::post('/applycertification', 'CertificationController@applycertification')->middleware('auth');

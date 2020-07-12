@@ -41,7 +41,7 @@ class ProfileController extends Controller
         $qualificationType=QualificationTypes::all();
         $job=JobPreferences::where('user_id', '=', Auth::user()->user_id)->get();
         $userdetails=User::where('user_id', Auth::user()->user_id)->first();
-        $skillevel=SkillLevel::all();
+        $skilllevel=SkillLevel::all();
         return view('profile.profile', ['skills'=>$skills,
                                 'jobexp'=>$jobexp,
                                 'internship'=>$internship,

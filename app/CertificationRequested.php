@@ -21,7 +21,7 @@ class CertificationRequested extends Model
      *
      * @var array
      */
-    protected $fillable = ['cert_req_id', 'title', 'description', 'provider', 'created_at', 'updated_at'];
+    protected $fillable = ['cert_req_id', 'title', 'description', 'provider', 'user_id', 'created_at', 'updated_at'];
 
     /**
      * The attributes excluded from the model's JSON form.

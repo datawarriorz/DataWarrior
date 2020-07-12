@@ -1,12 +1,10 @@
 @extends('layout.mainlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/certificationack.css" />
-<div class="container">
-    <p ><h3> Certifications</h3></p>
-</div>
+<link rel="stylesheet" href="./css/certification.css" />
+
     <div class="container">
-        
+        <p ><h3> Certifications</h3></p>
         <div class="col-xs-12"> 
             <ul class="row list-unstyled certification-list"> 
                 @foreach($certification as $cert)

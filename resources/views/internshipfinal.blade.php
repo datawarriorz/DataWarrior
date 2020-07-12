@@ -213,7 +213,7 @@
             </form> -->
             <div style=" overflow:auto;">
                 <div class="text-center">
-                    <a href="/home"><button type="button">Finish</button></a>
+                    <a href="/internshipack"><button type="button">Finish</button></a>
                 </div>
             </div>
 

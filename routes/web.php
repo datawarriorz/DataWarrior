@@ -58,7 +58,7 @@ Route::post('/deleteskills', 'ProfileController@deleteSkills')->middleware('auth
 Route::get('/internship', 'InternshipController@showinternship')->middleware('auth');
 Route::post('/internshipform', 'InternshipController@applyInternship')->middleware('auth');
 Route::get('/internshipfinal', 'InternshipController@showinternship')->middleware('auth');
-// Route::post('/internshipack', 'InternshipController@showack')->middleware('auth');
+Route::get('/internshipack', 'InternshipController@showack')->middleware('auth');
 
 Route::get('/job', 'JobController@showjob')->middleware('auth');
 Route::post('/jobform', 'JobController@applyJob')->middleware('auth');

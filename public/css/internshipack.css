@@ -1,0 +1,10 @@
+button {
+    background-color: #DA5827;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer;
+    border-radius: 25px;
+}

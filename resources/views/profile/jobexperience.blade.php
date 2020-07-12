@@ -18,7 +18,7 @@
     </ul>
   </div>
   @endif
-
+  <br>
   <div class="card">
     <div class="card-body">
       <legend>Job Experience Details</legend>
@@ -48,7 +48,7 @@
 
       <div class="form-group form-inline">
 
-        <input type="checkbox" name="currentjob" id="currentjob" class="form-control" value="yes"> <label>Currently
+        <input type="checkbox" name="currentjob" id="currentjob" class="form-control" value="yes"> <label> Currently
           working</label>
 
       </div>
@@ -59,30 +59,31 @@
       </div>
       @if($process=="internship")
       <div class="form-group">
-          <input type="hidden" name="process" class="form-control" value="internship" />
+        <input type="hidden" name="process" class="form-control" value="internship" />
       </div>
 
       @endif
       @if($process=="job")
       <div class="form-group">
-          <input type="hidden" name="process" class="form-control" value="job" />
+        <input type="hidden" name="process" class="form-control" value="job" />
       </div>
 
       @endif
-      <fieldset class="form-group form-inline">
-        <div class="form-group row mb-0">
 
-          <button type="submit" class="btn btn-primary">
-            {{ __('Save') }}
-          </button>
+      <div class="form-group col-md-12 md-offset-4">
 
-        </div>
-      </fieldset>
+        <button type="submit" class="btn btn-primary">
+          {{ __('Save') }}
+        </button>
+
+      </div>
+
 </form>
 
 
 </div>
 </div>
+<br>
 
 <div class="card">
   <div class="card-body">
@@ -118,13 +119,13 @@
               <button type="submit" class="btn btn-danger">Delete</button>
               @if($process=="internship")
               <div class="form-group">
-                  <input type="hidden" name="process" class="form-control" value="internship" />
+                <input type="hidden" name="process" class="form-control" value="internship" />
               </div>
 
               @endif
               @if($process=="job")
               <div class="form-group">
-                  <input type="hidden" name="process" class="form-control" value="job" />
+                <input type="hidden" name="process" class="form-control" value="job" />
               </div>
 
               @endif
@@ -143,4 +144,5 @@
     @endif
   </div>
 </div>
+<br>
 @endsection

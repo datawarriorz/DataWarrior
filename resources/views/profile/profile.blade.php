@@ -198,7 +198,7 @@
                                         {{$skill->skill_name}}
                                     </td>
                                     <td>
-                                        @foreach ($skillLevel as $sk)
+                                        @foreach ($skilllevel as $sk)
                                         @if($sk->skill_level_id==$skill->skill_level_id)
                                         {{$sk->skill_level_name}}
                                         @endif

@@ -120,9 +120,8 @@
                         <thead>
                             <tr>
                                 <td>Sr. No.</td>
-                                <td scope="col">Skill 1</td>
-                                <td scope="col">Skill 2</td>
-                                <td scope="col">Skill 3</td>
+                                <td scope="col">Skill Name</td>
+                                <td scope="col">Experience Level</td>
                                 <td scope="col">Action</td>
                             </tr>
                         </thead>
@@ -133,9 +132,14 @@
                                 <?php $i++; ?>
                                 <td><?php echo $i;?>
                                 </td>
-                                <td>{{$skill->skill1}}</td>
-                                <td>{{$skill->skill2}}</td>
-                                <td>{{$skill->skill3}}</td>
+                                <td>{{$skill->skill_name}}</td>
+                                <td>
+                                    @foreach ($skilllevel as $sk)
+                                    @if($sk->skill_level_id==$skill->skill_level_id)
+                                    {{$sk->skill_level_name}}
+                                    @endif
+                                    @endforeach
+                                </td>
                                 <td>
                                     <form metdod="POST" action="/deleteskills">
                                         @csrf
@@ -199,6 +203,20 @@
                     </form>
                 </div>
             </div>
+            <br>
+            <!-- <form class="" method="POST" action="/internship">
+                <div style=" overflow:auto;">
+                    <div class="text-center">
+                        <button id="next1" type="button">Finish</button>
+                    </div>
+                </div>
+            </form> -->
+            <div style=" overflow:auto;">
+                <div class="text-center">
+                    <a href="/home"><button type="button">Finish</button></a>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

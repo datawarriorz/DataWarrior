@@ -74,11 +74,9 @@
                         <button type="submit" class="btn btn-primary">
                             Register
                         </button>
+                    </form>
                 </div>
             </div>
-            </fieldset>
-            </form>
-
         </div>
     </div>
 </div>

@@ -20,35 +20,37 @@ class JobController extends Controller
     {
         $this->middleware('auth')->except('logout');
     }
-     public function showjob(){
-      
+    public function showjob()
+    {
+        $job=JobPreferences::where('user_id', '=', Auth::user()->user_id)->get();
         
-        $job=JobPreferences::where('user_id','=',Auth::user()->user_id)->get();
-        
-        if(count($job)!=0){
-            $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
-            $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
+        if (count($job)!=0) {
+            $jobexp=Jobexperience::where('user_id', '=', Auth::user()->user_id)->get();
+            $skills=UserSkills::where('user_id', '=', Auth::user()->user_id)->get();
             $skilllevel=SkillLevel::all();
-            $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
-                $qualificationType=QualificationTypes::all();
-            return view('jobfinal',['skills'=>$skills,'jobexp'=>$jobexp,'job'=>$job,'eduDetails' => $eduDetails,'qualificationType'=>$qualificationType,'skilllevel'=>$skilllevel]);
-
-        }
-        $jobexp=Jobexperience::where('user_id','=',Auth::user()->user_id)->get();
-        $skills=UserSkills::where('user_id','=',Auth::user()->user_id)->get();
-        $skilllevel=SkillLevel::all();
-        $eduDetails=UserQualification::where('user_id','=',Auth::user()->user_id)->get();
+            $eduDetails=UserQualification::where('user_id', '=', Auth::user()->user_id)->get();
             $qualificationType=QualificationTypes::all();
-       return view('job',['skills'=>$skills,'jobexp'=>$jobexp,'job'=>$job,'eduDetails' => $eduDetails,'qualificationType'=>$qualificationType,'skilllevel'=>$skilllevel]);
-       
-       
+            return view('jobfinal', ['skills'=>$skills,
+                        'jobexp'=>$jobexp,'job'=>$job,
+                        'eduDetails' => $eduDetails,
+                        'qualificationType'=>$qualificationType,
+                        'skilllevel'=>$skilllevel]);
+        }
+        $jobexp=Jobexperience::where('user_id', '=', Auth::user()->user_id)->get();
+        $skills=UserSkills::where('user_id', '=', Auth::user()->user_id)->get();
+        $skilllevel=SkillLevel::all();
+        $eduDetails=UserQualification::where('user_id', '=', Auth::user()->user_id)->get();
+        $qualificationType=QualificationTypes::all();
+        return view('job', ['skills'=>$skills,
+                    'jobexp'=>$jobexp,'job'=>$job,
+                    'eduDetails' => $eduDetails,
+                    'qualificationType'=>$qualificationType,
+                    'skilllevel'=>$skilllevel]);
     }
 
 
-    public function applyJob(Request $request){
-    
-
-      
+    public function applyJob(Request $request)
+    {
         $job =new JobPreferences();
         $job->user_id=Auth::user()->user_id;
         $job->preferreddomain1=$request->preferreddomain1;
@@ -56,20 +58,15 @@ class JobController extends Controller
         $job->preferreddomain3=$request->preferreddomain3;
         $job->salary=$request->salary;
         $job->joblocation=$request->joblocation;
-        if($request->counselling==NULL){
+        if ($request->counselling==null) {
             $job->counselling="No";
-        }
-        else{
-        $job->counselling=$request->counselling;
-
+        } else {
+            $job->counselling=$request->counselling;
         }
        
         $job->save();
        
 
         return redirect('/jobfinal');
-      
     }
-   
-    
 }

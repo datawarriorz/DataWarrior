@@ -117,9 +117,8 @@
                             <thead>
                                 <tr>
                                     <th>Sr. No.</th>
-                                    <th scope="col">Skill 1</th>
-                                    <th scope="col">Skill 2</th>
-                                    <th scope="col">Skill 3</th>
+                                    <th scope="col">Skill Name</th>
+                                    <th scope="col">Experience Level</th>
                                     <th scope="col" colspan="2">Action</th>
                                 </tr>
                             </thead>
@@ -130,9 +129,13 @@
                                     <?php $i++; ?>
                                     <td><?php echo $i;?>
                                     </td>
-                                    <td>{{$skill->skill1}}</td>
-                                    <td>{{$skill->skill2}}</td>
-                                    <td>{{$skill->skill3}}</td>
+                                    <td>{{$skill->skill_name}}</td>
+                                    <td>@foreach ($skilllevel as $sk)
+                                        @if($sk->skill_level_id==$skill->skill_level_id)
+                                        {{$sk->skill_level_name}}
+                                        @endif
+                                        @endforeach
+                                    </td>
 
                                     {{-- <td>
                                         <form method="POST" action="/deleteskills">

@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="./css/internship.css">
 <!-- <div class="internship-container">
 
-    </div> -->
+</div> -->
 <div class="internship-container">
     <div id="regForm">
         <form class="" method="POST" action="/internshipform">

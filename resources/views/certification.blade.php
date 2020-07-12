@@ -11,8 +11,7 @@
             <ul class="row list-unstyled certification-list"> 
                 @foreach($certification as $cert)
                 <li class="col-sm-6"> 
-                    <div class="widget-top">
-                    </div> 
+                    
                     <h3> 
                         {{$cert->title}}
                     </h3> 
@@ -21,28 +20,54 @@
                     </h5>
                     <p>
                         {{$cert->description}}
-                    </p> 
+                    </p>
+                    <?php $i=1;
+                    ?>
                     @foreach($certificationapplied as $ca)
+                        @if($cert->cert_id==$i)
                         @if($ca->cert_id==$cert->cert_id)
                             You have already applied for this certification
-                        @endif
+                            @break
                          
-                    @endforeach
-                    @foreach($certificationapplied as $ca)
-
-                    @if($ca->cert_id!=$cert->cert_id)
+                    
+                        @else
+                        
+                   
                             <form method="POST" action="/applycertification">
                                 @csrf
                             <input type="hidden" name="cert_id" value={{$cert->cert_id}} />
                             <button type="submit" class="btn tab-edit-btn">Apply For Certification 
                             <i class="fas fa-edit"></i></button>
                             </form>
-                    @endif
+                            @break
+                        @endif 
+                        @endif
+
                          @endforeach
+
+                        
+
+                         
                 </li>
+                <?php 
+               $i++; ?>
                 @endforeach
                          </ul>
-        </div>            
+        </div>   
+        @foreach($certification as $cert)
+        @foreach($certificationapplied as $ca) 
+        @if($cert->cert_id==$ca->cert_id)
+            applied
+           certid {{$ca->cert_id}}
+        @else
+            @if($ca->cert_id==$cert->cert_id)
+            button
+            @endif    
+        @endif    
+
+        @endforeach
+        @endforeach
     </div>
+
 
 @endsection

@@ -23,18 +23,22 @@
                         {{$cert->description}}
                     </p> 
                     @foreach($certificationapplied as $ca)
-                    @if($ca->cert_id==$cert->cert_id)
-                        You have already applied for this certification
-                    @endif
-                    @if($ca->cert_id!=$cert->cert_id)
-                    <form method="POST" action="/applycertification">
-                        @csrf
-                        <input type="hidden" name="cert_id" value={{$cert->cert_id}} />
-                    <button type="submit" class="btn tab-edit-btn">Apply For Certification 
-                        <i class="fas fa-edit"></i></button>
-                    </form>
-                    @endif
+                        @if($ca->cert_id==$cert->cert_id)
+                            You have already applied for this certification
+                        @endif
+                         
                     @endforeach
+                    @foreach($certificationapplied as $ca)
+
+                    @if($ca->cert_id!=$cert->cert_id)
+                            <form method="POST" action="/applycertification">
+                                @csrf
+                            <input type="hidden" name="cert_id" value={{$cert->cert_id}} />
+                            <button type="submit" class="btn tab-edit-btn">Apply For Certification 
+                            <i class="fas fa-edit"></i></button>
+                            </form>
+                    @endif
+                         @endforeach
                 </li>
                 @endforeach
                          </ul>

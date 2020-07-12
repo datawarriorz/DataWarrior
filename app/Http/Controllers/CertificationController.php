@@ -20,7 +20,7 @@ class CertificationController extends Controller
 
     public function showallcertification(){
         $certification=Certification::all();
-        $certificationapplied=CertificationApplied::where('user_id','=', Auth::user()->user_id)->get();
+        $certificationapplied=CertificationApplied::where('user_id', Auth::user()->user_id)->get();
         return view('certification', ['certification'=>$certification,'certificationapplied'=>$certificationapplied]);
 
 
@@ -37,7 +37,7 @@ class CertificationController extends Controller
         $certificationapplied->save();
         $certification=Certification::where('cert_id',$request->cert_id)->get();
 
-        return view('certificationack', ['certification'=>$certification]);
+        return view('certificationack', ['certification'=>$certification,]);
 
     }
 }

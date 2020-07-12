@@ -30,15 +30,15 @@
                     <form method="POST" action="/applycertification">
                         @csrf
                         <input type="hidden" name="cert_id" value={{$cert->cert_id}} />
-                    <button type="submit" class="btn tab-edit-btn">Apply For Certification <i
-                        class="fas fa-edit"></i></button>
+                    <button type="submit" class="btn tab-edit-btn">Apply For Certification 
+                        <i class="fas fa-edit"></i></button>
                     </form>
                     @endif
                     @endforeach
                 </li>
                 @endforeach
                          </ul>
-            </div>            
+        </div>            
     </div>
 
 @endsection

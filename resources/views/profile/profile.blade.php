@@ -61,11 +61,10 @@
                         <div class="col-sm-9 col-md-9">
                             <p>:
                                 @if(!empty($userdetails->contact_no))
-                                $userdetails->contact_no
+                                {{$userdetails->contact_no}}
                                 @else
                                 -
                                 @endif
-                                {{$userdetails->contact_no}}
                             </p>
                         </div>
                     </div>
@@ -90,7 +89,7 @@
                         <div class="col-sm-9 col-md-9">
                             <p>:
                                 @if(!empty($userdetails->gender))
-                                $userdetails->gender
+                                {{$userdetails->gender}}
                                 @else
                                 -
                                 @endif

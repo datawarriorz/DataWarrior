@@ -37,7 +37,7 @@ Route::get('/userdetails', 'ProfileController@userDetails')->middleware('auth');
 Route::post('/userdetails', 'ProfileController@userDetails')->middleware('auth');
 
 
-Route::post('/updateuserdetials', 'ProfileController@updateUser')->middleware('auth');
+Route::post('/updateuserdetails', 'ProfileController@updateUser')->middleware('auth');
 
 
 Route::get('/qualification', 'ProfileController@qualificationDetails')->middleware('auth');

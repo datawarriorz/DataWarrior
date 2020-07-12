@@ -53,28 +53,26 @@ class ProfileController extends Controller
     }
     public function updateUser(Request $request)
     {
-        try {
+        
             // Validator::make($request->all(), [
-            //     'firstname' => 'required|min:3|max:35',
-            //     'lastname' => 'required|min:3|max:35',
-            //     'email' => 'required|email|unique:users',
-            //     'contact_no' => 'required|numeric|unique:users',
-            //     'password' => 'required|min:3|max:20',
-            //     'confirm' => 'required|min:3|max:20|same:password',
-            //     'dateofbirth' => 'required',
-            // ]);
-            User::where('user_id', Auth::user()->user_id)->update([
+        //     'firstname' => 'required|min:3|max:35',
+        //     'lastname' => 'required|min:3|max:35',
+        //     'email' => 'required|email|unique:users',
+        //     'contact_no' => 'required|numeric|unique:users',
+        //     'password' => 'required|min:3|max:20',
+        //     'confirm' => 'required|min:3|max:20|same:password',
+        //     'dateofbirth' => 'required',
+        // ]);
+        User::where('user_id', Auth::user()->user_id)->update([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
             'contact_no' => $request->contact_no,
             'date_of_birth' => $request->date_of_birth,
-            'gender' => $request->gender,
-        ]);
-            return Redirect::back()->with(['message' => 'Records Updated','user' => Auth::user()]);
-        } catch (Exception $e) {
-            return view('profile/mainProfile', ['message' => 'Something went wrong','user' => Auth::user()]);
-        }
+            'gender' => $request->gender
+            ]);
+       
+        return redirect('/viewprofile');
     }
     public function qualificationDetails(Request $request)
     {

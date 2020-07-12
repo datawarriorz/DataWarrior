@@ -1,11 +1,12 @@
 @extends('profile.profilelayout')
 
 @section('profilecontent')
-
-
-<link rel="stylesheet" href="./css/internship.css">
+<link rel="stylesheet" href="./css/qualification.css">
 <br>
 <div class="card">
+    <div class="card-header text-center">
+        <h4>Add your Qualifications</h4>
+    </div>
     <div class="card-body">
 
         <form class="form-inline form-horizontal" method="POST" action="/updateQualification">
@@ -22,76 +23,88 @@
             </div>
             @endif
             <fieldset>
-                <legend>Add new Qualification </legend>
-                <div class="form-group">
-                    <label for="qualificationtype">Qualification Type</label>
-                    <select class="form-control" id="qualificationtype" name="qualificationtype">
-                        @foreach ($qualificationType as $qt)
-                        <option value={{$qt->qualtype_id}}>{{ $qt->qualification_type }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="course_name">Course Name</label>
-                    <input type="text" name='course_name' required class="form-control" value={{old('course_name')}}>
-
-                </div>
-                <div class="form-group">
-                    <label for="college_name">College/Institute Name</label>
-                    <input type="text" name='college_name' required class="form-control" value={{old('college_name')}}>
-
-                </div>
-
-                <div class="form-group">
-                    <label for="college_name">Univeristy</label>
-                    <input type="text" name='university' class="form-control" value={{old('university')}}>
-
-                </div>
-                <div class="form-group">
-                    <label for="Percentage">Percentage</label>
-                    <input type="text" name='percentage' class="form-control" value={{old('percentage')}}>
-
-                </div>
-                <div class="form-group">
-                    <label for="grade">Grade</label>
-                    <input type="text" name='grade' class="form-control" value={{old('grade')}}>
-
-                </div>
-                <div class="form-group">
-                    <label for="start_date">Start Date</label>
-
-                    <input type="date" name="start_date" required class="form-control" value={{old('start_date')}}>
-                </div>
-
-                <div class="form-group">
-                    <label for="end_date">End Date</label>
-                    <input type="date" name="end_date" required class="form-control" value={{old('end_date')}}>
-
-                </div>
-                @if($process=="internship")
-                <div class="form-group">
-                    <input type="hidden" name="process" class="form-control" value="internship" />
-                </div>
-
-                @endif
-                @if($process=="job")
-                <div class="form-group">
-                    <input type="hidden" name="process" class="form-control" value="job" />
-                </div>
-
-                @endif
-
-                <fieldset class="form-group form-inline">
-                    <div class="form-group row mb-0">
-                        <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-primary">
-                                Save
-                            </button>
+                <div class="form-group col-md-12">
+                    <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
+                            <label for="qualificationtype">Qualification Type :</label>
+                            <select class="form-control custom-select col-md-12" id="qualificationtype"
+                                name="qualificationtype">
+                                @foreach ($qualificationType as $qt)
+                                <option value={{$qt->qualtype_id}}>{{ $qt->qualification_type }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <br>
+                        <div class="form-group col-md-12">
+                            <label for="course_name">Course Name :</label>
+                            <input type="text" name='course_name' required class="form-control col-md-12"
+                                placeholder="Eg. Bachelors in Computer Science" autocomplete="on"
+                                value={{old('course_name')}}>
+                        </div>
+                        <br>
+                        <div class="form-group col-md-12">
+                            <label for="college_name">College/Institute Name :</label>
+                            <input type="text" name='college_name' required class="form-control col-md-12"
+                                placeholder="Eg. Wilson College" autocomplete="on" value={{old('college_name')}}>
+                        </div>
+                        <br>
+                        <div class="form-group col-md-12">
+                            <label for="college_name">Univeristy :</label>
+                            <input type="text" name='university' class="form-control col-md-12"
+                                placeholder="Eg. Mumbai University" autocomplete="on" value={{old('university')}}>
                         </div>
                     </div>
-                </fieldset>
-        </form>
+                    <br>
+                    <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
+                            <label for="Percentage">Percentage :</label>
+                            <input type="text" name='percentage' class="form-control col-md-12" placeholder="Eg. 70.08"
+                                autocomplete="on" value={{old('percentage')}}>
+                        </div>
+                        <br>
+                        <div class="form-group col-md-12">
+                            <label for="grade">Grade :</label>
+                            <input type="text" name='grade' class="form-control col-md-12" placeholder="Eg. A"
+                                autocomplete="on" value={{old('grade')}}>
+                        </div>
+                        <br>
+                        <div class="form-group col-md-12">
+                            <label for="start_date">Start Date :</label>
+                            <input type="text" placeholder="Click here to Select Date." name="start_date"
+                                autocomplete="on" onfocus="(this.type='date')" required class="form-control col-md-12"
+                                value={{old('start_date')}}>
+                        </div>
+                        <br>
+                        <div class="form-group col-md-12">
+                            <label for="end_date">End Date :</label>
+                            <input type="text" placeholder="Click here to Select Date." name="end_date"
+                                autocomplete="on" onfocus="(this.type='date')" required class="form-control col-md-12"
+                                value={{old('end_date')}}>
+                        </div>
+                    </div>
+                    @if($process=="internship")
+                    <div class="form-group col-md-12">
+                        <input type="hidden" name="process" class="form-control" value="internship" />
+                    </div>
+                    @endif
+                    @if($process=="job")
+                    <div class="form-group col-md-12">
+                        <input type="hidden" name="process" class="form-control" value="job" />
+                    </div>
+                    @endif
+                    <br>
 
+                </div>
+                <br>
+                <div class="form-group col-md-12">
+                    <div class="col-md-12 text-center">
+
+                        <button type="submit" class="btn qualification_btn">
+                            Save <i class="far fa-save"></i>
+                        </button>
+                    </div>
+                </div>
+        </form>
     </div>
 </div>
 <br>
@@ -155,13 +168,12 @@
             </tbody>
         </table>
         @if($process=="internship")
-        <a href="/internshipfinal" class="btn btn-primary">View Internship form</a>
+        <a href="/internshipfinal" class="btn qualification_btn">View Internship form</a>
         @endif
         @if($process=="job")
-        <a href="/jobfinal" class="btn btn-primary">View Job Application form</a>
+        <a href="/jobfinal" class="btn qualification_btn">View Job Application form</a>
         @endif
     </div>
 </div>
 <br>
-
 @endsection

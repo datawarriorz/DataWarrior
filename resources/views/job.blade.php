@@ -3,7 +3,6 @@
 @section('content')
 
 <link rel="stylesheet" href="./css/job.css">
-<hr class="thick">
 <!-- <div class="internship-container">
 
     </div> -->

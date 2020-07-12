@@ -5,45 +5,57 @@
 <div class="job-container">
     <div id="InternFinalForm">
         <div>
-            <!-- <div class="card">
-                <div class="card-body"> -->
             <h4 class="text-center" style="margin-bottom:1.5rem;margin-top: -21px;">Job Application Details</h4>
             @csrf
             <div class="card">
-                <div class="card-body" style="overflow-x: scroll;">
+                <div class="card-body">
                     <h4>Job Preferences</h4>
-                    <table class="table  text-center">
-                        <thead>
-                            <tr>
-                                <th scope="col">1st Preferred Domain</th>
-                                <th scope="col">2nd Preferred Domain</th>
-                                <th scope="col">3rd Preferred Domain</th>
-                                <th scope="col">Salary</th>
-                                <th scope="col">Location</th>
-                                <th scope="col">Career Counsel</th>
-                                <th scope="col" colspan="2">Action</th>
-                            </tr>
-                        </thead>
+                    <table class="table">
                         <tbody>
                             @foreach($job as $in)
                             <tr>
+                                <td scope="col">1st Preferred Domain</td>
+                                <td>:</td>
                                 <td>{{$in->preferreddomain1}}</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">2nd Preferred Domain</td>
+                                <td>:</td>
                                 <td>{{$in->preferreddomain2}}</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">3rd Preferred Domain</td>
+                                <td>:</td>
                                 <td>{{$in->preferreddomain3}}</td>
-                                <td>{{$in->salary}}</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">Salary</td>
+                                <td>:</td>
+                                <td>{{$in->salary}} /-</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">Location</td>
+                                <td>:</td>
                                 <td>{{$in->joblocation}}</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">Career Counsel</td>
+                                <td>:</td>
                                 <td>{{$in->counselling}}</td>
-                                <td>
-                                    <form method="POST" action="#">
-                                        @csrf
-                                        <input type="hidden" name="#" value="#" />
-                                        <button type="submit" class="btn-danger" onclick="">Delete</button>
-                                    </form>
-                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col"></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    <form class="text-center" method="POST" action="#">
+                        @csrf
+                        <input type="hidden" name="#" value="#" />
+                        <button type="submit" class="btn-danger" onclick="">Delete</button>
+                    </form>
                 </div>
             </div>
             <br>
@@ -100,6 +112,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <br>
                         <form class="text-center" method="POST" action="/qualification">
                             @csrf
                             <input type="hidden" name="process" value="job" />
@@ -156,6 +169,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <br>
                         <form class="text-center" method="POST" action="/skills">
                             @csrf
                             <input type="hidden" name="process" value="job" />
@@ -203,14 +217,19 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <br>
                         <form class="text-center" method="POST" action="/jobexperience">
                             @csrf
                             <input type="hidden" name="process" value="job" />
                             <button type="submit" class="btn-success" onclick="">Add</button>
                         </form>
                     </div>
-                    <!-- </div>
-            </div> -->
+                </div>
+            </div>
+            <br>
+            <div style=" overflow:auto;">
+                <div class="text-center">
+                    <a href="/joback"><button type="button">Finish</button></a>
                 </div>
             </div>
         </div>

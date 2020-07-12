@@ -1,6 +1,7 @@
 @extends('profile.profilelayout')
 
 @section('profilecontent')
+<link rel="stylesheet" href="./css/skill.css">
 <br>
 <div class="container">
     <div class="row justify-content-center">
@@ -13,15 +14,15 @@
                     <br>
                     <form class="form-inline form-horizontal" method="POST" action="/updateskills">
                         <div class="form-group col-md-6">
-                            <label for="skill1">Skill Name</label>
+                            <label for="skill1">Skill Name :</label>
                             <br>
                             <input type="text" name="skill_name" required class="form-control col-md-12"
-                                value={{old('skill_name')}}>
+                                placeholder="Eg. Java" value={{old('skill_name')}}>
                         </div>
                         <br>
                         <br>
                         <div class="form-group col-md-4">
-                            <label for="skill1">Experience </label>
+                            <label for="skill1">Experience :</label>
                             <br>
                             <select class="form-control custom-select col-md-12" id="skill_level_id"
                                 name="skill_level_id">
@@ -33,8 +34,8 @@
                         <div class="form-group col-md-2">
                             <div class="col-md-12">
                                 <label for="skill1"></label>
-                                <button type="submit" class="btn btn-primary">
-                                    Save
+                                <button type="submit" class="btn skill_btn">
+                                    Save <i class="far fa-save"></i>
                                 </button>
                             </div>
                         </div>
@@ -120,10 +121,10 @@
                         </tbody>
                     </table>
                     @if($process=="internship")
-                    <a href="/internshipfinal" class="btn btn-primary">View Internship form</a>
+                    <a href="/internshipfinal" class="btn skill_btn">View Internship form</a>
                     @endif
                     @if($process=="job")
-                    <a href="/jobfinal" class="btn btn-primary">View Job Application form</a>
+                    <a href="/jobfinal" class="btn skill_btn">View Job Application form</a>
                     @endif
                 </div>
             </div>

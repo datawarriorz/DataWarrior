@@ -69,4 +69,9 @@ class JobController extends Controller
 
         return redirect('/jobfinal');
     }
+    
+    public function showack()
+    {
+        return view('/joback');
+    }
 }

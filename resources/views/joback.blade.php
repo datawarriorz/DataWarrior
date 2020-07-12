@@ -16,12 +16,12 @@
                     <br>
                     <h3>Great everything looks good! </h3>
                     <br>
-                    <h3>You have successfully applied for Internship</h3>
+                    <h3>You have successfully applied for Job</h3>
                     <br>
                     <h3>We will revert back to you on your registered Email ID.</h3>
                     <br>
                     <div style=" overflow:auto;">
-                        <a href="/internshipfinal">
+                        <a href="/jobfinal">
                             <div style="float:left;">
                                 <button type="button"><i class="fal fa-arrow-alt-left"></i>Back</button>
                             </div>

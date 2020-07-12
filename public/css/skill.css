@@ -1,7 +1,12 @@
-.job_btn {
+.skill_btn {
     color: #fff;
     background-color: #171f2a;
     border-color: #171f2a;
+    margin-top: 21px;
+}
+
+.skill_btn:hover {
+    color: #DA5827;
 }
 
 .btn-danger {

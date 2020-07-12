@@ -84,7 +84,6 @@
                         <h5 class="container-items-header">- Certification -</h5>
                         <p>"Growth...through continuous learning"<br><a href="/certification">Click here for
                                 details</a></p>
-
                     </div>
                 </div>
             </div>

@@ -36,6 +36,34 @@
     }
 }
 
+.carousel-indicators li {
+    background-color: #212529;
+}
+
+.carousel-indicators .active {
+    background-color: #da5827;
+}
+
+.fa-arrow-circle-right {
+    font-size: 35px;
+    color: #171f2a;
+    opacity: 1;
+}
+
+.fa-arrow-circle-right:hover {
+    color: #171f2a;
+}
+
+.fa-arrow-circle-left {
+    font-size: 35px;
+    color: #171f2a;
+    opacity: 1;
+}
+
+.fa-arrow-circle-left:hover {
+    color: #171f2a;
+}
+
 .search-container {
     height: 73px;
     padding: 30px;

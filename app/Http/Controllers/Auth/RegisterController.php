@@ -57,13 +57,12 @@ class RegisterController extends Controller
             'contact_no' => 'required|numeric|unique:users',
             'password' => 'required|min:3|max:20',
             'confirm' => 'required|min:3|max:20|same:password',
-            'dateofbirth' => 'required',
+            
         ]);
-        if ($validator->fails()) // on validator found any error 
-      {
-        // pass validator object in withErrors method & also withInput it should be null by default
-         return redirect('/register')->withErrors($validator)->withInput();
-      }
+        if ($validator->fails()) { // on validator found any error
+            // pass validator object in withErrors method & also withInput it should be null by default
+            return redirect('/register')->withErrors($validator)->withInput();
+        }
     }
 
     /**
@@ -83,6 +82,5 @@ class RegisterController extends Controller
             'date_of_birth' => $data['dateofbirth'],
 
         ]);
-        
     }
 }

@@ -1,3 +1,8 @@
+.carousel-container {
+    height: auto;
+    width: 64%;
+    align-items: center;
+}
 .carousel-inner {
     height: 100%;
     width: auto;
@@ -17,12 +22,6 @@
     .carousel-caption {
         display: none;
     }
-}
-
-.carousel-container {
-    height: auto;
-    width: 60%;
-    align-items: center;
 }
 
 @media screen and (max-width: 800px) {
@@ -142,10 +141,9 @@
     font-size: 25px;
 }
 
-.contact-table td,
-.contact-table th {
+.contact-table td {
     border: none;
-    font-size: 20px;
+    padding:0px;
 }
 
 .contact-table .btn2 {

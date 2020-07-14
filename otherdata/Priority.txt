@@ -1,0 +1,23 @@
+v 0.1 deployed
+
+v 0.1.1 (fixes + improvements)
+	priority
+		fixes
+			registration module
+			email verification
+			reset password
+			removal of white patch in xs
+			(graphic designer)-change of 2nd carousel image 
+							  -theme consistency accross all images
+							  -white background in images
+			certification bug - loop 
+			certificaton request backend
+			reset/forgot password page
+			contact us page / form+backend 
+		changes
+		
+		additions
+			
+							  
+							  
+		

@@ -1,33 +1,40 @@
+*to be made
+#progress
+$done
+@buggy
 
 Before Login
-	#Home(individual images of services with desc - rewamp)
+	#Home(individual images of services with desc - rewamp-itertion 1)
 		$Login
-		$Register
+		#@Register
 After Login
-	Dashboard
+	Dashboard*
 		Summary/links for services and resume
 		Application Status
 		Projects Applied Summary
 		Projects Posted	Summary
 		Applied/On-Going Certifications
-		Blog/Articles Summary*
+		Blog/Articles Summary
 	Services
-		Internship 
-		Job
-		Project
-		Certifications
-			maincertpage
+		$Internship 
+		$Job
+		Project*
+		#Certifications
+			#@main-certpage
+			details-certpage*
+			#ack-certpage
 		Blog/Articles*
 	Profile
 		Profile Summary
 			$Personal Details
-				PD Edit
-			Qualification
-				Edit 
-			Experience
-				Edit
-			Skills
-				Edit
+				$PD Edit
+					@reset-password
+			$Qualification
+				$Edit 
+			$Experience
+				$Edit
+			$Skills
+				$Edit
 
 	TODO
 		$clean code

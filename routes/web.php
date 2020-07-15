@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
 Route::get('/verifymail', function () {
     return view('auth.verify');
 });
@@ -23,24 +24,20 @@ Route::get('/verifymail', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/contactusreq', 'HomeController@contactusreq');
 Route::get('test', 'HomeController@test')->name('test');
 
+Route::post('/contactusreq', 'HomeController@contactusreq');
 
 Route::get('login/google', 'Auth\LoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('/dashboard', 'DashboardController@showDashboard')->middleware('auth');
 
-
 Route::get('/viewprofile', 'ProfileController@viewProfile')->middleware('auth');
 
 Route::get('/userdetails', 'ProfileController@userDetails')->middleware('auth');
 Route::post('/userdetails', 'ProfileController@userDetails')->middleware('auth');
-
-
 Route::post('/updateuserdetails', 'ProfileController@updateUser')->middleware('auth');
-
 
 Route::get('/qualification', 'ProfileController@qualificationDetails')->middleware('auth');
 Route::post('/qualification', 'ProfileController@qualificationDetails')->middleware('auth');
@@ -70,5 +67,4 @@ Route::get('/joback', 'JobController@showack')->middleware('auth');
 
 Route::get('/certification', 'CertificationController@showallcertification')->middleware('auth');
 Route::post('/applycertification', 'CertificationController@applycertification')->middleware('auth');
-
 Route::post('/requestcertification', 'CertificationController@requestcertification')->middleware('auth');

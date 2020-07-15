@@ -6,14 +6,15 @@ v 0.1.1 (fixes + improvements)
 			registration module
 			email verification
 			reset password- locally fixed
-			removal of white patch in xs
+			$removal of white patch in xs
 			(graphic designer)-change of 2nd carousel image 
 							  -theme consistency accross all images
 							  -white background in images
 			certification bug - loop 
 			certificaton request backend-done
-			reset/forgot password page
+			$reset/forgot password page
 			contact us page / form+backend - done
+			
 		changes
 		
 		additions

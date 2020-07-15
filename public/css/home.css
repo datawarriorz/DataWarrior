@@ -67,6 +67,7 @@
 .search-container {
     height: 73px;
     padding: 30px;
+    margin-bottom: 24px;
 }
 
 .search-container .btn1 {
@@ -115,25 +116,15 @@
     font-family: nyala;
 }
 
-.thick {
-    border: 0;
-    height: 4px;
-    background-image: linear-gradient(90deg, #ff8a00, #e52e71);
-    border-radius: 5px;
-    width: 83%;
-    margin-top: 0rem;
-}
-
 .content1 {
-    padding: 20px;
-    padding-top: 0px;
+    padding: 0px;
 }
 
 .container-items {
     border: 2px solid #9ca27e;
     border-radius: 17px;
     padding: 18px;
-    margin-bottom: 55px;
+    margin-bottom: 38px;
     max-height: 137px;
 }
 
@@ -144,12 +135,12 @@
 
 .contact-table td {
     border: none;
-    padding: 0px;
+    padding-left: 4px;
 }
 
 .contact-table .btn2 {
     color: white;
-    background: #555551;
+    background: #19202b;
     font-size: 17px;
     cursor: pointer;
 }

@@ -24,7 +24,7 @@
     display: block;
     height: 44px;
     width: 105px;
-    margin-left: 20px;
+    margin-left: 120px;
     margin-top: 5px;
 }
 
@@ -47,6 +47,14 @@
     line-height: 0;
 }
 
+.nav-item-left {
+    margin-right: 15px;
+}
+
+.nav-item-right {
+    margin-right: 15px;
+}
+
 
 /*Before Login*/
 
@@ -56,6 +64,18 @@
     border: 2px solid white;
     border-radius: 25px;
     font-size: 17px;
+}
+
+@media (max-width: 600px) {
+    .navbtn {
+        margin-top: 7px;
+    }
+}
+
+@media (max-width: 990px) {
+    .navbtn {
+        margin-top: 7px;
+    }
 }
 
 .navbtn:hover {
@@ -69,12 +89,27 @@
 .nav-link-right {
     color: #171f2a;
     background-color: #171f2a;
-    margin-left: 10px;
+    margin-left: -11px;
     padding: 0px;
+    margin-right: 8px;
+}
+
+@media (max-width: 600px) {
+    .nav-link-right {
+        margin-left: 0px;
+        margin-right: 80px;
+    }
+}
+
+@media (max-width: 990px) {
+    .nav-link-right {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
 }
 
 .nav-right {
-    margin: 11px;
+    margin-right: 94px;
 }
 
 

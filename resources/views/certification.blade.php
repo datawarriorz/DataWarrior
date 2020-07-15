@@ -28,8 +28,7 @@
                         <p>
                             {{$cert->description}}
                         </p>
-                        <?php $i=1;
-                    ?>
+                        <?php $i=1; ?>
                         @foreach($certificationapplied as $ca)
                         @if($cert->cert_id==$i)
                         @if($ca->cert_id==$cert->cert_id)
@@ -44,7 +43,6 @@
                                 <i class="fas fa-edit"></i></button>
                             <br>
                         </form>
-
                         @break
                         @endif
                         @endif

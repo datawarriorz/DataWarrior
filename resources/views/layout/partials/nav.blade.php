@@ -11,22 +11,22 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+                <li class="nav-item-left">
                     <a class="nav-link" href="/home">
                         <p class="nav-link-header"><i class="fas fa-home"></i> Home</p>
                     </a>
                 </li>
-                <li class="nav-item navli">
+                <li class="nav-item-left navli">
                     <a class="nav-link" href="#">
                         <p class="nav-link-header"><i class="fas fa-wrench"></i> Services</p>
                     </a>
                 </li>
-                <li class="nav-item navli">
+                <li class="nav-item-left navli">
                     <a class="nav-link" href="#">
                         <p class="nav-link-header"><i class="fas fa-info-circle"></i> About Us</p>
                     </a>
                 </li>
-                <li class="nav-item navli">
+                <li class="nav-item-left navli">
                     <a class="nav-link" href="#">
                         <p class="nav-link-header"><i class="fas fa-phone-alt"></i> Contact Us</p>
                     </a>
@@ -35,12 +35,12 @@
 
             <ul class="navbar-nav nav-right justify-content-end">
                 @guest
-                <li class="nav-item">
+                <li class="nav-item-right">
                     <a class="nav-link-right" href="{{ route('login') }}"><button type="button" class="btn navbtn">SIGN
                             IN</button></a>
                 </li>
                 @if (Route::has('register'))
-                <li class="nav-item">
+                <li class="nav-item-right">
                     <a class="nav-link-right" href="{{ route('register') }}"><button type="button"
                             class="btn navbtn">REGISTER</button></a>
                 </li>

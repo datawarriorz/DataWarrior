@@ -11,7 +11,7 @@ v 0.1.1 (fixes + improvements)
 							  -theme consistency accross all images
 							  -white background in images
 			certification bug - loop 
-			certificaton request backend
+			certificaton request backend-done
 			reset/forgot password page
 			contact us page / form+backend 
 		changes

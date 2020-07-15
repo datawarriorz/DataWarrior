@@ -141,17 +141,21 @@
             </div>
             <div class="col-sm-12 col-md-12 col-lg-6">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <form action="">
+                    <form action="/contactusreq" method="POST">
+                        @csrf
                         <table class="table contact-table text-center">
                             <tr>
-                                <td><input class="form-control" type="text" placeholder="Your Name.." /></td>
+                                <td><input class="form-control" type="text" placeholder="Your Name.." name="name"/></td>
                             </tr>
                             <tr>
-                                <td><input class="form-control" type="text" placeholder="Your Email Id.." /></td>
+                                <td><input class="form-control" type="text" placeholder="Your Email Id.."  name="email"/></td>
+                            </tr>
+                            <tr>
+                                <td><input class="form-control" type="text" placeholder="Subject.."  name="subject"/></td>
                             </tr>
                             <tr>
                                 <td><textarea class="form-control" type="text" cols="40" rows="2"
-                                        placeholder="Your Message.."></textarea>
+                                        placeholder="Your Message.."  name="description"></textarea>
                                 </td>
                             </tr>
                             <tr>
@@ -159,6 +163,7 @@
                             </tr>
                         </table>
                     </form>
+                    {{$message ?? ''}}
                 </div>
             </div>
         </div>

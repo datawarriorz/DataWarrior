@@ -23,6 +23,7 @@ Route::get('/verifymail', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/contactusreq', 'HomeController@contactusreq');
 Route::get('test', 'HomeController@test')->name('test');
 
 
@@ -69,3 +70,5 @@ Route::get('/joback', 'JobController@showack')->middleware('auth');
 
 Route::get('/certification', 'CertificationController@showallcertification')->middleware('auth');
 Route::post('/applycertification', 'CertificationController@applycertification')->middleware('auth');
+
+Route::post('/requestcertification', 'CertificationController@requestcertification')->middleware('auth');

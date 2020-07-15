@@ -1,6 +1,6 @@
 <title>Data Warriors</title>
 <meta charset="utf-8" />
-<link rel="icon" href="" />
+<link rel="icon" href="./images/justlogo2.png" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
 <link rel="stylesheet" href="./css/master.css" />

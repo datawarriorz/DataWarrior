@@ -1,10 +1,10 @@
 <link rel="stylesheet" href="./css/footer.css" />
 <hr class="seperator1">
-<div class="footer-wrapper">
+<div class="footer-wrapper col-sm-12 col-md-12 col-lg-12">
     <br>
     <div class="text-center">
         <footer class="container fcontent1 text-center">
-            <div class="container-column">
+            <div class="row container-column">
                 <div class="col-sm-12 col-md-6 col-lg-3">
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="footer-container">
@@ -120,7 +120,7 @@
         </footer>
         <hr class="seperator2">
         <footer class="container fcontent2 text-center">
-            <div class="container-column">
+            <div class="row container-column">
                 <div class="col-sm-6 col-md-6 col-lg-6">
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="footer-container2-section1">

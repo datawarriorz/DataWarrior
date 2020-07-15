@@ -1,8 +1,9 @@
 .carousel-container {
     height: auto;
-    width: 64%;
+    width: 60%;
     align-items: center;
 }
+
 .carousel-inner {
     height: 100%;
     width: auto;
@@ -143,7 +144,7 @@
 
 .contact-table td {
     border: none;
-    padding:0px;
+    padding: 0px;
 }
 
 .contact-table .btn2 {

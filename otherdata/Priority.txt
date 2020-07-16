@@ -1,4 +1,4 @@
-Priority List with verions info :
+Priority List with version info :
 	
 	Rules-
 		*	-to be made
@@ -19,10 +19,10 @@ v 0.1.1 (fixes + improvements)
 			removal of white patch in xs			-$R
 			certification bug - loop				-$A
 			certificaton request backend			-$A
-			certificaton ack page					-#R
+			certificaton ack page					-$R
 			reset/forgot password page				-$R
 			contact us page / form + backend		-$A
-			contact us frontent						-#R
+			contact us frontent						-$R
 
 		changes
 			-change of 2nd carousel image			

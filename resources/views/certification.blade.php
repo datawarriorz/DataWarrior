@@ -32,7 +32,7 @@
                         $i=true;
                         ?>
                         @foreach($certificationapplied as $ca)
-                        
+
                         @if($ca->cert_id==$cert->cert_id)
                         <br>
                         <p>You have already applied for this certification</p>
@@ -40,9 +40,9 @@
                         $i=false;
                         ?>
                         @break
-                        
+
                         @endif
-                        
+
                         @endforeach
                         @if($i==true)
                         <form method="POST" action="/applycertification">
@@ -52,13 +52,15 @@
                                 <i class="fas fa-edit"></i></button>
                             <br>
                         </form>
+                        <p></p>
                         @endif
                     </div>
                 </li>
-                
+
                 @endforeach
             </ul>
         </div>
+
     </div>
     <br>
 </div>

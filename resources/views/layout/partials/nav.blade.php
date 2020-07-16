@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="{{ asset('css/master.css') }}" />
 <link rel="stylesheet" href="{{ asset('css/navbar.css') }}" />
 <div class="navbar-container">
     <nav class="navbar navbar-expand-lg">
@@ -22,7 +23,7 @@
                     </a>
                 </li>
                 <li class="nav-item-left navli">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="/contact">
                         <p class="nav-link-header"><i class="fas fa-phone-alt"></i> Contact</p>
                     </a>
                 </li>

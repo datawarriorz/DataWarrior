@@ -24,8 +24,9 @@ Route::get('/verifymail', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('test', 'HomeController@test')->name('test');
+Route::get('/test', 'HomeController@test')->name('test');
 
+Route::get('/contact', 'HomeController@contact');
 Route::post('/contactusreq', 'HomeController@contactusreq');
 
 Route::get('login/google', 'Auth\LoginController@redirectToProvider');

@@ -1,0 +1,32 @@
+.contact-form-card {
+    padding: 24px;
+    padding-bottom: 0px;
+    max-height: 479px;
+}
+
+.contact-table td {
+    border: none;
+    padding-left: 4px;
+}
+
+.contact-table .btn2 {
+    color: white;
+    background: #19202b;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.contact-table .form-control {
+    border-radius: px;
+    border: none;
+    background-color: #f7f7f7;
+}
+
+.contact-table .form-control::placeholder {
+    color: #423333;
+}
+
+.contact-table .form-control:focus {
+    border: 1px solid #d5d5d5;
+    background-color: white;
+}

@@ -24,12 +24,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home', ['message'=>'',]);
+        return view('home');
     }
 
     public function test()
     {
         return view('test');
+    }
+
+    public function contact()
+    {
+        return view('contact', ['message'=>'',]);
     }
 
     public function contactusreq(Request $request)
@@ -40,6 +45,6 @@ class HomeController extends Controller
         $contactusobj->subject=$request->subject;
         $contactusobj->description=$request->description;
         $contactusobj->save();
-        return view('home', ['message'=>'Your Request has been registered.',]);
+        return view('contact', ['message'=>'Your Request has been registered.',]);
     }
 }

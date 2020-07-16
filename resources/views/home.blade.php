@@ -63,7 +63,7 @@
         </form>
     </div>
 </div>
-<!-- <hr class="thick"> -->
+<hr class="seperator2">
 <div class="content-container">
     <div class="container content1 text-center">
         <div class="container text-center">
@@ -103,8 +103,9 @@
                 </div>
             </div>
         </div>
+        <br>
     </div>
-    <hr class="thick">
+    <hr class="seperator2">
 </div>
 <div class="content-container text-center">
     <div class="container text-center">
@@ -141,29 +142,37 @@
             </div>
             <div class="col-sm-12 col-md-12 col-lg-6">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <form action="/contactusreq" method="POST">
-                        @csrf
-                        <table class="table contact-table text-center">
-                            <tr>
-                                <td><input class="form-control" type="text" placeholder="Your Name.." name="name"/></td>
-                            </tr>
-                            <tr>
-                                <td><input class="form-control" type="text" placeholder="Your Email Id.."  name="email"/></td>
-                            </tr>
-                            <tr>
-                                <td><input class="form-control" type="text" placeholder="Subject.."  name="subject"/></td>
-                            </tr>
-                            <tr>
-                                <td><textarea class="form-control" type="text" cols="40" rows="2"
-                                        placeholder="Your Message.."  name="description"></textarea>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><button class="btn btn2" type="submit">Submit</button></td>
-                            </tr>
-                        </table>
-                    </form>
-                    {{$message ?? ''}}
+                    <div id="contact1">
+                        <form action="/contactusreq" method="POST">
+                            @csrf
+                            <table class="table contact-table text-center">
+                                <tr>
+                                    <td><input class="form-control" type="text" placeholder="Your Name.." name="name" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-control" type="text" placeholder="Your Email Id.."
+                                            name="email" /></td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-control" type="text" placeholder="Subject.."
+                                            name="subject" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><textarea class="form-control" type="text" cols="40" rows="2"
+                                            placeholder="Your Message.." name="description"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><button class="btn btn2" id="contact-submit" type="submit">Submit</button></td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <div id="contact2">
+                        {{$message ?? ''}}
+                    </div>
                 </div>
             </div>
         </div>

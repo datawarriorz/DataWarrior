@@ -1,9 +1,9 @@
-<link rel="stylesheet" href="./css/navbar.css" />
+<link rel="stylesheet" href="{{ asset('css/navbar.css') }}" />
 <div class="navbar-container">
     <nav class="navbar navbar-expand-lg">
 
         <a class="navbar-brand" href="/"><img class="navbar-brand-img" alt="Logo" class="nav-img"
-                src="./images/logo2.png" /></a>
+                src="{{ asset('images/logo2.png') }}" /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,12 +23,12 @@
                 </li>
                 <li class="nav-item-left navli">
                     <a class="nav-link" href="#">
-                        <p class="nav-link-header"><i class="fas fa-info-circle"></i> About Us</p>
+                        <p class="nav-link-header"><i class="fas fa-phone-alt"></i> Contact</p>
                     </a>
                 </li>
                 <li class="nav-item-left navli">
                     <a class="nav-link" href="#">
-                        <p class="nav-link-header"><i class="fas fa-phone-alt"></i> Contact Us</p>
+                        <p class="nav-link-header"><i class="fas fa-info-circle"></i> About Us</p>
                     </a>
                 </li>
             </ul>
@@ -47,30 +47,32 @@
                 @endif
                 @else
                 <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="user-icon dropdown-toggle" href="#" role="button"
+                    <a id="navbarDropdown" class="dropdown-toggle user-icon" href="#" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user-circle"></i>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item">
-                            {{ Auth::user()->first_name }} {{ Auth::user()->last_name}}
-                        </a>
-                        <a class="dropdown-item" href="/viewprofile">
-                            <i class="fas fa-user-circle"></i> Profile
-                        </a>
-                        <a class="dropdown-item" href="/">
-                            <i class="fas fa-clipboard-list"></i> My Applications
-                        </a>
-                        <a class="dropdown-item" href="/viewprofile">
-                            <i class="fas fa-user-cog"></i> Settings
-                        </a>
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                    <div class="dropdown">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item">
+                                {{ Auth::user()->first_name }} {{ Auth::user()->last_name}}
+                            </a>
+                            <a class="dropdown-item" href="/viewprofile">
+                                <i class="fas fa-user-circle"></i> Profile
+                            </a>
+                            <a class="dropdown-item" href="/">
+                                <i class="fas fa-clipboard-list"></i> My Applications
+                            </a>
+                            <a class="dropdown-item" href="/viewprofile">
+                                <i class="fas fa-user-cog"></i> Settings
+                            </a>
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
-                            <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
+                                <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
                     </div>
                 </li>
                 @endguest

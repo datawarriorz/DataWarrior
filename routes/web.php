@@ -26,8 +26,8 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test', 'HomeController@test')->name('test');
 
-Route::get('/contact', 'HomeController@contact');
-Route::post('/contactusreq', 'HomeController@contactusreq');
+Route::get('/contact', 'NoAuthController@contact');
+Route::post('/contactusreq', 'NoAuthController@contactusreq');
 
 Route::get('login/google', 'Auth\LoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
@@ -59,12 +59,13 @@ Route::get('/internship', 'InternshipController@showinternship')->middleware('au
 Route::post('/internshipform', 'InternshipController@applyInternship')->middleware('auth');
 Route::get('/internshipfinal', 'InternshipController@showinternship')->middleware('auth');
 Route::get('/internshipack', 'InternshipController@showack')->middleware('auth');
+Route::post('/deleteInternship', 'InternshipController@deleteInternship')->middleware('auth');
 
 Route::get('/job', 'JobController@showjob')->middleware('auth');
 Route::post('/jobform', 'JobController@applyJob')->middleware('auth');
-Route::get('/jobform', 'JobController@applyJob')->middleware('auth');
 Route::get('/jobfinal', 'JobController@showjob')->middleware('auth');
 Route::get('/joback', 'JobController@showack')->middleware('auth');
+Route::post('/deleteJob', 'JobController@deleteJob')->middleware('auth');
 
 Route::get('/certification', 'CertificationController@showallcertification')->middleware('auth');
 Route::post('/applycertification', 'CertificationController@applycertification')->middleware('auth');

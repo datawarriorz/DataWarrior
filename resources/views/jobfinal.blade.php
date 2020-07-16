@@ -51,10 +51,11 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <form class="text-center" method="POST" action="#">
+                    <form class="text-center" method="POST" action="/deleteJob">
                         @csrf
-                        <input type="hidden" name="#" value="#" />
-                        <button type="submit" class="btn-danger" onclick="">Delete</button>
+                        <input type="hidden" name="prefid" value={{$in->id}} />
+                        <button type="submit" class="btn-danger" onclick="">Delete <i
+                                class="far fa-trash-alt"></i></button>
                     </form>
                 </div>
             </div>
@@ -74,7 +75,7 @@
                                     <th scope="col">Grade</th>
                                     <th scope="col">Start Date</th>
                                     <th scope="col">End Date</th>
-                                    <th scope="col" colspan="2">Action</th>
+                                    <!-- <th scope="col" colspan="2">Action</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -93,7 +94,7 @@
                                     <td>{{$ed->grade}}</td>
                                     <td>{{substr($ed->start_date,0,10)}}</td>
                                     <td>{{substr($ed->end_date,0,10)}}</td>
-                                    <td>
+                                    <!-- <td>
                                         {{-- <form method="POST" action="/deleteskills">
                                             @csrf
                                             <input type="hidden" name="userskills_id" value={{$ed->id}}
@@ -107,7 +108,7 @@
                                             <input type="hidden" name="qualid" value={{$ed->id}} />
                                             <button type="submit" class="btn-danger" onclick="">Delete</button>
                                         </form>
-                                    </td>
+                                    </td> -->
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -116,7 +117,8 @@
                         <form class="text-center" method="POST" action="/qualification">
                             @csrf
                             <input type="hidden" name="process" value="job" />
-                            <button type="submit" class="btn-success" onclick="">Add</button>
+                            <button type="submit" class="btn-primary" onclick="">Edit <i class="fas fa-edit"></i>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -132,7 +134,7 @@
                                     <th>Sr. No.</th>
                                     <th scope="col">Skill Name</th>
                                     <th scope="col">Experience Level</th>
-                                    <th scope="col" colspan="2">Action</th>
+                                    <!-- <th scope="col" colspan="2">Action</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -150,21 +152,20 @@
                                         @endforeach
                                     </td>
 
-                                    {{-- <td>
+                                    <!-- <td>
                                         <form method="POST" action="/deleteskills">
                                             @csrf
                                             <input type="hidden" name="userskills_id" value={{$skill->userskills_id}} />
                                             <button type="submit" class="btn-danger" onclick="">Edit</button>
                                         </form>
-                                    </td> --}}
+                                    </td>
                                     <td>
                                         <form method="POST" action="/deleteskills">
                                             @csrf
                                             <input type="hidden" name="userskills_id" value={{$skill->userskills_id}} />
                                             <button type="submit" class="btn-danger" onclick="">Delete</button>
                                         </form>
-
-                                    </td>
+                                    </td> -->
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -173,7 +174,8 @@
                         <form class="text-center" method="POST" action="/skills">
                             @csrf
                             <input type="hidden" name="process" value="job" />
-                            <button type="submit" class="btn-success" onclick="">Add</button>
+                            <button type="submit" class="btn-primary" onclick="">Edit <i class="fas fa-edit"></i>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -193,7 +195,7 @@
                                     <th scope="col">Current Job</th>
                                     <th scope="col">Start Date</th>
                                     <th scope="col">End Date</th>
-                                    <th scope="col">Action</th>
+                                    <!-- <th scope="col">Action</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -206,13 +208,13 @@
                                     <td>{{$je->currentjob}}</td>
                                     <td>{{substr($je->startdate,0,10)}}</td>
                                     <td>{{substr($je->enddate,0,10)}}</td>
-                                    <td>
+                                    <!-- <td>
                                         <form method="POST" action="/deleteJobexperience">
                                             @csrf
                                             <input type="hidden" name="jobid" value={{$je->jobid}} />
                                             <button type="submit" class="btn-danger">Delete</button>
                                         </form>
-                                    </td>
+                                    </td> -->
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -221,7 +223,8 @@
                         <form class="text-center" method="POST" action="/jobexperience">
                             @csrf
                             <input type="hidden" name="process" value="job" />
-                            <button type="submit" class="btn-success" onclick="">Add</button>
+                            <button type="submit" class="btn-primary" onclick="">Edit <i class="fas fa-edit"></i>
+                            </button>
                         </form>
                     </div>
                 </div>

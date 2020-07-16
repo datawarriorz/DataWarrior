@@ -32,7 +32,7 @@ class CertificationController extends Controller
         $certificationrequestedobj->provider=$request->provider;
         $certificationrequestedobj->user_id=Auth::user()->user_id;
         $certificationrequestedobj->save();
-        return view('certificationreqack', ['certificationrequestedobj'=>$certificationrequestedobj,]);
+        return view('certificationreqack', ['certificationrequestedobj'=>$certificationrequestedobj]);
     }
     public function applycertification(Request $request)
     {

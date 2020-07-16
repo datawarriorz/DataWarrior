@@ -52,10 +52,11 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <form class="text-center" metdod="POST" action="/">
+                    <form class="text-center" method="POST" action="/deleteInternship">
                         @csrf
                         <input type="hidden" name="prefid" value={{$in->id}} />
-                        <button type="submit" class="btn-primary" onclick="">Edit <i class="fas fa-edit"></i> </button>
+                        <button type="submit" class="btn-danger" onclick="">Delete <i
+                                class="far fa-trash-alt"></i></button>
                     </form>
                 </div>
             </div>
@@ -74,7 +75,7 @@
                                 <td scope="col">Grade</td>
                                 <td scope="col">Start Date</td>
                                 <td scope="col">End Date</td>
-                                <td scope="col">Action</td>
+                                <!-- <td scope="col">Action</td> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -93,14 +94,14 @@
                                 <td>{{$ed->grade}}</td>
                                 <td>{{substr($ed->start_date,0,10)}}</td>
                                 <td>{{substr($ed->end_date,0,10)}}</td>
-                                <td>
+                                <!-- <td>
                                     <form metdod="POST" action="/deletequalification">
                                         @csrf
                                         <input type="hidden" name="qualid" value={{$ed->id}} />
 
                                         <button type="submit" class="btn-danger" onclick="">Delete</button>
                                     </form>
-                                </td>
+                                </td> -->
                             </tr>
                             @endforeach
                         </tbody>
@@ -108,7 +109,7 @@
                     <form class="text-center" metdod="POST" action="/qualification">
                         @csrf
                         <input type="hidden" name="process" value="internship" />
-                        <button type="submit" class="btn-success" onclick="">Add</button>
+                        <button type="submit" class="btn-primary" onclick="">Edit <i class="fas fa-edit"></i> </button>
                     </form>
                 </div>
             </div>
@@ -122,7 +123,7 @@
                                 <td>Sr. No.</td>
                                 <td scope="col">Skill Name</td>
                                 <td scope="col">Experience Level</td>
-                                <td scope="col">Action</td>
+                                <!-- <td scope="col">Action</td> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -140,13 +141,13 @@
                                     @endif
                                     @endforeach
                                 </td>
-                                <td>
+                                <!-- <td>
                                     <form metdod="POST" action="/deleteskills">
                                         @csrf
                                         <input type="hidden" name="userskills_id" value={{$skill->userskills_id}} />
                                         <button type="submit" class="btn-danger" onclick="">Delete</button>
                                     </form>
-                                </td>
+                                </td> -->
                             </tr>
                             @endforeach
                         </tbody>
@@ -154,7 +155,7 @@
                     <form class="text-center" metdod="POST" action="/skills">
                         @csrf
                         <input type="hidden" name="process" value="internship" />
-                        <button type="submit" class="btn-success" onclick="">Add</button>
+                        <button type="submit" class="btn-primary" onclick="">Edit <i class="fas fa-edit"></i> </button>
                     </form>
                 </div>
             </div>
@@ -172,7 +173,7 @@
                                 <td scope="col">Current Job</td>
                                 <td scope="col">Start Date</td>
                                 <td scope="col">End Date</td>
-                                <td scope="col">Action</td>
+                                <!-- <td scope="col">Action</td> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -185,13 +186,13 @@
                                 <td>{{$je->currentjob}}</td>
                                 <td>{{substr($je->startdate,0,10)}}</td>
                                 <td>{{substr($je->enddate,0,10)}}</td>
-                                <td>
+                                <!-- <td>
                                     <form metdod="POST" action="/deleteJobexperience">
                                         @csrf
                                         <input type="hidden" name="jobid" value={{$je->jobid}} />
                                         <button type="submit" class="btn-danger">Delete</button>
                                     </form>
-                                </td>
+                                </td> -->
                             </tr>
                             @endforeach
                         </tbody>
@@ -199,18 +200,11 @@
                     <form class="text-center" metdod="POST" action="/jobexperience">
                         @csrf
                         <input type="hidden" name="process" value="internship" />
-                        <button type="submit" class="btn-success" onclick="">Add</button>
+                        <button type="submit" class="btn-primary" onclick="">Edit <i class="fas fa-edit"></i> </button>
                     </form>
                 </div>
             </div>
             <br>
-            <!-- <form class="" method="POST" action="/internship">
-                <div style=" overflow:auto;">
-                    <div class="text-center">
-                        <button id="next1" type="button">Finish</button>
-                    </div>
-                </div>
-            </form> -->
             <div style=" overflow:auto;">
                 <div class="text-center">
                     <a href="/internshipack"><button type="button">Finish</button></a>

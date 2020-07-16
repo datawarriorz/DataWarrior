@@ -1,5 +1,5 @@
 Priority List with version info :
-	
+
 	Rules-
 		*	-to be made
 		#	-started/working on it
@@ -22,14 +22,22 @@ v 0.1.1 (fixes + improvements)
 			certificaton ack page					-$R
 			reset/forgot password page				-$R
 			contact us page / form + backend		-$A
-			contact us frontent						-$R
+			contact us frontend					    -$R
 
 		changes
-			-change of 2nd carousel image			
+			-change of 2nd carousel image
 			-theme consistency accross all images
 			-white background in images
 		additions
-			
-							  
-							  
-		
+
+
+0.1.2
+contact us->cs->validation remaining
+reset password page-> spacing
+edit pages->top bottom padding+profile link
+
+
+
+
+
+get post ambiguity

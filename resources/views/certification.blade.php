@@ -60,7 +60,37 @@
                 @endforeach
             </ul>
         </div>
-
+        <div class="col-md-12 text-center">
+            <div class="card text-center">
+                <p></p>
+                <h3>Request a Certification</h3>
+                <form action="/requestcertification" method="POST">
+                    @csrf
+                    <div class="col-md-12 col-md-auto text-center">
+                        <table class="table contact-table text-center">
+                            <tr>
+                                <td><input class="form-control" type="text" placeholder="Title" name="title" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input class="form-control" type="text" placeholder="Description"
+                                        name="description" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input class="form-control" type="text" placeholder="Provider Name"
+                                        name="provider" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><button class="btn btn2" id="contact-submit" type="submit">Submit</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
     <br>
 </div>

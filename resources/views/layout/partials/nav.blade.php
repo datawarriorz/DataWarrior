@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item-left">
-                    <a class="nav-link" href="/home">
+                    <a class="nav-link" href="/">
                         <p class="nav-link-header"><i class="fas fa-home"></i> Home</p>
                     </a>
                 </li>

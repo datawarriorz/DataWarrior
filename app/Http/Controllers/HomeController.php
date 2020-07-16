@@ -32,19 +32,5 @@ class HomeController extends Controller
         return view('test');
     }
 
-    public function contact()
-    {
-        return view('contact', ['message'=>'',]);
-    }
 
-    public function contactusreq(Request $request)
-    {
-        $contactusobj=new ContactUs();
-        $contactusobj->name=$request->name;
-        $contactusobj->email=$request->email;
-        $contactusobj->subject=$request->subject;
-        $contactusobj->description=$request->description;
-        $contactusobj->save();
-        return view('contact', ['message'=>'Your Request has been registered.',]);
-    }
 }

@@ -97,4 +97,9 @@ class InternshipController extends Controller
     {
         return view('/internshipack');
     }
+    public function deleteInternship(Request $request)
+    {
+        $res=InternshipPreferences::where('id', '=', $request->prefid)->delete();
+        return redirect()->back();
+    }
 }

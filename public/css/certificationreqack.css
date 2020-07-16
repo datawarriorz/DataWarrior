@@ -1,0 +1,14 @@
+.container {
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#split {
+    margin-right: 100px;
+}
+
+.cert-ack-btn {
+    color: #fff;
+    background-color: #171f2a;
+}

@@ -74,4 +74,9 @@ class JobController extends Controller
     {
         return view('/joback');
     }
+    public function deleteJob(Request $request)
+    {
+        $res=JobPreferences::where('id', '=', $request->prefid)->delete();
+        return redirect()->back();
+    }
 }

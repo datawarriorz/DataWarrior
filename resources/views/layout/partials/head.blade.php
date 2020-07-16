@@ -142,7 +142,9 @@
                 $("#contact1").hide("fast");
                 $("#contact2").show("slow");
                 var x = $("#contact2").position();
-                window.scrollTo(x.left, x.top);
+                alert("Your Query has been Submitted");
+
+                // window.scrollTo(x.left, x.top);
                 //}
                 //$("#tab1").animate({width:'toggle'},0);
                 //$("#tab2").animate({width:'toggle'},1000);

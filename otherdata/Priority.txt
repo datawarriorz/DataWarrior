@@ -31,4 +31,13 @@ v 0.1.1 (fixes + improvements)
 		additions
 
 
+0.1.2
+contact us->cs->validation remaining
+reset password page-> spacing
+edit pages->top bottom padding+profile link
 
+
+
+
+
+get post ambiguity

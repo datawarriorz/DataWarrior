@@ -63,6 +63,17 @@ class RegisterController extends Controller
             // pass validator object in withErrors method & also withInput it should be null by default
             return redirect('/register')->withErrors($validator)->withInput();
         }
+        
+        $newUser= new User();
+        $newUser->first_name= $request->firstname;
+        $newUser->email= $request->email;
+        $newUser->last_name = $request->lastname;
+        $newUser->password=Hash::make($request->password);
+        $newUser->contact_no=$request->contact_no;
+        $newUser->date_of_birth=$request->date_of_birth;
+        $newUser->save();
+        
+        return view('auth.login');
     }
 
     /**

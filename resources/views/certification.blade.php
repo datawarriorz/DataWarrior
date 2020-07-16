@@ -28,14 +28,23 @@
                         <p>
                             {{$cert->description}}
                         </p>
-                        <?php $i=1; ?>
+                        <?php
+                        $i=true;
+                        ?>
                         @foreach($certificationapplied as $ca)
-                        @if($cert->cert_id==$i)
+                        
                         @if($ca->cert_id==$cert->cert_id)
                         <br>
                         <p>You have already applied for this certification</p>
+                        <?php
+                        $i=false;
+                        ?>
                         @break
-                        @else
+                        
+                        @endif
+                        
+                        @endforeach
+                        @if($i==true)
                         <form method="POST" action="/applycertification">
                             @csrf
                             <input type="hidden" name="cert_id" value={{$cert->cert_id}} />
@@ -43,14 +52,10 @@
                                 <i class="fas fa-edit"></i></button>
                             <br>
                         </form>
-                        @break
                         @endif
-                        @endif
-                        @endforeach
                     </div>
                 </li>
-                <?php
-               $i++; ?>
+                
                 @endforeach
             </ul>
         </div>

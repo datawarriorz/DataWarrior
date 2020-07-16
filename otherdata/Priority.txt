@@ -3,14 +3,14 @@ v 0.1 deployed
 v 0.1.1 (fixes + improvements)
 	priority
 		fixes
-			registration module
-			email verification
+			registration module-done
+			email verification-done
 			reset password- locally fixed
 			removal of white patch in xs
 			(graphic designer)-change of 2nd carousel image 
 							  -theme consistency accross all images
 							  -white background in images
-			certification bug - loop 
+			certification bug - loop -done
 			certificaton request backend-done
 			reset/forgot password page
 			contact us page / form+backend - done

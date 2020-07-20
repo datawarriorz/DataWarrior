@@ -1,0 +1,61 @@
+Priority List & Change Log with version:
+
+	Rules-
+		*	-to be made
+		#	-started/working on it
+		$	-done
+		@	-buggy
+		?	-Leftout for next iteration
+		A   -Ashay
+		R   -Robin
+		U	-Unknown to be allotted
+
+v 0.1 deployed
+
+v 0.1.1 (fixes + improvements) deployed
+	fixes
+		$A - registration module						
+		$A - email verification						
+		$A - reset password - (locally fixed)		
+		$R - removal of white patch in xs			
+		$A - certification bug - loop				
+		$A - certificaton request backend			
+		$R - certificaton ack page					
+		$R - reset / forgot password page				
+		$A - contact us page / form + backend		
+		$R - contact us frontend					    
+		$R - contact us ack							
+	changes
+		?  - change of 2nd carousel image			
+		?  - theme consistency accross all images
+		?  - white background in images
+	additions
+
+
+v 0.1.2 ( )
+	fixes
+		R - contact us	->	cs-> validation remaining
+		R - reset password page -> spacing
+		R - edit pages -> top bottom padding+profile link
+	changes
+		?  - change of 2nd carousel image
+		?  - theme consistency accross all images
+		?  - white background in images
+	additions
+		Expert Dashboard Page
+		Expert Login Page
+		Expert Profile Page
+		
+v 0.1.3 ( )
+	fixes
+		
+	changes
+	
+	additions
+
+v 0.1.4 ( )
+	fixes
+	
+	changes
+	
+	additions

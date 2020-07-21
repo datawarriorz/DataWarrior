@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+Auth::routes(['verify' => true]);
 
 Route::get('/verifymail', function () {
     return view('auth.verify');

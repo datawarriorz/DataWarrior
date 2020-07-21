@@ -72,8 +72,11 @@ class RegisterController extends Controller
         $newUser->contact_no=$request->contact_no;
         $newUser->date_of_birth=$request->date_of_birth;
         $newUser->save();
+        auth()->login($newUser, true);
+        return view('auth.verify');
         
-        return view('auth.login');
+
+        //return view('auth.login');
     }
 
     /**

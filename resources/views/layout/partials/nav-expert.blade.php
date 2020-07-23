@@ -81,11 +81,4 @@
         </div>
     </nav>
     <hr class="seperator1">
-    @if ( Auth::user()->email_verified_at == NULL )
-    <div class="nav-message text-center">
-        <a class="" href="{{ route('verifymail') }}">
-            Email not verified! Click here to verify ></i>
-        </a>
-    </div>
-    @endif
 </div>

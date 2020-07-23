@@ -20,7 +20,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('/verifymail', function () {
     return view('auth.verify');
-});
+})->name('verifymail');
 
 
 

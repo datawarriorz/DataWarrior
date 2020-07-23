@@ -22,7 +22,7 @@ Route::get('/verifymail', function () {
     return view('auth.verify');
 });
 
-Auth::routes(['verify' => true]);
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test', 'HomeController@test')->name('test');
@@ -71,3 +71,7 @@ Route::post('/deleteJob', 'JobController@deleteJob')->middleware('auth');
 Route::get('/certification', 'CertificationController@showallcertification')->middleware('auth');
 Route::post('/applycertification', 'CertificationController@applycertification')->middleware('auth');
 Route::post('/requestcertification', 'CertificationController@requestcertification')->middleware('auth');
+
+    Route::get('/expertlogin', 'Auth\ExpertLoginController@showLoginForm')->name('expert.login');
+    Route::post('/expertlogin', 'Auth\ExpertLoginController@login')->name('expert.login.submit');
+    Route::get('/expertdashboard', 'ExpertController@index')->name('expert.home');

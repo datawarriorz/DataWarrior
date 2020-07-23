@@ -18,9 +18,18 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
+        switch ($guard) {
+        case 'expert':
+            if (Auth::guard($guard)->check()) {
+                return redirect()->route('expert.home');
+            }
+            break;
+            default:
         if (Auth::guard($guard)->check()) {
             return redirect(RouteServiceProvider::HOME);
         }
+    break;
+}
 
         return $next($request);
     }

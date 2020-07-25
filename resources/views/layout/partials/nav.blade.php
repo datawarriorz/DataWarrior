@@ -81,6 +81,8 @@
         </div>
     </nav>
     <hr class="seperator1">
+    @guest
+    @else
     @if ( Auth::user()->email_verified_at == NULL )
     <div class="nav-message text-center">
         <a class="" href="{{ route('verifymail') }}">
@@ -88,4 +90,5 @@
         </a>
     </div>
     @endif
+    @endguest
 </div>

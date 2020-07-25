@@ -9,6 +9,7 @@ class Expert extends Authenticatable
 {
     //
     use Notifiable;
+    protected $primaryKey = 'expert_id';
     // The authentication guard for admin
     protected $guard = 'expert';
     /**
@@ -17,7 +18,7 @@ class Expert extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'email', 'password',
+        'expert_id','email', 'password',
     ];
     /**
      * The attributes that should be hidden for arrays.

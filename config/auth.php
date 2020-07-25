@@ -18,6 +18,7 @@ return [
         'passwords' => 'users',
     ],
     'expert' => [
+        'guard' => 'web',
         'driver' => 'eloquent',
         'model' => App\Expert::class,
     ],
@@ -57,6 +58,7 @@ return [
         'expert-api' => [
             'driver' => 'token',
             'provider' => 'experts',
+            'hash' => false,
         ],
     ],
 

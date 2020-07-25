@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Article;
+use Illuminate\Support\Facades\Auth;
 
 class ExpertController extends Controller
 {
@@ -18,6 +20,7 @@ class ExpertController extends Controller
      */
     public function index()
     {
-        return view('expert.expert-dashboard');
+        $articles= Article::where('expert_id',Auth::user()->expert_id)->get();
+        return view('expert.expert-dashboard', ['articles' => $articles]);
     }
 }

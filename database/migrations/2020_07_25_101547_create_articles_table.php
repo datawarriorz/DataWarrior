@@ -17,12 +17,11 @@ class CreateArticlesTable extends Migration
             $table->id('article_id');
             $table->string('title');
             $table->unsignedBigInteger('expert_id');
-            $table->foreign('expert_id')->references('id')->on('experts');
+            $table->foreign('expert_id')->references('expert_id')->on('experts');
             $table->string('author')->nullable();
             $table->string('description');
-            $table->string('content');
-            $table->binary('user_image');
-            
+            $table->binary('content')->nullable();
+            $table->binary('article_image')->nullable();
             $table->timestamps();
         });
     }

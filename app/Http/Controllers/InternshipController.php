@@ -10,7 +10,7 @@ use App\InternshipPreferences;
 use App\UserQualification;
 use App\QualificationTypes;
 use App\SkillLevel;
-use Auth;
+use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Support\Facades\Validator;
 
 class InternshipController extends Controller
@@ -22,38 +22,38 @@ class InternshipController extends Controller
     }
     public function showinternship()
     {
-        $internship=InternshipPreferences::where('user_id', '=', Auth::user()->user_id)->get();
-        
-        if (count($internship)!=0) {
-            $jobexp=Jobexperience::where('user_id', '=', Auth::user()->user_id)->get();
-            $skills=UserSkills::where('user_id', '=', Auth::user()->user_id)->get();
-            $skilllevel=SkillLevel::all();
-            $eduDetails=UserQualification::where('user_id', '=', Auth::user()->user_id)->get();
-            $qualificationType=QualificationTypes::all();
-            return view('internshipfinal', ['skills'=>$skills,'jobexp'=>$jobexp,'internship'=>$internship,'eduDetails' => $eduDetails,'qualificationType'=>$qualificationType,'skilllevel'=>$skilllevel]);
+        $internship = InternshipPreferences::where('user_id', '=', Auth::user()->user_id)->get();
+
+        if (count($internship) != 0) {
+            $jobexp = Jobexperience::where('user_id', '=', Auth::user()->user_id)->get();
+            $skills = UserSkills::where('user_id', '=', Auth::user()->user_id)->get();
+            $skilllevel = SkillLevel::all();
+            $eduDetails = UserQualification::where('user_id', '=', Auth::user()->user_id)->get();
+            $qualificationType = QualificationTypes::all();
+            return view('internshipfinal', ['skills' => $skills, 'jobexp' => $jobexp, 'internship' => $internship, 'eduDetails' => $eduDetails, 'qualificationType' => $qualificationType, 'skilllevel' => $skilllevel]);
         }
-        $jobexp=Jobexperience::where('user_id', '=', Auth::user()->user_id)->get();
-        $skills=UserSkills::where('user_id', '=', Auth::user()->user_id)->get();
-        $skilllevel=SkillLevel::all();
-        $eduDetails=UserQualification::where('user_id', '=', Auth::user()->user_id)->get();
-        $qualificationType=QualificationTypes::all();
-        return view('internship', ['skills'=>$skills,'jobexp'=>$jobexp,'internship'=>$internship,'eduDetails' => $eduDetails,'qualificationType'=>$qualificationType,'skilllevel'=>$skilllevel]);
+        $jobexp = Jobexperience::where('user_id', '=', Auth::user()->user_id)->get();
+        $skills = UserSkills::where('user_id', '=', Auth::user()->user_id)->get();
+        $skilllevel = SkillLevel::all();
+        $eduDetails = UserQualification::where('user_id', '=', Auth::user()->user_id)->get();
+        $qualificationType = QualificationTypes::all();
+        return view('internship', ['skills' => $skills, 'jobexp' => $jobexp, 'internship' => $internship, 'eduDetails' => $eduDetails, 'qualificationType' => $qualificationType, 'skilllevel' => $skilllevel]);
     }
 
 
     public function applyInternship(Request $request)
     {
-        $internship =new InternshipPreferences();
-        $internship->user_id=Auth::user()->user_id;
-        $internship->preferreddomain1=$request->preferreddomain1;
-        $internship->preferreddomain2=$request->preferreddomain2;
-        $internship->preferreddomain3=$request->preferreddomain3;
-        $internship->stipend=$request->stipend;
-        $internship->internshiplocation=$request->internshiplocation;
-        if ($request->counselling==null) {
-            $internship->counselling="No";
+        $internship = new InternshipPreferences();
+        $internship->user_id = Auth::user()->user_id;
+        $internship->preferreddomain1 = $request->preferreddomain1;
+        $internship->preferreddomain2 = $request->preferreddomain2;
+        $internship->preferreddomain3 = $request->preferreddomain3;
+        $internship->stipend = $request->stipend;
+        $internship->internshiplocation = $request->internshiplocation;
+        if ($request->counselling == null) {
+            $internship->counselling = "No";
         } else {
-            $internship->counselling=$request->counselling;
+            $internship->counselling = $request->counselling;
         }
         // $skills=new UserSkills();
         // $skills->user_id=Auth::user()->user_id;
@@ -84,7 +84,7 @@ class InternshipController extends Controller
         // $qualification->percentage=$request->percentage;
         // $qualification->course_name=$request->course_name;
         // $qualification->grade=$request->grade;
-        
+
         $internship->save();
         // $skills->save();
         // $jobexp->save();
@@ -99,7 +99,7 @@ class InternshipController extends Controller
     }
     public function deleteInternship(Request $request)
     {
-        $res=InternshipPreferences::where('id', '=', $request->prefid)->delete();
+        $res = InternshipPreferences::where('id', '=', $request->prefid)->delete();
         return redirect()->back();
     }
 }

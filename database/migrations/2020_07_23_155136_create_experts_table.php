@@ -14,7 +14,7 @@ class CreateExpertsTable extends Migration
     public function up()
     {
         Schema::create('experts', function (Blueprint $table) {
-            $table->id();
+            $table->id('expert_id');
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();

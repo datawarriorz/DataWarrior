@@ -5,7 +5,7 @@ Visual Studio Extensions
 		Material Theme - Mattia Astorino
 		Auto Close Tag - Jun Han
 	
-	Laravel WorkSpace
+	Laravel WorkSpace 
 		Laravel Artisan - Winnie Lin
 		Laravel Snippets - Winnie Lin
 		Laravel Blade Snippets - Winnie Lin
@@ -14,6 +14,7 @@ Visual Studio Extensions
 		PHP Intelephense - Ben Mewburn
 
 		Formatters
+			Laravel Blade formatter - Shuhei Hayashibara
 			JS-CSS-HTML Formatter - lonefy
 			Beautify - HookyQR (Beautify javascript, JSON, CSS, Sass, and HTML in Visual Studio Code.)
 			Beautify Blade - Apility AS
@@ -24,7 +25,7 @@ Visual Studio Extensions
 						}
 			
 			Optional(Disabled while writing this)
-				Laravel Blade formatter - Shuhei Hayashibara
+				
 				php cs fixer - junstyle
 				Prettier - Code formatter
 		

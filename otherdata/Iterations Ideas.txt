@@ -14,3 +14,6 @@ counsellor
 data 5000 records tested
 admin panel
 	newsletter
+
+
+style="white-space: pre-line" for getting new line back in front end

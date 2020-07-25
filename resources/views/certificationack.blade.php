@@ -18,7 +18,7 @@
                         <h4>Thank You</h4>
                         <p>You have successfully applied for
                             @foreach($certification as $cert)
-                            {{$cert->title}}
+                                {{ $cert->title }}
                             @endforeach
                             Certification
                         </p>

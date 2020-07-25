@@ -40,8 +40,8 @@
             <div class="form-group row">
                 <div class="col-md-6 offset-md-3">
                     <div class="form-check custom-control">
-                        <input class="form-check-input custom-checkbox" type="checkbox" name="remember" id="remember" {{
-                            old('remember') ? 'checked' : '' }}>
+                        <input class="form-check-input custom-checkbox" type="checkbox" name="remember" id="remember"
+                            /*blade*/{{ ?>old('remember') ? 'checked' : ''  }}>
                         <label class="form-check-label" for="remember">
                             {{ __('Remember Me') }}
                         </label>
@@ -53,12 +53,12 @@
                     <button type="submit" class="btn login-btn">
                         {{ __('Sign in') }}
                     </button>
-                    @if (Route::has('password.request'))
-                    <br>
-                    <br>
-                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                        {{ __('Forgot Your Password?') }}
-                    </a>
+                    @if(Route::has('password.request'))
+                        <br>
+                        <br>
+                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                            {{ __('Forgot Your Password?') }}
+                        </a>
                     @endif
                 </div>
             </div>

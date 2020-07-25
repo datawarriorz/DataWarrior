@@ -36,46 +36,46 @@
 
             <ul class="navbar-nav nav-right justify-content-end">
                 @guest
-                <li class="nav-item-right">
-                    <a class="nav-link-right" href="{{ route('login') }}"><button type="button" class="btn navbtn">SIGN
-                            IN</button></a>
-                </li>
-                @if (Route::has('register'))
-                <li class="nav-item-right">
-                    <a class="nav-link-right" href="{{ route('register') }}"><button type="button"
-                            class="btn navbtn">REGISTER</button></a>
-                </li>
-                @endif
+                    <li class="nav-item-right">
+                        <a class="nav-link-right" href="{{ route('login') }}"><button type="button" class="btn navbtn">SIGN
+                                IN</button></a>
+                    </li>
+                    @if(Route::has('register'))
+                        <li class="nav-item-right">
+                            <a class="nav-link-right" href="{{ route('register') }}"><button type="button"
+                                    class="btn navbtn">REGISTER</button></a>
+                        </li>
+                    @endif
                 @else
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="dropdown-toggle user-icon" href="#" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user-circle"></i>
-                    </a>
-                    <div class="dropdown">
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item">
-                                {{ Auth::user()->first_name }} {{ Auth::user()->last_name}}
-                            </a>
-                            <a class="dropdown-item" href="/viewprofile">
-                                <i class="fas fa-user-circle"></i> Profile
-                            </a>
-                            <a class="dropdown-item" href="/">
-                                <i class="fas fa-clipboard-list"></i> My Applications
-                            </a>
-                            <a class="dropdown-item" href="/viewprofile">
-                                <i class="fas fa-user-cog"></i> Settings
-                            </a>
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                   document.getElementById('logout-form').submit();">
-                                <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="dropdown-toggle user-icon" href="#" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                        <div class="dropdown">
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item">
+                                    {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
+                                </a>
+                                <a class="dropdown-item" href="/viewprofile">
+                                    <i class="fas fa-user-circle"></i> Profile
+                                </a>
+                                <a class="dropdown-item" href="/">
+                                    <i class="fas fa-clipboard-list"></i> My Applications
+                                </a>
+                                <a class="dropdown-item" href="/viewprofile">
+                                    <i class="fas fa-user-cog"></i> Settings
+                                </a>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                           document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
                 @endguest
             </ul>
         </div>

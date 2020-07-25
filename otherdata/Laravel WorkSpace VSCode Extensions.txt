@@ -1,0 +1,49 @@
+Visual Studio Extensions 
+
+	Global Default
+		Material Icon Theme - Philipp Kief
+		Material Theme - Mattia Astorino
+		Auto Close Tag - Jun Han
+	
+	Laravel WorkSpace
+		Laravel Artisan - Winnie Lin
+		Laravel Snippets - Winnie Lin
+		Laravel Blade Snippets - Winnie Lin
+		Laravel Blade Spacer - Austen Cameron
+		PHP IntelliSense - Felix Becker
+		PHP Intelephense - Ben Mewburn
+
+		Formatters
+			JS-CSS-HTML Formatter - lonefy
+			Beautify - HookyQR (Beautify javascript, JSON, CSS, Sass, and HTML in Visual Studio Code.)
+			Beautify Blade - Apility AS
+				Edited settings.json for blade 
+					Added this line
+						"beautify.language": {
+							"html": ["blade"]
+						}
+			
+			Optional(Disabled while writing this)
+				Laravel Blade formatter - Shuhei Hayashibara
+				php cs fixer - junstyle
+				Prettier - Code formatter
+		
+		
+	Settings.json at the time of writing this txt file
+		{
+		  "telemetry.enableTelemetry": false,
+		  "telemetry.enableCrashReporter": false,
+		  "workbench.iconTheme": "material-icon-theme",
+		  "editor.formatOnSave": true,
+		  "window.zoomLevel": 0,
+		  "blade.format.enable": true,
+		  "workbench.colorTheme": "Material Theme Darker High Contrast",
+		  "beautify.language": {
+			"html": [
+			  "blade"
+			]
+		  }
+		}
+		
+		
+	

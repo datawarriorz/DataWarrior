@@ -8,7 +8,7 @@
             @csrf
             <div class="card">
                 <div class="card-body">
-                    <h4>Welcome {{ Auth::user()->first_name }} {{ Auth::user()->last_name}}</h4>
+                    <h4>Welcome {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</h4>
                     <table class="table text-center">
                         <thead>
                             <tr>
@@ -23,12 +23,12 @@
                         <tbody>
                             @foreach($internship as $in)
                             <tr>
-                                <td>{{$in->preferreddomain1}}</td>
-                                <td>{{$in->preferreddomain2}}</td>
-                                <td>{{$in->preferreddomain3}}</td>
-                                <td>{{$in->stipend}}</td>
-                                <td>{{$in->internshiplocation}}</td>
-                                <td>{{$in->counselling}}</td>
+                                <td>{{ $in->preferreddomain1 }}</td>
+                                <td>{{ $in->preferreddomain2 }}</td>
+                                <td>{{ $in->preferreddomain3 }}</td>
+                                <td>{{ $in->stipend }}</td>
+                                <td>{{ $in->internshiplocation }}</td>
+                                <td>{{ $in->counselling }}</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -38,5 +38,4 @@
         </div>
     </div>
 </div>
-
 @endsection

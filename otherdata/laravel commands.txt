@@ -22,3 +22,9 @@ INSERT INTO `certification` VALUES('Angular', 1000, 'Angular (commonly referred 
 INSERT INTO `skill_level` VALUES(1, 'Beginner', NULL, NULL);
 INSERT INTO `skill_level` VALUES(2, 'Intermediate', NULL, NULL);
 INSERT INTO `skill_level` VALUES(3, 'Professional', NULL, NULL);
+
+php artisan tinker
+    $expert = new App\Expert
+    $expert->email='ashaypatil1995@gmail.com'
+    $expert->password= Hash::make('ashay')
+    $expert->save();

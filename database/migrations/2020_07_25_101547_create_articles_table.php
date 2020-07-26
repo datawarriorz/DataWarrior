@@ -22,6 +22,9 @@ class CreateArticlesTable extends Migration
             $table->string('description');
             $table->binary('content')->nullable();
             $table->binary('article_image')->nullable();
+            $table->string('status')->nullable();
+
+
             $table->timestamps();
         });
     }

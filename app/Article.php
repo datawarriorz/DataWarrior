@@ -19,8 +19,7 @@ class Article extends Model
      *
      * @var array
      */
-    protected $fillable = ['article_id', 'title', 'expert_id', 'author', 'description', 'content', 'article_image', 'created_at', 'updated_at'];
-
+    protected $fillable = ['article_id', 'title', 'expert_id', 'author', 'description', 'content', 'article_image','status', 'created_at', 'updated_at'];
     /**
      * The attributes excluded from the model's JSON form.
      *

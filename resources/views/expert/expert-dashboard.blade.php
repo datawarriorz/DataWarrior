@@ -1,9 +1,7 @@
 @extends('layout.expertlayout')
 
 @section('content')
-<div class="card-header">Expert Dashboard</div>
-@foreach($articles as $article)
-    Article->title :{{ $article->title }}
-@endforeach
-
+<div class="card text-center">
+    <div class="card-header">Expert Dashboard</div>
+</div>
 @endsection

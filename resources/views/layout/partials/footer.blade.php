@@ -59,7 +59,6 @@
                                 <tr>
                                     <td><a class="footer-link" href="#">Email Marketing</a></td>
                                 </tr>
-
                             </table>
                         </div>
                     </div>

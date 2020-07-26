@@ -6,5 +6,4 @@
     Article->title :{{ $article->title }}
 @endforeach
 
-
 @endsection

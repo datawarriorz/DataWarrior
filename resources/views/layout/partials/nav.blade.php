@@ -37,13 +37,14 @@
             <ul class="navbar-nav nav-right justify-content-end">
                 @guest
                     <li class="nav-item-right">
-                        <a class="nav-link-right" href="{{ route('login') }}"><button type="button" class="btn navbtn">SIGN
+                        <a class="nav-link-right" href="{{ route('login') }}"><button type="button"
+                                class="btn navbtn">SIGN
                                 IN</button></a>
                     </li>
                     @if(Route::has('register'))
                         <li class="nav-item-right">
-                            <a class="nav-link-right" href="{{ route('register') }}"><button type="button"
-                                    class="btn navbtn">REGISTER</button></a>
+                            <a class="nav-link-right" href="{{ route('register') }}"><button
+                                    type="button" class="btn navbtn">REGISTER</button></a>
                         </li>
                     @endif
                 @else
@@ -70,7 +71,8 @@
                                        document.getElementById('logout-form').submit();">
                                     <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
                                     @csrf
                                 </form>
                             </div>

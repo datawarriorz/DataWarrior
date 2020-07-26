@@ -22,14 +22,14 @@
                         </thead>
                         <tbody>
                             @foreach($internship as $in)
-                            <tr>
-                                <td>{{ $in->preferreddomain1 }}</td>
-                                <td>{{ $in->preferreddomain2 }}</td>
-                                <td>{{ $in->preferreddomain3 }}</td>
-                                <td>{{ $in->stipend }}</td>
-                                <td>{{ $in->internshiplocation }}</td>
-                                <td>{{ $in->counselling }}</td>
-                            </tr>
+                                <tr>
+                                    <td>{{ $in->preferreddomain1 }}</td>
+                                    <td>{{ $in->preferreddomain2 }}</td>
+                                    <td>{{ $in->preferreddomain3 }}</td>
+                                    <td>{{ $in->stipend }}</td>
+                                    <td>{{ $in->internshiplocation }}</td>
+                                    <td>{{ $in->counselling }}</td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

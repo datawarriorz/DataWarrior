@@ -30,8 +30,8 @@
     //     }, false);
     // })();
 
-    $(document).ready(function() {
-        $("#next1").click(function() {
+    $(document).ready(function () {
+        $("#next1").click(function () {
             //if(validateTab1()){
             var n = 0;
             $("#tab1").hide("slow");
@@ -43,7 +43,7 @@
             //$("#tab1").animate({width:'toggle'},0);
             //$("#tab2").animate({width:'toggle'},1000);
         });
-        $("#prev1").click(function() {
+        $("#prev1").click(function () {
             var n = 0;
             $("#tab2-error").hide("fast");
             $("#tab2").hide("slow");
@@ -51,7 +51,7 @@
             $("#tab1").show("slow");
             window.scrollTo(0, 0);
         });
-        $("#next2").click(function() {
+        $("#next2").click(function () {
             if (ValidateTab2()) {
                 var n = 1;
                 $("#tab2").hide("slow");
@@ -63,7 +63,7 @@
                 $("#tab2-error").show("slow");
             }
         });
-        $("#prev2").click(function() {
+        $("#prev2").click(function () {
             var n = 1;
             $("#tab2-error").hide("fast");
             $("#tab3").hide("slow");
@@ -71,7 +71,7 @@
             $("#tab2").show("slow");
             window.scrollTo(0, 0);
         });
-        $("#next3").click(function() {
+        $("#next3").click(function () {
             if (ValidateTab3()) {
                 var n = 2;
                 $("#tab3").hide("slow");
@@ -83,7 +83,7 @@
                 $("#tab3-error").show("slow");
             }
         });
-        $("#prev3").click(function() {
+        $("#prev3").click(function () {
             var n = 2;
             $("#tab2-error").hide("fast");
             $("#tab4").hide("slow");
@@ -91,7 +91,7 @@
             $("#tab3").show("slow");
             window.scrollTo(0, 0);
         });
-        $("#next4").click(function() {
+        $("#next4").click(function () {
             if (ValidateTab4()) {
                 var n = 3;
                 $("#tab4").hide("slow");
@@ -103,7 +103,7 @@
                 $("#tab4-error").show("slow");
             }
         });
-        $("#prev4").click(function() {
+        $("#prev4").click(function () {
             var n = 3;
             $("#tab2-error").hide("fast");
             $("#tab5").hide("slow");
@@ -111,7 +111,7 @@
             $("#tab4").show("slow");
             window.scrollTo(0, 0);
         });
-        $("#next5").click(function() {
+        $("#next5").click(function () {
             if (ValidateTab5()) {
                 AppForm();
                 var n = 4;
@@ -124,7 +124,7 @@
                 $("#tab5-error").show("slow");
             }
         });
-        $("#prev5").click(function() {
+        $("#prev5").click(function () {
             var n = 4;
             $("#tab6").hide("slow");
             StepBackIndicator(n);
@@ -136,7 +136,7 @@
         //     StepIndicator(n);
         //     document.getElementsByClassName("step")[n].className += " finish";
         // });
-        $("#contact-submit").click(function() {
+        $("#contact-submit").click(function () {
             if (validateContact()) {
                 var n = 0;
                 $("#contact1").hide("fast");

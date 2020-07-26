@@ -7,12 +7,11 @@
             <br><br><br>
             <div class="card">
                 <div class="card-header">{{ __('Verify Your Email Address') }}</div>
-
                 <div class="card-body">
-                    @if (session('resent'))
-                    <div class="alert alert-success" role="alert">
-                        {{ __('A fresh verification link has been sent to your email address.') }}
-                    </div>
+                    @if(session('resent'))
+                        <div class="alert alert-success" role="alert">
+                            {{ __('A fresh verification link has been sent to your email address.') }}
+                        </div>
                     @endif
                     {{ __('Before proceeding, please check your email for a verification link.') }}<br>
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
@@ -21,14 +20,10 @@
                             to verify')
                             }}</button>.
                     </form><br>
-
-
-
                 </div>
             </div>
             <br><br><br><br><br>
         </div>
-
     </div>
 </div>
 @endsection

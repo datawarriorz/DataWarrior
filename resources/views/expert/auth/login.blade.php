@@ -1,3 +1,6 @@
+@extends('layout.expertlayout')
+
+@section('content')
 <div class="card-header">{{ __('Expert Login') }}</div>
 <div class="card-body">
     <form method="POST" action="{{ route('expert.login.submit') }}">
@@ -40,10 +43,10 @@
             <div class="form-group row">
                 <div class="col-md-6 offset-md-3">
                     <div class="form-check custom-control">
-                        <input class="form-check-input custom-checkbox" type="checkbox" name="remember" id="remember"
-                            /*blade*/{{ old('remember') ? 'checked' : '' }}>
-                        <label class="form-check-label" for="remember">
-                            {{ __('Remember Me') }}
+                        <input class="form-check-input custom-checkbox" type="checkbox" name="remember"
+                            id="remember" /*blade*/{{ old('remember') ? 'checked' : '' }}>
+                            <label class="form-check-label" for="remember">
+                        {{ __('Remember Me') }}
                         </label>
                     </div>
                 </div>
@@ -65,3 +68,4 @@
         </div>
     </form>
 </div>
+@endsection

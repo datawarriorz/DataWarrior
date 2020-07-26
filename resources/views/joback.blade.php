@@ -2,12 +2,9 @@
 
 @section('content')
 <link rel="stylesheet" href="./css/internship.css">
-<!-- <div class="internship-container">
 
-    </div> -->
 <div class="internship-container">
     <div id="regForm">
-
         <!-- iteration 2 action=dashboard-->
         <div id="tab1">
             <div class="row container-column">
@@ -36,8 +33,5 @@
             </div>
         </div>
     </div>
-</div>
-
-</div>
 </div>
 @endsection

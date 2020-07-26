@@ -23,4 +23,9 @@ class ExpertController extends Controller
         $articles= Article::where('expert_id',Auth::user()->expert_id)->get();
         return view('expert.expert-dashboard', ['articles' => $articles]);
     }
+    public function logoutexpert()
+    {
+        Auth::logout();
+        return view('expert.auth.login');
+    }
 }

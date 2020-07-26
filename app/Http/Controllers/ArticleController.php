@@ -20,6 +20,14 @@ class ArticleController extends Controller
         return view('expert.', ['articles' => $articles]);
 
     }
+    public function viewarticleform(){
+        
+        
+        
+        return view('expert.expert-postarticle');
+
+    }
+    
     public function postarticle(Request $request){
         
         $article=new Article();
@@ -51,7 +59,7 @@ class ArticleController extends Controller
         return view('expert.', ['articles' => $articles]);
 
     }
-    public function deletetarticle(){
+    public function deletetarticle(Request $request){
         
         $article= App\Article::find($request->article_id);
         $article->status="delete";

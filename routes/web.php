@@ -72,12 +72,17 @@ Route::get('/certification', 'CertificationController@showallcertification')->mi
 Route::post('/applycertification', 'CertificationController@applycertification')->middleware('auth');
 Route::post('/requestcertification', 'CertificationController@requestcertification')->middleware('auth');
 
-    Route::get('/expertlogin', 'Auth\ExpertLoginController@showLoginForm')->name('expert.login');
-    Route::post('/expertlogin', 'Auth\ExpertLoginController@login')->name('expert.login.submit');
-    Route::get('/expertdashboard', 'ExpertController@index')->name('expert.home');
-    //Route::get('/viewexpertarticle', 'ArticleController@viewexpertarticle');
-    Route::post('/logoutexpert', 'ExpertController@logoutexpert');
-    Route::get('/logoutexpert', 'ExpertController@logoutexpert');
+Route::get('/expertlogin', 'Auth\ExpertLoginController@showLoginForm')->name('expert.login');
+Route::post('/expertlogin', 'Auth\ExpertLoginController@login')->name('expert.login.submit');
+
+Route::get('/expertdashboard', 'ExpertController@index')->name('expert.home');
+
+Route::get('/view_expertarticle', 'ArticleController@viewexpertarticle');
+Route::get('/expert-postarticle', 'ArticleController@viewarticleform');
+Route::post('/expert-postarticle', 'ArticleController@postarticle');
+
+Route::post('/logoutexpert', 'ExpertController@logoutexpert');
+Route::get('/logoutexpert', 'ExpertController@logoutexpert');
 
    
 

@@ -76,5 +76,9 @@ Route::post('/requestcertification', 'CertificationController@requestcertificati
     Route::post('/expertlogin', 'Auth\ExpertLoginController@login')->name('expert.login.submit');
     Route::get('/expertdashboard', 'ExpertController@index')->name('expert.home');
     //Route::get('/viewexpertarticle', 'ArticleController@viewexpertarticle');
+    Route::post('/logoutexpert', 'ExpertController@logoutexpert');
+    Route::get('/logoutexpert', 'ExpertController@logoutexpert');
+
+   
 
     

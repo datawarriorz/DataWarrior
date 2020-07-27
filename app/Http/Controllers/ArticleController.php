@@ -8,28 +8,25 @@ use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth:expert');
     }
-    public function viewexpertarticles(){
-        
-        $articles= Article::where('expert_id',Auth::user()->expert_id)->get();
+
+    public function viewexpertarticles()
+    {
+        $articles= Article::where('expert_id', Auth::user()->expert_id)->get();
         
         return view('expert.', ['articles' => $articles]);
-
-    }
-    public function viewarticleform(){
-        
-        
-        
-        return view('expert.expert-postarticle');
-
     }
     
-    public function postarticle(Request $request){
-        
+    public function viewarticleform()
+    {
+        return view('expert.expert-postarticle');
+    }
+    
+    public function postarticle(Request $request)
+    {
         $article=new Article();
         $article->title=$request->title;
         $article->expert_id=Auth::user()->expert_id;
@@ -39,12 +36,11 @@ class ArticleController extends Controller
         $article->article_image=$request->article_image;
         $article->status="review";
         $article->save();
-        $articles= Article::where('expert_id',Auth::user()->expert_id)->get();
+        $articles= Article::where('expert_id', Auth::user()->expert_id)->get();
         return view('expert.', ['articles' => $articles]);
-
     }
-    public function editarticle(Request $request){
-        
+    public function editarticle(Request $request)
+    {
         $article= App\Article::find($request->article_id);
         $article->title=$request->title;
         $article->expert_id=Auth::user()->expert_id;
@@ -54,17 +50,15 @@ class ArticleController extends Controller
         $article->article_image=$request->article_image;
         $article->status="review";
         $article->save();
-        $articles= Article::where('expert_id',Auth::user()->expert_id)->get();
+        $articles= Article::where('expert_id', Auth::user()->expert_id)->get();
         
         return view('expert.', ['articles' => $articles]);
-
     }
-    public function deletetarticle(Request $request){
-        
+    public function deletetarticle(Request $request)
+    {
         $article= App\Article::find($request->article_id);
         $article->status="delete";
         
         return view('expert.', ['articles' => $articles]);
-
     }
 }

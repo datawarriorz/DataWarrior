@@ -12,19 +12,3 @@ php artisan tinker
     $expert->email='xyz@gmail.com';
     $expert->password= Hash::make('123');
     $expert->save();
-
-INSERT INTO `qualification_types` VALUES('10th', NULL, NULL);
-INSERT INTO `qualification_types` VALUES('12th', NULL, NULL);
-INSERT INTO `qualification_types` VALUES('Graduation', NULL, NULL);
-INSERT INTO `qualification_types` VALUES('Post Graduation', NULL, NULL);
-INSERT INTO `qualification_types` VALUES('Diploma', NULL, NULL);
-INSERT INTO `qualification_types` VALUES('PhD', NULL, NULL);
-
-
-INSERT INTO `certification` VALUES('Flutter & Dart', 700, 'Welcome to his course on DART(PROGRAMMING LANGUAGE). Dart is an open-source, scalable programming language, with robust libraries and runtimes, for building web, server, and mobile apps. It is used to build web, server, desktop, and mobile applications. D', 'Data Warriors', '1 year', 'Basic programming Knowledge', 'available', NULL, NULL);
-INSERT INTO `certification` VALUES('Java', 100, 'After placing this code in our CSS file, we can apply the \"tab\" class to any text to create the appearance of a tab. The value of the margin-left can be increased or decreased depending on your needs.\r\n\r\nAlthough we recommend the method above, the margin-', 'DataWarriors', '1 year', 'No Requirememts', 'available', NULL, NULL);
-INSERT INTO `certification` VALUES('Angular', 1000, 'Angular (commonly referred to as \"Angular 2+\" or \"Angular v2 and above\") is a TypeScript-based open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from t', 'Google', 'infinite', 'clg me kuch kiya nahi kya', 'tera baap bhi available karega', NULL, NULL);
-
-INSERT INTO `skill_level` VALUES(1, 'Beginner', NULL, NULL);
-INSERT INTO `skill_level` VALUES(2, 'Intermediate', NULL, NULL);
-INSERT INTO `skill_level` VALUES(3, 'Professional', NULL, NULL);

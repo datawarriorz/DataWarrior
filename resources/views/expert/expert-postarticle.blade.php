@@ -5,6 +5,7 @@
 <div class="col-md-8 offset-md-2">
     <div>
         <form method="POST" action="/expert-postarticle">
+            @csrf
             <div class="card">
                 <div class="card-header text-center">
                     <h4>Fill Article Details</h4>

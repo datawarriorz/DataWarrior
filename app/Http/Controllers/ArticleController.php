@@ -17,7 +17,7 @@ class ArticleController extends Controller
     {
         $articles= Article::where('expert_id', Auth::user()->expert_id)->get();
         
-        return view('expert.', ['articles' => $articles]);
+        return view('expert.expert-viewarticle', ['articles' => $articles]);
     }
     
     public function viewarticleform()
@@ -37,7 +37,7 @@ class ArticleController extends Controller
         $article->status="review";
         $article->save();
         $articles= Article::where('expert_id', Auth::user()->expert_id)->get();
-        return view('expert.', ['articles' => $articles]);
+        return view('expert.expert-dashboard', ['articles' => $articles]);
     }
     public function editarticle(Request $request)
     {

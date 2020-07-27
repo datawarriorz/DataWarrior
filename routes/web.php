@@ -77,7 +77,7 @@ Route::post('/expertlogin', 'Auth\ExpertLoginController@login')->name('expert.lo
 
 Route::get('/expertdashboard', 'ExpertController@index')->name('expert.home');
 
-Route::get('/expert-viewarticle', 'ArticleController@viewexpertarticle');
+Route::get('/expert-viewarticle', 'ArticleController@viewexpertarticles');
 Route::get('/expert-postarticle', 'ArticleController@viewarticleform');
 Route::post('/expert-postarticle', 'ArticleController@postarticle');
 

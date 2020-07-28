@@ -12,6 +12,8 @@ class Article extends Model
      *
      * @var string
      */
+    protected $primaryKey = 'article_id';
+    
     protected $table = 'articles';
 
     /**

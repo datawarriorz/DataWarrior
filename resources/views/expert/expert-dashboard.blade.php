@@ -38,7 +38,7 @@
                                                         <i class="fas fa-edit"></i> Post Article
                                                     </button>
                                                 </a>
-                                                <a href="/expert-viewarticle">
+                                                <a href="/expert-listarticles">
                                                     <button type="button" class="btn tab-edit-btn">
                                                         <i class="far fa-eye"></i> View Articles
                                                     </button>

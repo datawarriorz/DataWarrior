@@ -17,7 +17,7 @@ class ArticleController extends Controller
     {
         $articles= Article::where('expert_id', Auth::user()->expert_id)->get();
         
-        return view('expert.expert-viewarticle', ['articles' => $articles]);
+        return view('expert.expert-listarticles', ['articles' => $articles]);
     }
     
     public function viewarticleform()
@@ -63,7 +63,8 @@ class ArticleController extends Controller
     }
     public function viewarticle(Request $request)
     {
-        $article= App\Article::find($request->article_id);
-        return view('expert.expert-viewarticle', ['article' => $article]);
+
+        $article_obj= Article::find($request->article_id);
+        return view('expert.expert-viewarticle', ['article' => $article_obj]);
     }
 }

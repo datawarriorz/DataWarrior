@@ -8,7 +8,9 @@
             <div class="col-md-9">
                 <div class="col-md-12">
                     <div class="card dashboard-card">
-                        <div class="card-header">Dashboard</div>
+                        <div class="card-header">
+                            <h5 style="margin-bottom: 0px">Dashboard</h5>
+                        </div>
                         <div class="card-body dashboard-card-body">
                             <div class="row">
                                 <div class="col-md-12">
@@ -39,7 +41,8 @@
                                                     </button>
                                                 </a>
                                                 <a href="/expert-listarticles">
-                                                    <button type="button" class="btn tab-edit-btn">
+                                                    <button type="button" class="btn tab-edit-btn"
+                                                        style="margin-left: 10px;">
                                                         <i class="far fa-eye"></i> View Articles
                                                     </button>
                                                 </a>
@@ -57,7 +60,8 @@
                                                     </button>
                                                 </a>
                                                 <a href="/expert-viewarticle">
-                                                    <button type="button" class="btn tab-edit-btn">
+                                                    <button type="button" class="btn tab-edit-btn"
+                                                        style="margin-left: 10px;">
                                                         <i class="far fa-eye"></i> View Certifications
                                                     </button>
                                                 </a>

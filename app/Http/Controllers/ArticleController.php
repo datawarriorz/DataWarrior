@@ -36,8 +36,9 @@ class ArticleController extends Controller
         $article->article_image=$request->article_image;
         $article->status="review";
         $article->save();
-        $articles= Article::where('expert_id', Auth::user()->expert_id)->get();
-        return view('expert.expert-dashboard', ['articles' => $articles]);
+        // $articles= Article::where('expert_id', Auth::user()->expert_id)->get();
+        // return view('expert.expert-dashboard', ['articles' => $articles]);
+        return view('expert.expert-viewarticle', ['article' => $article]);
     }
     public function editarticle(Request $request)
     {
@@ -58,13 +59,13 @@ class ArticleController extends Controller
     {
         $article= App\Article::find($request->article_id);
         $article->status="delete";
-        
+
         return view('expert.', ['articles' => $articles]);
     }
     public function viewarticle(Request $request)
     {
-
         $article_obj= Article::find($request->article_id);
+
         return view('expert.expert-viewarticle', ['article' => $article_obj]);
     }
 }

@@ -16,6 +16,7 @@
                     <div class="certification-card">
                         <br>
                         <h4>Thank You</h4>
+                        <br>
                         <p>You have successfully applied for
                             @foreach($certification as $cert)
                                 {{ $cert->title }}

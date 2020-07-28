@@ -61,4 +61,9 @@ class ArticleController extends Controller
         
         return view('expert.', ['articles' => $articles]);
     }
+    public function viewarticle(Request $request)
+    {
+        $article= App\Article::find($request->article_id);
+        return view('expert.expert-viewarticle', ['article' => $article]);
+    }
 }

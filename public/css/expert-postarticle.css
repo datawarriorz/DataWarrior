@@ -9,3 +9,29 @@
     color: #fff;
     background-color: #171f2a;
 }
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+}
+
+.btn {
+    border: 1px solid #ced4da;
+    color: #171f2a;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    height: 39px;
+    width: 184px;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}

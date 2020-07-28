@@ -29,7 +29,6 @@
     //         });
     //     }, false);
     // })();
-
     $(document).ready(function () {
         $("#next1").click(function () {
             //if(validateTab1()){

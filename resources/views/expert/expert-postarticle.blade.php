@@ -28,8 +28,13 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Image :</label>
-                                    <input type="text" name="articleimage" class="form-control" placeholder="Eg. "
-                                        autocomplete="on" value={{ old('profile') }}>
+                                    <div class="upload-btn-wrapper">
+                                        <input id="filename" class="btn disableInputField" placeholder="Choose File"
+                                            disabled="disabled" />
+                                        <label class="fileUpload">
+                                            <input id="uploadBtn" type="file" class="upload" />
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>

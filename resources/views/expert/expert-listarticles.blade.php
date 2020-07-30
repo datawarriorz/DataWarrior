@@ -2,6 +2,7 @@
 
 @section('content')
 <link rel="stylesheet" href="./css/expert-listarticles.css">
+<link rel="stylesheet" href="./css/expert-master.css">
 <div class="dashboard-wrapper">
     <div class="col-md-12">
         <div class="row">
@@ -9,7 +10,18 @@
                 <div class="col-md-12">
                     <div class="card dashboard-card">
                         <div class="card-header">
-                            <h5>Your Articles</h5>
+                            <div class="row">
+                                <div class="col-md-4 text-left">
+                                    Your Articles
+                                </div>
+                                <div class="col-md-8 text-right">
+                                    <a href="/expertdashboard">
+                                        <button type="button" class="btn tab-edit-btn">
+                                            <i class="fas fa-arrow-left"></i> Go Back
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-body dashboard-card-body">
                             <div class="row">
@@ -132,7 +144,7 @@
                 <div class="col-md-12">
                     <div class="card feed-card">
                         <div class="card-header">
-                            <h5>Feed</h5>
+                            Feed
                         </div>
                         <div class="card-body">
 

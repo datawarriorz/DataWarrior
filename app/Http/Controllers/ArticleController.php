@@ -33,7 +33,11 @@ class ArticleController extends Controller
         $article->author=$request->author;
         $article->description=$request->description;
         $article->content=$request->content;
-        $article->article_image=$request->article_image;
+        $file = $request->file('article_image');
+        // Get the contents of the file
+        $contents = $file->openFile()->fread($file->getSize());
+        $article->article_image=$contents;
+       
         $article->status="review";
         $article->save();
         // $articles= Article::where('expert_id', Auth::user()->expert_id)->get();

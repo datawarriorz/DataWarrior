@@ -52,15 +52,3 @@
 h5 {
     margin-bottom: 0;
 }
-
-.card {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border: 2px solid #171f2a;
-    border-radius: 4px;
-}
-
-.card-header {
-    color: white;
-    background-color: #171f2a;
-}

@@ -2,13 +2,14 @@
 
 @section('content')
 <link rel="stylesheet" href="./css/expert-postarticle.css">
+<link rel="stylesheet" href="./css/expert-master.css">
 <div class="col-md-8 offset-md-2">
     <div>
         <form method="POST" action="/expert-postarticle" enctype="multipart/form-data">
             @csrf
             <div class="card">
                 <div class="card-header text-center">
-                    <h4>Article Form</h4>
+                    Article Form
                 </div>
                 <div class="card-body">
                     <div class="col-md-12" style="padding: 0px;">
@@ -52,7 +53,7 @@
                         </div>
                         <div class="form-group col-md-12 text-center">
                             <button type="submit" class="btn tab-edit-btn">
-                                Preview Article <i class="far fa-eye"></i>
+                                Submit & Preview Article <i class="far fa-eye"></i>
                             </button>
                         </div>
                     </div>

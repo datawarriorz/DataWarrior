@@ -2,6 +2,7 @@
 
 @section('content')
 <link rel="stylesheet" href="./css/expert-dashboard.css">
+<link rel="stylesheet" href="./css/expert-master.css">
 <div class="dashboard-wrapper">
     <div class="col-md-12">
         <div class="row">
@@ -9,7 +10,7 @@
                 <div class="col-md-12">
                     <div class="card dashboard-card">
                         <div class="card-header">
-                            <h5 style="margin-bottom: 0px">Dashboard</h5>
+                            <div style="margin-bottom: 0px"><i class="fas fa-columns"></i> Dashboard</div>
                         </div>
                         <div class="card-body dashboard-card-body">
                             <div class="row">
@@ -34,19 +35,27 @@
                                         <div class="tab-pane fade show active" id="articles" role="tabpanel"
                                             aria-labelledby="home-tab">
                                             <br>
-                                            <div class="container">
-                                                <a href="/expert-postarticle">
-                                                    <button type="button" class="btn tab-edit-btn">
-                                                        <i class="fas fa-edit"></i> Post Article
-                                                    </button>
-                                                </a>
-                                                <a href="/expert-listarticles">
-                                                    <button type="button" class="btn tab-edit-btn"
-                                                        style="margin-left: 10px;">
-                                                        <i class="far fa-eye"></i> View Articles
-                                                    </button>
-                                                </a>
+
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <a href="/expert-postarticle">
+                                                            <button type="button" class="btn tab-edit-btn">
+                                                                <i class="fas fa-edit"></i> Post Article
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <a href="/expert-listarticles">
+                                                            <button type="button" class="btn tab-edit-btn"
+                                                                style="margin-left: 10px;">
+                                                                <i class="far fa-eye"></i> View Articles
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
+
                                             <br>
                                         </div>
 
@@ -77,10 +86,28 @@
             </div>
             <div class="col-md-3">
                 <div class="col-md-12">
-                    <div class="card feed-card">
-                        <div class="card-header">Feed</div>
+                    <div class="card notification-card right-card">
+                        <div class="card-header">
+                            <i class="far fa-bell"></i> Notifications
+                        </div>
                         <div class="card-body">
-                            <a href="/expert-postarticle">post article</a>
+                            empty
+                        </div>
+                    </div>
+                    <div class="card trending-card right-card">
+                        <div class="card-header">
+                            <i class="fas fa-hashtag"></i> Trending Articles
+                        </div>
+                        <div class="card-body">
+                            no articles
+                        </div>
+                    </div>
+                    <div class="card views-card right-card">
+                        <div class="card-header">
+                            <i class="far fa-eye"></i> Total Views
+                        </div>
+                        <div class="card-body">
+                            no views
                         </div>
                     </div>
                 </div>

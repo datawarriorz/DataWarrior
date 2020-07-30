@@ -25,7 +25,6 @@ Visual Studio Extensions
 						}
 			
 			Optional(Disabled while writing this)
-				
 				php cs fixer - junstyle
 				Prettier - Code formatter
 		

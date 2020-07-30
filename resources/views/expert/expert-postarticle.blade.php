@@ -34,7 +34,8 @@
                                             disabled="disabled" rows="2" autocomplete="off">
                                             </textarea>
                                         <label class="fileUpload form-control">
-                                            <input id="uploadBtn" type="file" name="article_image" class="upload" />
+                                            <input id="uploadBtn" enctype="multipart/form-data" type="file"
+                                                name="article_image" class="upload" />
                                             <span class="uploadBtn">Upload / Browse File ..</span>
                                         </label>
                                     </div>

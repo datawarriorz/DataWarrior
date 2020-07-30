@@ -8,6 +8,7 @@ Data Warrior Modules Flow:
 		A   -Ashay
 		R   -Robin
 
+
 ###################### Normal User ######################
 Before Login
 	$Home
@@ -61,7 +62,7 @@ After Login
 			Post Article
 				Fill Article Details
 					Preview Article -> Post
-						Posted Acknowledgement
+						Article Page
 			View Articles Posted
 				Articles List -> View an Article
 					Article Page
@@ -76,6 +77,17 @@ After Login
 							course provided->take registrations
 		
 ################# Expert End #################
+
+################# Admin #################
+
+Before Login
+	Home(Direct Admin Login Screen)
+		Login
+After Login
+	Dashboard
+		
+		
+################# Admin End #################
 
 	TODO
 		$clean code

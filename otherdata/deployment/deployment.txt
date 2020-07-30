@@ -1,0 +1,11 @@
+for image upload 
+    changes to
+        xampp/php/php.ini
+            changed
+                memory_limit = 128M
+                post_max_size = 48M
+                upload_max_filesize = 64M
+        
+        xampp/mysql/bin/my.ini
+            changed
+                max_allowed_packet = 15M

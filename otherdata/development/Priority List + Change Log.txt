@@ -6,6 +6,7 @@ Priority List & Change Log with version:
 		$	-done
 		@	-buggy
 		?	-Leftout for next iteration
+	Users-
 		A   -Ashay
 		R   -Robin
 		U	-Unknown to be allotted
@@ -34,9 +35,9 @@ v 0.1.1 (fixes + improvements) deployed
 
 v 0.1.2 ( )
 	fixes
-		R 	- contact us	->	cs-> validation remaining
-		R 	- reset password page -> spacing
-		R 	- edit pages -> top bottom padding+profile link
+		*R 	- contact us	->	cs-> validation remaining
+		*R 	- reset password page -> spacing
+		*R 	- edit pages -> top bottom padding+profile link
 	changes
 		?  	- change of 2nd carousel image
 		?  	- theme consistency accross all images

@@ -1,4 +1,4 @@
-@extends('layout.expertlayout')
+@extends('layout.adminlayout')
 
 @section('content')
 <link rel="stylesheet" href="./css/login.css" />
@@ -9,10 +9,10 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-center">
-                    <h5>Expert Login</h5>
+                    <h5>Admin Login</h5>
                 </div>
                 <div class="card-body text-center">
-                    <form method="POST" action="{{ route('expert.login.submit') }}">
+                    <form method="POST" action="{{ route('admin.login.submit') }}">
                         <br>
                         @csrf
                         <div>

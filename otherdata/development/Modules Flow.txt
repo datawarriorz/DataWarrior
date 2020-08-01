@@ -54,7 +54,7 @@ Before Login
 		Login
 After Login
 	Dashboard
-		Search(Existing Certification,Articles,Courses) -> Search
+		*Search(Existing Certification,Articles,Courses) -> Search
 			Search Result (List)
 		Profile (Navbar)
 			View/Edit/Save Profile Details
@@ -85,7 +85,45 @@ Before Login
 		Login
 After Login
 	Dashboard
-		
+		Expert
+			Add Expert
+				Add Form (PopUp) -> Save 
+
+			Search Expert
+				Experts List
+					Update
+						Update Form (PopUp) -> Save
+					Delete
+						Are u Sure? (PopUp)
+			
+		Article
+			Add Article
+				Add Article (PopUp) -> Save
+			Review List
+				Articles List -> View Article
+					Article Page -> 
+						if publish
+							-> Acknowledgement(PopUp) -> Back to Article List
+						if Reject
+							-> Reject + Comment Form(PopUp) -> Submit -> Back to Article List
+			Search Article
+				Articles List
+					Update
+						Update Form (PopUp) -> Save
+					Delete
+						Are u Sure? (PopUp)
+
+		Counsellor
+			Add Counsellor
+				Add Form (PopUp) -> Save 
+
+			Search Counsellor
+				Counsellor List
+					Update
+						Update Form (PopUp) -> Save
+					Delete
+						Are u Sure? (PopUp)
+
 		
 ################# Admin End #################
 

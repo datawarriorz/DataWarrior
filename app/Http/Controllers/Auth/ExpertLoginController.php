@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
+use App\User;
 
 class ExpertLoginController extends Controller
 {
@@ -34,5 +35,4 @@ class ExpertLoginController extends Controller
     {
         $this->middleware('guest:expert')->except('logout');
     }
-   
 }

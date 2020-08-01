@@ -22,6 +22,11 @@ return [
         'driver' => 'eloquent',
         'model' => App\Expert::class,
     ],
+    'admin' => [
+        'guard' => 'web',
+        'driver' => 'eloquent',
+        'model' => App\Admin::class,
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -132,12 +137,12 @@ return [
         ],
         'experts' => [
             'provider' => 'experts',
-            'table' => 'password_resets',//diff table should be made 
+            'table' => 'password_resets',//diff table should be made
             'expire' => 15,
         ],
         'admins' => [
             'provider' => 'admins',
-            'table' => 'password_resets',//diff table should be made 
+            'table' => 'password_resets',//diff table should be made
             'expire' => 15,
         ],
     ],

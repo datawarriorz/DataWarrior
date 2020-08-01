@@ -12,3 +12,10 @@ php artisan tinker
     $expert->email='xyz@gmail.com';
     $expert->password= Hash::make('123');
     $expert->save();
+
+    $admin = new App\Admin;
+    $admin->firstname='Robin';
+    $admin->lastname='Varughese';
+    $admin->email='xyz@gmail.com';
+    $admin->password= Hash::make('123');
+    $admin->save();

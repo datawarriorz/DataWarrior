@@ -1,4 +1,4 @@
-@extends('layout.expertlayout')
+@extends('layout.adminlayout')
 
 @section('content')
 <link rel="stylesheet" href="./css/expert-dashboard.css">

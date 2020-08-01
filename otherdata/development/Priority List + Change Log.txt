@@ -1,15 +1,16 @@
 Priority List & Change Log with version:
 
 	Rules-
-		*	-to be made
-		#	-started/working on it
-		$	-done
-		@	-buggy
-		?	-Leftout for next iteration
+		*	- to be made
+		#	- started/working on it
+		$	- done
+		@	- buggy
+		?	- Leftout for next iteration
 	Users-
-		A   -Ashay
-		R   -Robin
-		U	-Unknown to be allotted
+		A   - Ashay
+		R   - Robin
+		S	- Swapnil
+		U	- Unknown to be allotted
 
 v 0.1 deployed
 
@@ -39,17 +40,17 @@ v 0.1.2 ( )
 		*R 	- reset password page -> spacing
 		*R 	- edit pages -> top bottom padding+profile link
 	changes
-		?  	- change of 2nd carousel image
-		?  	- theme consistency accross all images
-		?  	- white background in images
+		S  	- change of 2nd carousel image
+		S  	- theme consistency accross all images
+		S  	- white background in images
 	additions
-		#R	- Expert Dashboard Page frontend
-		#R	- Expert Login Page	frontend
-		#R	- Expert Article Page frontend
+		$R	- Expert Dashboard Page frontend
+		$R	- Expert Login Page	frontend
+		$R	- Expert Article Page frontend
 		*R 	- Expert Profile Page frontend
-		#A	- Expert Dashboard Page backend
-		#A	- Expert Login Page	backend
-		#A	- Expert Article Page backend
+		$A	- Expert Dashboard Page backend
+		$A	- Expert Login Page	backend
+		$A	- Expert Article Page backend
 		*A 	- Expert Profile Page backend
 		
 v 0.1.3 ( )
@@ -58,6 +59,11 @@ v 0.1.3 ( )
 	changes
 	
 	additions
+		$R	- Admin Login Page	frontend
+		$R	- Admin Dashboard Page frontend
+		$A	- Admin Login Page backend
+		$A	- Admin Dashboard Page backend
+		
 
 v 0.1.4 ( )
 	fixes

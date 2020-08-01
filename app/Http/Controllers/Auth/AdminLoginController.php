@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class AdminLoginController extends Controller
 {
-     /*
+    /*
     |--------------------------------------------------------------------------
     | Login Controller
     |--------------------------------------------------------------------------
@@ -17,8 +19,6 @@ class AdminLoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-    
-   
  
     use AuthenticatesUsers;
  
@@ -51,5 +51,4 @@ class AdminLoginController extends Controller
     {
         return view('admin.auth.login');
     }
-    
 }

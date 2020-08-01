@@ -60,6 +60,15 @@ return [
             'provider' => 'experts',
             'hash' => false,
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins'
+        ],
+        'admin-api' => [
+            'driver' => 'token',
+            'provider' => 'admins',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -93,6 +102,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Expert::class,
         ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
+        ],
     ],
 
     /*
@@ -119,7 +132,12 @@ return [
         ],
         'experts' => [
             'provider' => 'experts',
-            'table' => 'password_resets',
+            'table' => 'password_resets',//diff table should be made 
+            'expire' => 15,
+        ],
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',//diff table should be made 
             'expire' => 15,
         ],
     ],

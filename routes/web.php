@@ -83,3 +83,7 @@ Route::post('/expert-viewarticle', 'ArticleController@viewarticle');
 
 Route::post('/logoutexpert', 'ExpertController@logoutexpert');
 Route::get('/logoutexpert', 'ExpertController@logoutexpert');
+
+Route::get('/adminlogin', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+Route::post('/adminlogin', 'Auth\AdmintLoginController@login')->name('admin.login.submit');
+Route::get('/admindashboard', 'AdmintController@index')->name('admin.home');

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArticlesTable extends Migration
+class CreateExQualificationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,14 @@ class CreateArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
-            $table->id('article_id');
-            $table->string('title');
+        Schema::create('ex_qualification', function (Blueprint $table) {
+            $table->id('qua_id');
+            $table->unsignedBigInteger('qualtype_id');
+            $table->foreign('qualtype_id')->references('qualtype_id')->on('qualification_types');
+            $table->string('qua_degree');
+            $table->string('qua_univerity');
             $table->unsignedBigInteger('ex_id');
             $table->foreign('ex_id')->references('ex_id')->on('experts');
-            $table->string('author')->nullable();
-            $table->string('description');
-            $table->binary('content')->nullable();
-            $table->binary('article_image')->nullable();
-            $table->string('status')->nullable();
-
-
             $table->timestamps();
         });
     }
@@ -36,6 +32,6 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('ex_qualification');
     }
 }

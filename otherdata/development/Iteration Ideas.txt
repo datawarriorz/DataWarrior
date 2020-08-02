@@ -17,3 +17,23 @@ admin panel
 
 
 style="white-space: pre-line" for getting new line back in front end
+
+
+
+expert
+ex_skills
+ex_qualifications
+		qua_degree
+		qua_univerity
+ex_experience
+	exp_id
+	exp_profile
+	exp_organisation
+	exp_location
+	exp_description
+	exp_currentjob
+	exp_startdate
+	exp_enddate
+	
+
+

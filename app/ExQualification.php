@@ -4,24 +4,25 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class ExQualification extends Model  
 {
+
+    
 
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $primaryKey = 'article_id';
-    
-    protected $table = 'articles';
+    protected $table = 'ex_qualification';
 
     /**
      * Attributes that should be mass-assignable.
      *
      * @var array
      */
-    protected $fillable = ['article_id', 'title', 'ex_id', 'author', 'description', 'content', 'article_image','status', 'created_at', 'updated_at'];
+    protected $fillable = ['qua_id', 'qualtype_id', 'qua_degree', 'qua_univerity', 'ex_id', 'created_at', 'updated_at'];
+
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -42,4 +43,5 @@ class Article extends Model
      * @var array
      */
     protected $dates = ['created_at', 'updated_at'];
+
 }

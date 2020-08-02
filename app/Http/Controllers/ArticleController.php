@@ -15,7 +15,7 @@ class ArticleController extends Controller
 
     public function viewexpertarticles()
     {
-        $articles= Article::where('expert_id', Auth::user()->expert_id)->get();
+        $articles= Article::where('ex_id', Auth::user()->ex_id)->get();
         
         return view('expert.expert-listarticles', ['articles' => $articles]);
     }
@@ -29,7 +29,7 @@ class ArticleController extends Controller
     {
         $article=new Article();
         $article->title=$request->title;
-        $article->expert_id=Auth::user()->expert_id;
+        $article->ex_id=Auth::user()->ex_id;
         $article->author=$request->author;
         $article->description=$request->description;
         $article->content=$request->content;
@@ -40,7 +40,7 @@ class ArticleController extends Controller
        
         $article->status="review";
         $article->save();
-        // $articles= Article::where('expert_id', Auth::user()->expert_id)->get();
+        // $articles= Article::where('ex_id', Auth::user()->ex_id)->get();
         // return view('expert.expert-dashboard', ['articles' => $articles]);
         return view('expert.expert-viewarticle', ['article' => $article]);
     }
@@ -48,14 +48,14 @@ class ArticleController extends Controller
     {
         $article= App\Article::find($request->article_id);
         $article->title=$request->title;
-        $article->expert_id=Auth::user()->expert_id;
+        $article->ex_id=Auth::user()->ex_id;
         $article->author=$request->author;
         $article->description=$request->description;
         $article->content=$request->content;
         $article->article_image=$request->article_image;
         $article->status="review";
         $article->save();
-        $articles= Article::where('expert_id', Auth::user()->expert_id)->get();
+        $articles= Article::where('ex_id', Auth::user()->ex_id)->get();
         
         return view('expert.', ['articles' => $articles]);
     }

@@ -1,7 +1,7 @@
 @extends('layout.mainlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/certificationreqack.css" />
+<link rel="stylesheet" href="./css/certification/certificationreqack.css" />
 <div class="container">
     <br>
     <div class="card">

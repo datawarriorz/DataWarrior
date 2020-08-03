@@ -1,7 +1,7 @@
 @extends('layout.mainlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/internshipfinal.css">
+<link rel="stylesheet" href="./css/user-internship/internshipfinal.css">
 <div class="internship-container">
     <div id="InternFinalForm">
         <h4 class="text-center" style="margin-bottom:1.5rem;margin-top:-21px;">Application Overview</h4>

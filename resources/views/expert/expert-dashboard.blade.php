@@ -1,13 +1,13 @@
 @extends('layout.expertlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert-dashboard.css">
-<link rel="stylesheet" href="./css/expert-master.css">
+<link rel="stylesheet" href="./css/expert/expert-dashboard.css">
+<link rel="stylesheet" href="./css/expert/expert-master.css">
 <div class="dashboard-wrapper">
     <div class="col-md-12">
         <div class="row">
-            <div class="col-md-9">
-                <div class="col-md-12">
+            <div class="col-md-9 padrightzero">
+                <div class="col-md-12 padrightzero">
                     <div class="card dashboard-card">
                         <div class="card-header">
                             <div style="margin-bottom: 0px"><i class="fas fa-columns"></i> Dashboard</div>
@@ -84,7 +84,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 padleftzero">
                 <div class="col-md-12">
                     <div class="card notification-card right-card">
                         <div class="card-header">

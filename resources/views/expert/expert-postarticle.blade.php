@@ -1,8 +1,8 @@
 @extends('layout.expertlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert-postarticle.css">
-<link rel="stylesheet" href="./css/expert-master.css">
+<link rel="stylesheet" href="./css/expert/expert-postarticle.css">
+<link rel="stylesheet" href="./css/expert/expert-master.css">
 <div class="col-md-8 offset-md-2">
     <div>
         <form method="POST" action="/expert-postarticle" enctype="multipart/form-data">

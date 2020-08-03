@@ -1,8 +1,8 @@
 @extends('layout.expertlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert-viewarticles.css">
-<link rel="stylesheet" href="./css/expert-master.css">
+<link rel="stylesheet" href="./css/expert/expert-viewarticles.css">
+<link rel="stylesheet" href="./css/expert/expert-master.css">
 <div class="dashboard-wrapper">
     <div class="col-md-12">
         <div class="row">

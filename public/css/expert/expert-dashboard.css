@@ -19,33 +19,23 @@
     border-color: #dee2e6 #dee2e6 #fff;
 }
 
-.feed-card {
-    margin-left: -28px;
-}
-
-@media (max-width: 600px) {
-    .feed-card {
-        margin-left: 0px;
-        margin-top: 0px;
-    }
-}
-
-@media (max-width: 990px) {
-    .feed-card {
-        margin-left: 0px;
-        margin-top: 0px;
-    }
-}
-
 .dashboard-card-body {
     padding-top: 0px;
 }
 
 .right-card {
-    min-height: 129.4px;
+    min-height: 129.5px;
 }
 
 a {
     text-decoration: none;
     display: inline-table;
+}
+
+.padrightzero {
+    padding-right: 0;
+}
+
+.padleftzero {
+    padding-left: 0;
 }

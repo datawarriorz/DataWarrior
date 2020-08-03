@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="{{ asset('css/master.css') }}" />
-<link rel="stylesheet" href="{{ asset('css/navbar.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/admin/master.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/admin/navbar.css') }}" />
 <div class="navbar-container">
     <nav class="navbar navbar-expand-lg">
 

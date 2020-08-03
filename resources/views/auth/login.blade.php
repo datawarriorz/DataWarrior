@@ -1,7 +1,8 @@
 @extends('layout.mainlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/login.css" />
+<link rel="stylesheet" href="./css/user/login.css" />
+<link rel="stylesheet" href="./css/user/user-master.css">
 <br>
 <br>
 <div class="container">

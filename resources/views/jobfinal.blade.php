@@ -1,7 +1,7 @@
 @extends('layout.mainlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/jobfinal.css">
+<link rel="stylesheet" href="./css/user-job/jobfinal.css">
 <div class="job-container">
     <div id="InternFinalForm">
         <div>

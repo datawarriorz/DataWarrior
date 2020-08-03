@@ -1,7 +1,7 @@
 @extends('layout.mainlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/certification.css" />
+<link rel="stylesheet" href="./css/certification/certification.css" />
 <div class="container">
     <br>
     <div class="card">

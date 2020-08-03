@@ -1,7 +1,7 @@
 @extends('profile.profilelayout')
 
 @section('profilecontent')
-<link rel="stylesheet" href="./css/user/skill.css">
+<link rel="stylesheet" href="./css/expert/skill.css">
 <br>
 <div class="container">
     <div class="row justify-content-center">

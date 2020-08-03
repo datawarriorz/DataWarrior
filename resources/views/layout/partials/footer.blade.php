@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('css/footer.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/main/footer.css') }}" />
 <hr class="seperator1">
 <div class="footer-wrapper col-sm-12 col-md-12 col-lg-12">
     <br>

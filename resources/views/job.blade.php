@@ -2,7 +2,7 @@
 
 @section('content')
 
-<link rel="stylesheet" href="./css/job.css">
+<link rel="stylesheet" href="./css/user-job/job.css">
 <div class="internship-container">
     <div id="regForm">
         <form class="" method="POST" action="/jobform">

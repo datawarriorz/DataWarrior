@@ -1,7 +1,7 @@
 @extends('layout.mainlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/contact.css" />
+<link rel="stylesheet" href="./css/main/contact.css" />
 <div class="container">
     <br>
     <div class="card">

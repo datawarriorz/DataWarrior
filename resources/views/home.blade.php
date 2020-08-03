@@ -1,7 +1,7 @@
 @extends('layout.mainlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/home.css" />
+<link rel="stylesheet" href="./css/main/home.css" />
 <br>
 <div class="container carousel-container">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

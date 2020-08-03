@@ -1,8 +1,7 @@
 @extends('profile.profilelayout')
 
 @section('profilecontent')
-<link rel="stylesheet" href="./css/user/qualification.css">
-<link rel="stylesheet" href="./css/user/user-master.css">
+<link rel="stylesheet" href="./css/expert/expert-qualification.css">
 <br>
 <div class="card">
     <div class="card-header text-center">
@@ -95,10 +94,13 @@
                             <input type="hidden" name="process" class="form-control" value="job" />
                         </div>
                     @endif
+                    <br>
+
                 </div>
                 <br>
                 <div class="form-group col-md-12">
                     <div class="col-md-12 text-center">
+
                         <button type="submit" class="btn qualification_btn">
                             Save <i class="far fa-save"></i>
                         </button>

@@ -44,6 +44,7 @@ class ArticleController extends Controller
         // return view('expert.expert-dashboard', ['articles' => $articles]);
         return view('expert.expert-viewarticle', ['article' => $article]);
     }
+
     public function editarticle(Request $request)
     {
         $article= App\Article::find($request->article_id);
@@ -59,6 +60,7 @@ class ArticleController extends Controller
         
         return view('expert.', ['articles' => $articles]);
     }
+
     public function deletetarticle(Request $request)
     {
         $article= App\Article::find($request->article_id);
@@ -66,6 +68,7 @@ class ArticleController extends Controller
 
         return view('expert.', ['articles' => $articles]);
     }
+    
     public function viewarticle(Request $request)
     {
         $article_obj= Article::find($request->article_id);

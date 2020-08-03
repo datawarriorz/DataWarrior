@@ -30,6 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
+
     protected $redirectTo = '/verifymail';
 
     /**
@@ -37,6 +38,7 @@ class RegisterController extends Controller
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('guest');
@@ -48,6 +50,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
     protected function register(Request $request)
     {
         $validator=Validator::make($request->all(), [
@@ -57,8 +60,8 @@ class RegisterController extends Controller
             'contact_no' => 'required|numeric|unique:users',
             'password' => 'required|min:3|max:20',
             'confirm' => 'required|min:3|max:20|same:password',
-            
         ]);
+
         if ($validator->fails()) { // on validator found any error
             // pass validator object in withErrors method & also withInput it should be null by default
             return redirect('/register')->withErrors($validator)->withInput();
@@ -74,8 +77,6 @@ class RegisterController extends Controller
         $newUser->save();
         auth()->login($newUser, true);
         return view('auth.verify');
-        
-
         //return view('auth.login');
     }
 
@@ -85,6 +86,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+
     protected function create(array $data)
     {
         return User::create([
@@ -94,7 +96,6 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'contact_no' => $data['contact_no'],
             'date_of_birth' => $data['dateofbirth'],
-
         ]);
     }
 }

@@ -7,7 +7,6 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
-
 use App\User;
 
 class ExpertLoginController extends Controller
@@ -16,6 +15,7 @@ class ExpertLoginController extends Controller
     {
         return view('expert.auth.login');
     }
+
     protected function guard()
     {
         return Auth::guard('expert');
@@ -27,12 +27,14 @@ class ExpertLoginController extends Controller
      *
      * @var string
      */
+
     protected $redirectTo = '/expertdashboard';
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+    
     public function __construct()
     {
         $this->middleware('guest:expert')->except('logout');

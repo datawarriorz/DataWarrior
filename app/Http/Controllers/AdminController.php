@@ -13,15 +13,18 @@ class AdminController extends Controller
     {
         $this->middleware('auth:admin');
     }
+    
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         return view('admin.admin-dashboard');
     }
+
     public function logoutadmin()
     {
         Auth::logout();

@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use App\Certification;
 use App\CertificationApplied;
 use App\CertificationRequested;
-
-
 use Illuminate\Support\Facades\Auth as Auth;
 
 class CertificationController extends Controller
@@ -24,6 +22,7 @@ class CertificationController extends Controller
         $certificationapplied = CertificationApplied::where('user_id', Auth::user()->user_id)->get();
         return view('certification', ['certification' => $certification, 'certificationapplied' => $certificationapplied]);
     }
+
     public function requestcertification(Request $request)
     {
         $certificationrequestedobj = new CertificationRequested();
@@ -34,6 +33,7 @@ class CertificationController extends Controller
         $certificationrequestedobj->save();
         return view('certificationreqack', ['certificationrequestedobj' => $certificationrequestedobj]);
     }
+
     public function applycertification(Request $request)
     {
         $certificationapplied = new CertificationApplied();

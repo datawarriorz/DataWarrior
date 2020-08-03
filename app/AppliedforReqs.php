@@ -4,11 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AppliedforReqs extends Model  
+class AppliedforReqs extends Model
 {
-
     
-
     /**
      * The database table used by the model.
      *
@@ -43,5 +41,4 @@ class AppliedforReqs extends Model
      * @var array
      */
     protected $dates = ['created_at', 'updated_at'];
-
 }

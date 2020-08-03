@@ -7,7 +7,6 @@ use App\ContactUs;
 
 class NoAuthController extends Controller
 {
-    //
     public function contact()
     {
         return view('contact', ['message'=>'',]);

@@ -15,28 +15,30 @@ use Illuminate\Support\Facades\Validator;
 
 class InternshipController extends Controller
 {
-    //
     public function __construct()
     {
         $this->middleware('auth')->except('logout');
     }
+
     public function showinternship()
     {
         $internship = InternshipPreferences::where('user_id', '=', Auth::user()->user_id)->get();
-
         if (count($internship) != 0) {
             $jobexp = Jobexperience::where('user_id', '=', Auth::user()->user_id)->get();
             $skills = UserSkills::where('user_id', '=', Auth::user()->user_id)->get();
             $skilllevel = SkillLevel::all();
             $eduDetails = UserQualification::where('user_id', '=', Auth::user()->user_id)->get();
             $qualificationType = QualificationTypes::all();
+            
             return view('internshipfinal', ['skills' => $skills, 'jobexp' => $jobexp, 'internship' => $internship, 'eduDetails' => $eduDetails, 'qualificationType' => $qualificationType, 'skilllevel' => $skilllevel]);
         }
+        
         $jobexp = Jobexperience::where('user_id', '=', Auth::user()->user_id)->get();
         $skills = UserSkills::where('user_id', '=', Auth::user()->user_id)->get();
         $skilllevel = SkillLevel::all();
         $eduDetails = UserQualification::where('user_id', '=', Auth::user()->user_id)->get();
         $qualificationType = QualificationTypes::all();
+
         return view('internship', ['skills' => $skills, 'jobexp' => $jobexp, 'internship' => $internship, 'eduDetails' => $eduDetails, 'qualificationType' => $qualificationType, 'skilllevel' => $skilllevel]);
     }
 
@@ -97,6 +99,7 @@ class InternshipController extends Controller
     {
         return view('/internshipack');
     }
+
     public function deleteInternship(Request $request)
     {
         $res = InternshipPreferences::where('id', '=', $request->prefid)->delete();

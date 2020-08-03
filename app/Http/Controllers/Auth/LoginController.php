@@ -35,6 +35,7 @@ class LoginController extends Controller
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
@@ -48,10 +49,9 @@ class LoginController extends Controller
     public function handleProviderCallback()
     {
         try {
-        $user = Socialite::driver('google')->stateless()->user();
-        
+            $user = Socialite::driver('google')->stateless()->user();
         } catch (\Exception $e) {
-        return redirect()->route('login');
+            return redirect()->route('login');
         }
         // $user->token;
 
@@ -66,17 +66,9 @@ class LoginController extends Controller
             $newUser->first_name        = $user->getName();
             $newUser->email             = $user->getEmail();
             $newUser->email_verified_at = now();
-            
             $newUser->save();
-    
             auth()->login($newUser, true);
         }
-    
         return redirect($this->redirectPath());
-
-
-
     }
-
-
 }

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserRequirements extends Model  
+class UserRequirements extends Model
 {
 
     
@@ -43,5 +43,4 @@ class UserRequirements extends Model
      * @var array
      */
     protected $dates = ['start_date', 'created_at', 'updated_at'];
-
 }

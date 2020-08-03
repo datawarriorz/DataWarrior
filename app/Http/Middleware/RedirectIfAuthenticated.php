@@ -23,19 +23,18 @@ class RedirectIfAuthenticated
                 if (Auth::guard($guard)->check()) {
                     return redirect()->route('expert.home');
                 }
-                break;
+            break;
             case 'admin':
                 if (Auth::guard($guard)->check()) {
                     return redirect()->route('admin.home');
                 }
-                break;
+            break;
             default:
                 if (Auth::guard($guard)->check()) {
                     return redirect(RouteServiceProvider::HOME);
                 }
-                break;
-}
-
+            break;
+        }
         return $next($request);
     }
 }

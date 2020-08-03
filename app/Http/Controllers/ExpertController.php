@@ -12,21 +12,23 @@ use App\ExSkills;
 
 class ExpertController extends Controller
 {
-    //
     public function __construct()
     {
         $this->middleware('auth:expert');
     }
+
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $articles= Article::where('ex_id', Auth::user()->ex_id)->get();
         return view('expert.expert-dashboard', ['articles' => $articles]);
     }
+
     public function logoutexpert()
     {
         Auth::logout();
@@ -42,6 +44,7 @@ class ExpertController extends Controller
         return view('expert.expert-profile', [  'expertobj'=>$expertobj,
                                                 'experienceobj'=>$experienceobj,
                                                 'qualificationobj'=>$qualificationobj,
-                                                'skillsobj'=>$skillsobj]);
+                                                'skillsobj'=>$skillsobj
+                                                ]);
     }
 }

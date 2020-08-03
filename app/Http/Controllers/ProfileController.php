@@ -19,8 +19,6 @@ use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
 {
-    //
-
     public function __construct()
     {
         $this->middleware('auth')->except('logout');
@@ -32,6 +30,7 @@ class ProfileController extends Controller
 
         return view('profile/mainProfile', ['user' => $currentuser, 'message' => '']);
     }
+
     public function viewProfile()
     {
         $internship = InternshipPreferences::where('user_id', '=', Auth::user()->user_id)->get();
@@ -53,9 +52,9 @@ class ProfileController extends Controller
             'skilllevel' => $skilllevel
         ]);
     }
+
     public function updateUser(Request $request)
     {
-
         // Validator::make($request->all(), [
         //     'firstname' => 'required|min:3|max:35',
         //     'lastname' => 'required|min:3|max:35',
@@ -76,6 +75,7 @@ class ProfileController extends Controller
 
         return redirect('/viewprofile');
     }
+
     public function qualificationDetails(Request $request)
     {
         $eduDetails = UserQualification::where('user_id', '=', Auth::user()->user_id)->get();
@@ -90,7 +90,6 @@ class ProfileController extends Controller
         return view('profile/qualificationProfile', ['eduDetails' => $eduDetails, 'qualificationType' => $qualificationType, 'process' => $process]);
     }
 
-
     public function updateQualification(Request $request)
     {
         $qualification = new UserQualification();
@@ -104,7 +103,6 @@ class ProfileController extends Controller
         $qualification->course_name = $request->course_name;
         $qualification->grade = $request->grade;
         //dd($qualification);
-
         // $validator=Validator::make($request->all(), [
         //     'college_name' => 'required|min:3',
         //     'university' => 'required|min:3',
@@ -113,12 +111,10 @@ class ProfileController extends Controller
         //     'grade' => 'required',
         //     'end_date' =>'required',
         //     'start_date' =>'required',
-
         // ], []);
         // if ($validator->fails()) { // on validator found any error
         //     return redirect('/qualification')->withErrors($validator)->withInput();
         // }
-
 
         $qualification->save();
         if ($request->process == "internship") {
@@ -138,6 +134,7 @@ class ProfileController extends Controller
 
         return redirect('/qualification');
     }
+
     public function deleteQualification(Request $request)
     {
         $res = UserQualification::where('id', '=', $request->qualid)->delete();
@@ -156,7 +153,6 @@ class ProfileController extends Controller
         return Redirect::back();
     }
 
-
     public function jobExperience(Request $request)
     {
         $jobexp = Jobexperience::where('user_id', '=', Auth::user()->user_id)->get();
@@ -168,9 +164,9 @@ class ProfileController extends Controller
         if ($request->process == "job") {
             $process = "job";
         }
+
         return view('profile/jobexperience', ['jobexp' => $jobexp, 'process' => $process]);
     }
-
 
     public function updateJobexperience(Request $request)
     {
@@ -189,7 +185,6 @@ class ProfileController extends Controller
         }
 
         //dd($qualification);
-
         //     $validator=Validator::make($request->all(), [
         //     'profile' => 'required|min:3',
         //     'organisation' => 'required|min:3',
@@ -197,12 +192,10 @@ class ProfileController extends Controller
         //     'description' => 'required|min:3',
         //     'enddate' =>'required',
         //     'startdate' =>'required',
-
         // ], []);
         //     if ($validator->fails()) { // on validator found any error
         //         return redirect('/jobexperience')->withErrors($validator)->withInput();
         //     }
-
 
         $jobexp->save();
         if ($request->process == "internship") {
@@ -218,9 +211,9 @@ class ProfileController extends Controller
             return view('profile/jobexperience', ['jobexp' => $jobexp, 'process' => $process]);
         }
 
-
         return redirect('/jobexperience');
     }
+
     public function deleteJobexperience(Request $request)
     {
         $res = Jobexperience::where('jobid', '=', $request->jobid)->delete();
@@ -235,6 +228,7 @@ class ProfileController extends Controller
             $process = "job";
             return view('profile/jobexperience', ['jobexp' => $jobexp, 'process' => $process]);
         }
+
         return Redirect::back();
     }
 
@@ -254,6 +248,7 @@ class ProfileController extends Controller
 
         return view('profile/skillprofile', ['skills' => $skills, 'process' => $process, 'skilllevel' => $skilllevel]);
     }
+
     public function updateSkills(Request $request)
     {
         // $validator=Validator::make($request->all(), [
@@ -279,8 +274,10 @@ class ProfileController extends Controller
             $process = "job";
             return view('profile/skillprofile', ['skills' => $skills, 'process' => $process, 'skilllevel' => $skilllevel]);
         }
+
         return redirect('/skills');
     }
+
     public function deleteSkills(Request $request)
     {
         $skilllevel = Skilllevel::all();
@@ -295,6 +292,7 @@ class ProfileController extends Controller
             $process = "job";
             return view('profile/skillprofile', ['skills' => $skills, 'process' => $process, 'skilllevel' => $skilllevel]);
         }
+        
         return Redirect::back();
     }
 }

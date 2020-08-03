@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Validator;
 
 class JobController extends Controller
 {
-    //yy
     public function __construct()
     {
         $this->middleware('auth')->except('logout');
@@ -53,7 +52,6 @@ class JobController extends Controller
         ]);
     }
 
-
     public function applyJob(Request $request)
     {
         $job = new JobPreferences();
@@ -68,9 +66,7 @@ class JobController extends Controller
         } else {
             $job->counselling = $request->counselling;
         }
-
         $job->save();
-
 
         return redirect('/jobfinal');
     }
@@ -79,6 +75,7 @@ class JobController extends Controller
     {
         return view('/joback');
     }
+    
     public function deleteJob(Request $request)
     {
         $res = JobPreferences::where('id', '=', $request->prefid)->delete();

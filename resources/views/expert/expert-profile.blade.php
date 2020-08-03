@@ -77,13 +77,12 @@
                                     <label>Phone</label>
                                 </div>
                                 <div class="col-sm-9 col-md-9">
-                                    <p>:
-
-                                    </p>
+                                    <p>: +{{ $expertobj->ex_contactcode }}
+                                        {{ $expertobj->ex_contactno }}</p>
                                 </div>
                             </div>
-                            <a href="/userdetails"><button type="button" class="btn tab-edit-btn">Edit User Details <i
-                                        class="fas fa-edit"></i></button></a>
+                            <a href="/expert-profile-edit"><button type="button" class="btn tab-edit-btn">Edit User
+                                    Details <i class="fas fa-edit"></i></button></a>
                         </div>
 
                         <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
@@ -97,17 +96,17 @@
                                 </thead>
                                 <tbody>
                                     @foreach($qualificationobj as $qu)
-                                    <tr>
-                                        <td>
-                                            @foreach($qualificationType as $qt)
-                                            @if($qt->qualtype_id==$qu->qualtype_id)
-                                            {{ $qt->qualification_type }}
-                                            @endif
-                                            @endforeach
-                                        </td>
-                                        <td>{{ $qu->qua_degree }}</td>
-                                        <td>{{ $qu->qua_univerity }}</td>
-                                    </tr>
+                                        <tr>
+                                            <td>
+                                                @foreach($qualificationType as $qt)
+                                                    @if($qt->qualtype_id==$qu->qualtype_id)
+                                                        {{ $qt->qualification_type }}
+                                                    @endif
+                                                @endforeach
+                                            </td>
+                                            <td>{{ $qu->qua_degree }}</td>
+                                            <td>{{ $qu->qua_univerity }}</td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -136,21 +135,21 @@
                                 </thead>
                                 <tbody>
                                     @foreach($experienceobj as $exp)
-                                    <tr>
-                                        <td>{{ $exp->exp_profile }}</td>
-                                        <td>{{ $exp->exp_organisation }}</td>
-                                        <td>{{ $exp->exp_location }}</td>
-                                        <td>{{ $exp->exp_description }}</td>
-                                        <td>{{ $exp->exp_currentjob }}</td>
-                                        <td>{{ substr($exp->exp_startdate,0,10) }}</td>
-                                        <td>{{ substr($exp->exp_enddate,0,10) }}</td>
-                                    </tr>
+                                        <tr>
+                                            <td>{{ $exp->exp_profile }}</td>
+                                            <td>{{ $exp->exp_organisation }}</td>
+                                            <td>{{ $exp->exp_location }}</td>
+                                            <td>{{ $exp->exp_description }}</td>
+                                            <td>{{ $exp->exp_currentjob }}</td>
+                                            <td>{{ substr($exp->exp_startdate,0,10) }}</td>
+                                            <td>{{ substr($exp->exp_enddate,0,10) }}</td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                             <br>
-                            <a href="/jobexperience"><button type="button" class="btn tab-edit-btn">Edit Experience <i
-                                        class="fas fa-edit"></i></button></a>
+                            <a href="/expert-experience-edit"><button type="button" class="btn tab-edit-btn">Edit
+                                    Experience <i class="fas fa-edit"></i></button></a>
                         </div>
 
                         <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
@@ -166,21 +165,21 @@
                                     <tbody>
                                         <?php $i=0; ?>
                                         @foreach($skillsobj as $skill)
-                                        <?php $i++; ?>
-                                        <tr>
-                                            <td><?php echo $i;?>
-                                            </td>
-                                            <td>
-                                                {{ $skill->sk_name }}
-                                            </td>
-                                            <td>
-                                                @foreach($skilllevel as $sl)
-                                                @if($sl->skill_level_id==$skill->sk_id)
-                                                {{ $sl->skill_level_name }}
-                                                @endif
-                                                @endforeach
-                                            </td>
-                                        </tr>
+                                            <?php $i++; ?>
+                                            <tr>
+                                                <td><?php echo $i;?>
+                                                </td>
+                                                <td>
+                                                    {{ $skill->sk_name }}
+                                                </td>
+                                                <td>
+                                                    @foreach($skilllevel as $sl)
+                                                        @if($sl->skill_level_id==$skill->sk_id)
+                                                            {{ $sl->skill_level_name }}
+                                                        @endif
+                                                    @endforeach
+                                                </td>
+                                            </tr>
                                         @endforeach
                                     </tbody>
                                 </table>

@@ -81,6 +81,13 @@ Route::post('/expert-postarticle', 'ArticleController@postarticle');
 Route::get('/expert-listarticles', 'ArticleController@viewexpertarticles');
 Route::post('/expert-viewarticle', 'ArticleController@viewarticle');
 Route::get('/expert-profile', 'ExpertController@viewexpertprofile');
+Route::post('/expert-profile-edit', 'ExpertController@updatebasicdetails');
+Route::get('/expert-profile-edit', 'ExpertController@updatebasicdetailsform');
+
+Route::get('/expert-experience-edit', 'ExpertController@viewexperienceform');
+Route::post('/expert-experience-add', 'ExpertController@addexpdetails');
+Route::post('/expert-experience-delete', 'ExpertController@deleteexpdetails');
+
 
 Route::post('/logoutexpert', 'ExpertController@logoutexpert');
 Route::get('/logoutexpert', 'ExpertController@logoutexpert');

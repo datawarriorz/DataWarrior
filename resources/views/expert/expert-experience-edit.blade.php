@@ -1,60 +1,52 @@
-@extends('profile.profilelayout')
+@extends('layout.expertlayout')
 
-@section('profilecontent')
+@section('content')
 
 <link rel="stylesheet" href="./css/expert/expert-experience.css">
-<form method="POST" action="/updateJobexperience">
-    <br>
-    <div class="card">
-        <div class="card-header text-center">
-            <h4>Job Experience Details</h4>
-        </div>
-        <div class="card-body">
+
+<br>
+<div class="card">
+    <div class="card-header text-center">
+        <h4>Experience Details</h4>
+    </div>
+    <div class="card-body">
+        <form method="POST" action="/expert-experience-add">
             <div class="form-group">
                 <label for="Fname">Profile :</label>
-                <input type="text" name="profile" class="form-control" placeholder="Eg. Software Developer"
-                    autocomplete="on" value={{ old('profile') }}>
+                <input type="text" name="exp_profile" class="form-control" placeholder="Eg. Software Developer"
+                    autocomplete="on" value={{ old('exp_profile') }}>
             </div>
             <div class="form-group">
                 <label for="Lname">Organisation :</label>
-                <input type="text" name="organisation" class="form-control" placeholder="Eg. ABC Private Limited"
-                    autocomplete="on" value={{ old('oraganisation') }}>
+                <input type="text" name="exp_organisation" class="form-control" placeholder="Eg. ABC Private Limited"
+                    autocomplete="on" value={{ old('exp_organisation') }}>
             </div>
             <div class="form-group">
                 <label for="InputEmail">Location :</label>
-                <input type="text" name="location" class="form-control" placeholder="Eg. Mumbai" autocomplete="on"
-                    id="location" value={{ old('location') }}>
+                <input type="text" name="exp_location" class="form-control" placeholder="Eg. Mumbai" autocomplete="on"
+                    id="location" value={{ old('exp_location') }}>
             </div>
             <div class="form-group form-inline">
                 <label>Currently Working ?</label>
-                <input type="checkbox" name="currentjob" class="form-control" id="currentjob" value="yes"
+                <input type="checkbox" name="exp_currentjob" class="form-control" id="currentjob" value="yes"
                     onclick="onCheckCounselling(this);" style="margin-left: 8px;margin-top: 2px;">
             </div>
             <div class="form-group">
                 <label for="start_date">Start Date :</label>
-                <input type="text" name="startdate" class="form-control" id="jobstartdate" onfocus="(this.type='date')"
-                    placeholder="Click here to Select Date." value={{ old('start_date') }}>
+                <input type="text" name="exp_startdate" class="form-control" id="jobstartdate"
+                    onfocus="(this.type='date')" placeholder="Click here to Select Date."
+                    value={{ old('exp_startdate') }}>
             </div>
             <div class="form-group">
                 <label for="end_date">End Date :</label>
-                <input type="text" name="enddate" class="form-control" id="jobenddate" onfocus="(this.type='date')"
-                    placeholder="Click here to Select Date." value={{ old('end_date') }}>
+                <input type="text" name="exp_enddate" class="form-control" id="jobenddate" onfocus="(this.type='date')"
+                    placeholder="Click here to Select Date." value={{ old('exp_enddate') }}>
             </div>
             <div class="form-group">
                 <label>Description :</label>
-                <textarea name="description" class="form-control" id="description" placeholder="Eg. Mumbai"
-                    autocomplete="on" rows="4" value={{ old('description') }}></textarea>
+                <textarea name="exp_description" class="form-control" id="description" placeholder="Eg. Mumbai"
+                    autocomplete="on" rows="4" value={{ old('exp_description') }}></textarea>
             </div>
-            @if($process=="internship")
-                <div class="form-group">
-                    <input type="hidden" name="process" class="form-control" value="internship" />
-                </div>
-            @endif
-            @if($process=="job")
-                <div class="form-group">
-                    <input type="hidden" name="process" class="form-control" value="job" />
-                </div>
-            @endif
             @csrf
             @if(count($errors))
                 <div class="alert alert-danger">
@@ -72,8 +64,8 @@
                     Save <i class="far fa-save"></i>
                 </button>
             </div>
-</form>
-</div>
+        </form>
+    </div>
 </div>
 <br>
 <div class="card">
@@ -92,46 +84,27 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($jobexp as $je)
+                @foreach($experienceobj as $je)
                     <tr>
-                        <td>{{ $je->profile }}</td>
-                        <td>{{ $je->organisation }}</td>
-                        <td>{{ $je->location }}</td>
-                        <td>{{ $je->description }}</td>
-                        <td>{{ $je->currentjob }}</td>
-                        <td>{{ substr($je->startdate,0,10) }}</td>
-                        <td>{{ substr($je->enddate,0,10) }}</td>
+                        <td>{{ $je->exp_profile }}</td>
+                        <td>{{ $je->exp_organisation }}</td>
+                        <td>{{ $je->exp_location }}</td>
+                        <td>{{ $je->exp_description }}</td>
+                        <td>{{ $je->exp_currentjob }}</td>
+                        <td>{{ substr($je->exp_startdate,0,10) }}</td>
+                        <td>{{ substr($je->exp_enddate,0,10) }}</td>
                         <td>
-                            <form method="POST" action="/deleteJobexperience">
+                            <form method="POST" action="/expert-experience-delete">
                                 @csrf
-                                <input type="hidden" name="jobid" value={{ $je->jobid }} />
+                                <input type="hidden" name="exp_id" value={{ $je->exp_id }} />
                                 <button type="submit" class="btn btn-danger">Delete</button>
-                                @if($process=="internship")
-                                    <div class="form-group">
-                                        <input type="hidden" name="process" class="form-control" value="internship" />
-                                    </div>
 
-                                @endif
-                                @if($process=="job")
-                                    <div class="form-group">
-                                        <input type="hidden" name="process" class="form-control" value="job" />
-                                    </div>
-
-                                @endif
                             </form>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-        <div class="form-group col-md-12">
-            @if($process=="internship")
-                <a href="/internshipfinal" class="btn job_btn">View Internship form</a>
-            @endif
-            @if($process=="job")
-                <a href="/jobfinal" class="btn job_btn">View Job Application form</a>
-            @endif
-        </div>
     </div>
 </div>
 <br>

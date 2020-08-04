@@ -111,7 +111,7 @@
                                 </tbody>
                             </table>
                             <br>
-                            <a href="/qualification">
+                            <a href="/expert-qualification-edit">
                                 <button type="button" class="btn tab-edit-btn">Edit Education
                                     Details
                                     <i class="fas fa-edit"></i>
@@ -159,7 +159,7 @@
                                         <tr>
                                             <td scope="col">Sr. No</td>
                                             <td scope="col">Skill Name</td>
-                                            <td scope="col">Experience Level</td>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -172,13 +172,6 @@
                                                 <td>
                                                     {{ $skill->sk_name }}
                                                 </td>
-                                                <td>
-                                                    @foreach($skilllevel as $sl)
-                                                        @if($sl->skill_level_id==$skill->sk_id)
-                                                            {{ $sl->skill_level_name }}
-                                                        @endif
-                                                    @endforeach
-                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -187,7 +180,7 @@
                                 </div>
                             </div>
                             <br>
-                            <a href="/skills">
+                            <a href="/expert-skill-edit">
                                 <button type="button" class="btn tab-edit-btn">Edit Skills <i class="fas fa-edit"></i>
                                 </button>
                             </a>

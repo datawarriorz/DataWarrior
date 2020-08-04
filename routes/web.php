@@ -88,6 +88,14 @@ Route::get('/expert-experience-edit', 'ExpertController@viewexperienceform');
 Route::post('/expert-experience-add', 'ExpertController@addexpdetails');
 Route::post('/expert-experience-delete', 'ExpertController@deleteexpdetails');
 
+Route::get('/expert-qualification-edit', 'ExpertController@viewqualificationform');
+Route::post('/expert-qualification-add', 'ExpertController@addquadetails');
+Route::post('/expert-qualification-delete', 'ExpertController@deletequadetails');
+
+Route::get('/expert-skill-edit', 'ExpertController@viewskillform');
+Route::post('/expert-skill-add', 'ExpertController@addskilldetails');
+Route::post('/expert-skill-delete', 'ExpertController@deleteskilldetails');
+
 
 Route::post('/logoutexpert', 'ExpertController@logoutexpert');
 Route::get('/logoutexpert', 'ExpertController@logoutexpert');

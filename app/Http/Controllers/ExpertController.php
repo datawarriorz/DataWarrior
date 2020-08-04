@@ -40,7 +40,7 @@ class ExpertController extends Controller
     public function viewexpertprofile()
     {
         $expertobj=Expert::where('ex_id', Auth::user()->ex_id)->first();
-        $qualificationobj=ExQualification::where('ex_id', Auth::user()->ex_id);
+        $qualificationobj=ExQualification::where('ex_id', Auth::user()->ex_id)->get();
         $experienceobj=ExExperience::where('ex_id', Auth::user()->ex_id)->get();
         $skillsobj=ExSkills::where('ex_id', Auth::user()->ex_id)->get();
         $qualificationType = QualificationTypes::all();
@@ -86,22 +86,74 @@ class ExpertController extends Controller
         $experienceobj->exp_enddate = $request->exp_enddate;
         $experienceobj->ex_id = Auth::user()->ex_id;
         $experienceobj->save();
-        $qualificationType = QualificationTypes::all();
+        
         $experienceobj=ExExperience::where('ex_id', '=', Auth::user()->ex_id)->get();
 
-        return view('expert.expert-experience-edit', ['experienceobj' => $experienceobj, 'qualificationType' => $qualificationType]);
+        return view('expert.expert-experience-edit', ['experienceobj' => $experienceobj]);
     }
     public function deleteexpdetails(Request $request)
     {
         $res = ExExperience::where('exp_id', '=', $request->exp_id)->delete();
-        $qualificationType = QualificationTypes::all();
+        
         $experienceobj=ExExperience::where('ex_id', '=', Auth::user()->ex_id)->get();
-        return view('expert.expert-experience-edit', ['experienceobj' => $experienceobj, 'qualificationType' => $qualificationType]);
+        return view('expert.expert-experience-edit', ['experienceobj' => $experienceobj]);
     }
     public function viewexperienceform()
     {
-        $qualificationType = QualificationTypes::all();
         $experienceobj=ExExperience::where('ex_id', '=', Auth::user()->ex_id)->get();
-        return view('expert.expert-experience-edit', ['experienceobj' => $experienceobj, 'qualificationType' => $qualificationType]);
+        return view('expert.expert-experience-edit', ['experienceobj' => $experienceobj]);
+    }
+    public function addquadetails(Request $request)
+    {
+        $qualificationobj = new ExQualification();
+        $qualificationobj->qualtype_id = $request->qualtype_id;
+        $qualificationobj->qua_degree = $request->qua_degree;
+        $qualificationobj->qua_univerity = $request->qua_univerity;
+        $qualificationobj->ex_id = Auth::user()->ex_id;
+        
+        $qualificationobj->save();
+        $qualificationType = QualificationTypes::all();
+        $qualificationobj=ExQualification::where('ex_id', '=', Auth::user()->ex_id)->get();
+
+        return view('expert.expert-qualification-edit', ['qualificationobj' => $qualificationobj, 'qualificationType' => $qualificationType]);
+    }
+    public function deletequadetails(Request $request)
+    {
+        $res = ExQualification::where('qua_id', '=', $request->qua_id)->delete();
+        $qualificationType = QualificationTypes::all();
+        $qualificationobj=ExQualification::where('ex_id', '=', Auth::user()->ex_id)->get();
+        return view('expert.expert-qualification-edit', ['qualificationobj' => $qualificationobj, 'qualificationType' => $qualificationType]);
+    }
+    public function viewqualificationform()
+    {
+        $qualificationType = QualificationTypes::all();
+        $qualificationobj=ExQualification::where('ex_id', '=', Auth::user()->ex_id)->get();
+        return view('expert.expert-qualification-edit', ['qualificationobj' => $qualificationobj, 'qualificationType' => $qualificationType]);
+    }
+
+    //////////////////////////////////////////////////////////////////////////
+    public function addskilldetails(Request $request)
+    {
+        $skillsobj = new ExSkills();
+        $skillsobj->sk_name = $request->sk_name;
+        $skillsobj->ex_id = Auth::user()->ex_id;
+        
+        $skillsobj->save();
+        
+        $skillsobj=ExSkills::where('ex_id', '=', Auth::user()->ex_id)->get();
+
+        return view('expert.expert-skill-edit', ['skillsobj' => $skillsobj]);
+    }
+    public function deleteskilldetails(Request $request)
+    {
+        $res = ExSkills::where('sk_id', '=', $request->sk_id)->delete();
+        
+        $skillsobj=ExSkills::where('ex_id', '=', Auth::user()->ex_id)->get();
+        return view('expert.expert-skill-edit', ['skillsobj' => $skillsobj]);
+    }
+    public function viewskillform()
+    {
+        $skillsobj=ExSkills::where('ex_id', '=', Auth::user()->ex_id)->get();
+        return view('expert.expert-skill-edit', ['skillsobj' => $skillsobj]);
     }
 }

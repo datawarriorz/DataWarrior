@@ -105,7 +105,15 @@ class ExpertController extends Controller
         $experienceobj=ExExperience::where('ex_id', '=', Auth::user()->ex_id)->get();
         return view('expert.expert-experience-edit', ['experienceobj' => $experienceobj]);
     }
-
+    public function updateexpertimage(Request $request)
+    {
+        $file = $request->file('ex_image');
+        // Get the contents of the file
+        $contents = $file->openFile()->fread($file->getSize());
+        
+        Expert::where('ex_id', Auth::user()->ex_id)->update(['ex_image'=>$contents]);
+        return redirect('/expert-profile');
+    }
     //////////////////////////////////////////////////////////////////////////
     public function addquadetails(Request $request)
     {

@@ -18,7 +18,7 @@ class Expert extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'ex_id','ex_firstname','ex_lastname','ex_dateofbirth','ex_aboutme','ex_description','email', 'password','ex_contactcode',
+        'ex_id','ex_firstname', 'ex_lastname', 'ex_image', 'ex_dateofbirth', 'ex_aboutme', 'ex_description', 'email', 'password', 'ex_contactcode',
         'ex_contactno'
     ];
     /**

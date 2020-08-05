@@ -80,9 +80,13 @@ Route::get('/expert-postarticle', 'ArticleController@viewarticleform');
 Route::post('/expert-postarticle', 'ArticleController@postarticle');
 Route::get('/expert-listarticles', 'ArticleController@viewexpertarticles');
 Route::post('/expert-viewarticle', 'ArticleController@viewarticle');
+
+
 Route::get('/expert-profile', 'ExpertController@viewexpertprofile');
 Route::post('/expert-profile-edit', 'ExpertController@updatebasicdetails');
 Route::get('/expert-profile-edit', 'ExpertController@updatebasicdetailsform');
+Route::post('/expert-profile-image', 'ExpertController@updateexpertimage');
+
 
 Route::get('/expert-experience-edit', 'ExpertController@viewexperienceform');
 Route::post('/expert-experience-add', 'ExpertController@addexpdetails');

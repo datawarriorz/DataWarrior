@@ -17,6 +17,7 @@ class CreateExpertsTable extends Migration
             $table->id('ex_id');
             $table->string('ex_firstname')->nullable();
             $table->string('ex_lastname')->nullable();
+            $table->binary('ex_image')->nullable();
             $table->date('ex_dateofbirth')->nullable();
             $table->string('ex_aboutme')->nullable();
             $table->string('ex_description')->nullable();

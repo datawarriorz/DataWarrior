@@ -15,8 +15,29 @@
                             <div class="row">
                                 <div class="col-md-2" style="padding-left: 0;padding-right:0">
                                     <div class="col-md-12" style="padding-left: 0;padding-right:0">
-                                        <img src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com"
-                                            style="height:144px;width:144px;border-radius:50%" />
+                                        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($expertobj->ex_image); ?>"
+                                            style="height:280px;width:100%" />
+                                    </div>
+                                    <div class="col-md-12">
+                                        <form method="POST" action="/expert-profile-image"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="form-group">
+                                                <label>Image :</label>
+                                                <div class="upload-btn-wrapper">
+                                                    <textarea id="uploadFile" class="disableInputField"
+                                                        placeholder="Choose File" disabled="disabled" rows="2"
+                                                        autocomplete="off">
+                                                    </textarea>
+                                                    <label class="fileUpload form-control">
+                                                        <input id="uploadBtn" enctype="multipart/form-data" type="file"
+                                                            name="ex_image" class="upload" />
+                                                        <span class="uploadBtn">Upload / Browse File ..</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-danger" onclick="">Upload</button>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="col-md-10" style="padding-left: 33px">

@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="{{ asset('css/expert/expert-master.css') }}" />
-<link rel="stylesheet" href="{{ asset('css/expert/expert-navbar.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/expert/expert-1-master.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/expert/expert-2-navbar.css') }}" />
 <div class="navbar-container">
     <nav class="navbar navbar-expand-lg">
 
@@ -37,37 +37,37 @@
             <ul class="navbar-nav nav-right justify-content-end">
                 @guest
                 @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="dropdown-toggle user-icon" href="#" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-user-circle"></i>
-                        </a>
-                        <div class="dropdown">
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="dropdown-toggle user-icon" href="#" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                    <div class="dropdown">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                                <a class="dropdown-item" href="/expert-profile">
-                                    <i class="fas fa-user-circle"></i> Profile
-                                </a>
-                                <a class="dropdown-item" href="/">
-                                    <i class="fas fa-clipboard-list"></i> My Applications
-                                </a>
-                                <a class="dropdown-item" href="/viewprofile">
-                                    <i class="fas fa-user-cog"></i> Settings
-                                </a>
-                                <a class="dropdown-item" href="/logoutexpert" onclick="event.preventDefault();
+                            <a class="dropdown-item" href="/expert-profile">
+                                <i class="fas fa-user-circle"></i> Profile
+                            </a>
+                            <a class="dropdown-item" href="/">
+                                <i class="fas fa-clipboard-list"></i> My Applications
+                            </a>
+                            <a class="dropdown-item" href="/viewprofile">
+                                <i class="fas fa-user-cog"></i> Settings
+                            </a>
+                            <a class="dropdown-item" href="/logoutexpert" onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();">
-                                    <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
-                                </a>
-                                <form id="logout-form" action="/logoutexpert" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
+                                <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="/logoutexpert" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </div>
-                    </li>
+                    </div>
+                </li>
                 @endguest
 
             </ul>
         </div>
     </nav>
-    <hr class="seperator1">
+    {{-- <hr class="seperator1"> --}}
 </div>

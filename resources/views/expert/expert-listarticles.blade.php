@@ -1,7 +1,9 @@
 @extends('layout.expertlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert/expert-listarticles.css">
+
+<link rel="stylesheet" href="./css/expert/expert-4-2-0-list-articles.css">
+
 <div class="dashboard-wrapper">
     <div class="col-md-12">
         <div class="row">
@@ -62,27 +64,27 @@
                                                     <tbody>
                                                         <?php $i=0; ?>
                                                         @foreach($articles as $article)
-                                                            <?php $i++; ?>
-                                                            <tr>
-                                                                <td><?php echo $i;?>
-                                                                </td>
-                                                                <td>
-                                                                    {{ $article->title }}
-                                                                </td>
-                                                                <td>
-                                                                    {{ $article->description }}
-                                                                </td>
-                                                                <td class="text-center">
-                                                                    <form method="post" action="/expert-viewarticle">
-                                                                        @csrf
-                                                                        <input type="hidden" name="article_id"
-                                                                            value={{ $article->article_id }} />
-                                                                        <button type="submit" class="btn" onclick="">
-                                                                            View <i class="far fa-eye"></i>
-                                                                        </button>
-                                                                    </form>
-                                                                </td>
-                                                            </tr>
+                                                        <?php $i++; ?>
+                                                        <tr>
+                                                            <td><?php echo $i;?>
+                                                            </td>
+                                                            <td>
+                                                                {{ $article->title }}
+                                                            </td>
+                                                            <td>
+                                                                {{ $article->description }}
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <form method="post" action="/expert-viewarticle">
+                                                                    @csrf
+                                                                    <input type="hidden" name="article_id"
+                                                                        value={{ $article->article_id }} />
+                                                                    <button type="submit" class="btn expert-btn1">
+                                                                        View <i class="far fa-eye"></i>
+                                                                    </button>
+                                                                </form>
+                                                            </td>
+                                                        </tr>
                                                         @endforeach
                                                     </tbody>
                                                 </table>
@@ -105,27 +107,27 @@
                                                     <tbody>
                                                         <?php $i=0; ?>
                                                         @foreach($articles as $article)
-                                                            <?php $i++; ?>
-                                                            <tr>
-                                                                <td><?php echo $i;?>
-                                                                </td>
-                                                                <td>
-                                                                    {{ $article->title }}
-                                                                </td>
-                                                                <td>
-                                                                    {{ $article->description }}
-                                                                </td>
-                                                                <td class="text-center">
-                                                                    <form method="post" action="/expert-viewarticle">
-                                                                        @csrf
-                                                                        <input type="hidden" name="article_id"
-                                                                            value={{ $article->article_id }} />
-                                                                        <button type="submit" class="btn" onclick="">
-                                                                            View <i class="far fa-eye"></i>
-                                                                        </button>
-                                                                    </form>
-                                                                </td>
-                                                            </tr>
+                                                        <?php $i++; ?>
+                                                        <tr>
+                                                            <td><?php echo $i;?>
+                                                            </td>
+                                                            <td>
+                                                                {{ $article->title }}
+                                                            </td>
+                                                            <td>
+                                                                {{ $article->description }}
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <form method="post" action="/expert-viewarticle">
+                                                                    @csrf
+                                                                    <input type="hidden" name="article_id"
+                                                                        value={{ $article->article_id }} />
+                                                                    <button type="submit" class="btn expert-btn1">
+                                                                        View <i class="far fa-eye"></i>
+                                                                    </button>
+                                                                </form>
+                                                            </td>
+                                                        </tr>
                                                         @endforeach
                                                     </tbody>
                                                 </table>

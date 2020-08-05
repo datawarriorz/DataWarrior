@@ -74,6 +74,8 @@ class ExpertController extends Controller
         $expert=Expert::where('ex_id', Auth::user()->ex_id)->first();
         return view('expert.expert-profile-edit', ['expert'=>$expert]);
     }
+    
+    //////////////////////////////////////////////////////////////////////////
     public function addexpdetails(Request $request)
     {
         $experienceobj = new ExExperience();
@@ -103,6 +105,8 @@ class ExpertController extends Controller
         $experienceobj=ExExperience::where('ex_id', '=', Auth::user()->ex_id)->get();
         return view('expert.expert-experience-edit', ['experienceobj' => $experienceobj]);
     }
+
+    //////////////////////////////////////////////////////////////////////////
     public function addquadetails(Request $request)
     {
         $qualificationobj = new ExQualification();

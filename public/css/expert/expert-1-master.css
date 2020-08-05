@@ -60,3 +60,26 @@ h4 {
     color: White;
     background-color: rgb(23, 31, 42);
 }
+
+.expert-btn1 {
+    color: #fff;
+    background-color: #171f2a;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.expert-btn1:hover {
+    color: #fa7817;
+    font-weight: 600;
+}
+
+
+/* 
+a {
+    color: White;
+}
+
+a:hover,
+a:active {
+    color: #fa7817;
+} */

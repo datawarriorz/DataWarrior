@@ -1,10 +1,3 @@
-.card {
-    margin-top: 15px;
-    margin-bottom: 50px;
-    margin-left: 15px;
-    margin-right: 15px;
-}
-
 .profilenav {
     color: #171f2a;
 }
@@ -23,14 +16,8 @@
     color: inherit;
 } */
 
-
-/* .tab-pane {
+.tab-content {
     overflow-x: scroll;
-} */
-
-.card {
-    border: 2px solid #4e5153;
-    border-radius: 4px;
 }
 
 .tab-edit-btn {
@@ -50,7 +37,7 @@
     border: 1px solid transparent;
     border-top-left-radius: .25rem;
     border-top-right-radius: .25rem;
-    font-size: 19px;
+    font-size: 20px;
 }
 
 .table td,

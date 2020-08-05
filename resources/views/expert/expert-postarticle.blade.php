@@ -1,8 +1,7 @@
 @extends('layout.expertlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert/expert-postarticle.css">
-<link rel="stylesheet" href="./css/expert/expert-master.css">
+<link rel="stylesheet" href="./css/expert/expert-4-1-post-article.css">
 <div class="col-md-8 offset-md-2">
     <div>
         <form method="POST" action="/expert-postarticle" enctype="multipart/form-data">
@@ -53,9 +52,14 @@
                                 autocomplete="on" rows="10" value={{ old('content') }}></textarea>
                         </div>
                         <div class="form-group col-md-12 text-center">
-                            <button type="submit" class="btn tab-edit-btn">
+                            <button type="submit" class="btn tab-edit-btn" style="font-weight: 600">
                                 Submit & Preview Article <i class="far fa-eye"></i>
                             </button>
+                            <br>
+                            <br>
+                            <a class="btn expert-btn1" href="/expertdashboard">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </a>
                         </div>
                     </div>
                 </div>

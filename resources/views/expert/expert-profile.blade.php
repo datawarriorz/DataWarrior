@@ -1,9 +1,8 @@
 @extends('layout.expertlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert/expert-profile.css">
-<link rel="stylesheet" href="./css/expert/expert-master.css">
-<div class="col-md-10 offset-md-1">
+<link rel="stylesheet" href="./css/expert/expert-5-0-profile.css">
+<div class="col-12 col-sm-12 col-md-8 col-lg-8 offset-md-2 ">
     <div class="card">
         <div class="card-header text-center">
             <h4>Your Profile</h4>
@@ -14,14 +13,19 @@
                     <div class="profile-head">
                         <div class="col-md-12">
                             <div class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-2" style="padding-left: 0;padding-right:0">
+                                    <div class="col-md-12" style="padding-left: 0;padding-right:0">
+                                        <img src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com"
+                                            style="height:144px;width:144px;border-radius:50%" />
+                                    </div>
                                 </div>
-                                <div class="col-md-10">
+                                <div class="col-md-10" style="padding-left: 33px">
                                     <h5>{{ $expertobj->ex_firstname }} {{ $expertobj->ex_lastname }}</h5>
                                     <br>
                                     <h6>{{ $expertobj->ex_aboutme }}</h6>
                                     <h6>Date of Birth : {{ $expertobj->ex_dateofbirth }}</h6>
                                     <br>
+                                    <h6>{{ $expertobj->ex_description }}</h6>
                                 </div>
                             </div>
                         </div>

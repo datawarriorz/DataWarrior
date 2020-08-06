@@ -35,6 +35,8 @@
             </ul>
 
             <ul class="navbar-nav nav-right justify-content-end">
+                @guest
+                @else
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="dropdown-toggle user-icon" href="#" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -44,9 +46,9 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             @guest
                             @else
-                                <a class="dropdown-item">
-                                    {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
-                                </a>
+                            <a class="dropdown-item">
+                                {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
+                            </a>
                             @endguest
 
                             <a class="dropdown-item" href="/viewprofile">
@@ -58,16 +60,13 @@
                             <a class="dropdown-item" href="/viewprofile">
                                 <i class="fas fa-user-cog"></i> Settings
                             </a>
-                            <a class="dropdown-item" href="/logoutadmin" onclick="event.preventDefault();
-                                           document.getElementById('logout-form').submit();">
-                                <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+                            <a class="dropdown-item" href="/logoutadmin">
+                                <i class="fas fa-sign-out-alt"></i>Logout
                             </a>
-                            <form id="logout-form" action="/logoutadmin" method="POST" style="display: none;">
-                                @csrf
-                            </form>
                         </div>
                     </div>
                 </li>
+                @endguest
 
             </ul>
         </div>

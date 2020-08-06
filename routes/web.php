@@ -111,3 +111,20 @@ Route::get('/admindashboard', 'AdminController@index')->name('admin.home');
 
 Route::post('/logoutadmin', 'AdminController@logoutadmin');
 Route::get('/logoutadmin', 'AdminController@logoutadmin');
+
+Route::get('/cc', function () {
+    //cc = clearcache
+    $configCode = 1;
+    $routeCode = 1;
+    $viewCode = 1;
+    $cacheCode = 1;
+    $configCode = Artisan::call('config:clear');
+    $routeCode = Artisan::call('route:clear');
+    $viewCode = Artisan::call('view:clear');
+    $cacheCode = Artisan::call('cache:clear');
+    if ($configCode==0 && $routeCode==0 && $viewCode==0 && $cacheCode==0) {
+        echo '<script type="text/javascript">alert("Cache Cleared Successfully! Code: "+"' . $configCode . '"+"' . $routeCode . '"+"' . $viewCode . '"+"' . $cacheCode . '")</script>';
+    } else {
+        echo '<script type="text/javascript">alert("Error! Code: "+"' . $configCode . '"+"' . $routeCode . '"+"' . $viewCode . '"+"' . $cacheCode . '")</script>';
+    }
+});

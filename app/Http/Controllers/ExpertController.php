@@ -62,7 +62,6 @@ class ExpertController extends Controller
             'ex_aboutme' => $request->ex_aboutme,
             'ex_description' => $request->ex_description,
             'email' => $request->email,
-            
             'ex_contactcode' => $request->ex_contactcode,
             'ex_contactno' => $request->ex_contactno,
         ]);

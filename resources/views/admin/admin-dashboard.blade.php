@@ -1,8 +1,8 @@
 @extends('layout.adminlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert-dashboard.css">
-<link rel="stylesheet" href="./css/expert-master.css">
+<link rel="stylesheet" href="./css/admin-4-0-dashboard.css">
+<link rel="stylesheet" href="./css/admin-1-master.css">
 <div class="dashboard-wrapper">
     <div class="col-md-12">
         <div class="row">

@@ -1,5 +1,6 @@
-<script type="text/javascript" src="{{ asset('js/expert.js') }}">
+<script type="text/javascript" src="{{ asset('js/admin/admin.js') }}">
 </script>
+
 <script type="text/javascript" src="https://kit.fontawesome.com/01bd91f070.js" crossorigin="anonymous">
 </script>
 

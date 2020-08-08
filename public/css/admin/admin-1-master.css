@@ -83,3 +83,11 @@ a:hover,
 a:active {
     color: #fa7817;
 } */
+
+.padrightzero {
+    padding-right: 0;
+}
+
+.padleftzero {
+    padding-left: 0;
+}

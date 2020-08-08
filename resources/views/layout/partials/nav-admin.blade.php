@@ -37,35 +37,35 @@
             <ul class="navbar-nav nav-right justify-content-end">
                 @if(Auth::guard('admin')->check())
 
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="dropdown-toggle user-icon" href="#" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-user-circle"></i>
-                        </a>
-                        <div class="dropdown">
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item">
-                                    {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
-                                </a>
-                                <a class="dropdown-item" href="/viewprofile">
-                                    <i class="fas fa-user-circle"></i> Profile
-                                </a>
-                                <a class="dropdown-item" href="/">
-                                    <i class="fas fa-clipboard-list"></i> My Applications
-                                </a>
-                                <a class="dropdown-item" href="/viewprofile">
-                                    <i class="fas fa-user-cog"></i> Settings
-                                </a>
-                                <a class="dropdown-item" href="/logoutadmin">
-                                    <i class="fas fa-sign-out-alt"></i>Logout
-                                </a>
-                            </div>
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="dropdown-toggle user-icon" href="#" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                    <div class="dropdown">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item">
+                                {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
+                            </a>
+                            <a class="dropdown-item" href="/viewprofile">
+                                <i class="fas fa-user-circle"></i> Profile
+                            </a>
+                            <a class="dropdown-item" href="/">
+                                <i class="fas fa-clipboard-list"></i> My Applications
+                            </a>
+                            <a class="dropdown-item" href="/viewprofile">
+                                <i class="fas fa-user-cog"></i> Settings
+                            </a>
+                            <a class="dropdown-item" href="/logoutadmin">
+                                <i class="fas fa-sign-out-alt"></i>Logout
+                            </a>
                         </div>
-                    </li>
+                    </div>
+                </li>
                 @endif
 
             </ul>
         </div>
     </nav>
-    <hr class="seperator1">
+    {{-- <hr class="seperator1"> --}}
 </div>

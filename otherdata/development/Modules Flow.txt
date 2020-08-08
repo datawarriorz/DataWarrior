@@ -98,7 +98,7 @@ After Login
 			
 		Article
 			Add Article
-				Add Article (PopUp) -> Save
+				Add Article Form (PopUp) -> Save
 			Review List
 				Articles List -> View Article
 					Article Page -> 

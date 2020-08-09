@@ -46,3 +46,27 @@
     vertical-align: top;
     border-top: 0px;
 }
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+}
+
+.btn {
+    color: white;
+    background-color: #171f2a;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    height: 39px;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}

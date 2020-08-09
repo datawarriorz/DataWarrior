@@ -15,11 +15,13 @@
                             <div class="row">
                                 <div class="col-md-2" style="padding-left: 0;padding-right:0">
                                     <div class="col-md-12" style="padding-left: 0;padding-right:0">
-                                        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($expertobj->ex_image); ?>"
-                                            style="height:280px;width:100%" />
+                                        {{-- <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($expertobj->ex_image); ?>"
+                                            style="height:280px;width:100%" /> --}}
+                                        <img src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com"
+                                            style="height:144px;width:144px;border-radius:50%" />
                                     </div>
                                     <div class="col-md-12">
-                                        <form method="POST" action="/expert-profile-image"
+                                        {{-- <form method="POST" action="/expert-profile-image"
                                             enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">
@@ -37,7 +39,7 @@
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-danger" onclick="">Upload</button>
-                                        </form>
+                                        </form> --}}
                                     </div>
                                 </div>
                                 <div class="col-md-10" style="padding-left: 33px">
@@ -121,17 +123,17 @@
                                 </thead>
                                 <tbody>
                                     @foreach($qualificationobj as $qu)
-                                        <tr>
-                                            <td>
-                                                @foreach($qualificationType as $qt)
-                                                    @if($qt->qualtype_id==$qu->qualtype_id)
-                                                        {{ $qt->qualification_type }}
-                                                    @endif
-                                                @endforeach
-                                            </td>
-                                            <td>{{ $qu->qua_degree }}</td>
-                                            <td>{{ $qu->qua_univerity }}</td>
-                                        </tr>
+                                    <tr>
+                                        <td>
+                                            @foreach($qualificationType as $qt)
+                                            @if($qt->qualtype_id==$qu->qualtype_id)
+                                            {{ $qt->qualification_type }}
+                                            @endif
+                                            @endforeach
+                                        </td>
+                                        <td>{{ $qu->qua_degree }}</td>
+                                        <td>{{ $qu->qua_univerity }}</td>
+                                    </tr>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -160,15 +162,15 @@
                                 </thead>
                                 <tbody>
                                     @foreach($experienceobj as $exp)
-                                        <tr>
-                                            <td>{{ $exp->exp_profile }}</td>
-                                            <td>{{ $exp->exp_organisation }}</td>
-                                            <td>{{ $exp->exp_location }}</td>
-                                            <td>{{ $exp->exp_description }}</td>
-                                            <td>{{ $exp->exp_currentjob }}</td>
-                                            <td>{{ substr($exp->exp_startdate,0,10) }}</td>
-                                            <td>{{ substr($exp->exp_enddate,0,10) }}</td>
-                                        </tr>
+                                    <tr>
+                                        <td>{{ $exp->exp_profile }}</td>
+                                        <td>{{ $exp->exp_organisation }}</td>
+                                        <td>{{ $exp->exp_location }}</td>
+                                        <td>{{ $exp->exp_description }}</td>
+                                        <td>{{ $exp->exp_currentjob }}</td>
+                                        <td>{{ substr($exp->exp_startdate,0,10) }}</td>
+                                        <td>{{ substr($exp->exp_enddate,0,10) }}</td>
+                                    </tr>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -190,14 +192,14 @@
                                     <tbody>
                                         <?php $i=0; ?>
                                         @foreach($skillsobj as $skill)
-                                            <?php $i++; ?>
-                                            <tr>
-                                                <td><?php echo $i;?>
-                                                </td>
-                                                <td>
-                                                    {{ $skill->sk_name }}
-                                                </td>
-                                            </tr>
+                                        <?php $i++; ?>
+                                        <tr>
+                                            <td><?php echo $i;?>
+                                            </td>
+                                            <td>
+                                                {{ $skill->sk_name }}
+                                            </td>
+                                        </tr>
                                         @endforeach
                                     </tbody>
                                 </table>

@@ -112,6 +112,17 @@ Route::get('/admindashboard', 'AdminController@index')->name('admin.home');
 Route::post('/logoutadmin', 'AdminController@logoutadmin');
 Route::get('/logoutadmin', 'AdminController@logoutadmin');
 
+Route::get('/admin-review-articles', 'AdminController@reviewarticlelist');
+Route::post('/admin-view-article', 'AdminController@viewarticle');
+Route::post('/admin-publish-article', 'AdminController@publisharticle');
+
+
+
+
+
+
+////////////////////////////////////////////
+
 Route::get('/cc', function () {
     //cc = clearcache
     $configCode = 1;

@@ -34,10 +34,17 @@ class AdminController extends Controller
         return view('admin.auth.login');
     }
 
-    public function viewarticlelist()
+    public function reviewarticlelist()
     {
-        $articles=Article::where('status', '=', 'review');
-        return view('', ['articles' => $articles]);
+        $articles=Article::where('status', '=', 'review')->get();
+        
+        return view('admin.admin-reviewarticlelist', ['articles' => $articles]);
+    }
+    public function viewarticle(Request $request)
+    {
+        $article=Article::find($request->article_id);
+        
+        return view('admin.admin-view-article', ['article' => $article]);
     }
     
     public function publisharticle(Request $request)
@@ -45,7 +52,7 @@ class AdminController extends Controller
         Article::where('article_id', $request->article_id)->update([
             'status'=>'published'
         ]);
-        return redirect('');
+        // return redirect('');
     }
 
 

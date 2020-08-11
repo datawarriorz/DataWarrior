@@ -1,15 +1,16 @@
-@extends('layout.expertlayout')
-
+@extends('layout.adminlayout')
 @section('content')
-<link rel="stylesheet" href="./css/expert-viewarticles.css">
-<link rel="stylesheet" href="./css/expert-master.css">
+
+<link rel="stylesheet" href="./css/expert/expert-4-2-1-view-article.css">
 <div class="dashboard-wrapper">
     <div class="col-md-12">
-        <div class="row">
+        <div class="row">sdfdsfsd
+
             <div class="col-md-9">
                 <div class="col-md-12">
                     <div class="card dashboard-card">
                         <div class="card-header">
+
                             <h5>Article #{{ $article->article_id }}</h5>
                         </div>
                         <div class="card-body dashboard-card-body">
@@ -47,6 +48,14 @@
                                                     View More Articles
                                                 </button>
                                             </a>
+                                            <form method="POST" action="/admin-publish-article">
+                                                @csrf
+                                                <input type="hidden" name="article_id"
+                                                    value={{ $article->article_id }} />
+                                                <button type="submit" class="btn expert-btn1">
+                                                    Publish <i class="far fa-eye"></i>
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -55,6 +64,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-3">
                 <div class="col-md-12">
                     <div class="card feed-card">

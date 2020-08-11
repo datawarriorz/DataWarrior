@@ -12,6 +12,8 @@
 
     @include('layout.partials.nav-admin')
 
+    @include('layout.partials.admin-sidenav')
+
     @yield('content')
 
     @include('layout.partials.footer')

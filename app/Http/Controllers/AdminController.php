@@ -36,9 +36,10 @@ class AdminController extends Controller
 
     public function reviewarticlelist()
     {
-        $articles=Article::where('status', '=', 'review')->get();
+        $articlesreview=Article::where('status', '=', 'review')->get();
+        $articleslive=Article::where('status', '=', 'published')->get();
         
-        return view('admin.admin-reviewarticlelist', ['articles' => $articles]);
+        return view('admin.admin-listarticles', ['articlesreview' => $articlesreview,'articleslive' => $articleslive]);
     }
     public function viewarticle(Request $request)
     {
@@ -52,7 +53,7 @@ class AdminController extends Controller
         Article::where('article_id', $request->article_id)->update([
             'status'=>'published'
         ]);
-        // return redirect('');
+        // return redirect(''); robin do this ack
     }
 
 
@@ -91,5 +92,29 @@ class AdminController extends Controller
     {
         $expertobj= Expert::all();
         return view('', ['expertobj'=>$expertobj]);
+    }
+    public function viewarticleform()
+    {
+        return view('admin.admin-postarticle');
+    }
+    
+    public function postarticle(Request $request)
+    {
+        $article=new Article();
+        $article->title=$request->title;
+        $article->ex_id=Auth::user()->ex_id;
+        $article->author=$request->author;
+        $article->description=$request->description;
+        $article->content=$request->content;
+        $file = $request->file('article_image');
+        // Get the contents of the file
+        $contents = $file->openFile()->fread($file->getSize());
+        $article->article_image=$contents;
+       
+        $article->status="review";
+        $article->save();
+        // $articles= Article::where('ex_id', Auth::user()->ex_id)->get();
+        // return view('expert.expert-dashboard', ['articles' => $articles]);
+        return view('admin.admin-view-article', ['article' => $article]);
     }
 }

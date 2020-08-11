@@ -115,7 +115,8 @@ Route::get('/logoutadmin', 'AdminController@logoutadmin');
 Route::get('/admin-review-articles', 'AdminController@reviewarticlelist');
 Route::post('/admin-view-article', 'AdminController@viewarticle');
 Route::post('/admin-publish-article', 'AdminController@publisharticle');
-
+Route::get('/admin-postarticle', 'AdminController@viewarticleform');
+Route::post('/admin-postarticle', 'AdminController@postarticle');
 
 
 

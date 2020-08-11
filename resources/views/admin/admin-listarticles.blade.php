@@ -62,7 +62,7 @@
                                                     </thead>
                                                     <tbody>
                                                         <?php $i=0; ?>
-                                                        @foreach($articles as $article)
+                                                        @foreach($articlesreview as $article)
                                                             <?php $i++; ?>
                                                             <tr>
                                                                 <td><?php echo $i;?>
@@ -74,7 +74,7 @@
                                                                     {{ $article->description }}
                                                                 </td>
                                                                 <td class="text-center">
-                                                                    <form method="post" action="/expert-viewarticle">
+                                                                    <form method="post" action="/admin-view-article">
                                                                         @csrf
                                                                         <input type="hidden" name="article_id"
                                                                             value={{ $article->article_id }} />
@@ -105,7 +105,7 @@
                                                     </thead>
                                                     <tbody>
                                                         <?php $i=0; ?>
-                                                        @foreach($articles as $article)
+                                                        @foreach($articleslive as $article)
                                                             <?php $i++; ?>
                                                             <tr>
                                                                 <td><?php echo $i;?>
@@ -117,7 +117,7 @@
                                                                     {{ $article->description }}
                                                                 </td>
                                                                 <td class="text-center">
-                                                                    <form method="post" action="/expert-viewarticle">
+                                                                    <form method="post" action="/admin-view-article">
                                                                         @csrf
                                                                         <input type="hidden" name="article_id"
                                                                             value={{ $article->article_id }} />

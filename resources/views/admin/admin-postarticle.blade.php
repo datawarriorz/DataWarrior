@@ -1,11 +1,11 @@
-@extends('layout.expertlayout')
+@extends('layout.adminlayout')
 
 @section('content')
 <link rel="stylesheet" href="./css/expert-postarticle.css">
 <link rel="stylesheet" href="./css/expert-master.css">
 <div class="col-md-8 offset-md-2">
     <div>
-        <form method="POST" action="/expert-postarticle" enctype="multipart/form-data">
+        <form method="POST" action="/admin-postarticle" enctype="multipart/form-data">
             @csrf
             <div class="card">
                 <div class="card-header text-center">

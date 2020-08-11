@@ -1,0 +1,210 @@
+.navbar {
+    font-family: 'Google Sans', Roboto, Arial, sans-serif;
+    /* font-family: 'Segoe UI', SegoeUI, 'Segoe WP', Tahoma, Arial, sans-serif; */
+    /* font-family: newsgoth BT; */
+    /* font-family: "Nunito",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"; */
+    font-size: 18px;
+    font-weight: 400;
+    /* font-weight: 400; */
+    line-height: 0;
+    -moz-hyphens: auto;
+    hyphens: auto;
+    word-break: break-word;
+    word-wrap: break-word;
+    text-align: center;
+    padding: 0px;
+    color: White;
+    background-color: #171f2a;
+}
+
+.navbar-brand {
+    height: 64px;
+    padding-right: 20px;
+}
+
+.navbar-brand-img {
+    display: block;
+    height: 44px;
+    width: 105px;
+    margin-left: 20px;
+    /* margin-left: 120px; */
+    margin-top: 5px;
+}
+
+
+/* .fa-home,
+.fa-wrench,
+.fa-info-circle,
+.fa-phone-alt {
+    display: none;
+} */
+
+.nav-link {
+    margin-top: 17px;
+    width: 100%;
+    color: inherit;
+}
+
+.nav-link:hover {
+    color: #fa7817;
+}
+
+.nav-link-header {
+    border-bottom: 2px solid transparent;
+    letter-spacing: 1px;
+}
+
+.fas {
+    line-height: 0;
+}
+
+.nav-item-left {
+    margin-right: 15px;
+}
+
+.nav-item-right {
+    margin-right: 15px;
+}
+
+
+/*Before Login*/
+
+.navbtn {
+    color: White;
+    background-color: #171f2a;
+    border: 2px solid white;
+    border-radius: 25px;
+    font-size: 17px;
+}
+
+@media (max-width: 600px) {
+    .navbtn {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 990px) {
+    .navbtn {
+        margin-bottom: 10px;
+    }
+}
+
+.navbtn:hover {
+    color: #fa7817;
+    background-color: #171f2a;
+    border: 2px solid #fa7817;
+    border-radius: 25px;
+    font-size: 17px;
+}
+
+.nav-link-right {
+    color: #171f2a;
+    background-color: #171f2a;
+    margin-left: -11px;
+    padding: 0px;
+    margin-right: 8px;
+}
+
+@media (max-width: 600px) {
+    .nav-link-right {
+        margin-left: 0px;
+        margin-right: 80px;
+        margin-bottom: 4px;
+    }
+}
+
+@media (max-width: 990px) {
+    .nav-link-right {
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 4px;
+    }
+}
+
+.nav-right {
+    margin-right: 0px;
+    /* margin-right: 94px; */
+}
+
+
+/* Before Login End*/
+
+
+/* After Login - User Icon + Dropdown*/
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='White' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler {
+    border-color: white;
+    border-block-width: 2.5px;
+    border: 1px;
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu-right {
+    right: 0;
+    left: auto;
+    width: 185px;
+    margin-right: 18px;
+}
+
+@media (max-width: 990px) {
+    .navbar-expand-lg .navbar-nav .dropdown-menu-right {
+        right: 0;
+        left: auto;
+        width: 100%;
+    }
+}
+
+@media (max-width:990px) {
+    .dropdown {
+        padding: 7px;
+    }
+}
+
+.dropdown-menu {
+    width: 11.5rem;
+}
+
+.dropdown-item {
+    line-height: 1.5;
+}
+
+.user-icon {
+    position: relative;
+    font-size: 29px;
+    color: White;
+    width: 80px;
+    height: 45px;
+    line-height: 45px;
+    display: inline-block;
+    text-align: left;
+    -webkit-perspective: 50em;
+    perspective: 50em;
+    text-decoration: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.user-icon:hover {
+    color: #fa7817;
+    text-decoration: none;
+}
+
+.fa-clipboard-list {
+    margin-right: 4px;
+    padding-left: 2px;
+}
+
+.nav-message {
+    border: 0;
+    font-size: 16px;
+    height: 26px;
+    background-color: #f8f9fa;
+    width: 100%;
+    margin-top: 0rem;
+}
+
+
+/* After Login End */

@@ -24,7 +24,7 @@
                                             <h6>By - {{ $article->author }}</h6>
                                         </div>
                                         <div class="col-md-12 text-right">
-                                            <h6>Published - {{ $article->created_at }}</h6>
+                                            <h6>Published on - {{ $article->created_at }}</h6>
                                         </div>
                                         <br>
                                         <div class="col-md-12">

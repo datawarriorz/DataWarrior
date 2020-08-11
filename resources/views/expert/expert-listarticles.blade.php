@@ -99,7 +99,7 @@
                                                     <thead>
                                                         <tr>
                                                             <th scope="col" style="min-width: 70px;">Sr. No</th>
-                                                            <th scope="col" style="min-width: 180px;">Artile Title</th>
+                                                            <th scope="col" style="min-width: 180px;">Article Title</th>
                                                             <th scope="col" style="min-width: 280px;">Description</th>
                                                             <th scope="col" class="text-center">Action</th>
                                                         </tr>

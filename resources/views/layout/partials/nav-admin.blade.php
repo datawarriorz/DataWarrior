@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="{{ asset('css/admin/master.css') }}" />
-<link rel="stylesheet" href="{{ asset('css/admin/navbar.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/admin/admin-1-master.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/admin/admin-2-navbar.css') }}" />
 <div class="navbar-container">
     <nav class="navbar navbar-expand-lg">
 
@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item-left">
-                    <a class="nav-link" href="/expertdashboard">
+                    <a class="nav-link" href="/admindashboard">
                         <p class="nav-link-header"><i class="fas fa-home"></i> Home</p>
                     </a>
                 </li>
@@ -47,13 +47,13 @@
                             <a class="dropdown-item">
                                 {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
                             </a>
-                            <a class="dropdown-item" href="/viewprofile">
+                            <a class="dropdown-item" href="/">
                                 <i class="fas fa-user-circle"></i> Profile
                             </a>
                             <a class="dropdown-item" href="/">
                                 <i class="fas fa-clipboard-list"></i> My Applications
                             </a>
-                            <a class="dropdown-item" href="/viewprofile">
+                            <a class="dropdown-item" href="/">
                                 <i class="fas fa-user-cog"></i> Settings
                             </a>
                             <a class="dropdown-item" href="/logoutadmin">

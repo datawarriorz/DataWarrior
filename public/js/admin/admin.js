@@ -22,3 +22,7 @@ function mcloseNav() {
     document.getElementById("m-myopen-icon").style.display = "inline-block";
     document.getElementById("m-myclose-icon").style.display = "none";
 }
+
+document.getElementById("uploadBtn").onchange = function() {
+    document.getElementById("uploadFile").value = this.value;
+};

@@ -1,7 +1,6 @@
 @extends('layout.expertlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert/expert-4-0-dashboard.css">
 <div class="dashboard-wrapper">
     <div class="col-md-12">
         <div class="row">

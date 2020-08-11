@@ -1,29 +1,28 @@
 <link rel="stylesheet" href="./css/admin/admin-4-0-dashboard.css">
-<link rel="stylesheet" href="./css/admin/admin-1-master.css">
 <div>
     <div class="sidenav-wrapper" id="mysidenav-wrapper">
         <div class="sidenav-fixed" id="mysidenav-fixed">
             <ul class="sidenav-item">
                 <a href="#">Dashboard</a>
-                <a href="#">Admins Panel</a>
-                <a href="#">Users Panel</a>
+                <a href="#">Admin Panel</a>
+                <a href="#">User Panel</a>
                 <ul class="sidenav-item">
                     <li><a href="#">Add User</a></li>
                     <li><a href="#">Manage Users</a></li>
                 </ul>
                 <a href="#">Experts</a>
                 <ul class="sidenav-item">
-                    <li><a href="#">Add Expert</a></li>
+                    <li><a href="/admin-create-expertform">Add Expert</a></li>
                     <li><a href="#">Manage Experts</a></li>
                 </ul>
                 <a href="#">Councellors</a>
                 <ul class="sidenav-item">
-                    <li><a href="#">Add Councellors</a></li>
+                    <li><a href="/admin-create-counselorform">Add Councellors</a></li>
                     <li><a href="#">Manage Councellors</a></li>
                 </ul>
                 <a href="#">Articles</a>
                 <ul class="sidenav-item">
-                    <li><a href="/admin-postarticle">Add Article</a></li>
+                    <li><a href="/admin-postarticle">Post Article</a></li>
                     <li><a href="/admin-review-articles">Review Articles</a></li>
                     <li><a href="#">Manage Articles</a></li>
                 </ul>

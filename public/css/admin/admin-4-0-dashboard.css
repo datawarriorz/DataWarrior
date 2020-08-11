@@ -47,8 +47,7 @@ a {
     display: flex;
     flex-flow: column;
     height: 100%;
-    width: 0%;
-    min-width: 0%;
+    width: 20%;
     float: left;
     transition: 0.5s;
     overflow-x: hidden;
@@ -105,13 +104,13 @@ ul.sidenav-item li {
         font-size: 20px;
         cursor: pointer;
         height: 10px;
-        display: inline-block;
+        display: none;
     }
     .close-icon {
         font-size: 20px;
         cursor: pointer;
         height: 10px;
-        display: none;
+        display: inline-block;
     }
     .m-open-icon {
         display: none;
@@ -120,7 +119,6 @@ ul.sidenav-item li {
         display: none;
     }
     .content-wrapper {
-        padding-left: 10px;
         width: 100%;
     }
 }
@@ -148,6 +146,9 @@ ul.sidenav-item li {
     .content-wrapper {
         width: 100%;
     }
+    .sidenav-wrapper {
+        display: none;
+    }
 }
 
 .m-sidenav-wrapper {
@@ -167,7 +168,7 @@ ul.sidenav-item li {
 }
 
 .m-sidenav-fixed {
-    height: 35.1rem;
+    height: 100%;
     overflow-y: scroll;
     background-color: #171f2a;
 }

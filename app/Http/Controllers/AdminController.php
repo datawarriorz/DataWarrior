@@ -39,7 +39,8 @@ class AdminController extends Controller
     {
         $article=new Article();
         $article->title=$request->title;
-        $article->ex_id=Auth::user()->ex_id;
+        $article->creator_id=Auth::user()->admin_id;
+        $article->creator_flag="admin";
         $article->author=$request->author;
         $article->description=$request->description;
         $article->content=$request->content;
@@ -105,6 +106,7 @@ class AdminController extends Controller
         $expertobj->password =Hash::make($request->password);
         $expertobj->ex_contactcode = $request->ex_contactcode;
         $expertobj->ex_contactno = $request->ex_contactno;
+        $expertobj->admin_id=Auth::user()->admin_id;
         $expertobj->save();
         return redirect('/admindashboard');
     }
@@ -120,7 +122,7 @@ class AdminController extends Controller
         $counselorobj->co_lastname = $request->co_lastname;
         $counselorobj->email = $request->email;
         $counselorobj->password = $request->password;
-        $counselorobj->co_registercount = $request->co_registercoun;
+        
         $counselorobj->save();
         return redirect('');
     }

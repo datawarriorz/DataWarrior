@@ -9,3 +9,8 @@ for image upload
         xampp/mysql/bin/my.ini
             changed
                 max_allowed_packet = 15M
+
+        enable drop db statement 
+        Go to -> your_drive/xampp/PhpMyAdmin/libraries/
+        Open a file name “config.default.php“
+        Find $cfg[‘AllowUserDropDatabase’] set true

@@ -19,7 +19,7 @@ class Expert extends Authenticatable
      */
     protected $fillable = [
         'ex_id','ex_firstname', 'ex_lastname', 'ex_image', 'ex_dateofbirth', 'ex_aboutme', 'ex_description', 'email', 'password', 'ex_contactcode',
-        'ex_contactno'
+        'ex_contactno','admin_id'
     ];
     /**
      * The attributes that should be hidden for arrays.

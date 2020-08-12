@@ -16,8 +16,8 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id('article_id');
             $table->string('title');
-            $table->unsignedBigInteger('ex_id');
-            $table->foreign('ex_id')->references('ex_id')->on('experts');
+            $table->unsignedBigInteger('creator_id')->nullable();
+            $table->string('creator_flag')->nullable();
             $table->string('author')->nullable();
             $table->string('description');
             $table->binary('content')->nullable();
@@ -27,6 +27,8 @@ class CreateArticlesTable extends Migration
 
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE articles Modify article_image MEDIUMBLOB");
+
     }
 
     /**

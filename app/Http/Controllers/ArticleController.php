@@ -15,9 +15,12 @@ class ArticleController extends Controller
 
     public function viewexpertarticles()
     {
-        $articles= Article::where('ex_id', Auth::user()->ex_id)->get();
+        $articlesreview= Article::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert')->where('status', '=', 'review')->get();
+        $articleslive= Article::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert')->where('status', '=', 'published')->get();
         
-        return view('expert.expert-listarticles', ['articles' => $articles]);
+        
+
+        return view('expert.expert-listarticles', ['articlesreview' => $articlesreview,'articleslive'=>$articleslive]);
     }
     
     public function viewarticleform()
@@ -29,7 +32,8 @@ class ArticleController extends Controller
     {
         $article=new Article();
         $article->title=$request->title;
-        $article->ex_id=Auth::user()->ex_id;
+        $article->creator_id=Auth::user()->ex_id;
+        $article->creator_flag="expert";
         $article->author=$request->author;
         $article->description=$request->description;
         $article->content=$request->content;
@@ -49,7 +53,8 @@ class ArticleController extends Controller
     {
         $article= App\Article::find($request->article_id);
         $article->title=$request->title;
-        $article->ex_id=Auth::user()->ex_id;
+        $article->creator_id=Auth::user()->ex_id;
+        $article->creator_flag="expert";
         $article->author=$request->author;
         $article->description=$request->description;
         $article->content=$request->content;

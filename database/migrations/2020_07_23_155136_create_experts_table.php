@@ -25,10 +25,12 @@ class CreateExpertsTable extends Migration
             $table->string('password');
             $table->string('ex_contactcode')->nullable();
             $table->string('ex_contactno')->nullable();
-            
+            $table->unsignedBigInteger('admin_id');
+            $table->foreign('admin_id')->references('admin_id')->on('admins');
             $table->rememberToken();
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE experts Modify ex_image MEDIUMBLOB");
     }
 
     /**

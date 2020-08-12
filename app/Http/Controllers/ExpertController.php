@@ -27,7 +27,7 @@ class ExpertController extends Controller
 
     public function index()
     {
-        $articles= Article::where('ex_id', Auth::user()->ex_id)->get();
+        $articles= Article::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert')->get();
         return view('expert.expert-dashboard', ['articles' => $articles]);
     }
 

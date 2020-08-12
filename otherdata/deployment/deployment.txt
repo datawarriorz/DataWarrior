@@ -1,16 +1,17 @@
-for image upload 
-    changes to
-        xampp/php/php.ini
-            changed
+For Image Upload Size Limit Increase
+    Navigate to
+        your_drive/xampp/php/php.ini
+            change following to
                 memory_limit = 128M
                 post_max_size = 48M
                 upload_max_filesize = 64M
         
         xampp/mysql/bin/my.ini
-            changed
+            change following to
                 max_allowed_packet = 15M
 
-        enable drop db statement 
-        Go to -> your_drive/xampp/PhpMyAdmin/libraries/
-        Open a file name “config.default.php“
-        Find $cfg[‘AllowUserDropDatabase’] set true
+To Enable Drop DB Statement 
+    Navigate to
+        your_drive/xampp/PhpMyAdmin/libraries/
+            Open a file name “config.default.php“
+            Find $cfg[‘AllowUserDropDatabase’] and set it to true.

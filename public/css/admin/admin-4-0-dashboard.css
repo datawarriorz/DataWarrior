@@ -85,7 +85,8 @@ a {
 
 .sidenav-remaining {
     background-color: #171f2a;
-    flex-grow: 1;
+    /* flex-grow: 1; */
+    height: 282px;
 }
 
 ul.sidenav-item {

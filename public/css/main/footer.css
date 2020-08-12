@@ -4,6 +4,7 @@
     font-weight: 400;
     background-color: #171f2a;
     width: 100%;
+    position: absolute;
 }
 
 .footer-link-header {

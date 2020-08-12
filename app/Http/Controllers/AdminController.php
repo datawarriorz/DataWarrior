@@ -34,6 +34,10 @@ class AdminController extends Controller
         Auth::logout();
         return view('admin.auth.login');
     }
+    public function getlogoutadmin()
+    {
+        return view('admin.auth.login');
+    }
 
     public function postarticle(Request $request)
     {

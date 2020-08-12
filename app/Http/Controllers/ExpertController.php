@@ -36,6 +36,10 @@ class ExpertController extends Controller
         Auth::logout();
         return view('expert.auth.login');
     }
+    public function getlogoutexpert()
+    {
+        return view('expert.auth.login');
+    }
 
     public function viewexpertprofile()
     {

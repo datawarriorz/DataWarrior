@@ -102,7 +102,7 @@ Route::post('/expert-skill-delete', 'ExpertController@deleteskilldetails');
 
 
 Route::post('/logoutexpert', 'ExpertController@logoutexpert');
-Route::get('/logoutexpert', 'ExpertController@logoutexpert');
+Route::get('/logoutexpert', 'ExpertController@getlogoutexpert');
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -111,7 +111,7 @@ Route::post('/adminlogin', 'Auth\AdminLoginController@login')->name('admin.login
 Route::get('/admindashboard', 'AdminController@index')->name('admin.home');
 
 Route::post('/logoutadmin', 'AdminController@logoutadmin');
-Route::get('/logoutadmin', 'AdminController@logoutadmin');
+Route::get('/logoutadmin', 'AdminController@getlogoutadmin');
 
 Route::get('/admin-postarticle', 'AdminController@viewarticleform');
 Route::post('/admin-postarticle', 'AdminController@postarticle');

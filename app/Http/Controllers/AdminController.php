@@ -122,7 +122,7 @@ class AdminController extends Controller
         $counselorobj->co_lastname = $request->co_lastname;
         $counselorobj->email = $request->email;
         $counselorobj->password = $request->password;
-        
+        $counselorobj->admin_id=Auth::user()->admin_id;
         $counselorobj->save();
         return redirect('');
     }
@@ -139,5 +139,18 @@ class AdminController extends Controller
     public function viewarticleform()
     {
         return view('admin.admin-postarticle');
+    }
+
+
+
+    //Delete//////////////////////////////////////////////////////////////////////
+    public function deletearticle(Request $request)
+    {
+    }
+    public function deleteexpert(Request $request)
+    {
+    }
+    public function deletecounselor(Request $request)
+    {
     }
 }

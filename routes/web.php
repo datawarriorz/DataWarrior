@@ -76,10 +76,10 @@ Route::get('/expertlogin', 'Auth\ExpertLoginController@showLoginForm')->name('ex
 Route::post('/expertlogin', 'Auth\ExpertLoginController@login')->name('expert.login.submit');
 Route::get('/expertdashboard', 'ExpertController@index')->name('expert.home');
 
-Route::get('/expert-postarticle', 'ArticleController@viewarticleform');
-Route::post('/expert-postarticle', 'ArticleController@postarticle');
-Route::get('/expert-listarticles', 'ArticleController@viewexpertarticles');
-Route::post('/expert-viewarticle', 'ArticleController@viewarticle');
+Route::get('/expert-postarticle', 'ExpertController@viewarticleform');
+Route::post('/expert-postarticle', 'ExpertController@postarticle');
+Route::get('/expert-listarticles', 'ExpertController@viewexpertarticles');
+Route::post('/expert-viewarticle', 'ExpertController@viewarticle');
 
 
 Route::get('/expert-profile', 'ExpertController@viewexpertprofile');

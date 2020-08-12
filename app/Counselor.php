@@ -21,7 +21,7 @@ class Counselor extends Model
      *
      * @var array
      */
-    protected $fillable = ['co_id', 'co_firstname', 'co_lastname', 'email', 'password',
+    protected $fillable = ['co_id', 'co_firstname', 'co_lastname', 'email', 'password','admin_id',
      'created_at', 'updated_at'];
     /**
      * The attributes excluded from the model's JSON form.

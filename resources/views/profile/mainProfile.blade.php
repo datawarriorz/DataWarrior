@@ -9,16 +9,37 @@
             <h4>Personal Details</h4>
         </div>
         <div class="card-body">
-            <form method="POST" action="/updateuserdetails">
-                <div class="form-group">
-                    <label for="Fname">First Name</label>
-                    <input type="text" name='first_name' required class="form-control"
-                        value="{{ $user->first_name }}">
+            <form method="POST" action="/updateuserdetails" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="form-group">
+                            <label for="Fname">First Name</label>
+                            <input type="text" name='first_name' required class="form-control"
+                                value="{{ $user->first_name }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="Lname">Last Name</label>
+                            <input type="text" name='last_name' required class="form-control"
+                                value="{{ $user->last_name }}">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Image :</label>
+                            <div class="upload-btn-wrapper">
+                                <textarea id="uploadFile" class="disableInputField" placeholder="Choose File"
+                                    disabled="disabled" rows="2" autocomplete="off">
+                                    </textarea>
+                                <label class="fileUpload form-control">
+                                    <input id="uploadBtn" enctype="multipart/form-data" type="file" name="u_image"
+                                        class="upload" />
+                                    <span class="uploadBtn">Upload / Browse File ..</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="Lname">Last Name</label>
-                    <input type="text" name='last_name' required class="form-control" value="{{ $user->last_name }}">
-                </div>
+
                 <div class="form-group">
                     <label>Email address</label>
                     <input type="email" class="form-control" id="email" required name='email'
@@ -55,15 +76,15 @@
                 </div>
                 @csrf
                 @if(count($errors))
-                    <div class="alert alert-danger">
-                        <strong>Whoops!</strong> There were some problems with your input.
-                        <br />
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.
+                    <br />
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
                 @endif
                 <br>
                 <div class="form-group col-md-12 text-center">

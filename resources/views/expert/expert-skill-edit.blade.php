@@ -33,15 +33,15 @@
                 </div>
                 @csrf
                 @if(count($errors))
-                    <div class="alert alert-danger">
-                        <strong>Whoops!</strong> There were some problems with your input.
-                        <br>
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.
+                    <br>
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
                 @endif
             </form>
         </div>
@@ -59,34 +59,28 @@
                 <tbody>
                     <?php $i=0; ?>
                     @foreach($skillsobj as $skill)
-                        <tr>
-                            <td>
-                                <?php $i++; ?>
-                                <?php echo $i;?>
-                            </td>
-                            <td>
-                                {{ $skill->sk_name }}
-                            </td>
-                            <td class="text-center">
-                                <form method="POST" action="/expert-skill-delete">
-                                    @csrf
-                                    <input type="hidden" name="sk_id" value={{ $skill->sk_id }} />
+                    <tr>
+                        <td>
+                            <?php $i++; ?>
+                            <?php echo $i;?>
+                        </td>
+                        <td>
+                            {{ $skill->sk_name }}
+                        </td>
+                        <td class="text-center">
+                            <form method="POST" action="/expert-skill-delete">
+                                @csrf
+                                <input type="hidden" name="sk_id" value={{ $skill->sk_id }} />
 
-                                    <button type="submit" class="btn btn-danger" onclick="">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
+                                <button type="submit" class="btn btn-danger" onclick="">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<br>
 </div>
 
 @endsection

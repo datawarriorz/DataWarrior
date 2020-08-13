@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id('user_id');
             $table->string('first_name');
             $table->string('last_name')->nullable();
+            $table->binary('u_image')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('contact_no')->nullable();
@@ -30,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE users Modify u_image MEDIUMBLOB");
     }
 
     /**

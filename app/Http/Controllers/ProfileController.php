@@ -64,14 +64,31 @@ class ProfileController extends Controller
         //     'confirm' => 'required|min:3|max:20|same:password',
         //     'dateofbirth' => 'required',
         // ]);
-        User::where('user_id', Auth::user()->user_id)->update([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'contact_no' => $request->contact_no,
-            'date_of_birth' => $request->date_of_birth,
-            'gender' => $request->gender
-        ]);
+        $file = $request->file('u_image');
+        if ($file != null) {
+            $u_image = $file->openFile()->fread($file->getSize());
+            User::where('user_id', Auth::user()->user_id)->update([
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'u_image' => $u_image,
+                'email' => $request->email,
+                'contact_no' => $request->contact_no,
+                'date_of_birth' => $request->date_of_birth,
+                'gender' => $request->gender
+            ]);
+        } else {
+            User::where('user_id', Auth::user()->user_id)->update([
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'email' => $request->email,
+                'contact_no' => $request->contact_no,
+                'date_of_birth' => $request->date_of_birth,
+                'gender' => $request->gender
+            ]);
+        }
+        // Get the contents of the file
+        
+        
 
         return redirect('/viewprofile');
     }

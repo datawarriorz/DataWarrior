@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Counselor extends Model
+class Subscription extends Model  
 {
 
     
@@ -14,15 +14,15 @@ class Counselor extends Model
      *
      * @var string
      */
-    protected $table = 'counselor';
+    protected $table = 'subscription';
 
     /**
      * Attributes that should be mass-assignable.
      *
      * @var array
      */
-    protected $fillable = ['co_id', 'co_firstname', 'co_lastname', 'email', 'password','admin_id','referral_code',
-     'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'newsletter', 'created_at', 'updated_at'];
+
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -43,4 +43,5 @@ class Counselor extends Model
      * @var array
      */
     protected $dates = ['created_at', 'updated_at'];
+
 }

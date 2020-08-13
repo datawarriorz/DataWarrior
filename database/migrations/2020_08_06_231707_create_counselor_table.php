@@ -19,6 +19,7 @@ class CreateCounselorTable extends Migration
             $table->string('co_lastname')->nullable();
             $table->string('email')->nullable();
             $table->string('password')->nullable();
+            $table->string('referral_code')->nullable();
             $table->unsignedBigInteger('admin_id');
             $table->foreign('admin_id')->references('admin_id')->on('admins');
             $table->timestamps();

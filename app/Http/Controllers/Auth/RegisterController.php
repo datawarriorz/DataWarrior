@@ -9,6 +9,9 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use App\Subscription;
+use App\Referral;
+use App\Counselor;
 
 class RegisterController extends Controller
 {
@@ -60,6 +63,7 @@ class RegisterController extends Controller
             'contact_no' => 'required|numeric|unique:users',
             'password' => 'required|min:3|max:20',
             'confirm' => 'required|min:3|max:20|same:password',
+            
         ]);
 
         if ($validator->fails()) { // on validator found any error
@@ -75,7 +79,22 @@ class RegisterController extends Controller
         $newUser->contact_no=$request->contact_no;
         $newUser->date_of_birth=$request->date_of_birth;
         $newUser->save();
+        
+        
         auth()->login($newUser, true);
+        if ($request->newsletter=="yes") {
+            $subcribe= new Subscription();
+            $subcribe->newsletter=$request->newsletter;
+            $subcribe->user_id=Auth::user()->user_id;
+            $subcribe->save();
+        }
+        if ($request->referrla_code!=null) {
+            $refer= new Referral();
+            $counselor = Counselor::where('referrla_code', $request->referrla_code)->get();
+            $refer->co_id=$counselor->co_id;
+            $refer->user_id=Auth::user()->user_id;
+            $refer->save();
+        }
         return view('auth.verify');
         //return view('auth.login');
     }

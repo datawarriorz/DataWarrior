@@ -22,7 +22,8 @@ style="white-space: pre-line" for getting new line back in front end
 
 User-side
 articles
-referral 
+referral
+newsletter 
 experts
 user Dp
 //Internships and jobs

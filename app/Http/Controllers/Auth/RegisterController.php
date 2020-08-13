@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -80,7 +81,6 @@ class RegisterController extends Controller
         $newUser->date_of_birth=$request->date_of_birth;
         $newUser->save();
         
-        
         auth()->login($newUser, true);
         if ($request->newsletter=="yes") {
             $subcribe= new Subscription();
@@ -88,9 +88,9 @@ class RegisterController extends Controller
             $subcribe->user_id=Auth::user()->user_id;
             $subcribe->save();
         }
-        if ($request->referrla_code!=null) {
+        if ($request->referral_code!=null) {
             $refer= new Referral();
-            $counselor = Counselor::where('referrla_code', $request->referrla_code)->get();
+            $counselor = Counselor::where('referral_code', $request->referral_code)->get();
             $refer->co_id=$counselor->co_id;
             $refer->user_id=Auth::user()->user_id;
             $refer->save();

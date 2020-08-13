@@ -66,6 +66,11 @@
                                     <input type="password" class="form-control" name="password" id="password"
                                         placeholder="Password">
                                 </div>
+                                <div class="form-group">
+                                    <label>Referral Code :</label>
+                                    <input type="text" name="referral_code" class="form-control"
+                                        value={{ old('referral_code') }}>
+                                </div>
                                 <div class="form-group col-md-12 text-center">
                                     <button type="submit" class="btn tab-edit-btn">
                                         Register Counselor

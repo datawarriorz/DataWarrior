@@ -94,7 +94,7 @@
                                 placeholder="Confirm Password">
                         </div>
                         <div class="form-group">
-                            <input type="checkbox" name="counselling" id="newsletter" class="form-control" value="yes">
+                            <input type="checkbox" name="newsletter" id="newsletter" class="form-control" value="yes">
                             <label> Click here to subscribe to our newsletter </label>
 
                         </div>

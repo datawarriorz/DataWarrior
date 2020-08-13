@@ -13,16 +13,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item-left">
+                    @guest
+                    @else
                     <a class="nav-link" href="/admindashboard">
-                        <p class="nav-link-header"><i class="fas fa-home"></i> Home</p>
+                        <p class="nav-link-header"><i class="fas fa-home"></i> Dashboard</p>
                     </a>
+                    @endguest
                 </li>
-                <li class="nav-item-left navli">
+                {{-- <li class="nav-item-left navli">
                     <a class="nav-link" href="#">
                         <p class="nav-link-header"><i class="fas fa-wrench"></i> Services</p>
                     </a>
-                </li>
-                <li class="nav-item-left navli">
+                </li> --}}
+                {{-- <li class="nav-item-left navli">
                     <a class="nav-link" href="/contact">
                         <p class="nav-link-header"><i class="fas fa-phone-alt"></i> Contact</p>
                     </a>
@@ -31,7 +34,7 @@
                     <a class="nav-link" href="#">
                         <p class="nav-link-header"><i class="fas fa-info-circle"></i> About Us</p>
                     </a>
-                </li>
+                </li> --}}
             </ul>
 
             <ul class="navbar-nav nav-right justify-content-end">

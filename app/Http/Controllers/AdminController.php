@@ -126,9 +126,10 @@ class AdminController extends Controller
         $counselorobj->co_lastname = $request->co_lastname;
         $counselorobj->email = $request->email;
         $counselorobj->password = $request->password;
+        $counselorobj->referral_code = $request->referral_code;
         $counselorobj->admin_id=Auth::user()->admin_id;
         $counselorobj->save();
-        return redirect('');
+        return redirect('/admindashboard');
     }
     public function viewcounselorlist()
     {

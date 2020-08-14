@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
 use App\User;
+use App\Counselor;
 
 class LoginController extends Controller
 {
@@ -69,6 +70,29 @@ class LoginController extends Controller
             $newUser->save();
             auth()->login($newUser, true);
         }
+        return view('user-referral');
+        //return redirect($this->redirectPath());
+    }
+    public function userreferral(Request $request)
+    {
+        $validator=Validator::make($request->all(), [
+           
+            'referral_code' => 'exists:counselor,referral_code'
+            
+        ]);
+
+        if ($validator->fails()) { // on validator found any error
+            // pass validator object in withErrors method & also withInput it should be null by default
+            return redirect('/register')->withErrors($validator)->withInput();
+        }
+        $counselor = Counselor::where('referral_code', $request->referral_code)->get();
+        if ($counselor==null) {
+            return redirect('/user-referral')->with(['message'=> 'Invalid Referral Code']);
+        }
+        $refer= new Referral();
+        $refer->co_id=$counselor->co_id;
+        $refer->user_id=Auth::user()->user_id;
+        $refer->save();
         return redirect($this->redirectPath());
     }
 }

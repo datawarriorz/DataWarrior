@@ -57,15 +57,27 @@ class RegisterController extends Controller
 
     protected function register(Request $request)
     {
-        $validator=Validator::make($request->all(), [
+        if ($request->referral_code!=null) {
+            $validator=Validator::make($request->all(), [
             'firstname' => 'required|min:3|max:35',
             'lastname' => 'required|min:3|max:35',
             'email' => 'required|email|unique:users',
             'contact_no' => 'required|numeric|unique:users',
             'password' => 'required|min:3|max:20',
             'confirm' => 'required|min:3|max:20|same:password',
+            'referral_code' => 'exists:counselor,referral_code'
             
         ]);
+        } else {
+            $validator=Validator::make($request->all(), [
+                'firstname' => 'required|min:3|max:35',
+                'lastname' => 'required|min:3|max:35',
+                'email' => 'required|email|unique:users',
+                'contact_no' => 'required|numeric|unique:users',
+                'password' => 'required|min:3|max:20',
+                'confirm' => 'required|min:3|max:20|same:password',
+            ]);
+        }
 
         if ($validator->fails()) { // on validator found any error
             // pass validator object in withErrors method & also withInput it should be null by default

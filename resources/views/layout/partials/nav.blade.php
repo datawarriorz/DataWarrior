@@ -38,14 +38,14 @@
                 @guest
                 <li class="nav-item-right">
                     <a class="nav-link-right" href="{{ route('login') }}">
-                        <button type="button" class="btn navbtn">SIGNIN
+                        <button type="button" class="btn navbtn">Sign-In
                         </button>
                     </a>
                 </li>
                 @if(Route::has('register'))
                 <li class="nav-item-right">
                     <a class="nav-link-right" href="{{ route('register') }}"><button type="button"
-                            class="btn navbtn">REGISTER</button></a>
+                            class="btn navbtn">Register</button></a>
                 </li>
                 @endif
                 @else

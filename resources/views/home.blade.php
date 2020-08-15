@@ -229,178 +229,56 @@
                     </a> --}}
                     <div class="container-fluid d-cards">
                         <div class="row flex-nowrap ">
+                            @foreach($expertsobj as $ex)
                             <div class="col-3">
                                 <div class="card card-block">
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"
                                         style="padding-top: 18px;">
-                                        <img style="height:144px;width:144px;border-radius:50%" alt="..."
-                                            src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com" />
+                                        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($ex->ex_image); ?>"
+                                            style="height:144px;width:144px;border-radius:50%" />
                                     </div>
                                     <div class="card-body">
-                                        <h5 class="card-title">Varun</h5>
-                                        <p class="card-text">Business Analytics, NLP and Image Analytics.</p>
-                                        <a href="#" class="btn btn-primary">View More Info</a>
+                                        <h5 class="card-title">
+                                            {{ $ex->ex_firstname }}{{ $ex->ex_lastname }}
+                                        </h5>
+                                        <p class="card-text">{{ $ex->ex_aboutme }}</p>
+                                        <form method="POST" action="/user-view-expert">
+                                            @csrf
+                                            <input type="hidden" value="{{ $ex->ex_id }}" name="ex_id">
+                                            <button type="submit" class="btn btn-primary">View More Info</button>
+                                        </form>
+
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
-                                <div class="card card-block">
-                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"
-                                        style="padding-top: 18px;">
-                                        <img style="height:144px;width:144px;border-radius:50%" alt="..."
-                                            src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com" />
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Rajesh Kapoor</h5>
-                                        <p class="card-text">Business Analytics, Data Science</p>
-                                        <a href="#" class="btn btn-primary">View More Info</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="card card-block">
-                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"
-                                        style="padding-top: 18px;">
-                                        <img style="height:144px;width:144px;border-radius:50%" alt="..."
-                                            src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com" />
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ashay Patil</h5>
-                                        <p class="card-text">PHP Developer, Laravel Expert</p>
-                                        <a href="#" class="btn btn-primary">View More Info</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="card card-block">
-                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"
-                                        style="padding-top: 18px;">
-                                        <img style="height:144px;width:144px;border-radius:50%" alt="..."
-                                            src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com" />
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ashay Patil</h5>
-                                        <p class="card-text">PHP Developer, Laravel Expert</p>
-                                        <a href="#" class="btn btn-primary">View More Info</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="card card-block">
-                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"
-                                        style="padding-top: 18px;">
-                                        <img style="height:144px;width:144px;border-radius:50%" alt="..."
-                                            src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com" />
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ashay Patil</h5>
-                                        <p class="card-text">PHP Developer, Laravel Expert</p>
-                                        <a href="#" class="btn btn-primary">View More Info</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="card card-block">
-                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"
-                                        style="padding-top: 18px;">
-                                        <img style="height:144px;width:144px;border-radius:50%" alt="..."
-                                            src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com" />
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ashay Patil</h5>
-                                        <p class="card-text">PHP Developer, Laravel Expert</p>
-                                        <a href="#" class="btn btn-primary">View More Info</a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="container-fluid m-cards">
                         <div class="row flex-nowrap">
-                            <div class="col-12">
+                            @foreach($expertsobj as $ex)
+                            <div class="col-3">
                                 <div class="card card-block">
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"
                                         style="padding-top: 18px;">
-                                        <img style="height:144px;width:144px;border-radius:50%" alt="..."
-                                            src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com" />
+                                        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($ex->ex_image); ?>"
+                                            style="height:144px;width:144px;border-radius:50%" />
                                     </div>
                                     <div class="card-body">
-                                        <h5 class="card-title">Varun</h5>
-                                        <p class="card-text">Business Analytics, NLP and Image Analytics.</p>
-                                        <a href="#" class="btn btn-primary">View More Info</a>
+                                        <h5 class="card-title">
+                                            {{ $ex->ex_firstname }}{{ $ex->ex_lastname }}
+                                        </h5>
+                                        <p class="card-text">{{ $ex->ex_aboutme }}</p>
+                                        <form method="POST" action="/user-view-expert">
+                                            @csrf
+                                            <input type="hidden" value="{{ $ex->ex_id }}" name="ex_id">
+                                            <button type="submit" class="btn btn-primary">View More Info</button>
+                                        </form>
+
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <div class="card card-block">
-                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"
-                                        style="padding-top: 18px;">
-                                        <img style="height:144px;width:144px;border-radius:50%" alt="..."
-                                            src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com" />
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Rajesh Kapoor</h5>
-                                        <p class="card-text">Business Analytics, Data Science</p>
-                                        <a href="#" class="btn btn-primary">View More Info</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="card card-block">
-                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"
-                                        style="padding-top: 18px;">
-                                        <img style="height:144px;width:144px;border-radius:50%" alt="..."
-                                            src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com" />
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ashay Patil</h5>
-                                        <p class="card-text">PHP Developer, Laravel Expert</p>
-                                        <a href="#" class="btn btn-primary">View More Info</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="card card-block">
-                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"
-                                        style="padding-top: 18px;">
-                                        <img style="height:144px;width:144px;border-radius:50%" alt="..."
-                                            src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com" />
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ashay Patil</h5>
-                                        <p class="card-text">PHP Developer, Laravel Expert</p>
-                                        <a href="#" class="btn btn-primary">View More Info</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="card card-block">
-                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"
-                                        style="padding-top: 18px;">
-                                        <img style="height:144px;width:144px;border-radius:50%" alt="..."
-                                            src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com" />
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ashay Patil</h5>
-                                        <p class="card-text">PHP Developer, Laravel Expert</p>
-                                        <a href="#" class="btn btn-primary">View More Info</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="card card-block">
-                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"
-                                        style="padding-top: 18px;">
-                                        <img style="height:144px;width:144px;border-radius:50%" alt="..."
-                                            src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com" />
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ashay Patil</h5>
-                                        <p class="card-text">PHP Developer, Laravel Expert</p>
-                                        <a href="#" class="btn btn-primary">View More Info</a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

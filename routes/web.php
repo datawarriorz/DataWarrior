@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+
 Auth::routes(['verify' => true]);
 
 Route::get('/verifymail', function () {
@@ -26,9 +24,7 @@ Route::get('/verifymail', function () {
 //     Mail::to('ashaypatil1995@gmail.com')->send(new Newsletter());
 // });
 
-
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/test', 'HomeController@test')->name('test');
 
 Route::get('/contact', 'NoAuthController@contact');
@@ -38,6 +34,8 @@ Route::get('login/google', 'Auth\LoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('/dashboard', 'DashboardController@showDashboard')->middleware('auth');
+Route::post('/user-view-expert', 'HomeController@userviewexpert');
+Route::post('/user-view-article', 'HomeController@userviewarticle');
 
 Route::get('/viewprofile', 'ProfileController@viewProfile')->middleware('auth');
 
@@ -76,6 +74,8 @@ Route::get('/certification', 'CertificationController@showallcertification')->mi
 Route::post('/applycertification', 'CertificationController@applycertification')->middleware('auth');
 Route::post('/requestcertification', 'CertificationController@requestcertification')->middleware('auth');
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Route::get('/expertlogin', 'Auth\ExpertLoginController@showLoginForm')->name('expert.login');
 Route::post('/expertlogin', 'Auth\ExpertLoginController@login')->name('expert.login.submit');
 Route::get('/expertdashboard', 'ExpertController@index')->name('expert.home');
@@ -85,12 +85,10 @@ Route::post('/expert-postarticle', 'ExpertController@postarticle');
 Route::get('/expert-listarticles', 'ExpertController@viewexpertarticles');
 Route::post('/expert-viewarticle', 'ExpertController@viewarticle');
 
-
 Route::get('/expert-profile', 'ExpertController@viewexpertprofile');
 Route::post('/expert-profile-edit', 'ExpertController@updatebasicdetails');
 Route::get('/expert-profile-edit', 'ExpertController@updatebasicdetailsform');
 Route::post('/expert-profile-image', 'ExpertController@updateexpertimage');
-
 
 Route::get('/expert-experience-edit', 'ExpertController@viewexperienceform');
 Route::post('/expert-experience-add', 'ExpertController@addexpdetails');
@@ -104,11 +102,10 @@ Route::get('/expert-skill-edit', 'ExpertController@viewskillform');
 Route::post('/expert-skill-add', 'ExpertController@addskilldetails');
 Route::post('/expert-skill-delete', 'ExpertController@deleteskilldetails');
 
-
 Route::post('/logoutexpert', 'ExpertController@logoutexpert');
 Route::get('/logoutexpert', 'ExpertController@getlogoutexpert');
 
-////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Route::get('/adminlogin', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 Route::post('/adminlogin', 'Auth\AdminLoginController@login')->name('admin.login.submit');
@@ -130,10 +127,7 @@ Route::post('/admin-create-expertform', 'AdminController@createexpert');
 Route::get('/admin-create-counselorform', 'AdminController@createcounselorform');
 Route::post('/admin-create-counselorform', 'AdminController@createcounselor');
 
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Route::get('/cc', function () {
     //cc = clearcache

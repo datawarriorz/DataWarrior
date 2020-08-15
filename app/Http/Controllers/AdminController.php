@@ -7,9 +7,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Mail\Newsletter;
 use App\Counselor;
 use App\Expert;
 use App\Article;
+use DB;
+use Illuminate\Support\Facades\Mail;
 
 class AdminController extends Controller
 {
@@ -72,6 +75,16 @@ class AdminController extends Controller
         Article::where('article_id', $request->article_id)->update([
             'status'=>'published'
         ]);
+        $users = DB::table('users')
+            ->join('subscription', 'users.user_id', '=', 'subscription.user_id')
+            ->where('subscription.newsletter', '=', 'yes')
+            ->select('users.email')
+            ->get();
+        
+        foreach ($users as $user) {
+            Mail::to($user->email)->send(new Newsletter());
+        }
+
         return redirect('/admin-review-articles');
     }
     

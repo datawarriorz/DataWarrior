@@ -22,6 +22,10 @@ Route::get('/verifymail', function () {
     return view('auth.verify');
 })->name('verifymail');
 
+// Route::get('/mailtest', function () {
+//     Mail::to('ashaypatil1995@gmail.com')->send(new Newsletter());
+// });
+
 
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -125,6 +129,9 @@ Route::post('/admin-create-expertform', 'AdminController@createexpert');
 
 Route::get('/admin-create-counselorform', 'AdminController@createcounselorform');
 Route::post('/admin-create-counselorform', 'AdminController@createcounselor');
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////
 

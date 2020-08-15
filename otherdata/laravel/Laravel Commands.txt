@@ -13,6 +13,7 @@ To clear cache
 composer require "laracademy/generators" --dev
 php artisan make:migration create_ex_experience_table
 php artisan generate:modelfromtable --table=articles
+php artisan make:mail Newsletter -m emails.newsletter
 
 php artisan tinker
     $expert = new App\Expert;

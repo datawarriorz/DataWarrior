@@ -12,7 +12,7 @@ use App\UserSkills;
 use App\InternshipPreferences;
 use App\JobPreferences;
 use App\SkillLevel;
-
+use App\Subscription;
 use Exception;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -27,8 +27,10 @@ class ProfileController extends Controller
     public function userDetails()
     {
         $currentuser = User::where('user_id', Auth::user()->user_id)->first();
+        $subscription = Subscription::where('user_id', '=', Auth::user()->user_id)->first();
+       
 
-        return view('profile/mainProfile', ['user' => $currentuser, 'message' => '']);
+        return view('profile/mainProfile', ['user' => $currentuser, 'message' => '','subscription'=>$subscription]);
     }
 
     public function viewProfile()
@@ -41,6 +43,7 @@ class ProfileController extends Controller
         $job = JobPreferences::where('user_id', '=', Auth::user()->user_id)->get();
         $userdetails = User::where('user_id', Auth::user()->user_id)->first();
         $skilllevel = SkillLevel::all();
+        
         return view('profile.profile', [
             'skills' => $skills,
             'jobexp' => $jobexp,
@@ -49,7 +52,8 @@ class ProfileController extends Controller
             'qualificationType' => $qualificationType,
             'job' => $job,
             'userdetails' => $userdetails,
-            'skilllevel' => $skilllevel
+            'skilllevel' => $skilllevel,
+            
         ]);
     }
 
@@ -85,6 +89,26 @@ class ProfileController extends Controller
                 'date_of_birth' => $request->date_of_birth,
                 'gender' => $request->gender
             ]);
+        }
+        $subscription = Subscription::where('user_id', '=', Auth::user()->user_id)->get();
+        
+        if ($request->newsletter=="yes") {
+            if ($subscription==null) {
+                $subcribe= new Subscription();
+                $subcribe->newsletter=$request->newsletter;
+                $subcribe->user_id=Auth::user()->user_id;
+                $subcribe->save();
+            } else {
+                Subscription::where('user_id', Auth::user()->user_id)->update([
+                    'newsletter'=>$request->newsletter
+                ]);
+            }
+        } else {
+            if ($subscription!=null) {
+                Subscription::where('user_id', Auth::user()->user_id)->update([
+                'newsletter'=>$request->newsletter,
+            ]);
+            }
         }
         // Get the contents of the file
         

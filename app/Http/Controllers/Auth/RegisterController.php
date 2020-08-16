@@ -99,6 +99,11 @@ class RegisterController extends Controller
             $subcribe->newsletter=$request->newsletter;
             $subcribe->user_id=Auth::user()->user_id;
             $subcribe->save();
+        } else {
+            $subcribe= new Subscription();
+            $subcribe->newsletter="no";
+            $subcribe->user_id=Auth::user()->user_id;
+            $subcribe->save();
         }
         if ($request->referral_code!=null) {
             $refer= new Referral();

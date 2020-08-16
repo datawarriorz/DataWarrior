@@ -15,7 +15,7 @@ class CreateReferralTable extends Migration
     {
         Schema::create('referral', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->unique();
             $table->foreign('user_id')->references('user_id')->on('users');
             $table->unsignedBigInteger('co_id');
             $table->foreign('co_id')->references('co_id')->on('counselor');

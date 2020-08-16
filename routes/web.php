@@ -23,7 +23,7 @@ Route::get('/verifymail', function () {
 // Route::get('/mailtest', function () {
 //     Mail::to('ashaypatil1995@gmail.com')->send(new Newsletter());
 // });
-
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/test', 'HomeController@test')->name('test');
 
@@ -36,6 +36,10 @@ Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback
 Route::get('/dashboard', 'DashboardController@showDashboard')->middleware('auth');
 Route::post('/user-view-expert', 'HomeController@userviewexpert');
 Route::post('/user-view-article', 'HomeController@userviewarticle');
+Route::post('/user-referral', 'Auth\LoginController@userreferral');
+Route::get('/user-referral', function () {
+    return view('user.user-referral');
+});
 
 Route::get('/viewprofile', 'ProfileController@viewProfile')->middleware('auth');
 

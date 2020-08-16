@@ -8,6 +8,11 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
 use App\User;
 use App\Counselor;
+use App\Referral;
+use App\Subscription;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -60,6 +65,7 @@ class LoginController extends Controller
 
         if ($existingUser) {
             auth()->login($existingUser, true);
+            return redirect($this->redirectPath());
         } else {
             $newUser                    = new User;
             $newUser->provider_name     = 'google';
@@ -69,26 +75,31 @@ class LoginController extends Controller
             $newUser->email_verified_at = now();
             $newUser->save();
             auth()->login($newUser, true);
+            $subcribe= new Subscription();
+            $subcribe->newsletter="yes";
+            $subcribe->user_id=Auth::user()->user_id;
+            $subcribe->save();
         }
-        return view('user-referral');
+        return view('user.user-referral');
         //return redirect($this->redirectPath());
     }
     public function userreferral(Request $request)
     {
         $validator=Validator::make($request->all(), [
-           
             'referral_code' => 'exists:counselor,referral_code'
             
         ]);
 
         if ($validator->fails()) { // on validator found any error
             // pass validator object in withErrors method & also withInput it should be null by default
-            return redirect('/register')->withErrors($validator)->withInput();
+            return redirect('/user-referral')->withErrors($validator)->withInput();
         }
-        $counselor = Counselor::where('referral_code', $request->referral_code)->get();
+        $counselor = Counselor::where('referral_code', $request->referral_code)->first();
+        
         if ($counselor==null) {
             return redirect('/user-referral')->with(['message'=> 'Invalid Referral Code']);
         }
+        
         $refer= new Referral();
         $refer->co_id=$counselor->co_id;
         $refer->user_id=Auth::user()->user_id;

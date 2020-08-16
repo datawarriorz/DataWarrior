@@ -40,6 +40,7 @@ Route::post('/user-referral', 'Auth\LoginController@userreferral');
 Route::get('/user-referral', function () {
     return view('user.user-referral');
 });
+Route::get('/user-list-articles', 'ArticleController@listarticles');
 
 Route::get('/viewprofile', 'ProfileController@viewProfile')->middleware('auth');
 

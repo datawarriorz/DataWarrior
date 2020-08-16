@@ -6,19 +6,23 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use App\Article;
 
 class Newsletter extends Mailable
 {
     use Queueable, SerializesModels;
 
+
+    public $article;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+   
+    public function __construct(Article $article)
     {
-        //
+        $this->article=$article;
     }
 
     /**

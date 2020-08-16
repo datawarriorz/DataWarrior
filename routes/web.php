@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Newsletter;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +22,9 @@ Route::get('/verifymail', function () {
     return view('auth.verify');
 })->name('verifymail');
 
-// Route::get('/mailtest', function () {
-//     Mail::to('ashaypatil1995@gmail.com')->send(new Newsletter());
-// });
+Route::get('/mailtest', function () {
+    Mail::to('ashaypatil1995@gmail.com')->send(new Newsletter());
+});
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/test', 'HomeController@test')->name('test');

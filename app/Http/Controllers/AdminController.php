@@ -80,9 +80,11 @@ class AdminController extends Controller
             ->where('subscription.newsletter', '=', 'yes')
             ->select('users.email')
             ->get();
+        $article=Article::find($request->article_id);
+
         
         foreach ($users as $user) {
-            Mail::to($user->email)->send(new Newsletter());
+            Mail::to($user->email)->send(new Newsletter($article));
         }
 
         return redirect('/admin-review-articles');

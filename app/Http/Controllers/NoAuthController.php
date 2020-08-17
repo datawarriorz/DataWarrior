@@ -25,4 +25,10 @@ class NoAuthController extends Controller
 
         // return view('contact', ['message'=>'Your Query has been submitted.',]);
     }
+    public function userallarticles()
+    {
+        $articleslive=Article::where('status', '=', 'published')->orderByDesc('created_at')->get();
+
+        return view('', ['articleslive'=>$articleslive]);
+    }
 }

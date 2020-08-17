@@ -16,41 +16,40 @@
                         </div>
                     </div>
                     <div class="card-body dashboard-card-body">
-                        <br>
                         <div class="row">
                             <div class="col-md-12 text-left">
-                                <div class="jumbotron">
-                                    <div class="col-md-12 text-left">
+                                <div class="jumbotron" style="padding: 1rem 1rem;">
+                                    <div class="col-md-10 offset-md-1 text-left">
                                         <h2 class="text-xl lg:text-3xl leading-tight text-gray-800 font-bold mt-2">
                                             {{ $article->title }}
                                         </h2>
                                     </div>
-                                    <div class="col-md-12 text-left">
+                                    <div class="col-md-10 offset-md-1 text-left">
                                         <h6>By - {{ $article->author }}</h6>
                                     </div>
-                                    <div class="col-md-12 text-right">
-                                        <h6>Published On - {{ $article->created_at }}</h6>
-                                    </div>
                                     <br>
-                                    <div class="col-md-12">
+                                    <div class="col-md-10 offset-md-1 text-left">
                                         <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($article->article_image); ?>"
-                                            style="height:280px;width:100%" />
+                                            style="height:340px;width:100%" />
                                     </div>
                                     <br>
-                                    <div class="col-md-12 text-left">
+                                    <div class="col-md-10 offset-md-1 text-left">
                                         <strong>{{ $article->description }}</strong>
                                     </div>
                                     <br>
-                                    <div class="col-md-12 text-left">
+                                    <div class="col-md-10 offset-md-1 text-left">
                                         {{ $article->content }}
                                     </div>
                                     <br>
+                                    <div class="col-md-10 offset-md-1 text-right">
+                                        <h6>Published On - {{ $article->created_at }}</h6>
+                                    </div>
                                     <div class="col-md-12 text-center">
                                         @if ($article->status == "review")
                                         <form method="POST" action="/admin-publish-article">
                                             @csrf
                                             <input type="hidden" name="article_id" value={{ $article->article_id }} />
-                                            <button type="submit" class="btn expert-btn1">
+                                            <button type="submit" class="btn ">
                                                 Publish <i class="far fa-eye"></i>
                                             </button>
                                         </form>

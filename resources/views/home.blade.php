@@ -150,7 +150,7 @@
                 <div class="container-items">
                     <h5 class="container-items-header">- Expert Articles -</h5>
                     <p>"Read articles written by our expert"<br>
-                        <a href="/view-articles-u">
+                        <a href="/user-list-articles">
                             Click here for details
                         </a>
                     </p>
@@ -257,7 +257,7 @@
                     <div class="container-fluid m-cards">
                         <div class="row flex-nowrap">
                             @foreach($expertsobj as $ex)
-                            <div class="col-3">
+                            <div class="col-12">
                                 <div class="card card-block">
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"
                                         style="padding-top: 18px;">

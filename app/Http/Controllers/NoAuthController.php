@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ContactUs;
+use App\Certification;
+use App\Article;
 
 class NoAuthController extends Controller
 {
@@ -28,7 +30,7 @@ class NoAuthController extends Controller
     public function userallarticles()
     {
         $articleslive=Article::where('status', '=', 'published')->orderByDesc('created_at')->get();
-
-        return view('', ['articleslive'=>$articleslive]);
+        $cert_obj=Certification::all()->take(3);
+        return view('user.user-list-articles', ['articleslive'=>$articleslive, 'cert_obj'=>$cert_obj]);
     }
 }

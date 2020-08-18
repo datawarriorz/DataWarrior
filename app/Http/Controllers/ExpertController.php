@@ -200,9 +200,10 @@ class ExpertController extends Controller
         $article->content=$request->content;
         $file = $request->file('article_image');
         // Get the contents of the file
-        $contents = $file->openFile()->fread($file->getSize());
-        $article->article_image=$contents;
-       
+        if ($file!=null) {
+            $contents = $file->openFile()->fread($file->getSize());
+            $article->article_image=$contents;
+        }
         $article->status="review";
         $article->save();
         // $articles= Article::where('ex_id', Auth::user()->ex_id)->get();
@@ -227,12 +228,18 @@ class ExpertController extends Controller
         return view('expert.', ['articles' => $articles]);
     }
 
-    public function deletetarticle(Request $request)
+    public function deletearticle(Request $request)
     {
-        $article= App\Article::find($request->article_id);
-        $article->status="delete";
+        $article= Article::find($request->article_id);
+        if ($article->status=="published") {
+            $article->status="delete";//if published
+            $article->save();
+        } else {
+            $article->delete();//if not published
+        }
+       
 
-        return view('expert.', ['articles' => $articles]);
+        return redirect("/expert-listarticles");
     }
     
     public function viewarticle(Request $request)

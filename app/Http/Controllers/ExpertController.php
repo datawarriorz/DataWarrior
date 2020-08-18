@@ -210,22 +210,35 @@ class ExpertController extends Controller
         // return view('expert.expert-dashboard', ['articles' => $articles]);
         return view('expert.expert-viewarticle', ['article' => $article]);
     }
+    public function vieweditarticleform(Request $request)
+    {
+        $article= Article::find($request->article_id);
+        
+        return view('expert.expert-edit-article', ['article' => $article]);
+    }
 
     public function editarticle(Request $request)
     {
-        $article= App\Article::find($request->article_id);
+        $article=Article::find($request->article_id);
         $article->title=$request->title;
         $article->creator_id=Auth::user()->ex_id;
         $article->creator_flag="expert";
         $article->author=$request->author;
         $article->description=$request->description;
         $article->content=$request->content;
-        $article->article_image=$request->article_image;
+        $file = $request->file('article_image');
+        // Get the contents of the file
+        if ($file!=null) {
+            $contents = $file->openFile()->fread($file->getSize());
+            $article->article_image=$contents;
+        } else {
+            $article->article_image=null;
+        }
         $article->status="review";
         $article->save();
-        $articles= Article::where('ex_id', Auth::user()->ex_id)->get();
+        $article=Article::find($request->article_id);
         
-        return view('expert.', ['articles' => $articles]);
+        return view('expert.expert-viewarticle', ['article' => $article]);
     }
 
     public function deletearticle(Request $request)

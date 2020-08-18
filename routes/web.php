@@ -94,8 +94,10 @@ Route::get('/expert-postarticle', 'ExpertController@viewarticleform');
 Route::post('/expert-postarticle', 'ExpertController@postarticle');
 Route::get('/expert-listarticles', 'ExpertController@viewexpertarticles');
 Route::post('/expert-viewarticle', 'ExpertController@viewarticle');
-Route::post('/expert-editarticle', 'ExpertController@editarticle');
+Route::post('/expert-edit-articleform', 'ExpertController@vieweditarticleform');
+Route::post('/expert-edit-article', 'ExpertController@editarticle');
 Route::post('/expert-deletearticle', 'ExpertController@deletearticle');
+
 
 Route::get('/expert-profile', 'ExpertController@viewexpertprofile');
 Route::post('/expert-profile-edit', 'ExpertController@updatebasicdetails');

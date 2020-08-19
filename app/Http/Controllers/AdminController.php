@@ -87,10 +87,10 @@ class AdminController extends Controller
             Mail::to($user->email)->send(new Newsletter($article));
         }
 
-        return redirect('/admin-review-articles');
+        return redirect('/admin-manage-articles');
     }
     
-    public function reviewarticlelist()
+    public function managearticlelist()
     {
         $articlesreview=Article::where('status', '=', 'review')->get();
         $articleslive=Article::where('status', '=', 'published')->get();
@@ -103,8 +103,52 @@ class AdminController extends Controller
         Article::where('article_id', $request->article_id)->update([
             'status'=>'review'
         ]);
-        return redirect('/admin-review-articles');
+        return redirect('/admin-manage-articles');
     }
+    
+    public function vieweditarticleform(Request $request)
+    {
+        $article= Article::find($request->article_id);
+        
+        return view('admin.admin-edit-article', ['article' => $article]);
+    }
+
+    public function editarticle(Request $request)
+    {
+        $article=Article::find($request->article_id);
+        $article->title=$request->title;
+        $article->author=$request->author;
+        $article->description=$request->description;
+        $article->content=$request->content;
+        $file = $request->file('article_image');
+        // Get the contents of the file
+        if ($file!=null) {
+            $contents = $file->openFile()->fread($file->getSize());
+            $article->article_image=$contents;
+        } else {
+            $article->article_image=null;
+        }
+        $article->status="review";
+        $article->save();
+        $article=Article::find($request->article_id);
+        
+        return view('admin.admin-view-article', ['article' => $article]);
+    }
+
+    public function deletearticle(Request $request)
+    {
+        $article= Article::find($request->article_id);
+        if ($article->status=="published") {
+            $article->status="delete";//if published
+            $article->save();
+        } else {
+            $article->delete();//if not published
+        }
+       
+
+        return redirect("/admin-manage-articles");
+    }
+    ////////////////////////////////////////////////////////////////////////////////
 
     public function createexpertform(Request $request)
     {
@@ -164,9 +208,7 @@ class AdminController extends Controller
 
 
     //Delete//////////////////////////////////////////////////////////////////////
-    public function deletearticle(Request $request)
-    {
-    }
+   
     public function deleteexpert(Request $request)
     {
     }

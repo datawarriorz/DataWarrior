@@ -23,8 +23,7 @@
                 <a href="#">Articles</a>
                 <ul class="sidenav-item">
                     <li><a href="/admin-postarticle">Post Article</a></li>
-                    <li><a href="/admin-review-articles">Review Articles</a></li>
-                    <li><a href="#">Manage Articles</a></li>
+                    <li><a href="/admin-manage-articles">Manage Articles</a></li>
                 </ul>
                 <a href="#">Job</a>
                 <ul class="sidenav-item">

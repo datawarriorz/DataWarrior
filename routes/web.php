@@ -37,15 +37,20 @@ Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback
 
 Route::get('/dashboard', 'DashboardController@showDashboard')->middleware('auth');
 
-Route::post('/user-view-expert', 'HomeController@userviewexpert');
-Route::post('/user-view-article', 'HomeController@userviewarticle');
+Route::post('/user-view-expert', 'NoAuthController@userviewexpert');
+Route::post('/user-view-article', 'NoAuthController@userviewarticle');
+Route::post('/user-expert-view-article', 'NoAuthController@userexpertviewarticle');
+Route::get('/user-list-articles', 'NoAuthController@userallarticles');
+
+Route::get('/newsletterarticle/{article_id}','NoAuthController@newletterarticle');
+
 
 Route::post('/user-referral', 'Auth\LoginController@userreferral');
 Route::get('/user-referral', function () {
     return view('user.user-referral');
 });
 
-Route::get('/user-list-articles', 'NoAuthController@userallarticles');
+
 
 Route::get('/viewprofile', 'ProfileController@viewProfile')->middleware('auth');
 
@@ -132,8 +137,11 @@ Route::get('/admin-postarticle', 'AdminController@viewarticleform');
 Route::post('/admin-postarticle', 'AdminController@postarticle');
 Route::post('/admin-publish-article', 'AdminController@publisharticle');
 Route::post('/admin-takedown-article', 'AdminController@takedownarticle');
-Route::get('/admin-review-articles', 'AdminController@reviewarticlelist');
+Route::get('/admin-manage-articles', 'AdminController@managearticlelist');
 Route::post('/admin-view-article', 'AdminController@viewarticle');
+Route::post('/admin-edit-articleform', 'AdminController@vieweditarticleform');
+Route::post('/admin-edit-article', 'AdminController@editarticle');
+Route::post('/admin-deletearticle', 'AdminController@deletearticle');
 
 Route::get('/admin-create-expertform', 'AdminController@createexpertform');
 Route::post('/admin-create-expertform', 'AdminController@createexpert');

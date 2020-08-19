@@ -107,7 +107,7 @@
                                                 {{ $article->description }}
                                             </td>
                                             <td class="text-center">
-                                                <form method="post" action="/user-view-article">
+                                                <form method="post" action="/user-expert-view-article">
                                                     @csrf
                                                     <input type="hidden" name="article_id"
                                                         value={{ $article->article_id }} />

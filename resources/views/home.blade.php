@@ -5,12 +5,12 @@
 <div class="jumbotron" style="">
     <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="row">
-            <div class="col-sm-12 col-md-3 col-lg-5">
+            <div class="col-sm-12 col-md-12 col-lg-5">
                 <div class="col-12 logo-image">
                     <img class="logo" src="./images/justlogo2.png" alt="Logo" />
                 </div>
             </div>
-            <div class="col-sm-12 col-md-9 col-lg-7">
+            <div class="col-sm-12 col-md-12 col-lg-7">
                 <div class="data-wrapper" style="">
                     <div class="col-12">
                         <h3>Excel your career with the help of our Experts</h3>
@@ -30,10 +30,23 @@
         </div>
     </div>
 </div>
-<br>
+<br><br>
+<hr class="seperator2">
 <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-    <h2>What is Data Warrior?</h2>
+    <h2>The Code of DataWarrior</h2>
     <br>
+    <div class="col-12 col-sm-12 col-md-8 offset-md-2 text-center">
+        <p>A DataWarrior seeks to use data & information technology (IT) for a
+            better career.</p>
+        <p> He counters the anxiety that students and
+            professionals face by being more informed and skilled at his chosen
+            technology through learning and the sharing of ideas.
+        </p>
+        <p>The DataWarrior knows that every professional challenge can be
+            overcome through knowledge, training and wisdom.
+        </p>
+        <br>
+    </div>
 </div>
 {{-- <div class="container search-container text-center">
     <div class="row">
@@ -54,17 +67,15 @@
         </form>
     </div>
 </div> --}}
-<br>
 <hr class="seperator2">
-<br>
-<div class="container carousel-container">
+{{-- <div class="container carousel-container">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-            {{-- <li data-target="#carouselExampleIndicators" data-slide-to="4"></li> --}}
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -79,9 +90,9 @@
             <div class="carousel-item">
                 <img class="d-block w-100" src="./images/slider2.jpeg" alt="Forth slide" />
             </div>
-            {{-- <div class="carousel-item">
+            <div class="carousel-item">
                 <img class="d-block w-100" src="./images/slider5.jpg" alt="Fifth slide" />
-            </div> --}}
+            </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span aria-hidden="true">
@@ -103,19 +114,19 @@
 </div>
 <br>
 <br>
-<hr class="seperator2">
+<hr class="seperator2"> --}}
 <div class="content-container">
     <div class="container content1 text-center">
         <div class="container text-center">
-            <h1>SERVICES</h1>
+            <h2>OUR SERVICES</h2>
+            <br>
         </div>
-        <br>
         <div class="row container-column">
 
             <div class="col-sm-6 col-md-6 col-lg-6">
                 <div class="container-items">
-                    <h5 class="container-items-header">- Internships -</h5>
-                    <p>"Explore yourself...be an intern!"<br>
+                    <h5 class="container-items-header">Internships</h5>
+                    <p>Explore yourself...be an intern!<br>
                         <a href="/internship">
                             Click here for details
                         </a>
@@ -124,8 +135,8 @@
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6">
                 <div class="container-items">
-                    <h5 class="container-items-header">- Certification -</h5>
-                    <p>"Growth...through continuous learning"<br>
+                    <h5 class="container-items-header">Certification</h5>
+                    <p>Growth...through continuous learning<br>
                         <a href="/certification">
                             Click here for details
                         </a>
@@ -138,8 +149,8 @@
 
             <div class="col-sm-6 col-md-6 col-lg-6">
                 <div class="container-items">
-                    <h5 class="container-items-header">- Jobs -</h5>
-                    <p>"Somewhere...someone is looking for you"<br>
+                    <h5 class="container-items-header">Jobs</h5>
+                    <p>Somewhere...someone is looking for you<br>
                         <a href="/job">
                             Click here for details
                         </a>
@@ -148,8 +159,8 @@
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6">
                 <div class="container-items">
-                    <h5 class="container-items-header">- Expert Articles -</h5>
-                    <p>"Read articles written by our expert"<br>
+                    <h5 class="container-items-header">Expert Articles</h5>
+                    <p>Read articles written by our expert<br>
                         <a href="/user-list-articles">
                             Click here for details
                         </a>
@@ -159,7 +170,6 @@
         </div>
     </div>
 </div>
-<br>
 <hr class="seperator2">
 
 <div class="content-container">
@@ -234,7 +244,8 @@
                                 <div class="card card-block">
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"
                                         style="padding-top: 18px;">
-                                        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($ex->ex_image); ?>"
+                                        <img class="home-expert-dp"
+                                            src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($ex->ex_image); ?>"
                                             style="height:144px;width:144px;border-radius:50%" />
                                     </div>
                                     <div class="card-body">
@@ -261,7 +272,8 @@
                                 <div class="card card-block">
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"
                                         style="padding-top: 18px;">
-                                        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($ex->ex_image); ?>"
+                                        <img class="home-expert-dp"
+                                            src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($ex->ex_image); ?>"
                                             style="height:144px;width:144px;border-radius:50%" />
                                     </div>
                                     <div class="card-body">

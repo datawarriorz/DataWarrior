@@ -11,10 +11,10 @@
                     <div class="card article-card">
                         <div class="card-header">
                             <div class="row">
-                                <div class="col-md-4 text-left">
+                                <div class="col-4 text-left">
                                     <h5 style="padding-bottom:0">Articles</h5>
                                 </div>
-                                <div class="col-md-8 text-right">
+                                <div class="col-8 text-right">
                                     <a href="/" style="text-decoration: none;color:white">
                                         <i class="fas fa-arrow-left"></i> Go Back
                                     </a>
@@ -52,13 +52,11 @@
                                                 <div class"jumbotron" style="border-bottom: 2px solid #e7e9ee;">
                                                     <br>
                                                     <div class="row">
-                                                        <div class="col-4 text-center">
-
+                                                        <div class="col-xs-12 col-sm-12 col-md-4 text-center">
                                                             <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($article->article_image); ?>"
                                                                 style="height:150px;width:100%" />
-
                                                         </div>
-                                                        <div class="col-8 text-center">
+                                                        <div class="col-xs-12 col-sm-12 col-md-8 text-center">
                                                             <div class="col-md-12 text-left">
                                                                 <h3><b>{{ $article->title }}</b></h3>
                                                             </div>

@@ -28,8 +28,8 @@
                     </a>
                 </li>
                 <li class="nav-item-left navli">
-                    <a class="nav-link" href="#">
-                        <p class="nav-link-header"><i class="fas fa-info-circle"></i> About Us</p>
+                    <a class="nav-link" href="/faq">
+                        <p class="nav-link-header"><i class="fas fa-info-circle"></i> FAQ</p>
                     </a>
                 </li>
             </ul>

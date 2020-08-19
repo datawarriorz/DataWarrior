@@ -44,7 +44,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-6">
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="card contact-form-card" id="contact1">
-                            <h5>Fill the form below if you have any queries?</h5>
+                            <h5>Fill the form below if you have any queries</h5>
                             <h6>We are always there to help you!</h6>
                             <form action="/contactusreq" method="POST">
                                 @csrf

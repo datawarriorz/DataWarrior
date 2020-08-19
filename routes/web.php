@@ -30,6 +30,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/test', 'HomeController@test')->name('test');
 
 Route::get('/contact', 'NoAuthController@contact');
+Route::get('/faq', 'NoAuthController@faq');
 Route::post('/contactusreq', 'NoAuthController@contactusreq');
 
 Route::get('login/google', 'Auth\LoginController@redirectToProvider');
@@ -42,15 +43,12 @@ Route::post('/user-view-article', 'NoAuthController@userviewarticle');
 Route::post('/user-expert-view-article', 'NoAuthController@userexpertviewarticle');
 Route::get('/user-list-articles', 'NoAuthController@userallarticles');
 
-Route::get('/newsletterarticle/{article_id}','NoAuthController@newletterarticle');
-
+Route::get('/newsletterarticle/{article_id}', 'NoAuthController@newletterarticle');
 
 Route::post('/user-referral', 'Auth\LoginController@userreferral');
 Route::get('/user-referral', function () {
     return view('user.user-referral');
 });
-
-
 
 Route::get('/viewprofile', 'ProfileController@viewProfile')->middleware('auth');
 
@@ -102,7 +100,6 @@ Route::post('/expert-viewarticle', 'ExpertController@viewarticle');
 Route::post('/expert-edit-articleform', 'ExpertController@vieweditarticleform');
 Route::post('/expert-edit-article', 'ExpertController@editarticle');
 Route::post('/expert-deletearticle', 'ExpertController@deletearticle');
-
 
 Route::get('/expert-profile', 'ExpertController@viewexpertprofile');
 Route::post('/expert-profile-edit', 'ExpertController@updatebasicdetails');

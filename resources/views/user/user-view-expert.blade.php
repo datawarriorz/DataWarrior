@@ -15,14 +15,16 @@
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-12 col-sm-12 col-md-2" style="padding-left: 0;padding-right:0">
-                                    <div class="col-md-12" style="padding-left: 0;padding-right:0">
-                                        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($expertobj->ex_image); ?>"
-                                            style="height:144px;width:144px;border-radius:50%" />
-                                        {{-- <img src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com"
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 text-center"
+                                            style="padding-left: 0;padding-right:0">
+                                            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($expertobj->ex_image); ?>"
+                                                style="height:144px;width:144px;border-radius:50%" />
+                                            {{-- <img src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com"
                                             style="height:144px;width:144px;border-radius:50%" /> --}}
-                                    </div>
-                                    <div class="col-md-12">
-                                        {{-- <form method="POST" action="/expert-profile-image"
+                                        </div>
+                                        <div class="col-12 col-sm-12">
+                                            {{-- <form method="POST" action="/expert-profile-image"
                                             enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">
@@ -41,6 +43,7 @@
                                             </div>
                                             <button type="submit" class="btn btn-danger" onclick="">Upload</button>
                                         </form> --}}
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-10" style="padding-left: 33px">

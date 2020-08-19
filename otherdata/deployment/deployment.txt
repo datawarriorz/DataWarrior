@@ -15,3 +15,6 @@ To Enable Drop DB Statement
         your_drive/xampp/PhpMyAdmin/libraries/
             Open a file name “config.default.php“
             Find $cfg[‘AllowUserDropDatabase’] and set it to true.
+
+
+            chnage newsletter mail link 

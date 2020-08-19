@@ -14,6 +14,7 @@ class Newsletter extends Mailable
 
 
     public $article;
+    public $url;
     /**
      * Create a new message instance.
      *
@@ -23,6 +24,7 @@ class Newsletter extends Mailable
     public function __construct(Article $article)
     {
         $this->article=$article;
+        $this->url='http://localhost:8000/newsletterarticle/'.$article->article_id;
     }
 
     /**

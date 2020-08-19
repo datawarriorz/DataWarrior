@@ -10,10 +10,11 @@
     <p>Feel free to have a look at it!</p>
 </div>
 
-@component('mail::button', ['url' => 'localhost:8000/newsletterarticle/{{ $article->article_id }}'])
+@component('mail::button', ['url' => $url])
 View Article
 @endcomponent
-<a href="localhost:8000/newsletterarticle/{{ $article->article_id }}" class="button button-{{ $color ?? 'primary' }}" target="_blank" rel="noopener">{{ $slot }}</a
+
+<br>
 Thanks,<br>
 {{ config('app.name') }}
 @endcomponent

@@ -29,4 +29,15 @@ php artisan tinker
     $admin->password= Hash::make('123');
     $admin->save();
 
-    
+
+After Github Cloning
+    Vendor
+    NodeJS
+    env file
+
+    Commands:
+        php artisan key:generate
+        
+    cache clear
+
+

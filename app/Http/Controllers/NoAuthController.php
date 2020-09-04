@@ -33,6 +33,10 @@ class NoAuthController extends Controller
     {
         return view('faq');
     }
+    public function aboutus()
+    {
+        return view('aboutus');
+    }
     public function userallarticles()
     {
         $articleslive=Article::where('status', '=', 'published')->orderByDesc('created_at')->get();

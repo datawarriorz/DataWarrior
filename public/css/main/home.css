@@ -9,9 +9,9 @@
     width: auto;
 }
 
-.text-color {
+.text-orange {
     /* color:#da5827; */
-    color: #ffbf00;
+    /* color: #ffbf00; */
     color: #fa7817;
     /* color:#ff7e00; */
     font-size: 3.4rem;
@@ -46,7 +46,7 @@
         text-align: center;
     }
     .logo {
-        height: 277px;
+        height: 195px;
     }
     .data-wrapper {
         margin-top: 10px;
@@ -58,14 +58,13 @@
     .jumbotron {
         background-color: #f2f4f7;
         padding-bottom: 0;
-        margin-top: 0.8rem;
         margin-bottom: 1rem;
     }
     .logo {
         height: 350px;
     }
     .logo-image {
-        text-align: center;
+        text-align: right;
     }
     .data-wrapper {
         margin-top: 72px;
@@ -214,22 +213,64 @@
 
 .container-items {
     border-radius: 17px;
-    padding: 18px;
+    padding: 36px;
     margin-bottom: 38px;
-    max-height: 137px;
+    height: 284px;
     box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px rgba(60, 64, 67, 0.149);
+    background-color: white;
+}
+
+.container-items:hover {
+    box-shadow: 0 5px 11px 0 rgba(18, 149, 201, 0.2), 0 4px 15px 0 rgba(18, 149, 201, 0.2);
+}
+
+.container-items-desc {
+    color: gray;
+    font-size: 0.8rem;
+}
+
+.knowledge-items {
+    border-radius: 17px;
+    padding: 38px;
+    margin-bottom: 38px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px rgba(60, 64, 67, 0.149);
+    background-color: white;
+}
+
+.knowledge-items:hover {
+    box-shadow: 0 5px 11px 0 rgba(18, 149, 201, 0.2), 0 4px 15px 0 rgba(18, 149, 201, 0.2);
+}
+
+.knowledge-items-header {
+    color: #19202b;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 15px;
 }
 
 .container-items2 {
     border-radius: 17px;
     padding: 18px;
     margin-bottom: 38px;
-    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px rgba(60, 64, 67, 0.149);
 }
 
 .container-items-header {
     color: #19202b;
     font-size: 25px;
+}
+
+#content .specialization-courses .specialization-card .image-holder {
+    flex: 2;
+    background-image: url('/images/data-science.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.data-science-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .contact-table td {
@@ -262,8 +303,248 @@
 .card-block {
     background-color: #f2f4f7;
     min-height: 300px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px rgba(60, 64, 67, 0.149);
 }
 
 .home-expert-dp {
     box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px rgba(60, 64, 67, 0.149);
+}
+
+#content .specialization-courses {
+    padding: 36px 15px;
+    background-color: #f2f4f7;
+    text-align: center;
+    padding-top: 0;
+}
+
+#content .specialization-courses .section-heading {
+    color: #707070;
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 400
+}
+
+#content .specialization-courses .specialization-card {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    box-shadow: 0px 2px 3px #00000029
+}
+
+#content .specialization-courses .specialization-card .w-100-on-sm {
+    display: none;
+    width: 100%
+}
+
+#content .specialization-courses .specialization-card .image-holder {
+    flex: 2;
+    background-image: url('/images/data-science.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center
+}
+
+#content .specialization-courses .specialization-card .details-box {
+    flex: 3;
+    background-color: white;
+    position: relative
+}
+
+#content .specialization-courses .specialization-card .details-box .content-box {
+    padding: 35px 35px 20px 45px;
+    text-align: left
+}
+
+#content .specialization-courses .specialization-card .details-box .content-box .training-name {
+    font-size: 23px;
+    margin-bottom: 5px;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 400
+}
+
+#content .specialization-courses .specialization-card .details-box .content-box .training-info {
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 400
+}
+
+#content .specialization-courses .specialization-card .details-box .content-box .gradient-horizontal-rule {
+    height: 4px;
+    margin-bottom: 10px;
+    background: transparent linear-gradient(-90deg, #36D1DC 0%, #5B86E5 100%) 0% 0% no-repeat padding-box
+}
+
+#content .specialization-courses .specialization-card .details-box .content-box .duration {
+    font-size: 15px;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 400
+}
+
+#content .specialization-courses .specialization-card .details-box .content-box .light-rule {
+    border-color: rgba(112, 112, 112, 0.16);
+    margin: 15px 0px
+}
+
+#content .specialization-courses .specialization-card .details-box .content-box .training-list-title {
+    font-size: 13px;
+    margin-bottom: 14px;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 400
+}
+
+#content .specialization-courses .specialization-card .details-box .content-box .training-list {
+    padding-left: 5px
+}
+
+#content .specialization-courses .specialization-card .details-box .content-box .training-list>div {
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 400;
+    display: flex
+}
+
+#content .specialization-courses .specialization-card .details-box .content-box .training-list>div .list-numbering-container {
+    color: white;
+    min-width: 20px;
+    max-width: 20px;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center
+}
+
+#content .specialization-courses .specialization-card .details-box .content-box .training-list>div .list-numbering-container div {
+    margin-top: 7px;
+    width: 10px;
+    height: 10px;
+    background-color: #1276E2;
+    border-radius: 50%
+}
+
+#content .specialization-courses .specialization-card .details-box .content-box .training-list>div div:nth-of-type(2) {
+    padding-left: 5px
+}
+
+#content .specialization-courses .specialization-card .details-box .ribbon-message {
+    padding: 8px 40px 8px 25px;
+    background-color: #ECECEC;
+    position: relative;
+    left: 15px;
+    font-size: 14px;
+    margin-bottom: 30px;
+    border-top-right-radius: 2px;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 400
+}
+
+#content .specialization-courses .specialization-card .details-box .ribbon-message::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    border-left: 16px solid white
+}
+
+#content .specialization-courses .specialization-card .details-box .ribbon-message::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -15px;
+    border-top: 15px solid #D1D1D1;
+    border-right: 15px solid transparent
+}
+
+#content .specialization-courses .specialization-card .details-box .know-more-box {
+    text-align: center;
+    padding-bottom: 35px
+}
+
+#content .specialization-courses .specialization-card .details-box .know-more-box .know-more-cta {
+    background-color: #1276E2;
+    color: white;
+    padding: 10px 50px;
+    font-size: 14px !important;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 400
+}
+
+@media (max-width:679px) {
+    #content .specialization-courses .specialization-card {
+        margin-left: 30px;
+        margin-right: 30px
+    }
+    #content .specialization-courses .specialization-card .w-100-on-sm {
+        display: block
+    }
+    #content .specialization-courses .specialization-card .image-holder {
+        background-image: url('/images/data-science.jpg');
+        flex: unset;
+        height: 200px;
+        width: 100%
+    }
+    #content .specialization-courses .specialization-card .details-box .content-box {
+        padding: 20px 30px 20px 30px
+    }
+    #content .specialization-courses .specialization-card .details-box .content-box .training-name {
+        font-size: 18px;
+        text-align: center
+    }
+    #content .specialization-courses .specialization-card .details-box .content-box .training-info {
+        font-size: 15px;
+        width: 100%;
+        text-align: center
+    }
+    #content .specialization-courses .specialization-card .details-box .content-box .duration {
+        font-size: 14px;
+        width: 100%;
+        text-align: center
+    }
+    #content .specialization-courses .specialization-card .details-box .content-box .training-list-title {
+        margin-bottom: 23px
+    }
+    #content .specialization-courses .specialization-card .details-box .ribbon-message {
+        position: relative;
+        left: -15px;
+        width: calc(100% + 30px);
+        margin-bottom: 30px;
+        font-family: inherit;
+        font-style: normal;
+        font-weight: 400
+    }
+    #content .specialization-courses .specialization-card .details-box .ribbon-message::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: unset;
+        bottom: -15px;
+        border-top: 15px solid #D1D1D1;
+        border-left: 15px solid transparent;
+        border-bottom-width: 0px
+    }
+    #content .specialization-courses .specialization-card .details-box .ribbon-message::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: -15px;
+        border-top: 15px solid #D1D1D1;
+        border-right: 15px solid transparent
+    }
+    #content .specialization-courses .specialization-card .details-box .know-more-box .know-more-cta {
+        padding: 12px 40px;
+        font-size: 13px !important
+    }
 }

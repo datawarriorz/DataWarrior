@@ -31,6 +31,7 @@ Route::get('/test', 'HomeController@test')->name('test');
 
 Route::get('/contact', 'NoAuthController@contact');
 Route::get('/faq', 'NoAuthController@faq');
+Route::get('/aboutus', 'NoAuthController@aboutus');
 Route::post('/contactusreq', 'NoAuthController@contactusreq');
 
 Route::get('login/google', 'Auth\LoginController@redirectToProvider');

@@ -28,7 +28,6 @@ class CreateArticlesTable extends Migration
             $table->timestamps();
         });
         DB::statement("ALTER TABLE articles Modify article_image MEDIUMBLOB");
-
     }
 
     /**

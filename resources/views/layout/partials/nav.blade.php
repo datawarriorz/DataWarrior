@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-lg">
 
         <a class="navbar-brand" href="/"><img class="navbar-brand-img" alt="Logo" class="nav-img"
-                src="{{ asset('images/logo2.png') }}" /></a>
+                src="images/logo2.png" /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,8 +28,13 @@
                     </a>
                 </li>
                 <li class="nav-item-left navli">
+                    <a class="nav-link" href="/aboutus">
+                        <p class="nav-link-header"><i class="fas fa-info-circle"></i> About Us</p>
+                    </a>
+                </li>
+                <li class="nav-item-left navli">
                     <a class="nav-link" href="/faq">
-                        <p class="nav-link-header"><i class="fas fa-info-circle"></i> FAQ</p>
+                        <p class="nav-link-header"><i class="fas fa-question-circle"></i> FAQ</p>
                     </a>
                 </li>
             </ul>

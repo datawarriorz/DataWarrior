@@ -10,30 +10,30 @@
         </div>
         <div class="card-body col-sm-12 col-md-12 col-lg-12">
             <br>
-            <ul class="row list-unstyled certification-list">
+            <div class="row no-gutters">
                 <div class="col-sm-12 col-md-12 col-lg-6">
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="card contact-form-card" id="contact1">
-                            <h5><b>DataWarriors Private Limited.</b></h5>
-                            <table class="table contact-table text-center">
+                            <h5>Data Warriors Technologies LLP</h5>
+                            <table class="table contact-table text-left" style="margin-top: 10px;">
                                 <tr>
-                                    <td>Address:</td>
-                                    <td>XYZ,Street,Mumbai,401101.</td>
+                                    <td>Address</td>
+                                    <td>: XYZ,Street,Mumbai,401101.</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td>Phone:</td>
-                                    <td>9920940893 - Office</td>
+                                    <td>Phone</td>
+                                    <td>: 9920940893 - Office</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td>Email:</td>
-                                    <td>datawarriorz@gmail.com</td>
+                                    <td>Email</td>
+                                    <td>: datawarriorz@gmail.com</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td>Website:</td>
-                                    <td>www.datawarrior.com</td>
+                                    <td>Website</td>
+                                    <td>: datawarriors.co.in/</td>
                                     <td></td>
                                 </tr>
                             </table>
@@ -44,8 +44,8 @@
                 <div class="col-sm-12 col-md-12 col-lg-6">
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="card contact-form-card" id="contact1">
-                            <h5>Fill the form below if you have any queries</h5>
-                            <h6>We are always there to help you!</h6>
+                            <h5>Fill the below form if you have any queries.</h5>
+                            {{-- <small>We are always there to help you!</small> --}}
                             <form action="/contactusreq" method="POST">
                                 @csrf
                                 <table class="table contact-table text-center">
@@ -77,13 +77,10 @@
                             <div id="contact2" class="text-center">
                                 {{ $message ?? '' }}
                             </div>
-                            <p></p>
                         </div>
                     </div>
                 </div>
-                </li>
-                <br>
-            </ul>
+            </div>
         </div>
     </div>
     <br>

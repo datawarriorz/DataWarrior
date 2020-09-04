@@ -13,17 +13,16 @@
             <div class="col-sm-12 col-md-12 col-lg-7">
                 <div class="data-wrapper" style="">
                     <div class="col-12">
-                        <h3>Excel your career with the help of our Experts</h3>
-                        <h1 class="text-color"><b>Become a Data Warrior!</b></h1>
+                        <h3>Maximize your potential</h3>
+                        <h1 class="text-orange"><b>Be a Data Warrior!</b></h1>
                     </div>
                     <br>
-                    <div class="col-12 text-orange">
+                    <div class="col-12">
                         <a class="register-link" href="{{ route('register') }}">
                             <button type="button" class="btn register-btn">
                                 Join Us!
                             </button>
                         </a>
-
                     </div>
                 </div>
             </div>
@@ -31,7 +30,7 @@
     </div>
 </div>
 <br><br>
-<hr class="seperator2">
+{{-- <hr class="seperator2">
 <div class="col-sm-12 col-md-12 col-lg-12 text-center">
     <h2>The Code of DataWarrior</h2>
     <br>
@@ -47,7 +46,7 @@
         </p>
         <br>
     </div>
-</div>
+</div> --}}
 {{-- <div class="container search-container text-center">
     <div class="row">
         
@@ -67,8 +66,8 @@
         </form>
     </div>
 </div> --}}
-<hr class="seperator2">
-{{-- <div class="container carousel-container">
+{{-- <hr class="seperator2">
+<div class="container carousel-container">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -113,75 +112,120 @@
     </div>
 </div>
 <br>
+<br> --}}
+<hr class="seperator2">
 <br>
-<hr class="seperator2"> --}}
 <div class="content-container">
     <div class="container content1 text-center">
         <div class="container text-center">
-            <h2>OUR SERVICES</h2>
+            <h2 style="font-weight:600">KNOWLEDGE FORUM</h2>
+            <br>
             <br>
         </div>
         <div class="row container-column">
-
-            <div class="col-sm-6 col-md-6 col-lg-6">
-                <div class="container-items">
-                    <h5 class="container-items-header">Internships</h5>
-                    <p>Explore yourself...be an intern!<br>
-                        <a href="/internship">
-                            Click here for details
-                        </a>
-                    </p>
+            <div class="col-md-4">
+                <div class="knowledge-items">
+                    {{-- style="background-image: linear-gradient(225deg,#fdfdfd,#7BBAD2);" --}}
+                    <img src="./images/blogs.png" alt="First slide" height="100%">
+                    <h6 class="knowledge-items-header">BLOGS</h6>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-6">
-                <div class="container-items">
-                    <h5 class="container-items-header">Certification</h5>
-                    <p>Growth...through continuous learning<br>
-                        <a href="/certification">
-                            Click here for details
-                        </a>
-                    </p>
+            <div class="col-md-4">
+                <div class="knowledge-items">
+                    {{-- style="background-image: linear-gradient(225deg,#eff0ea,#a8f4b8);" --}}
+                    <img src="./images/expertspeak.png" alt="First slide" height="100%">
+                    <h6 class="knowledge-items-header">EXPERT SPEAK</h6>
                 </div>
-
+            </div>
+            <div class=" col-md-4">
+                <a href="/user-list-articles" style="text-decoration:none">
+                    <div class="knowledge-items">
+                        {{-- style="background-image: linear-gradient(225deg,#fff,#f4e88c);" --}}
+                        <img src="./images/article.png" alt="First slide" height="100%">
+                        <h6 class="knowledge-items-header">ARTICLES</h6>
+                    </div>
+                </a>
             </div>
         </div>
-        <div class="row container-column">
-
-            <div class="col-sm-6 col-md-6 col-lg-6">
-                <div class="container-items">
-                    <h5 class="container-items-header">Jobs</h5>
-                    <p>Somewhere...someone is looking for you<br>
-                        <a href="/job">
-                            Click here for details
-                        </a>
-                    </p>
-                </div>
+    </div>
+    {{-- <hr class="seperator2"> --}}
+    <div class="content-container">
+        <div class="container content1 text-center">
+            <div class="container text-center">
+                <h2 style="font-weight:600">SERVICES WE OFFER...</h2>
+                <br>
+                <br>
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-6">
-                <div class="container-items">
-                    <h5 class="container-items-header">Expert Articles</h5>
-                    <p>Read articles written by our expert<br>
-                        <a href="/user-list-articles">
-                            Click here for details
-                        </a>
-                    </p>
+            <div class="row container-column">
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <div class="container-items">
+                        <img src="./images/internship.png" height="100px" />
+                        <h5 class="container-items-header"><small>INTERNSHIPS</small></h5>
+                        <p class="container-items-desc">Explore yourself!<br> Become an Intern.
+                            <br>
+                            <br>
+                            <a href="">
+                                <small><strong>KNOW MORE ></strong></small>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <div class="container-items">
+                        <img src="./images/certification.png" height="100px" />
+                        <h5 class="container-items-header"><small>CERTIFICATIONS</small></h5>
+                        <p class="container-items-desc">
+                            Growth...through continuous learning
+                            <br>
+                            <br>
+                            <a href="/certification">
+                                <small><strong>KNOW MORE ></strong></small>
+                            </a>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <div class="container-items">
+                        <img src="./images/jobs.png" height="100px" />
+                        <h5 class="container-items-header"><small>JOBS</small></h5>
+                        <p class="container-items-desc">
+                            Somewhere...someone is looking for you
+                            <br>
+                            <br>
+                            <a href="#">
+                                <small><strong>KNOW MORE ></strong></small>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <div class="container-items">
+                        <img src="./images/projects.png" height="100px" />
+                        <h5 class="container-items-header"><small>PROJECTS</small></h5>
+                        <p class="container-items-desc">
+                            Have an idea? Let us help you develop it
+                            <br>
+                            <br>
+                            <small><b>COMING SOON</b></small>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<hr class="seperator2">
-
-<div class="content-container">
+{{--<hr class="seperator2">
+ <div class="content-container">
     <div class="container content1 text-center">
         <div class="container text-center">
-            <h2>MEET OUR EXPERTS</h2>
+            <h2>Meet our Experts</h2>
         </div>
         <br>
         <div class="row container-column">
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="container-items2" style="overflow-x: scroll">
-                    {{-- <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                <div class="container-items2" style="overflow-x: hidden">
+                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
                             <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
@@ -236,10 +280,10 @@
                     <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
-                    </a> --}}
+                    </a>
                     <div class="container-fluid d-cards">
                         <div class="row flex-nowrap ">
-                            @foreach($expertsobj as $ex)
+@foreach($expertsobj as $ex)
                             <div class="col-3">
                                 <div class="card card-block">
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"
@@ -250,53 +294,111 @@
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title">
-                                            {{ $ex->ex_firstname }}{{ $ex->ex_lastname }}
-                                        </h5>
-                                        <p class="card-text">{{ $ex->ex_aboutme }}</p>
-                                        <form method="POST" action="/user-view-expert">
-                                            @csrf
-                                            <input type="hidden" value="{{ $ex->ex_id }}" name="ex_id">
-                                            <button type="submit" class="btn btn-primary">View More Info</button>
-                                        </form>
+                                            {{ $ex->ex_firstname }} {{ $ex->ex_lastname }}
+</h5>
+<p class="card-text">{{ $ex->ex_aboutme }}</p>
+<form method="POST" action="/user-view-expert">
+    @csrf
+    <input type="hidden" value="{{ $ex->ex_id }}" name="ex_id">
+    <button type="submit" class="btn btn-primary">View More Info</button>
+</form>
 
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
+</div>
+</div>
+</div>
+@endforeach
+</div>
+</div>
+<div class="container-fluid m-cards">
+    <div class="row flex-nowrap">
+        @foreach($expertsobj as $ex)
+            <div class="col-12">
+                <div class="card card-block">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center" style="padding-top: 18px;">
+                        <img class="home-expert-dp"
+                            src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($ex->ex_image); ?>"
+                            style="height:144px;width:144px;border-radius:50%" />
                     </div>
-                    <div class="container-fluid m-cards">
-                        <div class="row flex-nowrap">
-                            @foreach($expertsobj as $ex)
-                            <div class="col-12">
-                                <div class="card card-block">
-                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center"
-                                        style="padding-top: 18px;">
-                                        <img class="home-expert-dp"
-                                            src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($ex->ex_image); ?>"
-                                            style="height:144px;width:144px;border-radius:50%" />
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">
-                                            {{ $ex->ex_firstname }}{{ $ex->ex_lastname }}
-                                        </h5>
-                                        <p class="card-text">{{ $ex->ex_aboutme }}</p>
-                                        <form method="POST" action="/user-view-expert">
-                                            @csrf
-                                            <input type="hidden" value="{{ $ex->ex_id }}" name="ex_id">
-                                            <button type="submit" class="btn btn-primary">View More Info</button>
-                                        </form>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{ $ex->ex_firstname }} {{ $ex->ex_lastname }}
+                        </h5>
+                        <p class="card-text">{{ $ex->ex_aboutme }}</p>
+                        <form method="POST" action="/user-view-expert">
+                            @csrf
+                            <input type="hidden" value="{{ $ex->ex_id }}" name="ex_id">
+                            <button type="submit" class="btn btn-primary">View More Info</button>
+                        </form>
 
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div> --}}
+<div id="content">
+    <section class="specialization-courses">
+        <div class="container text-center">
+            <h2 style="font-weight:600">FEATURED</h2>
+            <br>
+            <br>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
+                <div class="specialization-card">
+                    <div class="image-holder"></div>
+                    <div class="w-100-on-sm"></div>
+                    <div class="details-box">
+                        <div class="content-box">
+                            <p class="training-name">DATA SCIENCE</p>
+                            <label class="training-info">Learn and build a career in Data Science</label>
+                            <div class="gradient-horizontal-rule"></div>
+                            <label class="duration"><strong>Some of the courses we offer:</strong></label>
+                            {{-- <hr class="light-rule"> --}}
+                            {{-- <label class="training-list-title">This specialization includes 4 trainings:</label> --}}
+                            <div class="training-list">
+                                <div>
+                                    <div class="list-numbering-container">
+                                        <div></div>
                                     </div>
+                                    <div>Programming with R</div>
+                                </div>
+                                <div>
+                                    <div class="list-numbering-container">
+                                        <div></div>
+                                    </div>
+                                    <div>Machine Learning with R</div>
+                                </div>
+                                <div>
+                                    <div class="list-numbering-container">
+                                        <div></div>
+                                    </div>
+                                    <div>Tableau with Excel</div>
+                                </div>
+                                <div>
+                                    <div class="list-numbering-container">
+                                        <div></div>
+                                    </div>
+                                    <div>Python for DS & DA </div>
                                 </div>
                             </div>
-                            @endforeach
+                        </div>
+                        <div class="ribbon-message">
+                            Get Mentorship from our practicing Data Scientist
+                        </div>
+                        <div class="know-more-box">
+                            <a href="" class="btn know-more-cta">KNOW MORE</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </div>
-
+<br>
 @endsection

@@ -81,4 +81,99 @@ class JobController extends Controller
         $res = JobPreferences::where('id', '=', $request->prefid)->delete();
         return redirect()->back();
     }
+    ////////////////////////////////////////////////////////////////////////////////
+
+
+    public function showjobhome()
+    {
+        return view('user.job.user-job-home', []);
+    }
+    public function showalljobs(Request $request)
+    {
+        $jobtype=JobType::where('job_type', 'job');
+        $jobsobj=Job::where('job_type_id', $jobtype->job_type_id);
+        return view('user.job.user-job-list', ['jobsobj'=>$jobsobj]);
+    }
+    public function showallinternships(Request $request)
+    {
+        $jobtype=JobType::where('job_type', 'internship');
+        $internshipsobj=Job::where('job_type_id', $jobtype->job_type_id);
+        return view('user.internship.user-internship-list', ['internshipsobj'=>$internshipsobj]);
+    }
+
+    public function jobfilterapply(Request $request)
+    {
+        $jobtype=JobType::where('job_type', 'job');
+        $filter=0;
+        if ($request->job_domain!=null) {
+            $filter=$filter+1;
+        }
+        if ($request->job_location!=null) {
+            $filter=$filter+10;
+        }
+        if ($request->job_shift!=null) {
+            $filter=$filter+100;
+        }
+        if ($request->job_type_id!=null) {
+            $filter=$filter+1000;
+        }
+        switch ($filter) {
+            case 0:
+                # code...
+                break;
+            case 1:
+                # code...
+                break;
+            case 11:
+                # code...
+                break;
+            case 10:
+                # code...
+                break;
+            case 111:
+                # code...
+                break;
+            case 101:
+                # code...
+                break;
+            case 110:
+                # code...
+                break;
+            case 100:
+                # code...
+                break;
+            case 1111:
+                # code...
+                break;
+            case 1110:
+                # code...
+                break;
+            case 1101:
+                # code...
+                break;
+            case 1011:
+                # code...
+                break;
+            case 1100:
+                # code...
+                break;
+            case 1001:
+                # code...
+                break;
+            case 1000:
+                # code...
+                break;
+        }
+
+        $jobsobj=Job::where('job_type_id', $jobtype->job_type_id);
+        return view('user.job.user-job-list', ['jobsobj'=>$jobsobj]);
+    }
+    public function showjobdetails(Request $request)
+    {
+        return view('');
+    }
+    public function apply_job(Request $request)
+    {
+        return view('');
+    }
 }

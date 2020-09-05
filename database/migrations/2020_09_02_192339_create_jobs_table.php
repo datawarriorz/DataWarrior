@@ -27,9 +27,9 @@ class CreateJobsTable extends Migration
             $table->foreign('job_type_id')->references('job_type_id')->on('job_type');
             $table->string('job_skills_required')->nullable();
             $table->string('job_duration')->nullable();
-            $table->string('job_salary');
-            $table->string('job_starttime');
-            $table->date('job_apply_by');
+            $table->string('job_salary')->nullable();
+            $table->string('job_starttime')->nullable();
+            $table->date('job_apply_by')->nullable();
             $table->unsignedInteger('job_openings')->nullable();
             $table->unsignedBigInteger('creator_id')->nullable();
             $table->string('creator_flag')->nullable();

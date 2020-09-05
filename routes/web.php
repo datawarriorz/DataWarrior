@@ -88,6 +88,10 @@ Route::get('/certification', 'CertificationController@showallcertification')->mi
 Route::post('/applycertification', 'CertificationController@applycertification')->middleware('auth');
 Route::post('/requestcertification', 'CertificationController@requestcertification')->middleware('auth');
 
+Route::get('/jhome', 'JobController@showjobhome')->middleware('auth');
+Route::get('/jilist', 'JobController@showalljobs')->middleware('auth');
+Route::post('/jobfilterapply', 'JobController@jobfilterapply')->middleware('auth');
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Route::get('/expertlogin', 'Auth\ExpertLoginController@showLoginForm')->name('expert.login');

@@ -193,7 +193,7 @@
                             Somewhere...someone is looking for you
                             <br>
                             <br>
-                            <a href="#">
+                            <a href="/jhome">
                                 <small><strong>KNOW MORE ></strong></small>
                             </a>
                         </p>
@@ -312,27 +312,27 @@
 <div class="container-fluid m-cards">
     <div class="row flex-nowrap">
         @foreach($expertsobj as $ex)
-            <div class="col-12">
-                <div class="card card-block">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center" style="padding-top: 18px;">
-                        <img class="home-expert-dp"
-                            src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($ex->ex_image); ?>"
-                            style="height:144px;width:144px;border-radius:50%" />
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            {{ $ex->ex_firstname }} {{ $ex->ex_lastname }}
-                        </h5>
-                        <p class="card-text">{{ $ex->ex_aboutme }}</p>
-                        <form method="POST" action="/user-view-expert">
-                            @csrf
-                            <input type="hidden" value="{{ $ex->ex_id }}" name="ex_id">
-                            <button type="submit" class="btn btn-primary">View More Info</button>
-                        </form>
+        <div class="col-12">
+            <div class="card card-block">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center" style="padding-top: 18px;">
+                    <img class="home-expert-dp"
+                        src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($ex->ex_image); ?>"
+                        style="height:144px;width:144px;border-radius:50%" />
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{ $ex->ex_firstname }} {{ $ex->ex_lastname }}
+                    </h5>
+                    <p class="card-text">{{ $ex->ex_aboutme }}</p>
+                    <form method="POST" action="/user-view-expert">
+                        @csrf
+                        <input type="hidden" value="{{ $ex->ex_id }}" name="ex_id">
+                        <button type="submit" class="btn btn-primary">View More Info</button>
+                    </form>
 
-                    </div>
                 </div>
             </div>
+        </div>
         @endforeach
     </div>
 </div>

@@ -106,67 +106,73 @@ class JobController extends Controller
     public function jobfilterapply(Request $request)
     {
         $filter=0;
-        if ($request->job_domain!=null) {
+        if (isset($request->job_domain)) {
             $filter=$filter+1;
+            dd(1);
         }
-        if ($request->job_location!=null) {
+        if (isset($request->job_location)) {
             $filter=$filter+10;
         }
-        if ($request->job_shift!=null) {
+        if (isset($request->job_shift)) {
             $filter=$filter+100;
+            dd(3);
         }
-        if ($request->job_type_id!=null) {
+        if (isset($request->job_type_id)) {
             $filter=$filter+1000;
         }
         
-        
+
         switch ($filter) {
             case 0:
-                $jobsobj=Jobs::all();
+                $jobsobj=Jobs::where('job_status', 'open');
                 break;
             case 1:
-                $jobsobj=Jobs::where('job_domain', $request->job_domain)->get();
+                $jobsobj=Jobs::where('job_domain', $request->job_domain)->where('job_status', 'open')->get();
                 break;
             case 11:
-                $jobsobj=Jobs::where('job_domain', $request->job_domain)->where('job_location', $request->job_location)->get();
+                $jobsobj=Jobs::where('job_domain', $request->job_domain)->where('job_location', $request->job_location)->where('job_status', 'open')->get();
                 break;
             case 10:
-                $jobsobj=Jobs::where('job_location', $request->job_location)->get();
+                $jobsobj=Jobs::where('job_location', $request->job_location)->where('job_status', 'open')->get();
                 break;
             case 111:
-                $jobsobj=Jobs::where('job_domain', $request->job_domain)->where('job_location', $request->job_location)->where('job_shift', $request->job_shift)->get();
+                $jobsobj=Jobs::where('job_domain', $request->job_domain)->where('job_location', $request->job_location)->where('job_shift', $request->job_shift)->where('job_status', 'open')->get();
                 break;
             case 101:
-                $jobsobj=Jobs::where('job_domain', $request->job_domain)->where('job_shift', $request->job_shift)->get();
+                $jobsobj=Jobs::where('job_domain', $request->job_domain)->where('job_shift', $request->job_shift)->where('job_status', 'open')->get();
                 break;
             case 110:
-                $jobsobj=Jobs::where('job_location', $request->job_location)->where('job_shift', $request->job_shift)->get();
+                $jobsobj=Jobs::where('job_location', $request->job_location)->where('job_shift', $request->job_shift)->where('job_status', 'open')->get();
                 break;
             case 100:
-                $jobsobj=Jobs::where('job_shift', $request->job_shift)->get();
+                $jobsobj=Jobs::where('job_shift', $request->job_shift)->where('job_status', 'open')->get();
                 break;
             case 1111:
-                $jobsobj=Jobs::where('job_domain', $request->job_domain)->where('job_location', $request->job_location)->where('job_shift', $request->job_shift)->where('job_type_id', $request->job_type_id)->get();
+                $jobsobj=Jobs::where('job_domain', $request->job_domain)->where('job_location', $request->job_location)->where('job_shift', $request->job_shift)->where('job_type_id', $request->job_type_id)->where('job_status', 'open')->get();
                 break;
             case 1110:
-                $jobsobj=Jobs::where('job_location', $request->job_location)->where('job_shift', $request->job_shift)->where('job_type_id', $request->job_type_id)->get();
+                $jobsobj=Jobs::where('job_location', $request->job_location)->where('job_shift', $request->job_shift)->where('job_type_id', $request->job_type_id)->where('job_status', 'open')->get();
                 break;
             case 1101:
-                $jobsobj=Jobs::where('job_domain', $request->job_domain)->where('job_shift', $request->job_shift)->where('job_type_id', $request->job_type_id)->get();
+                $jobsobj=Jobs::where('job_domain', $request->job_domain)->where('job_shift', $request->job_shift)->where('job_type_id', $request->job_type_id)->where('job_status', 'open')->get();
                 break;
             case 1011:
-                $jobsobj=Jobs::where('job_domain', $request->job_domain)->where('job_location', $request->job_location)->where('job_type_id', $request->job_type_id)->get();
+                $jobsobj=Jobs::where('job_domain', $request->job_domain)->where('job_location', $request->job_location)->where('job_type_id', $request->job_type_id)->where('job_status', 'open')->get();
+                break;
+            case 1010:
+                $jobsobj=Jobs::where('job_location', $request->job_location)->where('job_type_id', $request->job_type_id)->where('job_type_id', $request->job_type_id)->where('job_status', 'open')->get();
                 break;
             case 1100:
-                $jobsobj=Jobs::where('job_shift', $request->job_shift)->where('job_type_id', $request->job_type_id)->get();
+                $jobsobj=Jobs::where('job_shift', $request->job_shift)->where('job_type_id', $request->job_type_id)->where('job_status', 'open')->get();
                 break;
             case 1001:
-                $jobsobj=Jobs::where('job_domain', $request->job_domain)->where('job_type_id', $request->job_type_id)->get();
+                $jobsobj=Jobs::where('job_domain', $request->job_domain)->where('job_type_id', $request->job_type_id)->where('job_status', 'open')->get();
                 break;
             case 1000:
-                $jobsobj=Jobs::where('job_type_id', $request->job_type_id)->get();
+                $jobsobj=Jobs::where('job_type_id', $request->job_type_id)->where('job_status', 'open')->get();
                 break;
         }
+        dd($jobsobj);
         return view('user.job.user-job-list', ['jobsobj'=>$jobsobj]);
     }
     public function showjobdetails(Request $request)

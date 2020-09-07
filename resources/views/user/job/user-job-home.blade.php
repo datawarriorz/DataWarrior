@@ -10,7 +10,11 @@
                 <h5 style="margin-top:0.5rem;">Select jobs based on your preference</h5>
             </div>
             <div class="ji-view-all col-sm-6 col-md-6 col-lg-6 pad-zero text-right">
-                <a href="/jilist">View all Jobs&nbsp;<i class="fas fa-arrow-right"></i> </a>
+                <form method="post" action="/jobfilterapply">
+                    @csrf
+                    <input type="hidden" name="job_type_id" value="1">
+                    <button type="submit"><u>View all Jobs</u>&nbsp;<i class="fas fa-arrow-right"></i></button>
+                </form>
             </div>
         </div>
     </div>

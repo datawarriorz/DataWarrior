@@ -49,7 +49,7 @@
                                             aria-labelledby="home-tab">
                                             <div class="container">
                                                 @foreach($articleslive as $article)
-                                                <div class"jumbotron" style="border-bottom: 2px solid #e7e9ee;">
+                                                <div class="jumbotron" style="border-bottom: 2px solid #e7e9ee;">
                                                     <br>
                                                     <div class="row">
                                                         <div class="col-xs-12 col-sm-12 col-md-4 text-center">

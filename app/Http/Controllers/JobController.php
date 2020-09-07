@@ -108,14 +108,14 @@ class JobController extends Controller
         $filter=0;
         if (isset($request->job_domain)) {
             $filter=$filter+1;
-            dd(1);
+            // dd(1);
         }
         if (isset($request->job_location)) {
             $filter=$filter+10;
         }
         if (isset($request->job_shift)) {
             $filter=$filter+100;
-            dd(3);
+            // dd(3);
         }
         if (isset($request->job_type_id)) {
             $filter=$filter+1000;
@@ -172,7 +172,7 @@ class JobController extends Controller
                 $jobsobj=Jobs::where('job_type_id', $request->job_type_id)->where('job_status', 'open')->get();
                 break;
         }
-        dd($jobsobj);
+        // dd($jobsobj);
         return view('user.job.user-job-list', ['jobsobj'=>$jobsobj]);
     }
     public function showjobdetails(Request $request)

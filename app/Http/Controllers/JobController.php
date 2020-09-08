@@ -178,12 +178,20 @@ class JobController extends Controller
     public function showjobdetails(Request $request)
     {
         $jobobj=Jobs::find($request->job_id);
-        $jobappobj = JobsApplied::where('user_id', Auth::user()->user_id)->where('job_id', $jobobj->job_id);
-        dd($jobobj);
+        $jobappobj = JobsApplied::where('user_id', Auth::user()->user_id)->where('job_id', $jobobj->job_id)->count();
+        
         return view('user.job.user-job-details', ['jobobj'=>$jobobj,'jobappobj'=>$jobappobj]);
     }
     public function apply_job(Request $request)
     {
-        return view('');
+        $jobappobj=new JobsApplied();
+        $jobappobj->ja_status='applied';
+        $jobappobj->user_id=Auth::user()->user_id;
+        $jobappobj->job_id=$request->job_id;
+        $jobappobj->save();
+        return redirect()->action(
+            '${App\Http\Controllers\JobController@showjobdetails}',
+            ['job_id' => $request->job_id]
+        );
     }
 }

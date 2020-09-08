@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Jobs extends Model  
+class Jobs extends Model
 {
 
     
@@ -15,7 +15,7 @@ class Jobs extends Model
      * @var string
      */
     protected $table = 'jobs';
-
+    protected $primaryKey = 'job_id';
     /**
      * Attributes that should be mass-assignable.
      *
@@ -43,5 +43,4 @@ class Jobs extends Model
      * @var array
      */
     protected $dates = ['job_apply_by', 'created_at', 'updated_at'];
-
 }

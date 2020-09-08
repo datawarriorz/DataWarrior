@@ -179,6 +179,7 @@ class JobController extends Controller
     {
         $jobobj=Jobs::find($request->job_id);
         $jobappobj = JobsApplied::where('user_id', Auth::user()->user_id)->where('job_id', $jobobj->job_id);
+        dd($jobobj);
         return view('user.job.user-job-details', ['jobobj'=>$jobobj,'jobappobj'=>$jobappobj]);
     }
     public function apply_job(Request $request)

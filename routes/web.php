@@ -91,6 +91,7 @@ Route::post('/requestcertification', 'CertificationController@requestcertificati
 Route::get('/jhome', 'JobController@showjobhome')->middleware('auth');
 Route::get('/jilist', 'JobController@showalljobs')->middleware('auth');
 Route::post('/jobfilterapply', 'JobController@jobfilterapply')->middleware('auth');
+Route::post('/viewjobdetails', 'JobController@showjobdetails')->middleware('auth');
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

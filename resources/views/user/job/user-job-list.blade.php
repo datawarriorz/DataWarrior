@@ -87,9 +87,9 @@
                             Apply By: {{ $jo->job_apply_by }}
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
-                            <form method="post" action="/">
+                            <form method="post" action="/viewjobdetails">
                                 @csrf
-                                <input type="hidden" name="article_id" value={{ $jo->job_id}} />
+                                <input type="hidden" name="job_id" value={{ $jo->job_id}} />
                                 <button type="submit" class="btn btn-primary">
                                     View Details <i class="fas fa-arrow-right"></i>
                                 </button>

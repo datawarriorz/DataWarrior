@@ -31,7 +31,7 @@ h6 {
 }
 
 .location-header {
-    padding: 2rem 4rem 0rem 4rem;
+    padding: 0rem 4rem 0rem 4rem;
 }
 
 .location-body {
@@ -55,7 +55,7 @@ h6 {
 }
 
 .domain-header {
-    padding: 0rem 4rem 0rem 4rem;
+    padding: 2rem 4rem 0rem 4rem;
 }
 
 .domain-body {

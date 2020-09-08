@@ -23,6 +23,7 @@ class CreateJobsTable extends Migration
             $table->string('job_shift');
             $table->string('job_location');
             $table->string('job_designation');
+            $table->string('job_companywebsite');
             $table->unsignedBigInteger('job_type_id');
             $table->foreign('job_type_id')->references('job_type_id')->on('job_type');
             $table->string('job_skills_required')->nullable();

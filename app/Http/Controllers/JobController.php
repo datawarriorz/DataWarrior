@@ -182,7 +182,7 @@ class JobController extends Controller
         
         return view('user.job.user-job-details', ['jobobj'=>$jobobj,'jobappobj'=>$jobappobj]);
     }
-    public function apply_job(Request $request)
+    public function userapplyjob(Request $request)
     {
         $jobappobj=new JobsApplied();
         $jobappobj->ja_status='applied';
@@ -190,7 +190,7 @@ class JobController extends Controller
         $jobappobj->job_id=$request->job_id;
         $jobappobj->save();
         return redirect()->action(
-            '${App\Http\Controllers\JobController@showjobdetails}',
+            '/jobapply',
             ['job_id' => $request->job_id]
         );
     }

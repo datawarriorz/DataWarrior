@@ -189,8 +189,8 @@ class JobController extends Controller
         $jobappobj->user_id=Auth::user()->user_id;
         $jobappobj->job_id=$request->job_id;
         $jobappobj->save();
-        return redirect()->action(
-            '/jobapply',
+        return redirect()->route(
+            'viewjobdetails',
             ['job_id' => $request->job_id]
         );
     }

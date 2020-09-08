@@ -55,7 +55,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class="">{{ ucwords( $jobobj->job_location)}}</div>
+                                <div class="">{{ ucwords( $jobobj->job_location) }}</div>
                             </td>
                         </tr>
                     </table>
@@ -95,17 +95,17 @@
 
             </div>
             @if($jobappobj==0)
-            <div class="col-12 text-center">
-                <form method="POST" action="/jobapply">
-                    @csrf
-                    <input type="hidden" value="{{ $jobobj->job_id }}">
-                    <button type="submit" class="btn btn-primary">Apply</button>
-                </form>
-            </div>
+                <div class="col-12 text-center">
+                    <form method="POST" action="/jobapply">
+                        @csrf
+                        <input type="hidden" name="job_id" value="{{ $jobobj->job_id }}">
+                        <button type="submit" class="btn btn-primary">Apply</button>
+                    </form>
+                </div>
             @else
-            <div class="col-12 text-center">
-                <button class="btn disabled">Applied</button>
-            </div>
+                <div class="col-12 text-center">
+                    <button class="btn disabled">Applied</button>
+                </div>
             @endif
 
         </div>

@@ -261,4 +261,40 @@ class ExpertController extends Controller
 
         return view('expert.expert-viewarticle', ['article' => $article_obj]);
     }
+    /////////////////////////////JObs Internship/////////////////
+    
+    public function viewjobsposted()
+    {
+        $jobsobj= Jobs::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert');
+        //return view('ex-post-job-form');
+    }
+    public function postjobform()
+    {
+        return view('ex-post-job-form');
+    }
+    public function postjob(Request $request)
+    {
+        $jobobj = new Jobs();
+        $jobobj->job_title	=$request->job_title;
+        $jobobj->job_description=$request->job_description;
+        $jobobj->job_status='open';
+        $jobobj->job_company=$request->job_company;
+        $jobobj->job_domain=$request->job_domain;
+        $jobobj->job_shift=$request->job_shift;
+        $jobobj->job_location=$request->job_location;
+        $jobobj->job_designation=$request->job_designation;
+        $jobobj->job_companywebsite=$request->job_companywebsite;
+        $jobobj->job_type_id=$request->job_type_id;
+        $jobobj->job_skills_required=$request->job_skills_required;
+        $jobobj->job_duration=$request->job_duration;
+        $jobobj->job_salary=$request->job_salary;
+        $jobobj->job_starttime=$request->job_starttime;
+        $jobobj->job_apply_by=$request->job_apply_by;
+        $jobobj->job_openings=$request->job_openings;
+        $jobobj->creator_id=Auth::user()->ex_id;
+        $jobobj->creator_flag='expert';
+        $jobobj->save();
+
+        return redirect('/expertdashboard');
+    }
 }

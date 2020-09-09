@@ -127,7 +127,10 @@ Route::get('/expert-skill-edit', 'ExpertController@viewskillform');
 Route::post('/expert-skill-add', 'ExpertController@addskilldetails');
 Route::post('/expert-skill-delete', 'ExpertController@deleteskilldetails');
 
-Route::get('/expert-post-job', 'ExpertController@postjob');
+
+Route::get('/expert-post-job-form', 'ExpertController@postjobform');
+Route::post('/expert-post-job', 'ExpertController@postjob');
+
 Route::get('/expert-view-jobs-posted', 'ExpertController@viewjobsposted');
 Route::get('/expert-view-job-participants', 'ExpertController@viewjobparticipants');
 

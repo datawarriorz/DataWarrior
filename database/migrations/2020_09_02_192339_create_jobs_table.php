@@ -19,6 +19,7 @@ class CreateJobsTable extends Migration
             $table->binary('job_description');
             $table->string('job_status')->default('Open');//close open
             $table->string('job_company')->nullable();
+            $table->string('job_companywebsite')->nullable();
             $table->string('job_domain');
             $table->string('job_shift');
             $table->string('job_location');

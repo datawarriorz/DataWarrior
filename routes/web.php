@@ -127,6 +127,14 @@ Route::get('/expert-skill-edit', 'ExpertController@viewskillform');
 Route::post('/expert-skill-add', 'ExpertController@addskilldetails');
 Route::post('/expert-skill-delete', 'ExpertController@deleteskilldetails');
 
+Route::get('/expert-post-job', 'ExpertController@postjob');
+Route::get('/expert-view-jobs-posted', 'ExpertController@viewjobsposted');
+Route::get('/expert-view-job-participants', 'ExpertController@viewjobparticipants');
+
+Route::get('/expert-post-internship', 'ExpertController@postinternship');
+Route::get('/expert-view-internships-posted', 'ExpertController@viewinternshipsposted');
+Route::get('/expert-view-internship-participants', 'ExpertController@viewinternshipsposted');
+
 Route::post('/logoutexpert', 'ExpertController@logoutexpert');
 Route::get('/logoutexpert', 'ExpertController@getlogoutexpert');
 

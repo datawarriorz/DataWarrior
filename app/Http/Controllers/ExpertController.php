@@ -11,6 +11,7 @@ use App\ExQualification;
 use App\QualificationTypes;
 use App\ExSkills;
 use App\SkillLevel;
+use App\Jobs;
 
 class ExpertController extends Controller
 {
@@ -270,12 +271,12 @@ class ExpertController extends Controller
     }
     public function postjobform()
     {
-        return view('ex-post-job-form');
+        return view('expert.expert-post-job');
     }
     public function postjob(Request $request)
     {
         $jobobj = new Jobs();
-        $jobobj->job_title	=$request->job_title;
+        $jobobj->job_title=$request->job_title;
         $jobobj->job_description=$request->job_description;
         $jobobj->job_status='open';
         $jobobj->job_company=$request->job_company;

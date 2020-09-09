@@ -90,7 +90,7 @@
                                             aria-labelledby="education-tab">
                                             <br>
                                             <div class="container">
-                                                <a href="/expert-post-job">
+                                                <a href="/expert-post-job-form">
                                                     <button type="button" class="btn tab-edit-btn">
                                                         <i class="fas fa-edit"></i> Post Job
                                                     </button>

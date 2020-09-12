@@ -127,16 +127,25 @@ Route::get('/expert-skill-edit', 'ExpertController@viewskillform');
 Route::post('/expert-skill-add', 'ExpertController@addskilldetails');
 Route::post('/expert-skill-delete', 'ExpertController@deleteskilldetails');
 
+////EXPERT NEW/////
 
 Route::get('/expert-post-job-form', 'ExpertController@postjobform');
 Route::post('/expert-post-job', 'ExpertController@postjob');
 
-Route::get('/expert-view-jobs-posted', 'ExpertController@viewjobsposted');
-Route::get('/expert-view-job-participants', 'ExpertController@viewjobparticipants');
+Route::get('/expert-view-jobs-posted-page', 'ExpertController@viewjobspostedpage');
+Route::post('/expert-view-jobs-posted', 'ExpertController@viewjobsposted');
 
-Route::get('/expert-post-internship', 'ExpertController@postinternship');
-Route::get('/expert-view-internships-posted', 'ExpertController@viewinternshipsposted');
-Route::get('/expert-view-internship-participants', 'ExpertController@viewinternshipsposted');
+Route::get('/expert-view-job-participants-page', 'ExpertController@viewjobparticipantspage');
+Route::post('/expert-view-job-participants', 'ExpertController@viewjobparticipants');
+
+Route::get('/expert-post-internship-form', 'ExpertController@postinternshipform');
+Route::post('/expert-post-internship', 'ExpertController@postinternship');
+
+Route::get('/expert-view-internships-posted-page', 'ExpertController@viewinternshipspostedpage');
+Route::post('/expert-view-internships-posted', 'ExpertController@viewinternshipsposted');
+
+Route::get('/expert-view-internship-participants-page', 'ExpertController@viewinternshipparticipantspage');
+Route::post('/expert-view-internship-participants', 'ExpertController@viewinternshipparticipants');
 
 Route::post('/logoutexpert', 'ExpertController@logoutexpert');
 Route::get('/logoutexpert', 'ExpertController@getlogoutexpert');

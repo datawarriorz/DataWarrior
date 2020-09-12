@@ -13,7 +13,8 @@
                 <form method="post" action="/jobfilterapply">
                     @csrf
                     <input type="hidden" name="job_type_id" value="1">
-                    <button type="submit"><u>View all Jobs</u>&nbsp;<i class="fas fa-arrow-right"></i></button>
+                    <button class="btn btn-primary" type="submit">View all Jobs&nbsp;<i
+                            class="fas fa-arrow-right"></i></button>
                 </form>
             </div>
         </div>

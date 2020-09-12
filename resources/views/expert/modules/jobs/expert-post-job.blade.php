@@ -2,7 +2,7 @@
 
 @section('content')
 <link rel="stylesheet" href="./css/expert/expert-6-0-post-job.css">
-<div class="col-md-10 offset-md-1">
+<div class="col-md-8 offset-md-2">
     <form method="POST" action="/expert-post-job" enctype="multipart/form-data">
         @csrf
         <div class="card">

@@ -30,6 +30,11 @@ h6 {
     font-weight: 400;
 }
 
+.ji-view-all {
+    padding-right: 2rem;
+    padding-top: 1rem;
+}
+
 .location-header {
     padding: 0rem 4rem 0rem 4rem;
 }

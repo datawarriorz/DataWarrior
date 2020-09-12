@@ -17,6 +17,7 @@ php artisan make:mail Newsletter -m emails.newsletter
 
 php artisan tinker
     $expert = new App\Expert;
+    $expert->admin_id=1;
     $expert->email='xyz@gmail.com';
     $expert->password= Hash::make('123');
     $expert->save();

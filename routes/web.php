@@ -127,7 +127,7 @@ Route::get('/expert-skill-edit', 'ExpertController@viewskillform');
 Route::post('/expert-skill-add', 'ExpertController@addskilldetails');
 Route::post('/expert-skill-delete', 'ExpertController@deleteskilldetails');
 
-////EXPERT NEW/////
+////EXPERT NEW JOB MODULE/////
 
 Route::get('/expert-post-job-form', 'ExpertController@postjobform');
 Route::post('/expert-post-job', 'ExpertController@postjob');

@@ -95,7 +95,7 @@
                                                         <i class="fas fa-edit"></i> Post Job
                                                     </button>
                                                 </a>
-                                                <a href="/expert-view-jobs-posted">
+                                                <a href="/expert-view-jobs-posted-page">
                                                     <button type="button" class="btn tab-edit-btn"
                                                         style="margin-left: 10px;">
                                                         <i class="far fa-eye"></i> View Jobs Posted

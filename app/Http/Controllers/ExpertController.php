@@ -264,14 +264,20 @@ class ExpertController extends Controller
     }
     /////////////////////////////JObs Internship/////////////////
     
-    public function viewjobsposted()
+    public function viewjobspostedpage()
     {
         $jobsobj= Jobs::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert');
-        //return view('ex-post-job-form');
+        return view('expert.job.expert-view-jobs-posted-page', ['jobsobj'=>$jobsobj]);
+    }
+    public function viewjobdetails(Request $request)
+    {
+        $jobobj=Jobs::find($request->job_id);
+        $jobappobj = JobsApplied::where('job_id', $jobobj->job_id)->count();
+        return view('expert.job.expert-job-details', ['jobobj'=>$jobobj,'jobappobj'=>$jobappobj]);
     }
     public function postjobform()
     {
-        return view('expert.expert-post-job');
+        return view('expert.job.expert-post-job');
     }
     public function postjob(Request $request)
     {

@@ -1,4 +1,4 @@
-@extends('layout.expertlayout')
+@extends('expert.layout.masterlayout')
 
 @section('content')
 <link rel="stylesheet" href="./css/expert/expert-5-2-edit-education.css">
@@ -13,7 +13,7 @@
                     <label for="qualificationtype">Qualification Type :</label>
                     <select class="form-control custom-select" id="qualificationtype" name="qualtype_id">
                         @foreach($qualificationType as $qt)
-                            <option value={{ $qt->qualtype_id }}>{{ $qt->qualification_type }}</option>
+                        <option value={{ $qt->qualtype_id }}>{{ $qt->qualification_type }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -30,15 +30,15 @@
                 </div>
                 @csrf
                 @if(count($errors))
-                    <div class="alert alert-danger">
-                        <strong>Whoops!</strong> There were some problems with your input.
-                        <br />
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.
+                    <br />
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
                 @endif
                 <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 text-center">
                     <div class="row text-center">
@@ -70,25 +70,25 @@
                 </thead>
                 <tbody>
                     @foreach($qualificationobj as $ed)
-                        <tr>
-                            <td>
-                                @foreach($qualificationType as $qt)
-                                    @if($qt->qualtype_id==$ed->qualtype_id)
-                                        {{ $qt->qualification_type }}
-                                    @endif
-                                @endforeach
-                            </td>
-                            <td>{{ $ed->qua_degree }}</td>
-                            <td>{{ $ed->qua_univerity }}</td>
-                            <td class="text-center">
-                                <form method="POST" action="/expert-qualification-delete">
-                                    @csrf
-                                    <input type="hidden" name="qua_id" value={{ $ed->qua_id }} />
+                    <tr>
+                        <td>
+                            @foreach($qualificationType as $qt)
+                            @if($qt->qualtype_id==$ed->qualtype_id)
+                            {{ $qt->qualification_type }}
+                            @endif
+                            @endforeach
+                        </td>
+                        <td>{{ $ed->qua_degree }}</td>
+                        <td>{{ $ed->qua_univerity }}</td>
+                        <td class="text-center">
+                            <form method="POST" action="/expert-qualification-delete">
+                                @csrf
+                                <input type="hidden" name="qua_id" value={{ $ed->qua_id }} />
 
-                                    <button type="submit" class="btn btn-danger" onclick="">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
+                                <button type="submit" class="btn btn-danger" onclick="">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>

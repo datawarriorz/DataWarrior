@@ -1,4 +1,4 @@
-@extends('layout.expertlayout')
+@extends('expert.layout.masterlayout')
 
 @section('content')
 
@@ -14,14 +14,12 @@
                 <div class="form-group">
                     <label for="Fname">Profile :</label>
                     <input type="text" name="exp_profile" class="form-control" required
-                        placeholder="Eg. Software Developer" autocomplete="on"
-                        value={{ old('exp_profile') }}>
+                        placeholder="Eg. Software Developer" autocomplete="on" value={{ old('exp_profile') }}>
                 </div>
                 <div class="form-group">
                     <label for="Lname">Organisation :</label>
                     <input type="text" name="exp_organisation" class="form-control" required
-                        placeholder="Eg. ABC Private Limited" autocomplete="on"
-                        value={{ old('exp_organisation') }}>
+                        placeholder="Eg. ABC Private Limited" autocomplete="on" value={{ old('exp_organisation') }}>
                 </div>
                 <div class="form-group">
                     <label for="InputEmail">Location :</label>
@@ -56,15 +54,15 @@
                 </div>
                 @csrf
                 @if(count($errors))
-                    <div class="alert alert-danger">
-                        <strong>Whoops!</strong> There were some problems with your input.
-                        <br />
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.
+                    <br />
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
                 @endif
                 <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 text-center">
                     <div class="row text-center">
@@ -100,22 +98,22 @@
                 </thead>
                 <tbody>
                     @foreach($experienceobj as $je)
-                        <tr>
-                            <td>{{ $je->exp_profile }}</td>
-                            <td>{{ $je->exp_organisation }}</td>
-                            <td>{{ $je->exp_location }}</td>
-                            <td>{{ $je->exp_description }}</td>
-                            <td>{{ $je->exp_currentjob }}</td>
-                            <td>{{ substr($je->exp_startdate,0,10) }}</td>
-                            <td>{{ substr($je->exp_enddate,0,10) }}</td>
-                            <td class="text-center">
-                                <form method="POST" action="/expert-experience-delete">
-                                    @csrf
-                                    <input type="hidden" name="exp_id" value={{ $je->exp_id }} />
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>{{ $je->exp_profile }}</td>
+                        <td>{{ $je->exp_organisation }}</td>
+                        <td>{{ $je->exp_location }}</td>
+                        <td>{{ $je->exp_description }}</td>
+                        <td>{{ $je->exp_currentjob }}</td>
+                        <td>{{ substr($je->exp_startdate,0,10) }}</td>
+                        <td>{{ substr($je->exp_enddate,0,10) }}</td>
+                        <td class="text-center">
+                            <form method="POST" action="/expert-experience-delete">
+                                @csrf
+                                <input type="hidden" name="exp_id" value={{ $je->exp_id }} />
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>

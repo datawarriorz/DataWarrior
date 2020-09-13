@@ -9,11 +9,26 @@
         </div>
     </div>
     <div class="card-body job-details-data text-left">
-        <div class="data-job-designation">
-            {{ $jobobj->job_designation }}
-        </div>
-        <div class="data-job-company">
-            {{ $jobobj->job_company }}
+        <div class="col-12">
+            <div class="row">
+                <div class="col-8 col-sm-8 col-md-6 pl-0 pr-0 text-center">
+                    <div class="data-job-designation">
+                        {{ $jobobj->job_designation }}
+                    </div>
+                    <div class="data-job-company">
+                        {{ $jobobj->job_company }}
+                    </div>
+                </div>
+                <div class="col-4 col-sm-4 col-md-6 pl-0 pr-0 text-center">
+                    <div class="card-text data-job-description-data">
+                        <a href="{{ $jobobj->job_companywebsite }}" style="color: #171f2a;">
+                            <i class="fas fa-globe"></i>
+                            <br>
+                            Website
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
         <br>
         <div class="col-12 no-gutters no-padding">
@@ -80,7 +95,8 @@
                 <b>Job Description</b>
             </div>
             <div class="card-text data-job-description-data">
-                <p>We're looking for front-end development interns familiar with ReactJS, who are aligned with the
+                <?php echo nl2br($jobobj->job_description); ?>
+                {{-- <p>We're looking for front-end development interns familiar with ReactJS, who are aligned with the
                     companies
                     vision, can create the best user experience possible, share our passion for innovation, and are
                     ready to
@@ -91,23 +107,32 @@
                 <p>3. Brainstorming for ideas to improve the design</p>
                 <p>4. Building reusable code and libraries for future use</p>
                 <p>5. Translating user and business needs into functional front-end </p>
-                <p>6. Keeping user experience a top priority</p>
+                <p>6. Keeping user experience a top priority</p> --}}
 
             </div>
-            @if($jobappobj==0)
-                <div class="col-12 text-center">
-                    <form method="POST" action="/jobapply">
-                        @csrf
-                        <input type="hidden" name="job_id" value="{{ $jobobj->job_id }}">
-                        <button type="submit" class="btn btn-primary">Apply</button>
-                    </form>
-                </div>
-            @else
-                <div class="col-12 text-center">
-                    <button class="btn disabled">Applied</button>
-                </div>
-            @endif
+            <br>
 
+            @if($jobappobj==0)
+            <div class="col-12 text-center">
+                <form method="POST" action="/jobapply">
+                    @csrf
+                    <input type="hidden" name="job_id" value="{{ $jobobj->job_id }}">
+                    <button type="submit" class="btn expert-btn1">Apply</button>
+                </form>
+            </div>
+            @else
+            <div class="col-12 text-center">
+                <button class="btn disabled">Applied</button>
+            </div>
+            @endif
+            <br>
+            <div class="col-12 text-center">
+                <form method="post" action="/jobfilterapply">
+                    @csrf
+                    <input type="hidden" name="job_type_id" value="1">
+                    <button class="btn expert-btn1" type="submit"><i class="fas fa-arrow-left"></i>Back</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

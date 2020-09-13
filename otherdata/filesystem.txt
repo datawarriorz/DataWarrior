@@ -1,0 +1,57 @@
+views
+    admin
+        auth
+            login
+        
+        admin-create-counselorform.blade.php
+        admin-create-expertform.blade.php
+        admin-dashboard.blade.php
+        admin-edit-article.blade.php
+        admin-listarticles.blade.php
+        admin-postaricle.blade.php
+        admin-view-article.blade.php
+        
+    expert
+        auth
+            login.blade.php
+            password
+                reset.blade.php
+        
+        expert-dashboard.blade.php
+
+        modules
+            profile
+                profile.blade.php
+                edit-basic-details.blade.php
+                edit-skill.blade.php
+                edit-experience.blade.php
+                edit-qualification.blade.php
+
+            article
+                post-article.blade.php
+                list-articles.blade.php
+                view-article.blade.php
+                edit-article.blade.php
+                
+            certification
+
+            expertspeak
+
+            job
+                post-job.blade.php
+                view-jobs-posted.blade.php
+
+            internship
+                post-internship.blade.php
+                view-internships-posted.blade.php
+        
+        
+        
+        
+       
+        
+
+
+                
+
+

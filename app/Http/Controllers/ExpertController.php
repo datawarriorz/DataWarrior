@@ -12,6 +12,7 @@ use App\QualificationTypes;
 use App\ExSkills;
 use App\SkillLevel;
 use App\Jobs;
+use App\JobsApplied;
 
 class ExpertController extends Controller
 {
@@ -50,7 +51,8 @@ class ExpertController extends Controller
         $skillsobj=ExSkills::where('ex_id', Auth::user()->ex_id)->get();
         $qualificationType = QualificationTypes::all();
         $skilllevel = SkillLevel::all();
-        return view('expert.expert-profile', [  'expertobj'=>$expertobj,
+
+        return view('expert.modules.profile.profile', [  'expertobj'=>$expertobj,
                                                 'experienceobj'=>$experienceobj,
                                                 'qualificationobj'=>$qualificationobj,
                                                 'skillsobj'=>$skillsobj,
@@ -76,7 +78,8 @@ class ExpertController extends Controller
     public function updatebasicdetailsform()
     {
         $expert=Expert::where('ex_id', Auth::user()->ex_id)->first();
-        return view('expert.expert-profile-edit', ['expert'=>$expert]);
+
+        return view('expert.modules.profile.edit-basic-details', ['expert'=>$expert]);
     }
     
     //////////////////////////////////////////////////////////////////////////
@@ -92,22 +95,21 @@ class ExpertController extends Controller
         $experienceobj->exp_enddate = $request->exp_enddate;
         $experienceobj->ex_id = Auth::user()->ex_id;
         $experienceobj->save();
-        
         $experienceobj=ExExperience::where('ex_id', '=', Auth::user()->ex_id)->get();
 
-        return view('expert.expert-experience-edit', ['experienceobj' => $experienceobj]);
+        return view('expert.modules.profile.edit-experience', ['experienceobj' => $experienceobj]);
     }
     public function deleteexpdetails(Request $request)
     {
         $res = ExExperience::where('exp_id', '=', $request->exp_id)->delete();
-        
         $experienceobj=ExExperience::where('ex_id', '=', Auth::user()->ex_id)->get();
-        return view('expert.expert-experience-edit', ['experienceobj' => $experienceobj]);
+
+        return view('expert.modules.profile.edit-experience', ['experienceobj' => $experienceobj]);
     }
     public function viewexperienceform()
     {
         $experienceobj=ExExperience::where('ex_id', '=', Auth::user()->ex_id)->get();
-        return view('expert.expert-experience-edit', ['experienceobj' => $experienceobj]);
+        return view('expert.modules.profile.edit-experience', ['experienceobj' => $experienceobj]);
     }
     public function updateexpertimage(Request $request)
     {
@@ -131,20 +133,20 @@ class ExpertController extends Controller
         $qualificationType = QualificationTypes::all();
         $qualificationobj=ExQualification::where('ex_id', '=', Auth::user()->ex_id)->get();
 
-        return view('expert.expert-qualification-edit', ['qualificationobj' => $qualificationobj, 'qualificationType' => $qualificationType]);
+        return view('expert.modules.profile.edit-qualification', ['qualificationobj' => $qualificationobj, 'qualificationType' => $qualificationType]);
     }
     public function deletequadetails(Request $request)
     {
         $res = ExQualification::where('qua_id', '=', $request->qua_id)->delete();
         $qualificationType = QualificationTypes::all();
         $qualificationobj=ExQualification::where('ex_id', '=', Auth::user()->ex_id)->get();
-        return view('expert.expert-qualification-edit', ['qualificationobj' => $qualificationobj, 'qualificationType' => $qualificationType]);
+        return view('expert.modules.profile.edit-qualification', ['qualificationobj' => $qualificationobj, 'qualificationType' => $qualificationType]);
     }
     public function viewqualificationform()
     {
         $qualificationType = QualificationTypes::all();
         $qualificationobj=ExQualification::where('ex_id', '=', Auth::user()->ex_id)->get();
-        return view('expert.expert-qualification-edit', ['qualificationobj' => $qualificationobj, 'qualificationType' => $qualificationType]);
+        return view('expert.modules.profile.edit-qualification', ['qualificationobj' => $qualificationobj, 'qualificationType' => $qualificationType]);
     }
 
     //////////////////////////////////////////////////////////////////////////
@@ -158,21 +160,21 @@ class ExpertController extends Controller
         
         $skillsobj=ExSkills::where('ex_id', '=', Auth::user()->ex_id)->get();
 
-        return view('expert.expert-skill-edit', ['skillsobj' => $skillsobj]);
+        return view('expert.modules.profile.edit-skill', ['skillsobj' => $skillsobj]);
     }
     public function deleteskilldetails(Request $request)
     {
         $res = ExSkills::where('sk_id', '=', $request->sk_id)->delete();
-        
         $skillsobj=ExSkills::where('ex_id', '=', Auth::user()->ex_id)->get();
-        return view('expert.expert-skill-edit', ['skillsobj' => $skillsobj]);
+
+        return view('expert.modules.profile.edit-skill', ['skillsobj' => $skillsobj]);
     }
     public function viewskillform()
     {
         $skillsobj=ExSkills::where('ex_id', '=', Auth::user()->ex_id)->get();
-        return view('expert.expert-skill-edit', ['skillsobj' => $skillsobj]);
+
+        return view('expert.modules.profile.edit-skill', ['skillsobj' => $skillsobj]);
     }
-    
 
     ///////////////////////////////////////////////////////////////////////////////////
     public function viewexpertarticles()
@@ -180,14 +182,12 @@ class ExpertController extends Controller
         $articlesreview= Article::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert')->where('status', '=', 'review')->get();
         $articleslive= Article::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert')->where('status', '=', 'published')->get();
         
-        
-
-        return view('expert.expert-listarticles', ['articlesreview' => $articlesreview,'articleslive'=>$articleslive]);
+        return view('expert.modules.article.list-articles', ['articlesreview' => $articlesreview,'articleslive'=>$articleslive]);
     }
     
     public function viewarticleform()
     {
-        return view('expert.expert-postarticle');
+        return view('expert.modules.article.post-article');
     }
     
     public function postarticle(Request $request)
@@ -209,13 +209,13 @@ class ExpertController extends Controller
         $article->save();
         // $articles= Article::where('ex_id', Auth::user()->ex_id)->get();
         // return view('expert.expert-dashboard', ['articles' => $articles]);
-        return view('expert.expert-viewarticle', ['article' => $article]);
+        return view('expert.modules.article.view-article', ['article' => $article]);
     }
     public function vieweditarticleform(Request $request)
     {
         $article= Article::find($request->article_id);
         
-        return view('expert.expert-edit-article', ['article' => $article]);
+        return view('expert.modules.article.edit-article', ['article' => $article]);
     }
 
     public function editarticle(Request $request)
@@ -239,7 +239,7 @@ class ExpertController extends Controller
         $article->save();
         $article=Article::find($request->article_id);
         
-        return view('expert.expert-viewarticle', ['article' => $article]);
+        return view('expert.modules.article.view-article', ['article' => $article]);
     }
 
     public function deletearticle(Request $request)
@@ -260,26 +260,73 @@ class ExpertController extends Controller
     {
         $article_obj= Article::find($request->article_id);
 
-        return view('expert.expert-viewarticle', ['article' => $article_obj]);
+        return view('expert.modules.article.view-article', ['article' => $article_obj]);
     }
     /////////////////////////////JObs Internship/////////////////
     
-    public function viewjobspostedpage()
+    public function postjobform()
     {
-        $jobsobj= Jobs::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert');
-        return view('expert.modules.job.expert-view-jobs-posted-page', ['jobsobj'=>$jobsobj]);
+        return view('expert.modules.job.post-job');
     }
+
+    public function postjob(Request $request)
+    {
+        $jobobj = new Jobs();
+        $jobobj->job_title=$request->job_title;
+        $jobobj->job_description=$request->job_description;
+        $jobobj->job_status='open';
+        $jobobj->job_company=$request->job_company;
+        $jobobj->job_domain=$request->job_domain;
+        $jobobj->job_shift=$request->job_shift;
+        $jobobj->job_location=$request->job_location;
+        $jobobj->job_designation=$request->job_designation;
+        $jobobj->job_companywebsite=$request->job_companywebsite;
+        $jobobj->job_type_id=$request->job_type_id;
+        $jobobj->job_skills_required=$request->job_skills_required;
+        $jobobj->job_duration=$request->job_duration;
+        $jobobj->job_salary=$request->job_salary;
+        $jobobj->job_starttime=$request->job_starttime;
+        $jobobj->job_apply_by=$request->job_apply_by;
+        $jobobj->job_openings=$request->job_openings;
+        $jobobj->creator_id=Auth::user()->ex_id;
+        $jobobj->creator_flag='expert';
+        $jobobj->save();
+
+        return redirect('/expertdashboard');
+    }
+
+    public function viewjobsposted()
+    {
+        $jobsobj= Jobs::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert')->where('job_type_id', '1')->get();
+        return view('expert.modules.job.view-jobs-posted', ['jobsobj'=>$jobsobj]);
+    }
+    
     public function viewjobdetails(Request $request)
     {
         $jobobj=Jobs::find($request->job_id);
         $jobappobj = JobsApplied::where('job_id', $jobobj->job_id)->count();
-        return view('expert.modules.job.expert-job-details', ['jobobj'=>$jobobj,'jobappobj'=>$jobappobj]);
+        return view('expert.modules.job.view-job', ['jobobj'=>$jobobj,'jobappobj'=>$jobappobj]);
     }
-    public function postjobform()
+    
+    public function postinternshipform()
     {
-        return view('expert.modules.job.expert-post-job');
+        return view('expert.modules.internship.post-internship');
     }
-    public function postjob(Request $request)
+
+    public function viewinternshipsposted()
+    {
+        $jobsobj= Jobs::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert')->where('job_type_id', '2')->get();
+        return view('expert.modules.internship.view-internships-posted', ['jobsobj'=>$jobsobj]);
+    }
+    
+    public function viewinternshipdetails(Request $request)
+    {
+        $jobobj=Jobs::find($request->job_id);
+        $jobappobj = JobsApplied::where('job_id', $jobobj->job_id)->count();
+        return view('expert.modules.internship.internship-details', ['jobobj'=>$jobobj,'jobappobj'=>$jobappobj]);
+    }
+    
+    public function postinternship(Request $request)
     {
         $jobobj = new Jobs();
         $jobobj->job_title=$request->job_title;

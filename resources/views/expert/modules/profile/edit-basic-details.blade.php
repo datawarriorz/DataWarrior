@@ -1,4 +1,4 @@
-@extends('layout.expertlayout')
+@extends('expert.layout.masterlayout')
 
 @section('content')
 <link rel="stylesheet" href="./css/expert/expert-5-1-edit-basic-details.css" />

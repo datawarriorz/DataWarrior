@@ -73,6 +73,17 @@ h4 {
     font-weight: 600;
 }
 
+.tab-edit-btn {
+    color: #fff;
+    background-color: #171f2a;
+}
+
+.tab-edit-btn:hover {
+    color: #ff8a00;
+    background-color: #171f2a;
+    text-decoration: none;
+}
+
 
 /* 
 a {

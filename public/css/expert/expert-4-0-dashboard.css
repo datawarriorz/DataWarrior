@@ -1,5 +1,6 @@
 .dashboard-card {
-    min-height: 448px;
+    min-height: 508px;
+    min-width: 315px;
 }
 
 .profile-tab {
@@ -10,6 +11,15 @@
 .tab-edit-btn {
     color: #fff;
     background-color: #171f2a;
+}
+
+.tab-pane {
+    padding-top: 1rem;
+}
+
+.tab-pane a {
+    padding-left: 1rem;
+    padding-bottom: 1rem;
 }
 
 .nav-tabs .nav-item.show .nav-link,

@@ -13,15 +13,15 @@
         <form class="form-inline form-horizontal" method="POST" action="/updateQualification">
             @csrf
             @if(count($errors))
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.
-                    <br />
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+            <div class="alert alert-danger">
+                <strong>Whoops!</strong> There were some problems with your input.
+                <br />
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
             @endif
             <fieldset>
                 <div class="form-group col-md-12">
@@ -31,7 +31,7 @@
                             <select class="form-control custom-select col-md-12" id="qualificationtype"
                                 name="qualificationtype">
                                 @foreach($qualificationType as $qt)
-                                    <option value={{ $qt->qualtype_id }}>{{ $qt->qualification_type }}</option>
+                                <option value={{ $qt->qualtype_id }}>{{ $qt->qualification_type }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -46,15 +46,13 @@
                         <div class="form-group col-md-12">
                             <label for="college_name">College/Institute Name :</label>
                             <input type="text" name='college_name' required class="form-control col-md-12"
-                                placeholder="Eg. Wilson College" autocomplete="on"
-                                value={{ old('college_name') }}>
+                                placeholder="Eg. Wilson College" autocomplete="on" value={{ old('college_name') }}>
                         </div>
                         <br>
                         <div class="form-group col-md-12">
                             <label for="college_name">Univeristy :</label>
                             <input type="text" name='university' class="form-control col-md-12"
-                                placeholder="Eg. Mumbai University" autocomplete="on"
-                                value={{ old('university') }}>
+                                placeholder="Eg. Mumbai University" autocomplete="on" value={{ old('university') }}>
                         </div>
                     </div>
                     <br>
@@ -86,22 +84,27 @@
                         </div>
                     </div>
                     @if($process=="internship")
-                        <div class="form-group col-md-12">
-                            <input type="hidden" name="process" class="form-control" value="internship" />
-                        </div>
+                    <div class="form-group col-md-12">
+                        <input type="hidden" name="process" class="form-control" value="internship" />
+                    </div>
                     @endif
                     @if($process=="job")
-                        <div class="form-group col-md-12">
-                            <input type="hidden" name="process" class="form-control" value="job" />
-                        </div>
+                    <div class="form-group col-md-12">
+                        <input type="hidden" name="process" class="form-control" value="job" />
+                    </div>
                     @endif
                 </div>
                 <br>
                 <div class="form-group col-md-12">
                     <div class="col-md-12 text-center">
-                        <button type="submit" class="btn qualification_btn">
+                        <button type="submit" class="btn expert-btn1">
                             Save <i class="far fa-save"></i>
                         </button>
+                        <br>
+                        <br>
+                        <a class="btn expert-btn1" href="/viewprofile">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </a>
                     </div>
                 </div>
         </form>
@@ -126,52 +129,52 @@
             </thead>
             <tbody>
                 @foreach($eduDetails as $ed)
-                    <tr>
+                <tr>
 
-                        <td> @foreach ($qualificationType as $qt)
-                            @if($qt->qualtype_id==$ed->qualtype_id)
-                                {{ $qt->qualification_type }}
+                    <td> @foreach ($qualificationType as $qt)
+                        @if($qt->qualtype_id==$ed->qualtype_id)
+                        {{ $qt->qualification_type }}
 
-                            @endif
-                @endforeach
+                        @endif
+                        @endforeach
 
-                </td>
-                <td>{{ $ed->course_name }}</td>
-                <td>{{ $ed->college_name }}</td>
-                <td>{{ $ed->University }}</td>
-                <td>{{ $ed->percentage }}</td>
-                <td>{{ $ed->grade }}</td>
-                <td>{{ substr($ed->start_date,0,10) }}</td>
-                <td>{{ substr($ed->end_date,0,10) }}</td>
-                <td>
-                    <form method="POST" action="/deletequalification">
-                        @csrf
-                        <input type="hidden" name="qualid" value={{ $ed->id }} />
-                        @if($process=="internship")
+                    </td>
+                    <td>{{ $ed->course_name }}</td>
+                    <td>{{ $ed->college_name }}</td>
+                    <td>{{ $ed->University }}</td>
+                    <td>{{ $ed->percentage }}</td>
+                    <td>{{ $ed->grade }}</td>
+                    <td>{{ substr($ed->start_date,0,10) }}</td>
+                    <td>{{ substr($ed->end_date,0,10) }}</td>
+                    <td>
+                        <form method="POST" action="/deletequalification">
+                            @csrf
+                            <input type="hidden" name="qualid" value={{ $ed->id }} />
+                            @if($process=="internship")
                             <div class="form-group">
                                 <input type="hidden" name="process" class="form-control" value="internship" />
                             </div>
 
-                        @endif
-                        @if($process=="job")
+                            @endif
+                            @if($process=="job")
                             <div class="form-group">
                                 <input type="hidden" name="process" class="form-control" value="job" />
                             </div>
 
-                        @endif
-                        <button type="submit" class="btn btn-danger" onclick="">Delete</button>
-                    </form>
-                </td>
+                            @endif
+                            <button type="submit" class="btn btn-danger" onclick="">Delete</button>
+                        </form>
+                    </td>
 
                 </tr>
                 @endforeach
             </tbody>
         </table>
         @if($process=="internship")
-            <a href="/internshipfinal" class="btn qualification_btn">View Internship form</a>
+        <a href="/internshipfinal" class="btn qualification_btn">View Internship form</a>
         @endif
         @if($process=="job")
-            <a href="/jobfinal" class="btn qualification_btn">View Job Application form</a>
+        <a href="/jobfinal" class="btn qualification_btn">View Job Application form</a>
         @endif
     </div>
 </div>

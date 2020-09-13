@@ -49,31 +49,40 @@
                         autocomplete="on" rows="4" value={{ old('description') }}></textarea>
                 </div>
                 @if($process=="internship")
-                    <div class="form-group">
-                        <input type="hidden" name="process" class="form-control" value="internship" />
-                    </div>
+                <div class="form-group">
+                    <input type="hidden" name="process" class="form-control" value="internship" />
+                </div>
                 @endif
                 @if($process=="job")
-                    <div class="form-group">
-                        <input type="hidden" name="process" class="form-control" value="job" />
-                    </div>
+                <div class="form-group">
+                    <input type="hidden" name="process" class="form-control" value="job" />
+                </div>
                 @endif
                 @csrf
                 @if(count($errors))
-                    <div class="alert alert-danger">
-                        <strong>Whoops!</strong> There were some problems with your input.
-                        <br />
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.
+                    <br />
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
                 @endif
-                <div class="form-group col-md-12 text-center">
-                    <button type="submit" class="btn job_btn">
-                        Save <i class="far fa-save"></i>
-                    </button>
+                <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                    <div class="row text-center">
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                            <a class="btn expert-btn1" href="/viewprofile">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </a>
+                        </div>
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 text-left">
+                            <button type="submit" class="btn expert-btn1">
+                                Save <i class="far fa-save"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
@@ -96,42 +105,41 @@
                 </thead>
                 <tbody>
                     @foreach($jobexp as $je)
-                        <tr>
-                            <td>{{ $je->profile }}</td>
-                            <td>{{ $je->organisation }}</td>
-                            <td>{{ $je->location }}</td>
-                            <td>{{ $je->description }}</td>
-                            <td>{{ $je->currentjob }}</td>
-                            <td>{{ substr($je->startdate,0,10) }}</td>
-                            <td>{{ substr($je->enddate,0,10) }}</td>
-                            <td>
-                                <form method="POST" action="/deleteJobexperience">
-                                    @csrf
-                                    <input type="hidden" name="jobid" value={{ $je->jobid }} />
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                    @if($process=="internship")
-                                        <div class="form-group">
-                                            <input type="hidden" name="process" class="form-control"
-                                                value="internship" />
-                                        </div>
-                                    @endif
-                                    @if($process=="job")
-                                        <div class="form-group">
-                                            <input type="hidden" name="process" class="form-control" value="job" />
-                                        </div>
-                                    @endif
-                                </form>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>{{ $je->profile }}</td>
+                        <td>{{ $je->organisation }}</td>
+                        <td>{{ $je->location }}</td>
+                        <td>{{ $je->description }}</td>
+                        <td>{{ $je->currentjob }}</td>
+                        <td>{{ substr($je->startdate,0,10) }}</td>
+                        <td>{{ substr($je->enddate,0,10) }}</td>
+                        <td>
+                            <form method="POST" action="/deleteJobexperience">
+                                @csrf
+                                <input type="hidden" name="jobid" value={{ $je->jobid }} />
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                                @if($process=="internship")
+                                <div class="form-group">
+                                    <input type="hidden" name="process" class="form-control" value="internship" />
+                                </div>
+                                @endif
+                                @if($process=="job")
+                                <div class="form-group">
+                                    <input type="hidden" name="process" class="form-control" value="job" />
+                                </div>
+                                @endif
+                            </form>
+                        </td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>
             <div class="form-group col-md-12">
                 @if($process=="internship")
-                    <a href="/internshipfinal" class="btn job_btn">View Internship form</a>
+                <a href="/internshipfinal" class="btn job_btn">View Internship form</a>
                 @endif
                 @if($process=="job")
-                    <a href="/jobfinal" class="btn job_btn">View Job Application form</a>
+                <a href="/jobfinal" class="btn job_btn">View Job Application form</a>
                 @endif
             </div>
         </div>

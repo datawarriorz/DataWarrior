@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="{{ asset('css/expert/expert-1-master.css') }}" />
 <link rel="stylesheet" href="{{ asset('css/expert/expert-2-navbar.css') }}" />
 <div class="navbar-container">
     <nav class="navbar navbar-expand-lg">
@@ -58,7 +57,7 @@
                                 <i class="fas fa-user-cog"></i> Settings
                             </a>
                             <a class="dropdown-item" href="/logoutexpert">
-                                <i class="fas fa-sign-out-alt"></i>Logout
+                                <i class="fas fa-sign-out-alt"></i> Logout
                             </a>
 
                         </div>

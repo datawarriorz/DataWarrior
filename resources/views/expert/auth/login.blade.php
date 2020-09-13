@@ -1,7 +1,7 @@
-@extends('layout.expertlayout')
+@extends('expert.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/login.css" />
+<link rel="stylesheet" href="./css/expert/expert-3-login.css" />
 <br>
 <br>
 <div class="container">
@@ -64,8 +64,8 @@
                             <br>
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-2">
-                                    <button type="submit" class="btn login-btn">
-                                        {{ __('Sign in') }}
+                                    <button type="submit" class="btn tab-edit-btn">
+                                        Sign in
                                     </button>
                                     @if(Route::has('password.request'))
                                     <br>

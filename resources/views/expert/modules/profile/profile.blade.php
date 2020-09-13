@@ -13,8 +13,8 @@
                     <div class="profile-head">
                         <div class="col-md-12">
                             <div class="row">
-                                <div class="col-md-2" style="padding-left: 0;padding-right:0">
-                                    <div class="col-md-12" style="padding-left: 0;padding-right:0">
+                                <div class="col-md-2 text-center" style="padding-left: 0;padding-right:0">
+                                    <div class="col-12" style="padding-left: 0;padding-right:0">
                                         {{-- <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($expertobj->ex_image); ?>"
                                             style="height:280px;width:100%" /> --}}
                                         <img src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com"
@@ -42,7 +42,7 @@
                                         </form> --}}
                                     </div>
                                 </div>
-                                <div class="col-md-10" style="padding-left: 33px">
+                                <div class="col-10 text-center" style="padding-left: 33px">
                                     <h5>{{ $expertobj->ex_firstname }} {{ $expertobj->ex_lastname }}</h5>
                                     <br>
                                     <h6>{{ $expertobj->ex_aboutme }}</h6>
@@ -79,7 +79,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-content profile-tab" id="myTabContent" style="overflow-x: scroll;">
                         <div class="tab-pane fade show active" id="userdetails" role="tabpanel"
                             aria-labelledby="home-tab">
                             <div class="row">

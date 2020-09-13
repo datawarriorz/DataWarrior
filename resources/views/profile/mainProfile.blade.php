@@ -102,11 +102,21 @@
                         </label>
                     </div>
                 </div>
+                <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                    <div class="row text-center">
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                            <a class="btn expert-btn1" href="/viewprofile">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </a>
+                        </div>
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 text-left">
+                            <button type="submit" class="btn expert-btn1">
+                                Save <i class="far fa-save"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
                 <div class="form-group col-md-12 text-center">
-                    <button type="submit" class="btn job_btn">
-                        Save <i class="far fa-save"></i>
-                    </button>
-                    <br>
                     <a class="btn btn-link" href="{{ route('password.request') }}">
                         {{ __('Reset Your Password?') }}
                     </a>

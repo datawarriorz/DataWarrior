@@ -27,7 +27,7 @@
                             <select class="form-control custom-select col-md-12" id="skill_level_id"
                                 name="skill_level_id">
                                 @foreach($skilllevel as $sl)
-                                    <option value={{ $sl->skill_level_id }}>{{ $sl->skill_level_name }}</option>
+                                <option value={{ $sl->skill_level_id }}>{{ $sl->skill_level_name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -37,30 +37,39 @@
                                 <button type="submit" class="btn skill_btn">
                                     Save <i class="far fa-save"></i>
                                 </button>
+
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <div class="col-md-12 text-center">
+                                <br>
+                                <a class="btn expert-btn1" href="/viewprofile">
+                                    <i class="fas fa-arrow-left"></i> Back
+                                </a>
                             </div>
                         </div>
                         @if($process=="internship")
-                            <div class="form-group">
-                                <input type="hidden" name="process" class="form-control" value="internship" />
-                            </div>
+                        <div class="form-group">
+                            <input type="hidden" name="process" class="form-control" value="internship" />
+                        </div>
                         @endif
                         @if($process=="job")
-                            <div class="form-group">
-                                <input type="hidden" name="process" class="form-control" value="job" />
-                            </div>
+                        <div class="form-group">
+                            <input type="hidden" name="process" class="form-control" value="job" />
+                        </div>
                         @endif
 
                         @csrf
                         @if(count($errors))
-                            <div class="alert alert-danger">
-                                <strong>Whoops!</strong> There were some problems with your input.
-                                <br />
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.
+                            <br />
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                         @endif
 
                     </form>
@@ -83,50 +92,48 @@
                         <tbody>
                             <?php $i=0; ?>
                             @foreach($skills as $skill)
-                                <tr>
-                                    <td>
-                                        <?php $i++; ?>
-                                        <?php echo $i;?>
-                                    </td>
-                                    <td>
-                                        {{ $skill->skill_name }}
-                                    </td>
-                                    <td>
-                                        @foreach($skilllevel as $sk)
-                                            @if($sk->skill_level_id==$skill->skill_level_id)
-                                                {{ $sk->skill_level_name }}
-                                            @endif
-                                        @endforeach
-                                    </td>
-                                    <td>
-                                        <form method="POST" action="/deleteskills">
-                                            @csrf
-                                            <input type="hidden" name="userskills_id"
-                                                value={{ $skill->userskills_id }} />
-                                            @if($process=="internship")
-                                                <div class="form-group">
-                                                    <input type="hidden" name="process" class="form-control"
-                                                        value="internship" />
-                                                </div>
-                                            @endif
-                                            @if($process=="job")
-                                                <div class="form-group">
-                                                    <input type="hidden" name="process" class="form-control"
-                                                        value="job" />
-                                                </div>
-                                            @endif
-                                            <button type="submit" class="btn btn-danger" onclick="">Delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>
+                                    <?php $i++; ?>
+                                    <?php echo $i;?>
+                                </td>
+                                <td>
+                                    {{ $skill->skill_name }}
+                                </td>
+                                <td>
+                                    @foreach($skilllevel as $sk)
+                                    @if($sk->skill_level_id==$skill->skill_level_id)
+                                    {{ $sk->skill_level_name }}
+                                    @endif
+                                    @endforeach
+                                </td>
+                                <td>
+                                    <form method="POST" action="/deleteskills">
+                                        @csrf
+                                        <input type="hidden" name="userskills_id" value={{ $skill->userskills_id }} />
+                                        @if($process=="internship")
+                                        <div class="form-group">
+                                            <input type="hidden" name="process" class="form-control"
+                                                value="internship" />
+                                        </div>
+                                        @endif
+                                        @if($process=="job")
+                                        <div class="form-group">
+                                            <input type="hidden" name="process" class="form-control" value="job" />
+                                        </div>
+                                        @endif
+                                        <button type="submit" class="btn btn-danger" onclick="">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
                     @if($process=="internship")
-                        <a href="/internshipfinal" class="btn skill_btn">View Internship form</a>
+                    <a href="/internshipfinal" class="btn skill_btn">View Internship form</a>
                     @endif
                     @if($process=="job")
-                        <a href="/jobfinal" class="btn skill_btn">View Job Application form</a>
+                    <a href="/jobfinal" class="btn skill_btn">View Job Application form</a>
                     @endif
                 </div>
             </div>

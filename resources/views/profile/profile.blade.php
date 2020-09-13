@@ -254,6 +254,14 @@
                             </a>
                         </div>
                     </div>
+                    <div class="form-group col-md-12">
+                        <div class="col-md-12 text-center">
+                            <br>
+                            <a class="btn expert-btn1" href="/">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

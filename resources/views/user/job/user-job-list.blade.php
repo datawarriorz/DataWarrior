@@ -26,7 +26,7 @@
                     <br>
                     <div class="card">
                         <p></p>
-                        <h5><small>FILTERS <i class="fas fa-filter"></i></small></h5>
+                        <h5><small><b>FILTERS</b><i class="fas fa-filter"></i></small></h5>
                         <div class="card-body text-left">
                             <form method="POST" action="/jobfilterapply">
                                 @csrf

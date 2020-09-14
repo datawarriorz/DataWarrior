@@ -25,13 +25,17 @@ class CertificationController extends Controller
 
     public function requestcertification(Request $request)
     {
-        Validator::make($request->all(), [
+        $validator=Validator::make($request->all(), [
             'title' => 'required|min:5|max:191',
             'description' => 'required',
             'provider' => 'required|min:3|max:100',
             
             
         ]);
+        if ($validator->fails()) { // on validator found any error
+            // pass validator object in withErrors method & also withInput it should be null by default
+            return redirect('/certification')->withErrors($validator)->withInput();
+        }
         $certificationrequestedobj = new CertificationRequested();
         $certificationrequestedobj->title = $request->title;
         $certificationrequestedobj->description = $request->description;

@@ -59,7 +59,7 @@ class ProfileController extends Controller
 
     public function updateUser(Request $request)
     {
-        Validator::make($request->all(), [
+        $validator=Validator::make($request->all(), [
             'first_name' => 'required|min:3|max:35',
             'last_name' => 'required|min:3|max:35',
             'email' => 'required|email|unique:users',
@@ -70,7 +70,7 @@ class ProfileController extends Controller
             
         ]);
         if ($validator->fails()) { // on validator found any error
-            return redirect('/skills')->withErrors($validator)->withInput();
+            return redirect('/userdetails')->withErrors($validator)->withInput();
         }
         $file = $request->file('u_image');
         if ($file != null) {

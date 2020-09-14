@@ -17,6 +17,17 @@ class NoAuthController extends Controller
 
     public function contactusreq(Request $request)
     {
+        $validator=Validator::make($request->all(), [
+            'name' => 'required|min:3|max:35',
+            'subject' => 'required|min:3|max:100',
+            'email' => 'required|email',
+            'description' => 'required',
+            
+            
+        ]);
+        if ($validator->fails()) { // on validator found any error
+            return redirect('/contact')->withErrors($validator)->withInput();
+        }
         $contactusobj=new ContactUs();
         $contactusobj->name=$request->name;
         $contactusobj->email=$request->email;

@@ -65,20 +65,20 @@ class ExpertController extends Controller
     }
     public function updatebasicdetails(Request $request)
     {
-        Validator::make($request->all(), [
+        $validator=Validator::make($request->all(), [
             'ex_firstname' => 'required|min:3|max:35',
             'ex_lastname' => 'required|min:3|max:35',
             'ex_dateofbirth' => 'date|before:tomorrow',
             'ex_aboutme' => 'required|min:3|max:150',
             'ex_description' => 'required',
-            'email' => 'required|unique:experts',
+            'email' => 'required|email|unique:experts',
             'ex_contactcode' => 'required|numeric',
             'ex_contactno' => 'required|digits:10',
             
             
         ]);
         if ($validator->fails()) { // on validator found any error
-            return redirect('/skills')->withErrors($validator)->withInput();
+            return redirect('/expert-profile-edit')->withErrors($validator)->withInput();
         }
         Expert::where('ex_id', Auth::user()->ex_id)->update([
             'ex_firstname' => $request->ex_firstname,
@@ -103,7 +103,7 @@ class ExpertController extends Controller
     //////////////////////////////////////////////////////////////////////////
     public function addexpdetails(Request $request)
     {
-        Validator::make($request->all(), [
+        $validator=Validator::make($request->all(), [
             'exp_profile' => 'required|min:3|max:100',
             'exp_organisation' => 'required|min:3|max:100',
             'exp_location' => 'required|min:3|max:50',
@@ -114,7 +114,7 @@ class ExpertController extends Controller
             
         ]);
         if ($validator->fails()) { // on validator found any error
-            return redirect('/skills')->withErrors($validator)->withInput();
+            return redirect('/expert-experience-edit')->withErrors($validator)->withInput();
         }
 
         $experienceobj = new ExExperience();
@@ -155,13 +155,13 @@ class ExpertController extends Controller
     //////////////////////////////////////////////////////////////////////////
     public function addquadetails(Request $request)
     {
-        Validator::make($request->all(), [
+        $validator=Validator::make($request->all(), [
             'qua_degree' => 'required|min:3|max:191',
             'qua_univerity' => 'required|min:3|max:191',
             
         ]);
         if ($validator->fails()) { // on validator found any error
-            return redirect('/skills')->withErrors($validator)->withInput();
+            return redirect('/expert-qualification-edit')->withErrors($validator)->withInput();
         }
         $qualificationobj = new ExQualification();
         $qualificationobj->qualtype_id = $request->qualtype_id;
@@ -192,6 +192,14 @@ class ExpertController extends Controller
     //////////////////////////////////////////////////////////////////////////
     public function addskilldetails(Request $request)
     {
+        $validator=Validator::make($request->all(), [
+            'sk_name' => 'required|min:2|max:20',
+            
+            
+        ]);
+        if ($validator->fails()) { // on validator found any error
+            return redirect('/expert-skill-edit')->withErrors($validator)->withInput();
+        }
         $skillsobj = new ExSkills();
         $skillsobj->sk_name = $request->sk_name;
         $skillsobj->ex_id = Auth::user()->ex_id;
@@ -271,7 +279,7 @@ class ExpertController extends Controller
 
     public function editarticle(Request $request)
     {
-        Validator::make($request->all(), [
+        $validator=Validator::make($request->all(), [
             'title' => 'required|min:5|max:191',
             'author' => 'required|min:2|max:191',
             'description' => 'required',
@@ -279,7 +287,7 @@ class ExpertController extends Controller
             'article_image' => 'required|file',
         ]);
         if ($validator->fails()) { // on validator found any error
-            return redirect('/skills')->withErrors($validator)->withInput();
+            return redirect('/expert-edit-articleform')->withErrors($validator)->withInput();
         }
 
         $article=Article::find($request->article_id);
@@ -333,7 +341,7 @@ class ExpertController extends Controller
 
     public function postjob(Request $request)
     {
-        Validator::make($request->all(), [
+        $validator=Validator::make($request->all(), [
             'job_title' => 'required|min:5|max:191',
             'job_description' => 'required|min:5',
             'job_company' => 'required|min:3|max:50',
@@ -351,7 +359,7 @@ class ExpertController extends Controller
             
         ]);
         if ($validator->fails()) { // on validator found any error
-            return redirect('/skills')->withErrors($validator)->withInput();
+            return redirect('/expert-post-job-form')->withErrors($validator)->withInput();
         }
 
         $jobobj = new Jobs();
@@ -411,7 +419,7 @@ class ExpertController extends Controller
     
     public function postinternship(Request $request)
     {
-        Validator::make($request->all(), [
+        $validator=Validator::make($request->all(), [
             'job_title' => 'required|min:5|max:191',
             'job_description' => 'required|min:5',
             'job_company' => 'required|min:3|max:50',
@@ -429,7 +437,7 @@ class ExpertController extends Controller
             
         ]);
         if ($validator->fails()) { // on validator found any error
-            return redirect('/skills')->withErrors($validator)->withInput();
+            return redirect('/expert-post-internship-form')->withErrors($validator)->withInput();
         }
         $jobobj = new Jobs();
         $jobobj->job_title=$request->job_title;

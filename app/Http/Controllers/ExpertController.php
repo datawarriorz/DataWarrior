@@ -71,7 +71,6 @@ class ExpertController extends Controller
             'ex_dateofbirth' => 'date|before:tomorrow',
             'ex_aboutme' => 'required|min:3|max:150',
             'ex_description' => 'required',
-            'email' => 'required|email|unique:experts',
             'ex_contactcode' => 'required|numeric',
             'ex_contactno' => 'required|digits:10',
             

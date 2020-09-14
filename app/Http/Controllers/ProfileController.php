@@ -62,10 +62,9 @@ class ProfileController extends Controller
         $validator=Validator::make($request->all(), [
             'first_name' => 'required|min:3|max:35',
             'last_name' => 'required|min:3|max:35',
-            'email' => 'required|email|unique:users',
             'contact_no' => 'required|numeric|unique:users',
             'date_of_birth' => 'required|min:3|max:20',
-            'gender' => 'required|min:3|max:20|same:password',
+            
             
             
         ]);

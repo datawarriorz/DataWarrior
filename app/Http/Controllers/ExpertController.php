@@ -13,6 +13,7 @@ use App\ExSkills;
 use App\SkillLevel;
 use App\Jobs;
 use App\JobsApplied;
+use Illuminate\Support\Facades\Validator;
 
 class ExpertController extends Controller
 {
@@ -76,9 +77,7 @@ class ExpertController extends Controller
             
             
         ]);
-        if ($validator->fails()) { // on validator found any error
-            return redirect('/skills')->withErrors($validator)->withInput();
-        }
+       
         Expert::where('ex_id', Auth::user()->ex_id)->update([
             'ex_firstname' => $request->ex_firstname,
             'ex_lastname' => $request->ex_lastname,
@@ -112,9 +111,7 @@ class ExpertController extends Controller
             'end_date' =>'nullable|date|after:start_date|before:tomorrow',
             
         ]);
-        if ($validator->fails()) { // on validator found any error
-            return redirect('/skills')->withErrors($validator)->withInput();
-        }
+       
 
         $experienceobj = new ExExperience();
         $experienceobj->exp_profile = $request->exp_profile;
@@ -239,9 +236,7 @@ class ExpertController extends Controller
             'article_image' => 'required|file',
         ]);
         
-        if ($validator->fails()) { // on validator found any error
-            return redirect('/skills')->withErrors($validator)->withInput();
-        }
+        
         $article=new Article();
         $article->title=$request->title;
         $article->creator_id=Auth::user()->ex_id;
@@ -349,9 +344,7 @@ class ExpertController extends Controller
             'job_openings' => 'required|numeric',
             
         ]);
-        if ($validator->fails()) { // on validator found any error
-            return redirect('/skills')->withErrors($validator)->withInput();
-        }
+       
 
         $jobobj = new Jobs();
         $jobobj->job_title=$request->job_title;
@@ -427,9 +420,7 @@ class ExpertController extends Controller
             'job_openings' => 'required|numeric',
             
         ]);
-        if ($validator->fails()) { // on validator found any error
-            return redirect('/skills')->withErrors($validator)->withInput();
-        }
+      
         $jobobj = new Jobs();
         $jobobj->job_title=$request->job_title;
         $jobobj->job_description=$request->job_description;

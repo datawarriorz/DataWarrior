@@ -13,6 +13,7 @@ use App\Expert;
 use App\Article;
 use DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {

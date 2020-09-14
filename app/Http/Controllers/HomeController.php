@@ -26,8 +26,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $expertsobj=Expert::all();
-        return view('home', ['expertsobj'=> $expertsobj]);
+        return view('home');
     }
 
    

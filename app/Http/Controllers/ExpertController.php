@@ -40,6 +40,8 @@ class ExpertController extends Controller
     }
     public function getlogoutexpert()
     {
+        Auth::logout();
+
         return view('expert.auth.login');
     }
 

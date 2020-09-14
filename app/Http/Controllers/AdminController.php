@@ -35,10 +35,13 @@ class AdminController extends Controller
     public function logoutadmin()
     {
         Auth::logout();
+
         return view('admin.auth.login');
     }
     public function getlogoutadmin()
     {
+        Auth::logout();
+
         return view('admin.auth.login');
     }
 

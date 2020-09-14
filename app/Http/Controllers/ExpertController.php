@@ -228,7 +228,7 @@ class ExpertController extends Controller
     
     public function postarticle(Request $request)
     {
-        Validator::make($request->all(), [
+        $this->validate($request, [
             'title' => 'required|min:5|max:191',
             'author' => 'required|min:2|min:191',
             'description' => 'required',

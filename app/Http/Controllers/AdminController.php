@@ -47,6 +47,13 @@ class AdminController extends Controller
 
     public function postarticle(Request $request)
     {
+        Validator::make($request->all(), [
+            'title' => 'required|min:5|max:191',
+            'author' => 'required|min:2|min:191',
+            'description' => 'required',
+            'content' => 'required',
+            'article_image' => 'required|file',
+        ]);
         $article=new Article();
         $article->title=$request->title;
         $article->creator_id=Auth::user()->admin_id;
@@ -118,6 +125,13 @@ class AdminController extends Controller
 
     public function editarticle(Request $request)
     {
+        Validator::make($request->all(), [
+            'title' => 'required|min:5|max:191',
+            'author' => 'required|min:2|min:191',
+            'description' => 'required',
+            'content' => 'required',
+            'article_image' => 'required|file',
+        ]);
         $article=Article::find($request->article_id);
         $article->title=$request->title;
         $article->author=$request->author;
@@ -159,6 +173,18 @@ class AdminController extends Controller
     }
     public function createexpert(Request $request)
     {
+        Validator::make($request->all(), [
+            
+            'ex_firstname' => 'required|min:3|max:35',
+            'ex_lastname' => 'required|min:3|max:35',
+            'ex_dateofbirth' => 'date|before:tomorrow',
+            'ex_aboutme' => 'required|min:3|max:150',
+            'ex_description' => 'required',
+            'email' => 'required|unique:experts',
+            'ex_contactcode' => 'required|numeric',
+            'ex_contactno' => 'required|digits:10',
+            
+        ]);
         $expertobj= new Expert();
         $expertobj->ex_firstname = $request->ex_firstname;
         $expertobj->ex_lastname = $request->ex_lastname;
@@ -183,6 +209,15 @@ class AdminController extends Controller
     }
     public function createcounselor(Request $request)
     {
+        Validator::make($request->all(), [
+            'co_firstname' => 'required|min:3|max:35',
+            'co_lastname' => 'required|min:3|max:35',
+            'email' => 'required|unique:counselor',
+            'password' => 'required',
+            'referral_code' => 'required',
+            
+        ]);
+
         $counselorobj= new Counselor();
         $counselorobj->co_firstname = $request->co_firstname;
         $counselorobj->co_lastname = $request->co_lastname;

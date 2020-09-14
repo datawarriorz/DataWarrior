@@ -59,15 +59,19 @@ class ProfileController extends Controller
 
     public function updateUser(Request $request)
     {
-        // Validator::make($request->all(), [
-        //     'firstname' => 'required|min:3|max:35',
-        //     'lastname' => 'required|min:3|max:35',
-        //     'email' => 'required|email|unique:users',
-        //     'contact_no' => 'required|numeric|unique:users',
-        //     'password' => 'required|min:3|max:20',
-        //     'confirm' => 'required|min:3|max:20|same:password',
-        //     'dateofbirth' => 'required',
-        // ]);
+        Validator::make($request->all(), [
+            'first_name' => 'required|min:3|max:35',
+            'last_name' => 'required|min:3|max:35',
+            'email' => 'required|email|unique:users',
+            'contact_no' => 'required|numeric|unique:users',
+            'date_of_birth' => 'required|min:3|max:20',
+            'gender' => 'required|min:3|max:20|same:password',
+            
+            
+        ]);
+        if ($validator->fails()) { // on validator found any error
+            return redirect('/skills')->withErrors($validator)->withInput();
+        }
         $file = $request->file('u_image');
         if ($file != null) {
             $u_image = $file->openFile()->fread($file->getSize());
@@ -133,6 +137,21 @@ class ProfileController extends Controller
 
     public function updateQualification(Request $request)
     {
+        $validator=Validator::make($request->all(), [
+            'college_name' => 'required|min:3',
+            'university' => 'required|min:3',
+            'percentage' => 'required|numeric',
+            'course_name' => 'required|alpha_num|min:3',
+            'grade' => 'required|alpha',
+            'start_date' =>'required|date|before:tomorrow',
+            'end_date' =>'required|date|after:start_date',
+            'grade' =>'required',
+
+        ], );
+        if ($validator->fails()) { // on validator found any error
+            return redirect('/qualification')->withErrors($validator)->withInput();
+        }
+
         $qualification = new UserQualification();
         $qualification->user_id = Auth::user()->user_id;
         $qualification->college_name = $request->college_name;
@@ -144,18 +163,7 @@ class ProfileController extends Controller
         $qualification->course_name = $request->course_name;
         $qualification->grade = $request->grade;
         //dd($qualification);
-        // $validator=Validator::make($request->all(), [
-        //     'college_name' => 'required|min:3',
-        //     'university' => 'required|min:3',
-        //     'percentage' => 'required|numeric',
-        //     'course_name' => 'required|min:3',
-        //     'grade' => 'required',
-        //     'end_date' =>'required',
-        //     'start_date' =>'required',
-        // ], []);
-        // if ($validator->fails()) { // on validator found any error
-        //     return redirect('/qualification')->withErrors($validator)->withInput();
-        // }
+        
 
         $qualification->save();
         if ($request->process == "internship") {
@@ -211,6 +219,17 @@ class ProfileController extends Controller
 
     public function updateJobexperience(Request $request)
     {
+        $validator=Validator::make($request->all(), [
+            'profile' => 'required|min:3',
+            'organisation' => 'required|min:3',
+            'location' => 'required|min:3',
+            'description' => 'required|min:3',
+            'start_date' =>'required|date|before:tomorrow',
+            'end_date' =>'nullable|date|after:start_date|before:tomorrow',
+        ], );
+        if ($validator->fails()) { // on validator found any error
+            return redirect('/jobexperience')->withErrors($validator)->withInput();
+        }
         $jobexp = new Jobexperience();
         $jobexp->user_id = Auth::user()->user_id;
         $jobexp->profile = $request->profile;
@@ -225,18 +244,8 @@ class ProfileController extends Controller
             $jobexp->currentjob = $request->currentjob;
         }
 
-        //dd($qualification);
-        //     $validator=Validator::make($request->all(), [
-        //     'profile' => 'required|min:3',
-        //     'organisation' => 'required|min:3',
-        //     'location' => 'required|min:3',
-        //     'description' => 'required|min:3',
-        //     'enddate' =>'required',
-        //     'startdate' =>'required',
-        // ], []);
-        //     if ($validator->fails()) { // on validator found any error
-        //         return redirect('/jobexperience')->withErrors($validator)->withInput();
-        //     }
+        
+           
 
         $jobexp->save();
         if ($request->process == "internship") {
@@ -292,13 +301,12 @@ class ProfileController extends Controller
 
     public function updateSkills(Request $request)
     {
-        // $validator=Validator::make($request->all(), [
-        //     'skill' => 'required|min:3',
-        // ],[]);
-        //     if ($validator->fails()) // on validator found any error
-        //   {
-        //     return redirect('/skills')->withErrors($validator)->withInput();
-        //   }
+        $validator=Validator::make($request->all(), [
+            'skill_name' => 'required|min:2',
+        ], );
+        if ($validator->fails()) { // on validator found any error
+            return redirect('/skills')->withErrors($validator)->withInput();
+        }
         $skills = new UserSkills();
         $skills->user_id = Auth::user()->user_id;
         $skills->skill_name = $request->skill_name;

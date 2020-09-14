@@ -25,6 +25,13 @@ class CertificationController extends Controller
 
     public function requestcertification(Request $request)
     {
+        Validator::make($request->all(), [
+            'title' => 'required|min:5|max:191',
+            'description' => 'required',
+            'provider' => 'required|min:3|max:100',
+            
+            
+        ]);
         $certificationrequestedobj = new CertificationRequested();
         $certificationrequestedobj->title = $request->title;
         $certificationrequestedobj->description = $request->description;

@@ -234,14 +234,14 @@ class ExpertController extends Controller
     {
         $validator=Validator::make($request->all(), [
             'title' => 'required|min:5|max:191',
-            'author' => 'required|min:2|min:191',
+            'author' => 'required|min:2|max:191',
             'description' => 'required',
             'content' => 'required',
             'article_image' => 'required|file',
         ]);
         
         if ($validator->fails()) { // on validator found any error
-            return redirect('/expert-post-job-form')->withErrors($validator)->withInput();
+            return redirect('/expert-postarticle')->withErrors($validator)->withInput();
         }
         $article=new Article();
         $article->title=$request->title;
@@ -273,7 +273,7 @@ class ExpertController extends Controller
     {
         Validator::make($request->all(), [
             'title' => 'required|min:5|max:191',
-            'author' => 'required|min:2|min:191',
+            'author' => 'required|min:2|max:191',
             'description' => 'required',
             'content' => 'required',
             'article_image' => 'required|file',

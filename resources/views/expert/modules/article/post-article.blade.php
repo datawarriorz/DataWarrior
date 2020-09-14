@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div class="card-body dashboard-card-body">
-                        <form method="POST" action="/expert-post-job" enctype="multipart/form-data">
+                        <form method="POST" action="/expert-postarticle" enctype="multipart/form-data">
                             @csrf
                             @if(count($errors))
                             <div class="alert alert-danger">

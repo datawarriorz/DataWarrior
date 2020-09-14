@@ -50,7 +50,7 @@ class AdminController extends Controller
     {
         Validator::make($request->all(), [
             'title' => 'required|min:5|max:191',
-            'author' => 'required|min:2|min:191',
+            'author' => 'required|min:2|max:191',
             'description' => 'required',
             'content' => 'required',
             'article_image' => 'required|file',
@@ -128,7 +128,7 @@ class AdminController extends Controller
     {
         Validator::make($request->all(), [
             'title' => 'required|min:5|max:191',
-            'author' => 'required|min:2|min:191',
+            'author' => 'required|min:2|max:191',
             'description' => 'required',
             'content' => 'required',
             'article_image' => 'required|file',

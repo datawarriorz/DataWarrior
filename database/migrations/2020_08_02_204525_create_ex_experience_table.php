@@ -18,7 +18,7 @@ class CreateExExperienceTable extends Migration
             $table->string('exp_profile');
             $table->string('exp_organisation');
             $table->string('exp_location');
-            $table->string('exp_description')->nullable();
+            $table->longText('exp_description')->nullable();
             $table->string('exp_currentjob')->nullable();
             $table->date('exp_startdate')->nullable();
             $table->date('exp_enddate')->nullable();

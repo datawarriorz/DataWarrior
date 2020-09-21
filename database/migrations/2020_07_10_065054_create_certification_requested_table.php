@@ -16,7 +16,7 @@ class CreateCertificationRequestedTable extends Migration
         Schema::create('certification_requested', function (Blueprint $table) {
             $table->id('cert_req_id');
             $table->string('title');
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->string('provider')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users');

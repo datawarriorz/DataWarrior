@@ -1,38 +1,7 @@
-Future Iteration Ideas
-	Individual images of services with Description.
-	
-	
-	
-	
-experts
-certification
-projects
-articles
 
-
-counsellor 
 data 5000 records tested
-admin panel
-	newsletter
-
-
 style="white-space: pre-line" for getting new line back in front end
 
-
-
-User-side
-articles
-referral
-newsletter 
-experts
-user Dp
-//Internships and jobs
-
-ui beautify
-
-
-default dp
-userprofile back link
 
 	
 

@@ -18,7 +18,7 @@ class CreateProjectsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users');
             $table->string('name');
-            $table->string('description');
+            $table->longText('description');
             $table->string('reqskill1');
             $table->string('reqskill2');
             $table->string('reqskill3');

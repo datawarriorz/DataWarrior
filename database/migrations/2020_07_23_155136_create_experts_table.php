@@ -20,7 +20,7 @@ class CreateExpertsTable extends Migration
             $table->binary('ex_image')->nullable();
             $table->date('ex_dateofbirth')->nullable();
             $table->string('ex_aboutme')->nullable();
-            $table->string('ex_description')->nullable();
+            $table->longText('ex_description')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->string('ex_contactcode')->nullable();

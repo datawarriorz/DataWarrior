@@ -78,7 +78,6 @@ class ProfileController extends Controller
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'u_image' => $u_image,
-                'email' => $request->email,
                 'contact_no' => $request->contact_no,
                 'date_of_birth' => $request->date_of_birth,
                 'gender' => $request->gender
@@ -87,7 +86,6 @@ class ProfileController extends Controller
             User::where('user_id', Auth::user()->user_id)->update([
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
-                'email' => $request->email,
                 'contact_no' => $request->contact_no,
                 'date_of_birth' => $request->date_of_birth,
                 'gender' => $request->gender

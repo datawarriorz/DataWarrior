@@ -10,7 +10,10 @@ views
         admin-listarticles.blade.php
         admin-postaricle.blade.php
         admin-view-article.blade.php
+    
+    user
         
+
     expert
         auth
             login.blade.php
@@ -32,11 +35,7 @@ views
                 list-articles.blade.php
                 view-article.blade.php
                 edit-article.blade.php
-                
-            certification
-
-            expertspeak
-
+            
             job
                 post-job.blade.php
                 view-jobs-posted.blade.php
@@ -44,6 +43,12 @@ views
             internship
                 post-internship.blade.php
                 view-internships-posted.blade.php
+
+            certification
+
+            expertspeak
+
+            
         
         
         

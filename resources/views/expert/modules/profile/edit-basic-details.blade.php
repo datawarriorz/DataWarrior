@@ -25,7 +25,7 @@
                             (We'll never share your email with anyone else)
                         </small>:
                     </label>
-                    <input type="email" class="form-control" id="email" required name='email'
+                    <input type="email" class="form-control" id="email" disabled name='email'
                         aria-describedby="emailHelp" placeholder="Enter email" value="{{ $expert->email }}">
                 </div>
                 <div class="form-group">

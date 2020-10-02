@@ -14,7 +14,8 @@
                 <div class="data-wrapper" style="">
                     <div class="col-12">
                         <h3>Maximize your potential</h3>
-                        <h1 class="text-orange"><b>Be a Data Warrior!</b></h1>
+                        <h1 class="text-orange"><b>Be a Data Warrior <img width="30rem" height="auto"
+                                    src="./images/torch1.png" alt="Logo" /></b></h1>
                     </div>
                     <br>
                     <div class="col-12">

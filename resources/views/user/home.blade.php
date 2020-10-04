@@ -2,34 +2,44 @@
 
 @section('content')
 <link rel="stylesheet" href="./css/main/home.css" />
-<div class="jumbotron" style="">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-        <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-5">
-                <div class="col-12 logo-image">
-                    <img class="logo" src="./images/justlogo2.png" alt="Logo" />
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-12 col-lg-7">
-                <div class="data-wrapper" style="">
-                    <div class="col-12">
-                        <h3>Maximize your potential</h3>
-                        <h1 class="text-orange"><b>Be a Data Warrior <img width="30rem" height="auto"
-                                    src="./images/torch1.png" alt="Logo" /></b></h1>
+@guest
+    <div class="jumbotron" style="">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-5">
+                    <div class="col-12 logo-image">
+                        <img class="logo" src="./images/justlogo2.png" alt="Logo" />
                     </div>
-                    <br>
-                    <div class="col-12">
-                        <a class="register-link" href="{{ route('register') }}">
-                            <button type="button" class="btn register-btn">
-                                Join Us!
-                            </button>
-                        </a>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-7">
+                    <div class="data-wrapper" style="">
+                        <div class="col-12">
+                            <h3>Maximize your potential</h3>
+                            <h1 class="text-orange"><b>Be a Data Warrior <img width="30rem" height="auto"
+                                        src="./images/torch1.png" alt="Logo" /></b></h1>
+                        </div>
+                        <br>
+                        <div class="col-12">
+                            <a class="register-link" href="{{ route('register') }}">
+                                <button type="button" class="btn register-btn">
+                                    Join Us!
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+@else
+    <br><br>
+    <div class="container">
+        <h1>
+            Welcome {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}!
+        </h1>
+    </div>
+
+@endguest
 <br><br>
 {{-- <hr class="seperator2">
 <div class="col-sm-12 col-md-12 col-lg-12 text-center">

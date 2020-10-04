@@ -19,6 +19,7 @@ class CreateCertificationTable extends Migration
             $table->unsignedBigInteger('price')->nullable();
             $table->longText('description')->nullable();
             $table->string('provider')->nullable();
+            $table->string('domain')->nullable();
             $table->string('validationperiod')->nullable();
             $table->string('prerequisites')->nullable();
             $table->string('status')->nullable();

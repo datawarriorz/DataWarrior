@@ -48,7 +48,7 @@ Route::get('/newsletterarticle/{article_id}', 'NoAuthController@newletterarticle
 
 Route::post('/user-referral', 'Auth\LoginController@userreferral');
 Route::get('/user-referral', function () {
-    return view('user.user-referral');
+    return view('user.auth.user-referral');
 });
 
 Route::get('/viewprofile', 'ProfileController@viewProfile')->middleware('auth');
@@ -71,7 +71,6 @@ Route::get('/skills', 'ProfileController@skills')->middleware('auth');
 Route::post('/skills', 'ProfileController@skills')->middleware('auth');
 Route::post('/updateskills', 'ProfileController@updateSkills')->middleware('auth');
 Route::post('/deleteskills', 'ProfileController@deleteSkills')->middleware('auth');
-
 Route::get('/internship', 'InternshipController@showinternship')->middleware('auth');
 Route::post('/internshipform', 'InternshipController@applyInternship')->middleware('auth');
 Route::get('/internshipfinal', 'InternshipController@showinternship')->middleware('auth');
@@ -89,13 +88,17 @@ Route::post('/applycertification', 'CertificationController@applycertification')
 Route::post('/requestcertification', 'CertificationController@requestcertification')->middleware('auth');
 
 Route::get('/jhome', 'JobController@showjobhome')->middleware('auth');
-Route::get('/jilist', 'JobController@showalljobs')->middleware('auth');
+Route::get('/jlist', 'JobController@showalljobs')->middleware('auth');
 Route::post('/jobfilterapply', 'JobController@jobfilterapply')->middleware('auth');
 Route::post('/viewjobdetails', 'JobController@showjobdetails')->middleware('auth');
 Route::get('/viewjobdetails', 'JobController@showjobdetails')->middleware('auth')->name('viewjobdetails');
 
 Route::post('/jobapply', 'JobController@userapplyjob')->middleware('auth');
 
+Route::get('/ihome', 'JobController@showinternshiphome')->middleware('auth');
+Route::get('/ilist', 'JobController@showallinternships')->middleware('auth');
+Route::post('/viewinternshipdetails', 'JobController@showinternshipdetails')->middleware('auth');
+Route::get('/viewinternshipdetails', 'JobController@showinternshipdetails')->middleware('auth')->name('viewinternshipdetails');
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Route::get('/expertlogin', 'Auth\ExpertLoginController@showLoginForm')->name('expert.login');

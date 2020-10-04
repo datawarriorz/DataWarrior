@@ -7,6 +7,7 @@ use App\Certification;
 use App\CertificationApplied;
 use App\CertificationRequested;
 use Illuminate\Support\Facades\Auth as Auth;
+use Illuminate\Support\Facades\Validator;
 
 class CertificationController extends Controller
 {
@@ -20,7 +21,7 @@ class CertificationController extends Controller
     {
         $certification = Certification::all();
         $certificationapplied = CertificationApplied::where('user_id', Auth::user()->user_id)->get();
-        return view('certification', ['certification' => $certification, 'certificationapplied' => $certificationapplied]);
+        return view('user.modules.certification.c-home', ['certification' => $certification, 'certificationapplied' => $certificationapplied]);
     }
 
     public function requestcertification(Request $request)
@@ -42,7 +43,7 @@ class CertificationController extends Controller
         $certificationrequestedobj->provider = $request->provider;
         $certificationrequestedobj->user_id = Auth::user()->user_id;
         $certificationrequestedobj->save();
-        return view('certificationreqack', ['certificationrequestedobj' => $certificationrequestedobj]);
+        return view('user.modules.certification.c-request-ack', ['certificationrequestedobj' => $certificationrequestedobj]);
     }
 
     public function applycertification(Request $request)
@@ -53,6 +54,6 @@ class CertificationController extends Controller
         $certificationapplied->save();
         $certification = Certification::where('cert_id', $request->cert_id)->get();
 
-        return view('certificationack', ['certification' => $certification,]);
+        return view('user.modules.certification.c-applied-ack', ['certification' => $certification,]);
     }
 }

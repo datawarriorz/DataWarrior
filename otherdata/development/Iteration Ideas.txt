@@ -1,8 +1,37 @@
+1. Data 5000 records tested
 
-data 5000 records tested
-style="white-space: pre-line" for getting new line back in front end
+2.  Certifications
+        IBM Certifications
+        (for Data Science, Project Management, Product Development)
 
+        Domain Certifications from our Experts 
+        (in current domoin training like Data Science, Digital Marketing, Search Engine Optimization etc)
 
-	
+        Domain Certification from Reputed Content Providers in  Education Technology
+
+        Skill Development
+        (speak to our counsellors) / experts)
+
+    Projects
+        Require Help in a Project
+        (Engineering, MBA, MCA, BSc)
+        
+        Offer a Project
+        (for companies looking to outsource their projects)
+
+        Work on an Ongoing Project
+        (to improve your project execution skills)
+
+        Counsellor Spk
+
+    Knowledge Forum
+        Blogs
+
+        Expert Speak
+
+        Articles
+
+        Courses
+
 
 

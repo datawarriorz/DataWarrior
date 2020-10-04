@@ -1,4 +1,4 @@
-@extends('layout.mainlayout')
+@extends('user.layout.masterlayout')
 
 @section('content')
 <div class="container">

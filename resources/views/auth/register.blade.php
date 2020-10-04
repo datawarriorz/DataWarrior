@@ -1,4 +1,4 @@
-@extends('layout.mainlayout')
+@extends('user.layout.masterlayout')
 
 @section('content')
 <br>
@@ -23,18 +23,19 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('register') }}"
+                        enctype="multipart/form-data">
                         @csrf
                         @if(count($errors))
-                        <div class="alert alert-danger">
-                            <strong>Whoops!</strong> There were some problems with your input.
-                            <br />
-                            <ul>
-                                @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
+                            <div class="alert alert-danger">
+                                <strong>Whoops!</strong> There were some problems with your input.
+                                <br />
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         @endif
                         <div class="row">
                             <div class="col-md-12">
@@ -80,8 +81,8 @@
                         </div>
                         <div class="form-group">
                             <label for="dob">Date of Birth :</label>
-                            <input type="date" class="form-control" value={{ old('dateofbirth') }} name="date_of_birth"
-                                id="dateofbirth">
+                            <input type="date" class="form-control" value={{ old('dateofbirth') }}
+                                name="date_of_birth" id="dateofbirth">
                         </div>
                         <div class="form-group">
                             <label for="password">Password :</label>

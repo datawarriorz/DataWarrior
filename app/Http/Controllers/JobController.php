@@ -22,85 +22,88 @@ class JobController extends Controller
     {
         $this->middleware('auth')->except('logout');
     }
-    public function showjob()
-    {
-        $job = JobPreferences::where('user_id', '=', Auth::user()->user_id)->get();
+    // public function showjob()
+    // {
+    //     $job = JobPreferences::where('user_id', '=', Auth::user()->user_id)->get();
 
-        if (count($job) != 0) {
-            $jobexp = Jobexperience::where('user_id', '=', Auth::user()->user_id)->get();
-            $skills = UserSkills::where('user_id', '=', Auth::user()->user_id)->get();
-            $skilllevel = SkillLevel::all();
-            $eduDetails = UserQualification::where('user_id', '=', Auth::user()->user_id)->get();
-            $qualificationType = QualificationTypes::all();
-            return view('jobfinal', [
-                'skills' => $skills,
-                'jobexp' => $jobexp, 'job' => $job,
-                'eduDetails' => $eduDetails,
-                'qualificationType' => $qualificationType,
-                'skilllevel' => $skilllevel
-            ]);
-        }
-        $jobexp = Jobexperience::where('user_id', '=', Auth::user()->user_id)->get();
-        $skills = UserSkills::where('user_id', '=', Auth::user()->user_id)->get();
-        $skilllevel = SkillLevel::all();
-        $eduDetails = UserQualification::where('user_id', '=', Auth::user()->user_id)->get();
-        $qualificationType = QualificationTypes::all();
-        return view('job', [
-            'skills' => $skills,
-            'jobexp' => $jobexp, 'job' => $job,
-            'eduDetails' => $eduDetails,
-            'qualificationType' => $qualificationType,
-            'skilllevel' => $skilllevel
-        ]);
-    }
+    //     if (count($job) != 0) {
+    //         $jobexp = Jobexperience::where('user_id', '=', Auth::user()->user_id)->get();
+    //         $skills = UserSkills::where('user_id', '=', Auth::user()->user_id)->get();
+    //         $skilllevel = SkillLevel::all();
+    //         $eduDetails = UserQualification::where('user_id', '=', Auth::user()->user_id)->get();
+    //         $qualificationType = QualificationTypes::all();
+    //         return view('jobfinal', [
+    //             'skills' => $skills,
+    //             'jobexp' => $jobexp, 'job' => $job,
+    //             'eduDetails' => $eduDetails,
+    //             'qualificationType' => $qualificationType,
+    //             'skilllevel' => $skilllevel
+    //         ]);
+    //     }
+    //     $jobexp = Jobexperience::where('user_id', '=', Auth::user()->user_id)->get();
+    //     $skills = UserSkills::where('user_id', '=', Auth::user()->user_id)->get();
+    //     $skilllevel = SkillLevel::all();
+    //     $eduDetails = UserQualification::where('user_id', '=', Auth::user()->user_id)->get();
+    //     $qualificationType = QualificationTypes::all();
+    //     return view('job', [
+    //         'skills' => $skills,
+    //         'jobexp' => $jobexp, 'job' => $job,
+    //         'eduDetails' => $eduDetails,
+    //         'qualificationType' => $qualificationType,
+    //         'skilllevel' => $skilllevel
+    //     ]);
+    // }
 
-    public function applyJob(Request $request)
-    {
-        $job = new JobPreferences();
-        $job->user_id = Auth::user()->user_id;
-        $job->preferreddomain1 = $request->preferreddomain1;
-        $job->preferreddomain2 = $request->preferreddomain2;
-        $job->preferreddomain3 = $request->preferreddomain3;
-        $job->salary = $request->salary;
-        $job->joblocation = $request->joblocation;
-        if ($request->counselling == null) {
-            $job->counselling = "No";
-        } else {
-            $job->counselling = $request->counselling;
-        }
-        $job->save();
+    // public function applyJob(Request $request)
+    // {
+    //     $job = new JobPreferences();
+    //     $job->user_id = Auth::user()->user_id;
+    //     $job->preferreddomain1 = $request->preferreddomain1;
+    //     $job->preferreddomain2 = $request->preferreddomain2;
+    //     $job->preferreddomain3 = $request->preferreddomain3;
+    //     $job->salary = $request->salary;
+    //     $job->joblocation = $request->joblocation;
+    //     if ($request->counselling == null) {
+    //         $job->counselling = "No";
+    //     } else {
+    //         $job->counselling = $request->counselling;
+    //     }
+    //     $job->save();
 
-        return redirect('/jobfinal');
-    }
+    //     return redirect('/jobfinal');
+    // }
 
-    public function showack()
-    {
-        return view('/joback');
-    }
+    // public function showack()
+    // {
+    //     return view('/joback');
+    // }
     
-    public function deleteJob(Request $request)
-    {
-        $res = JobPreferences::where('id', '=', $request->prefid)->delete();
-        return redirect()->back();
-    }
+    // public function deleteJob(Request $request)
+    // {
+    //     $res = JobPreferences::where('id', '=', $request->prefid)->delete();
+    //     return redirect()->back();
+    // }
     ////////////////////////////////////////////////////////////////////////////////
-
 
     public function showjobhome()
     {
-        return view('user.job.user-job-home', []);
+        return view('user.modules.job.j-home', []);
+    }
+    public function showinternshiphome()
+    {
+        return view('user.modules.internship.i-home', []);
     }
     public function showalljobs(Request $request)
     {
         $jobtype=JobType::where('job_type', 'job')->get();
         $jobsobj=Job::where('job_type_id', $jobtype->job_type_id)->get();
-        return view('user.job.user-job-list', ['jobsobj'=>$jobsobj]);
+        return view('user.modules.job.j-list', ['jobsobj'=>$jobsobj]);
     }
     public function showallinternships(Request $request)
     {
         $jobtype=JobType::where('job_type', 'internship')->get();
         $internshipsobj=Job::where('job_type_id', $jobtype->job_type_id)->get();
-        return view('user.internship.user-internship-list', ['internshipsobj'=>$internshipsobj]);
+        return view('user.modules.internship.i-list', ['internshipsobj'=>$internshipsobj]);
     }
 
     public function jobfilterapply(Request $request)
@@ -121,7 +124,6 @@ class JobController extends Controller
             $filter=$filter+1000;
         }
         
-
         switch ($filter) {
             case 0:
                 $jobsobj=Jobs::where('job_status', 'open');
@@ -172,15 +174,30 @@ class JobController extends Controller
                 $jobsobj=Jobs::where('job_type_id', $request->job_type_id)->where('job_status', 'open')->get();
                 break;
         }
-        // dd($jobsobj);
-        return view('user.job.user-job-list', ['jobsobj'=>$jobsobj]);
+        //dd($jobsobj);
+        $jobtype=JobType::find($request->job_type_id);
+        //dd($jobtype);
+        if($jobtype->job_type=="job"){
+            return view('user.modules.job.j-list', ['jobsobj'=>$jobsobj]);
+        }
+        else{
+            return view('user.modules.internship.i-list', ['jobsobj'=>$jobsobj]);
+        }
+        
     }
     public function showjobdetails(Request $request)
     {
         $jobobj=Jobs::find($request->job_id);
         $jobappobj = JobsApplied::where('user_id', Auth::user()->user_id)->where('job_id', $jobobj->job_id)->count();
         
-        return view('user.job.user-job-details', ['jobobj'=>$jobobj,'jobappobj'=>$jobappobj]);
+        return view('user.modules.job.j-details', ['jobobj'=>$jobobj,'jobappobj'=>$jobappobj]);
+    }
+    public function showinternshipdetails(Request $request)
+    {
+        $jobobj=Jobs::find($request->job_id);
+        $jobappobj = JobsApplied::where('user_id', Auth::user()->user_id)->where('job_id', $jobobj->job_id)->count();
+        
+        return view('user.modules.internship.i-details', ['jobobj'=>$jobobj,'jobappobj'=>$jobappobj]);
     }
     public function userapplyjob(Request $request)
     {
@@ -191,6 +208,18 @@ class JobController extends Controller
         $jobappobj->save();
         return redirect()->route(
             'viewjobdetails',
+            ['job_id' => $request->job_id]
+        );
+    }
+    public function userapplyinternship(Request $request)
+    {
+        $jobappobj=new JobsApplied();
+        $jobappobj->ja_status='applied';
+        $jobappobj->user_id=Auth::user()->user_id;
+        $jobappobj->job_id=$request->job_id;
+        $jobappobj->save();
+        return redirect()->route(
+            'viewinternshipdetails',
             ['job_id' => $request->job_id]
         );
     }

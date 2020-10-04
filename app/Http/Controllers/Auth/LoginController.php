@@ -80,7 +80,7 @@ class LoginController extends Controller
             $subcribe->user_id=Auth::user()->user_id;
             $subcribe->save();
         }
-        return view('user.user-referral');
+        return view('user.auth.user-referral');
         //return redirect($this->redirectPath());
     }
     public function userreferral(Request $request)

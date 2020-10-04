@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class JobType extends Model  
 {
 
-    
+    protected $primaryKey = 'job_type_id';
 
     /**
      * The database table used by the model.

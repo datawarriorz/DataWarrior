@@ -12,7 +12,7 @@ class NoAuthController extends Controller
 {
     public function contact()
     {
-        return view('contact', ['message'=>'',]);
+        return view('user.contact', ['message'=>'',]);
     }
 
     public function contactusreq(Request $request)
@@ -22,12 +22,12 @@ class NoAuthController extends Controller
             'subject' => 'required|min:3|max:100',
             'email' => 'required|email',
             'description' => 'required',
-            
-            
         ]);
+
         if ($validator->fails()) { // on validator found any error
             return redirect('/contact')->withErrors($validator)->withInput();
         }
+
         $contactusobj=new ContactUs();
         $contactusobj->name=$request->name;
         $contactusobj->email=$request->email;
@@ -42,42 +42,44 @@ class NoAuthController extends Controller
 
     public function faq()
     {
-        return view('faq');
+        return view('user.faq');
     }
+
     public function aboutus()
     {
-        return view('aboutus');
+        return view('user.aboutus');
     }
+
     public function userallarticles()
     {
         $articleslive=Article::where('status', '=', 'published')->orderByDesc('created_at')->get();
         $cert_obj=Certification::all()->take(3);
-        return view('user.user-list-articles', ['articleslive'=>$articleslive, 'cert_obj'=>$cert_obj]);
+        return view('user.modules.article.list-articles', ['articleslive'=>$articleslive, 'cert_obj'=>$cert_obj]);
     }
     public function userviewexpert(Request $request)
     {
         $expertobj=Expert::find($request->ex_id);
         $articleslive= Article::where('creator_id', $request->ex_id)->where('creator_flag', 'expert')->where('status', '=', 'published')->get();
-        return view('user.user-view-expert', ['expertobj' => $expertobj,'articleslive'=>$articleslive]);
+        return view('user.modules.article.view-expert', ['expertobj' => $expertobj,'articleslive'=>$articleslive]);
     }
     
     public function userviewarticle(Request $request)
     {
         $article_obj= Article::find($request->article_id);
 
-        return view('user.user-view-article', ['article_obj' => $article_obj]);
+        return view('user.modules.article.view-article', ['article_obj' => $article_obj]);
     }
 
     public function userexpertviewarticle(Request $request)
     {
         $article_obj= Article::find($request->article_id);
 
-        return view('user.user-expert-view-article', ['article_obj' => $article_obj]);
+        return view('user.modules.article.view-expert-article', ['article_obj' => $article_obj]);
     }
     
     public function newletterarticle($article_id)
     {
         $article_obj= Article::find($article_id);
-        return view('user.user-view-article', ['article_obj' => $article_obj]);
+        return view('user.modules.article.view-article', ['article_obj' => $article_obj]);
     }
 }

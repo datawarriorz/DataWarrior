@@ -1,49 +1,67 @@
-Visual Studio Extensions 
+Visual Studio Extensions
 
 	Global Default
 		Material Icon Theme - Philipp Kief
-		Material Theme - Mattia Astorino
+		Night Owl - sarah.drasner
 		Auto Close Tag - Jun Han
+		
 	
 	Laravel WorkSpace 
 		Laravel Artisan - Winnie Lin
-		Laravel Snippets - Winnie Lin
 		Laravel Blade Snippets - Winnie Lin
 		Laravel Blade Spacer - Austen Cameron
-		PHP IntelliSense - Felix Becker
-		PHP Intelephense - Ben Mewburn
-
+		
 		Formatters
-			Laravel Blade formatter - Shuhei Hayashibara
-			JS-CSS-HTML Formatter - lonefy
-			Beautify - HookyQR (Beautify javascript, JSON, CSS, Sass, and HTML in Visual Studio Code.)
-			Beautify Blade - Apility AS
-				Edited settings.json for blade 
-					Added this line
-						"beautify.language": {
-							"html": ["blade"]
-						}
-			
-			Optional(Disabled while writing this)
-				php cs fixer - junstyle
-				Prettier - Code formatter
-		
-		
-	Settings.json at the time of writing this txt file
-		{
-		  "telemetry.enableTelemetry": false,
-		  "telemetry.enableCrashReporter": false,
-		  "workbench.iconTheme": "material-icon-theme",
-		  "editor.formatOnSave": true,
-		  "window.zoomLevel": 0,
-		  "blade.format.enable": true,
-		  "workbench.colorTheme": "Material Theme Darker High Contrast",
-		  "beautify.language": {
-			"html": [
-			  "blade"
-			]
-		  }
-		}
+			php cs fixer - junstyle
+			Beautify - HookyQR
+
+################################################################
+Settings.json at the time of writing this txt file
+	{
+	"telemetry.enableTelemetry": false,
+	"telemetry.enableCrashReporter": false,
+	"workbench.iconTheme": "material-icon-theme",
+	"editor.formatOnSave": true,
+	"window.zoomLevel": 0,
+	"beautify.language": {
+		"js": {
+		"type": [
+			"javascript",
+			"json",
+			"jsonc"
+		],
+		"filename": [
+			".jshintrc",
+			".jsbeautifyrc"
+		]
+		},
+		"css": [
+		"css",
+		"scss"
+		],
+		"html": [
+		"htm",
+		"html",
+		"php",
+		"blade"
+		]
+	},
+	"php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+	"php-cs-fixer.onsave": true,
+	"php-cs-fixer.lastDownload": 1601731257363,
+	"workbench.colorTheme": "Night Owl",
+	}
+				
+################################################################			
+Optional(Disabled while writing this)
+	Material Theme - Mattia Astorino
+	Laravel Snippets - Winnie Lin
+	PHP IntelliSense - Felix Becker
+	PHP Intelephense - Ben Mewburn
+	Beautify Blade - Apility AS
+	JS-CSS-HTML Formatter - lonefy
+	Prettier - Code formatter
+	Laravel Blade formatter - Shuhei Hayashibara
 		
 		
 	

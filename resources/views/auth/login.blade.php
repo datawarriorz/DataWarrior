@@ -1,4 +1,4 @@
-@extends('layout.mainlayout')
+@extends('user.layout.masterlayout')
 
 @section('content')
 <link rel="stylesheet" href="./css/user/login.css" />
@@ -33,11 +33,12 @@
                                         </div>
                                         <input id="email" type="email" placeholder="Email Id"
                                             class="form-control @error('email') is-invalid @enderror" name="email"
-                                            value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                            value="{{ old('email') }}" required autocomplete="email"
+                                            autofocus>
                                         @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -52,9 +53,9 @@
                                             class="form-control @error('password') is-invalid @enderror" name="password"
                                             required autocomplete="current-password">
                                         @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -63,7 +64,8 @@
                                 <div class="col-md-6 offset-md-3">
                                     <div class="form-check custom-control">
                                         <input class="form-check-input custom-checkbox" type="checkbox" name="remember"
-                                            id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                            id="remember"
+                                            {{ old('remember') ? 'checked' : '' }}>
                                         <label class="form-check-label" for="remember">
                                             {{ __('Remember Me') }}
                                         </label>
@@ -76,11 +78,12 @@
                                         {{ __('Sign in') }}
                                     </button>
                                     @if(Route::has('password.request'))
-                                    <br>
-                                    <br>
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
+                                        <br>
+                                        <br>
+                                        <a class="btn btn-link"
+                                            href="{{ route('password.request') }}">
+                                            {{ __('Forgot Your Password?') }}
+                                        </a>
                                     @endif
                                 </div>
                             </div>

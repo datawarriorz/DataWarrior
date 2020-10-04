@@ -28,9 +28,8 @@ class ProfileController extends Controller
     {
         $currentuser = User::where('user_id', Auth::user()->user_id)->first();
         $subscription = Subscription::where('user_id', '=', Auth::user()->user_id)->first();
-       
-
-        return view('profile/mainProfile', ['user' => $currentuser, 'message' => '','subscription'=>$subscription]);
+    
+        return view('user.modules.profile.edit-basic-details', ['user' => $currentuser, 'message' => '','subscription'=>$subscription]);
     }
 
     public function viewProfile()
@@ -44,7 +43,7 @@ class ProfileController extends Controller
         $userdetails = User::where('user_id', Auth::user()->user_id)->first();
         $skilllevel = SkillLevel::all();
         
-        return view('profile.profile', [
+        return view('user.modules.profile.profile', [
             'skills' => $skills,
             'jobexp' => $jobexp,
             'internship' => $internship,
@@ -53,7 +52,6 @@ class ProfileController extends Controller
             'job' => $job,
             'userdetails' => $userdetails,
             'skilllevel' => $skilllevel,
-            
         ]);
     }
 
@@ -64,9 +62,6 @@ class ProfileController extends Controller
             'last_name' => 'required|min:3|max:35',
             'contact_no' => 'required|numeric|unique:users',
             'date_of_birth' => 'required|min:3|max:20',
-            
-            
-            
         ]);
         if ($validator->fails()) { // on validator found any error
             return redirect('/userdetails')->withErrors($validator)->withInput();
@@ -112,9 +107,6 @@ class ProfileController extends Controller
             }
         }
         // Get the contents of the file
-        
-        
-
         return redirect('/viewprofile');
     }
 
@@ -129,7 +121,7 @@ class ProfileController extends Controller
         if ($request->process == "job") {
             $process = "job";
         }
-        return view('profile/qualificationProfile', ['eduDetails' => $eduDetails, 'qualificationType' => $qualificationType, 'process' => $process]);
+        return view('user.modules.profile.edit-qualification', ['eduDetails' => $eduDetails, 'qualificationType' => $qualificationType, 'process' => $process]);
     }
 
     public function updateQualification(Request $request)
@@ -168,14 +160,14 @@ class ProfileController extends Controller
             $qualificationType = QualificationTypes::all();
 
             $process = "internship";
-            return view('profile/qualificationProfile', ['eduDetails' => $eduDetails, 'process' => $process, 'qualificationType' => $qualificationType]);
+            return view('user.modules.profile.edit-qualification', ['eduDetails' => $eduDetails, 'process' => $process, 'qualificationType' => $qualificationType]);
         }
         if ($request->process == "job") {
             $eduDetails = UserQualification::where('user_id', '=', Auth::user()->user_id)->get();
             $qualificationType = QualificationTypes::all();
 
             $process = "job";
-            return view('profile/qualificationProfile', ['eduDetails' => $eduDetails, 'process' => $process, 'qualificationType' => $qualificationType]);
+            return view('user.modules.profile.edit-qualification', ['eduDetails' => $eduDetails, 'process' => $process, 'qualificationType' => $qualificationType]);
         }
 
         return redirect('/qualification');
@@ -188,13 +180,13 @@ class ProfileController extends Controller
             $eduDetails = UserQualification::where('user_id', '=', Auth::user()->user_id)->get();
             $qualificationType = QualificationTypes::all();
             $process = "internship";
-            return view('profile/qualificationProfile', ['eduDetails' => $eduDetails, 'qualificationType' => $qualificationType, 'process' => $process]);
+            return view('user.modules.profile.edit-qualification', ['eduDetails' => $eduDetails, 'qualificationType' => $qualificationType, 'process' => $process]);
         }
         if ($request->process == "job") {
             $eduDetails = UserQualification::where('user_id', '=', Auth::user()->user_id)->get();
             $qualificationType = QualificationTypes::all();
             $process = "job";
-            return view('profile/qualificationProfile', ['eduDetails' => $eduDetails, 'qualificationType' => $qualificationType, 'process' => $process]);
+            return view('user.modules.profile.edit-qualification', ['eduDetails' => $eduDetails, 'qualificationType' => $qualificationType, 'process' => $process]);
         }
         return Redirect::back();
     }
@@ -211,7 +203,7 @@ class ProfileController extends Controller
             $process = "job";
         }
 
-        return view('profile/jobexperience', ['jobexp' => $jobexp, 'process' => $process]);
+        return view('user.modules.profile.edit-experience', ['jobexp' => $jobexp, 'process' => $process]);
     }
 
     public function updateJobexperience(Request $request)
@@ -241,21 +233,18 @@ class ProfileController extends Controller
             $jobexp->currentjob = $request->currentjob;
         }
 
-        
-           
-
         $jobexp->save();
         if ($request->process == "internship") {
             $jobexp = Jobexperience::where('user_id', '=', Auth::user()->user_id)->get();
 
             $process = "internship";
-            return view('profile/jobexperience', ['jobexp' => $jobexp, 'process' => $process]);
+            return view('user.modules.profile.edit-experience', ['jobexp' => $jobexp, 'process' => $process]);
         }
         if ($request->process == "job") {
             $jobexp = Jobexperience::where('user_id', '=', Auth::user()->user_id)->get();
 
             $process = "job";
-            return view('profile/jobexperience', ['jobexp' => $jobexp, 'process' => $process]);
+            return view('user.modules.profile.edit-experience', ['jobexp' => $jobexp, 'process' => $process]);
         }
 
         return redirect('/jobexperience');
@@ -268,12 +257,12 @@ class ProfileController extends Controller
         if ($request->process == "internship") {
             $jobexp = Jobexperience::where('user_id', '=', Auth::user()->user_id)->get();
             $process = "internship";
-            return view('profile/jobexperience', ['jobexp' => $jobexp, 'process' => $process]);
+            return view('user.modules.profile.edit-experience', ['jobexp' => $jobexp, 'process' => $process]);
         }
         if ($request->process == "job") {
             $jobexp = Jobexperience::where('user_id', '=', Auth::user()->user_id)->get();
             $process = "job";
-            return view('profile/jobexperience', ['jobexp' => $jobexp, 'process' => $process]);
+            return view('user.modules.profile.edit-experience', ['jobexp' => $jobexp, 'process' => $process]);
         }
 
         return Redirect::back();
@@ -286,14 +275,14 @@ class ProfileController extends Controller
         $process = "";
         if ($request->process == "internship") {
             $process = "internship";
-            return view('profile/skillprofile', ['skills' => $skills, 'process' => $process, 'skilllevel' => $skilllevel]);
+            return view('user.modules.profile.edit-skill', ['skills' => $skills, 'process' => $process, 'skilllevel' => $skilllevel]);
         }
         if ($request->process == "job") {
             $process = "job";
-            return view('profile/skillprofile', ['skills' => $skills, 'process' => $process, 'skilllevel' => $skilllevel]);
+            return view('user.modules.profile.edit-skill', ['skills' => $skills, 'process' => $process, 'skilllevel' => $skilllevel]);
         }
 
-        return view('profile/skillprofile', ['skills' => $skills, 'process' => $process, 'skilllevel' => $skilllevel]);
+        return view('user.modules.profile.edit-skill', ['skills' => $skills, 'process' => $process, 'skilllevel' => $skilllevel]);
     }
 
     public function updateSkills(Request $request)
@@ -313,12 +302,12 @@ class ProfileController extends Controller
         if ($request->process == "internship") {
             $skills = UserSkills::where('user_id', '=', Auth::user()->user_id)->get();
             $process = "internship";
-            return view('profile/skillprofile', ['skills' => $skills, 'process' => $process, 'skilllevel' => $skilllevel]);
+            return view('user.modules.profile.edit-skill', ['skills' => $skills, 'process' => $process, 'skilllevel' => $skilllevel]);
         }
         if ($request->process == "job") {
             $skills = UserSkills::where('user_id', '=', Auth::user()->user_id)->get();
             $process = "job";
-            return view('profile/skillprofile', ['skills' => $skills, 'process' => $process, 'skilllevel' => $skilllevel]);
+            return view('user.modules.profile.edit-skill', ['skills' => $skills, 'process' => $process, 'skilllevel' => $skilllevel]);
         }
 
         return redirect('/skills');
@@ -331,12 +320,12 @@ class ProfileController extends Controller
         if ($request->process == "internship") {
             $skills = UserSkills::where('user_id', '=', Auth::user()->user_id)->get();
             $process = "internship";
-            return view('profile/skillprofile', ['skills' => $skills, 'process' => $process, 'skilllevel' => $skilllevel]);
+            return view('user.modules.profile.edit-skill', ['skills' => $skills, 'process' => $process, 'skilllevel' => $skilllevel]);
         }
         if ($request->process == "job") {
             $skills = UserSkills::where('user_id', '=', Auth::user()->user_id)->get();
             $process = "job";
-            return view('profile/skillprofile', ['skills' => $skills, 'process' => $process, 'skilllevel' => $skilllevel]);
+            return view('user.modules.profile.edit-skill', ['skills' => $skills, 'process' => $process, 'skilllevel' => $skilllevel]);
         }
         
         return Redirect::back();

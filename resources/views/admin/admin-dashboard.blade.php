@@ -7,11 +7,21 @@
             <div class="col-md-12">
                 <div class="card dashboard-card">
                     <div class="card-header">
-                        <div style="margin-bottom: 0px">
-                            <i class="fas fa-columns open-icon" id="myopen-icon" onclick="openNav()"></i>
-                            <i class="fas fa-columns close-icon" id="myclose-icon" onclick="closeNav()"></i>
-                            <i class="fas fa-columns m-open-icon" id="m-myopen-icon" onclick="mopenNav()"></i>
-                            Dashboard</div>
+                        <div class="row">
+                            <div class="col-2 text-left">
+                                <div style="margin-bottom: 0px">
+                                    <i class="fas fa-arrow-right open-icon" id="myopen-icon" onclick="openNav()"></i>
+                                    <i class="fas fa-arrow-left close-icon" id="myclose-icon" onclick="closeNav()"></i>
+                                    <i class="fas fa-arrow-right m-open-icon" id="m-myopen-icon"
+                                        onclick="mopenNav()"></i>
+                                </div>
+                            </div>
+                            <div class="col-8 text-center">
+                                Dashboard
+                            </div>
+                            <div class="col-2 text-left">
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body dashboard-card-body">
 

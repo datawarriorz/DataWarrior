@@ -59,8 +59,8 @@ class ProfileController extends Controller
     {
         $validator=Validator::make($request->all(), [
             'first_name' => 'required|min:3|max:35',
-            'last_name' => 'required|min:3|max:35',
-            'contact_no' => 'required|numeric|unique:users',
+            'last_name' => 'min:3|max:35',
+            'contact_no' => 'numeric',
             'date_of_birth' => 'required|min:3|max:20',
         ]);
         if ($validator->fails()) { // on validator found any error

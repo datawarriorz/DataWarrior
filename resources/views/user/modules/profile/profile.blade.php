@@ -15,47 +15,28 @@
                     <div class="profile-head">
                         <div class="col-md-12">
                             <div class="row">
-                                <div class="col-md-3" style="padding-left: 0;padding-right:0">
-                                    <div class="col-md-12" style="padding-left: 0;padding-right:0">
+                                <div class="col-md-2 text-center" style="padding-left: 0;padding-right:0">
+                                    <div class="col-12" style="padding-left: 0;padding-right:0">
                                         <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($userdetails->u_image); ?>"
                                             style="height:144px;width:144px;border-radius:50%" />
-                                        {{-- <img src="http://cps-static.rovicorp.com/3/JPG_400/MI0003/711/MI0003711195.jpg?partner=allrovi.com"
-                                            style="height:144px;width:144px;border-radius:50%" /> --}}
                                     </div>
-                                    {{-- <div class="col-md-12">
-                                        <form method="POST" action="/expert-profile-image"
-                                            enctype="multipart/form-data">
-@csrf
-                                            <div class="form-group">
-                                                <label>Image :</label>
-                                                <div class="upload-btn-wrapper">
-                                                    <textarea id="uploadFile" class="disableInputField"
-                                                        placeholder="Choose File" disabled="disabled" rows="2"
-                                                        autocomplete="off">
-                                                    </textarea>
-                                                    <label class="fileUpload form-control">
-                                                        <input id="uploadBtn" enctype="multipart/form-data" type="file"
-                                                            name="ex_image" class="upload" />
-                                                        <span class="uploadBtn">Upload / Browse File ..</span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="btn btn-danger" onclick="">Upload</button>
-                                        </form>
-                                    </div> --}}
                                 </div>
-                                <div class="col-md-9">
+                                <div class="col-12 col-md-10 text-left" style="padding-left: 33px">
                                     <h5>{{ $userdetails->first_name }} {{ $userdetails->last_name }}</h5>
                                     <br>
                                     <h6>{{ $userdetails->email }}</h6>
                                     <br>
-                                    <h6>Date of Birth :
-                                        <span>{{ $userdetails->date_of_birth }}</span>
-                                    </h6>
                                 </div>
                             </div>
                         </div>
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tab-content profile-tab" id="myTabContent" style="overflow-x: scroll;">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist" style="width:472px;">
                             <li class="nav-item">
                                 <a class="nav-link profilenav active" id="userdetails-tab" data-toggle="tab"
                                     href="#userdetails" role="tab" aria-controls="userdetails" aria-selected="true">User
@@ -76,59 +57,38 @@
                                     onClick="experience()">Skills</a>
                             </li>
                         </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="tab-content profile-tab" id="myTabContent">
                         <div class="tab-pane fade show active" id="userdetails" role="tabpanel"
                             aria-labelledby="home-tab">
-                            <div class="row">
-                                <div class="col-3 col-sm-3 col-md-3">
-                                    <label>Name</label>
-                                </div>
-                                <div class="col-9 col-sm-9 col-md-9">
-                                    <p>: {{ $userdetails->first_name }}
-                                        {{ $userdetails->last_name }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-3 col-md-3 ">
-                                    <label>Email</label>
-                                </div>
-                                <div class="col-sm-9 col-md-9">
-                                    <p>: {{ $userdetails->email }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-3 col-md-3 ">
-                                    <label>Phone</label>
-                                </div>
-                                <div class="col-sm-9 col-md-9">
-                                    <p>:
-                                        @if(!empty($userdetails->contact_no))
-                                            {{ $userdetails->contact_no }}
-                                        @else
-                                            -
-                                        @endif
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-3 col-md-3 ">
-                                    <label>Gender</label>
-                                </div>
-                                <div class="col-sm-9 col-md-9">
-                                    <p>:
-                                        @if(!empty($userdetails->gender))
-                                            {{ $userdetails->gender }}
-                                        @else
-                                            -
-                                        @endif
-                                    </p>
-                                </div>
-                            </div>
+                            <table class="table">
+                                <thead>
+                                    <td scope="col" style="width:160px;"></td>
+                                    <td scope="col" style="width:500px;"></td>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>: {{ $userdetails->first_name }} {{ $userdetails->last_name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>: {{ $userdetails->email }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phone</td>
+                                        <td>: +@if(!empty($userdetails->contact_no)){{ $userdetails->contact_no }}
+                                        @else- @endif</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DOB</td>
+                                        <td>:{{ $userdetails->date_of_birth }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gender</td>
+                                        <td>: @if(!empty($userdetails->gender)) {{ $userdetails->gender }} @else -
+                                            @endif</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                             <br>
                             <a href="/userdetails"><button type="button" class="btn tab-edit-btn">Edit User Details <i
                                         class="fas fa-edit"></i></button></a>

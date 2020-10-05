@@ -104,21 +104,25 @@ ul.sidenav-item li {
     .open-icon {
         font-size: 20px;
         cursor: pointer;
-        height: 10px;
+        height: 20px;
         display: none;
     }
+
     .close-icon {
         font-size: 20px;
         cursor: pointer;
-        height: 10px;
+        height: 20px;
         display: inline-block;
     }
+
     .m-open-icon {
         display: none;
     }
+
     .m-close-icon {
         display: none;
     }
+
     .content-wrapper {
         width: 100%;
     }
@@ -128,25 +132,30 @@ ul.sidenav-item li {
     .open-icon {
         display: none;
     }
+
     .close-icon {
         display: none;
     }
+
     .m-open-icon {
         font-size: 20px;
         cursor: pointer;
-        height: 10px;
+        height: 20px;
         display: inline-block;
     }
+
     .m-close-icon {
         color: White;
         font-size: 20px;
         cursor: pointer;
-        height: 10px;
+        height: 20px;
         display: none;
     }
+
     .content-wrapper {
         width: 100%;
     }
+
     .sidenav-wrapper {
         display: none;
     }

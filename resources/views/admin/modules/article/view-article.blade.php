@@ -8,24 +8,27 @@
             <div class="col-md-12">
                 <div class="card dashboard-card">
                     <div class="card-header">
-                        <div class="row">
-                            <div class="col-md-4 text-left">
-                                <div style="margin-bottom: 0px">
-                                    <i class="fas fa-columns open-icon" id="myopen-icon" onclick="openNav()"></i>
-                                    <i class="fas fa-columns close-icon" id="myclose-icon" onclick="closeNav()"></i>
-                                    <i class="fas fa-columns m-open-icon" id="m-myopen-icon" onclick="mopenNav()"></i>
+                        <div class="col-12 pl-0 pr-0">
+                            <div class="row">
+                                <div class="col-2 text-left">
+                                    <div style="margin-bottom: 0px">
+                                        <i class="fas fa-arrow-right open-icon" id="myopen-icon"
+                                            onclick="openNav()"></i>
+                                        <i class="fas fa-arrow-left close-icon" id="myclose-icon"
+                                            onclick="closeNav()"></i>
+                                        <i class="fas fa-arrow-right m-open-icon" id="m-myopen-icon"
+                                            onclick="mopenNav()"></i>
+                                    </div>
+                                </div>
+                                <div class="col-8 text-center">
                                     Article #{{ $article->article_id }}
                                 </div>
-                            </div>
-                            <div class="col-md-8 text-right">
-                                <a href="/admin-manage-articles">
-                                    <button type="button" class="btn tab-edit-btn">
-                                        <i class="fas fa-arrow-left"></i> Go Back
-                                    </button>
-                                </a>
+                                <div class="col-2 text-left">
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="card-body dashboard-card-body">
                         <div class="row">
                             <div class="col-md-12 text-left">

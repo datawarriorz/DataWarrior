@@ -8,7 +8,25 @@
             <div class="col-md-12">
                 <div class="card dashboard-card">
                     <div class="card-header text-center">
-                        <h4>Article Details</h4>
+                        <div class="col-12 pl-0 pr-0">
+                            <div class="row">
+                                <div class="col-2 text-left">
+                                    <div style="margin-bottom: 0px">
+                                        <i class="fas fa-arrow-right open-icon" id="myopen-icon"
+                                            onclick="openNav()"></i>
+                                        <i class="fas fa-arrow-left close-icon" id="myclose-icon"
+                                            onclick="closeNav()"></i>
+                                        <i class="fas fa-arrow-right m-open-icon" id="m-myopen-icon"
+                                            onclick="mopenNav()"></i>
+                                    </div>
+                                </div>
+                                <div class="col-8 text-center">
+                                    Edit Article Details
+                                </div>
+                                <div class="col-2 text-left">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="/admin-edit-article" enctype="multipart/form-data">

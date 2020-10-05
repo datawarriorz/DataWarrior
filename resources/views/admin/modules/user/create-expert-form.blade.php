@@ -9,7 +9,7 @@
                 <div class="card dashboard-card">
                     <div class="card-header">
                         <div class="row">
-                            <div class="col-md-4 text-left">
+                            <div class="col-2 text-left">
                                 <div style="margin-bottom: 0px">
                                     <i class="fas fa-arrow-right open-icon" id="myopen-icon" onclick="openNav()"></i>
                                     <i class="fas fa-arrow-left close-icon" id="myclose-icon" onclick="closeNav()"></i>
@@ -17,15 +17,10 @@
                                         onclick="mopenNav()"></i>
                                 </div>
                             </div>
-                            <div class="col-md-4 text-center">
+                            <div class="col-8 text-center">
                                 Expert Form
                             </div>
-                            <div class="col-md-4 text-right">
-                                <a href="/admindashboard">
-                                    <button type="button" class="btn tab-edit-btn">
-                                        Go Back
-                                    </button>
-                                </a>
+                            <div class="col-2 text-left">
                             </div>
                         </div>
                     </div>

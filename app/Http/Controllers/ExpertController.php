@@ -72,9 +72,7 @@ class ExpertController extends Controller
             'ex_aboutme' => 'required|min:3|max:150',
             'ex_description' => 'required',
             'ex_contactcode' => 'required|numeric',
-            'ex_contactno' => 'required|digits:10',
-            
-            
+            'ex_contactno' => 'required|digits:10',  
         ]);
         if ($validator->fails()) { // on validator found any error
             return redirect('/expert-profile-edit')->withErrors($validator)->withInput();
@@ -85,7 +83,6 @@ class ExpertController extends Controller
             'ex_dateofbirth' => $request->ex_dateofbirth,
             'ex_aboutme' => $request->ex_aboutme,
             'ex_description' => $request->ex_description,
-            'email' => $request->email,
             'ex_contactcode' => $request->ex_contactcode,
             'ex_contactno' => $request->ex_contactno,
         ]);
@@ -107,11 +104,10 @@ class ExpertController extends Controller
             'exp_organisation' => 'required|min:3|max:100',
             'exp_location' => 'required|min:3|max:50',
             'exp_description' => 'required|min:3|max:191',
-            'ex_description' => 'required',
-            'start_date' =>'required|date|before:tomorrow',
-            'end_date' =>'nullable|date|after:start_date|before:tomorrow',
-            
+            'exp_startdate' =>'required|date|before:tomorrow',
+            'exp_enddate' =>'nullable|date|after:start_date|before:tomorrow',
         ]);
+        
         if ($validator->fails()) { // on validator found any error
             return redirect('/expert-experience-edit')->withErrors($validator)->withInput();
         }

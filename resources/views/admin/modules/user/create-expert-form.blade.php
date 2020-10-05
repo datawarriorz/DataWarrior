@@ -1,4 +1,4 @@
-@extends('layout.adminlayout')
+@extends('admin.layout.masterlayout')
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/admin/admin-4-1-post-article.css') }}" />
@@ -34,15 +34,15 @@
                         <form method="POST" action="/admin-create-expertform" enctype="multipart/form-data">
                             @csrf
                             @if(count($errors))
-                            <div class="alert alert-danger">
-                                <strong>Whoops!</strong> There were some problems with your input.
-                                <br />
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                                <div class="alert alert-danger">
+                                    <strong>Whoops!</strong> There were some problems with your input.
+                                    <br />
+                                    <ul>
+                                        @foreach($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                             @endif
                             <div class="col-md-12" style="padding: 0px;">
                                 <div class="row">
@@ -50,12 +50,14 @@
                                         <div class="form-group">
                                             <label>First Name :</label>
                                             <input type="text" name="ex_firstname" class="form-control"
-                                                placeholder="Eg. " autocomplete="on" value={{ old('ex_firstname') }}>
+                                                placeholder="Eg. " autocomplete="on"
+                                                value={{ old('ex_firstname') }}>
                                         </div>
                                         <div class="form-group">
                                             <label>Last Name :</label>
                                             <input type="text" name="ex_lastname" class="form-control"
-                                                placeholder="Eg. " autocomplete="on" value={{ old('ex_lastname') }}>
+                                                placeholder="Eg. " autocomplete="on"
+                                                value={{ old('ex_lastname') }}>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -95,7 +97,8 @@
                                 <div class="form-group">
                                     <label for="mobileno">Contact No. :</label>
                                     <input type="text" class="form-control" name="ex_contactno"
-                                        placeholder="555-555-5555" id="ex_contactno" value={{ old('ex_contactno') }}>
+                                        placeholder="555-555-5555" id="ex_contactno"
+                                        value={{ old('ex_contactno') }}>
                                 </div>
                                 <div class="form-group">
                                     <label for="dob">Date of Birth</label>
@@ -105,7 +108,8 @@
                                 <div class="form-group">
                                     <label>About me :</label>
                                     <textarea name="ex_aboutme" class="form-control" id="ex_aboutme" placeholder="Eg. "
-                                        autocomplete="on" rows="2" value={{ old('ex_aboutme') }}></textarea>
+                                        autocomplete="on" rows="2"
+                                        value={{ old('ex_aboutme') }}></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Description :</label>

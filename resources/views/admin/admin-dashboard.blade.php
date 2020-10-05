@@ -1,23 +1,23 @@
-@extends('layout.adminlayout')
+@extends('admin.layout.masterlayout')
 
 @section('content')
-    <div class="content-wrapper" id="mycontent-wrapper">
-        <div class="col-md-12" style="position: inherit;">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card dashboard-card">
-                        <div class="card-header">
-                            <div style="margin-bottom: 0px">
-                                <i class="fas fa-columns open-icon" id="myopen-icon" onclick="openNav()"></i>
-                                <i class="fas fa-columns close-icon" id="myclose-icon" onclick="closeNav()"></i>
-                                <i class="fas fa-columns m-open-icon" id="m-myopen-icon" onclick="mopenNav()"></i>
-                                Dashboard</div>
-                        </div>
-                        <div class="card-body dashboard-card-body">
-
-                        </div>
+<div class="content-wrapper" id="mycontent-wrapper">
+    <div class="col-md-12" style="position: inherit;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card dashboard-card">
+                    <div class="card-header">
+                        <div style="margin-bottom: 0px">
+                            <i class="fas fa-columns open-icon" id="myopen-icon" onclick="openNav()"></i>
+                            <i class="fas fa-columns close-icon" id="myclose-icon" onclick="closeNav()"></i>
+                            <i class="fas fa-columns m-open-icon" id="m-myopen-icon" onclick="mopenNav()"></i>
+                            Dashboard</div>
                     </div>
-                    {{-- <div class="col-md-3">
+                    <div class="card-body dashboard-card-body">
+
+                    </div>
+                </div>
+                {{-- <div class="col-md-3">
                         <div class="col-md-12">
                             <div class="card notification-card right-card">
                                 <div class="card-header">
@@ -45,8 +45,8 @@
                             </div>
                         </div>
                     </div> --}}
-                </div>
             </div>
         </div>
     </div>
+</div>
 @endsection

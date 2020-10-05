@@ -1,4 +1,4 @@
-@extends('layout.adminlayout')
+@extends('admin.layout.masterlayout')
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/admin/admin-4-1-post-article.css') }}" />
@@ -70,7 +70,8 @@
                                 <div class="form-group">
                                     <label>Content :</label>
                                     <textarea name="content" class="form-control" id="content" placeholder="Eg. "
-                                        autocomplete="on" rows="10" value={{ old('content') }}></textarea>
+                                        autocomplete="on" rows="10"
+                                        value={{ old('content') }}></textarea>
                                 </div>
                                 <div class="form-group col-md-12 text-center">
                                     <button type="submit" class="btn tab-edit-btn">

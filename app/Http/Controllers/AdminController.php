@@ -81,7 +81,7 @@ class AdminController extends Controller
     {
         $article=Article::find($request->article_id);
         
-        return view('admin.admin-view-article', ['article' => $article]);
+        return view('admin.module.article.view-article', ['article' => $article]);
     }
 
     public function publisharticle(Request $request)
@@ -109,7 +109,7 @@ class AdminController extends Controller
         $articlesreview=Article::where('status', '=', 'review')->get();
         $articleslive=Article::where('status', '=', 'published')->get();
         
-        return view('admin.admin-listarticles', ['articlesreview' => $articlesreview,'articleslive' => $articleslive]);
+        return view('admin.module.article.list-articles', ['articlesreview' => $articlesreview,'articleslive' => $articleslive]);
     }
     
     public function takedownarticle(Request $request)
@@ -124,7 +124,7 @@ class AdminController extends Controller
     {
         $article= Article::find($request->article_id);
         
-        return view('admin.admin-edit-article', ['article' => $article]);
+        return view('admin.module.article.edit-article', ['article' => $article]);
     }
 
     public function editarticle(Request $request)
@@ -156,7 +156,7 @@ class AdminController extends Controller
         $article->save();
         $article=Article::find($request->article_id);
         
-        return view('admin.admin-view-article', ['article' => $article]);
+        return view('admin.module.article.view-article', ['article' => $article]);
     }
 
     public function deletearticle(Request $request)
@@ -176,7 +176,7 @@ class AdminController extends Controller
 
     public function createexpertform(Request $request)
     {
-        return view('admin.admin-create-expertform');
+        return view('admin.module.user.create-expert-form');
     }
     public function createexpert(Request $request)
     {
@@ -253,10 +253,8 @@ class AdminController extends Controller
     }
     public function viewarticleform()
     {
-        return view('admin.admin-postarticle');
+        return view('admin.module.article.post-article');
     }
-
-
 
     //Delete//////////////////////////////////////////////////////////////////////
    

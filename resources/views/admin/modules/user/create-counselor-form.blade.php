@@ -1,4 +1,4 @@
-@extends('layout.adminlayout')
+@extends('admin.layout.masterlayout')
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/admin/admin-4-1-post-article.css') }}" />
@@ -34,15 +34,15 @@
                         <form method="POST" action="/admin-create-counselorform">
                             @csrf
                             @if(count($errors))
-                            <div class="alert alert-danger">
-                                <strong>Whoops!</strong> There were some problems with your input.
-                                <br />
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                                <div class="alert alert-danger">
+                                    <strong>Whoops!</strong> There were some problems with your input.
+                                    <br />
+                                    <ul>
+                                        @foreach($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                             @endif
                             <div class="col-md-12" style="padding: 0px;">
                                 <div class="form-group">

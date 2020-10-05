@@ -6,7 +6,7 @@
 
 <!--CSS & Font-->
 <link rel="stylesheet" href="{{ asset('css/fontawesome-5.14.0.css') }}" />
-{{-- <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'> --}}
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
 <!-- CSS & Font End -->
 
 <!-- Bootstrap Online-->
@@ -20,10 +20,9 @@
 <script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
 <!-- Bootstrap Local End -->
 
-<link rel="stylesheet" href="{{ asset('css/expert/expert-1-master.css') }}" />
-
 <script>
     document.getElementById("uploadBtn").onchange = function () {
         document.getElementById("filename").value = this.value;
     };
+
 </script>

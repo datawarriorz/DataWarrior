@@ -74,14 +74,14 @@ class AdminController extends Controller
         $article->save();
         // $articles= Article::where('ex_id', Auth::user()->ex_id)->get();
         // return view('expert.expert-dashboard', ['articles' => $articles]);
-        return view('admin.admin-view-article', ['article' => $article]);
+        return view('admin.modules.article.view-article', ['article' => $article]);
     }
 
     public function viewarticle(Request $request)
     {
         $article=Article::find($request->article_id);
         
-        return view('admin.module.article.view-article', ['article' => $article]);
+        return view('admin.modules.article.view-article', ['article' => $article]);
     }
 
     public function publisharticle(Request $request)
@@ -109,7 +109,7 @@ class AdminController extends Controller
         $articlesreview=Article::where('status', '=', 'review')->get();
         $articleslive=Article::where('status', '=', 'published')->get();
         
-        return view('admin.module.article.list-articles', ['articlesreview' => $articlesreview,'articleslive' => $articleslive]);
+        return view('admin.modules.article.list-articles', ['articlesreview' => $articlesreview,'articleslive' => $articleslive]);
     }
     
     public function takedownarticle(Request $request)
@@ -124,7 +124,7 @@ class AdminController extends Controller
     {
         $article= Article::find($request->article_id);
         
-        return view('admin.module.article.edit-article', ['article' => $article]);
+        return view('admin.modules.article.edit-article', ['article' => $article]);
     }
 
     public function editarticle(Request $request)
@@ -156,7 +156,7 @@ class AdminController extends Controller
         $article->save();
         $article=Article::find($request->article_id);
         
-        return view('admin.module.article.view-article', ['article' => $article]);
+        return view('admin.modules.article.view-article', ['article' => $article]);
     }
 
     public function deletearticle(Request $request)
@@ -176,7 +176,7 @@ class AdminController extends Controller
 
     public function createexpertform(Request $request)
     {
-        return view('admin.module.user.create-expert-form');
+        return view('admin.modules.user.create-expert-form');
     }
     public function createexpert(Request $request)
     {
@@ -193,7 +193,7 @@ class AdminController extends Controller
             
         ]);
         if ($validator->fails()) { // on validator found any error
-            return redirect('/admin-create-expertform')->withErrors($validator)->withInput();
+            return redirect('/admin-create-expert-form')->withErrors($validator)->withInput();
         }
         $expertobj= new Expert();
         $expertobj->ex_firstname = $request->ex_firstname;
@@ -215,7 +215,7 @@ class AdminController extends Controller
 
     public function createcounselorform(Request $request)
     {
-        return view('admin.admin-create-counselorform');
+        return view('admin.modules.user.create-counselor-form');
     }
     public function createcounselor(Request $request)
     {
@@ -228,7 +228,7 @@ class AdminController extends Controller
             
         ]);
         if ($validator->fails()) { // on validator found any error
-            return redirect('/admin-create-counselorform')->withErrors($validator)->withInput();
+            return redirect('/admin-create-counselor-form')->withErrors($validator)->withInput();
         }
 
         $counselorobj= new Counselor();
@@ -253,7 +253,7 @@ class AdminController extends Controller
     }
     public function viewarticleform()
     {
-        return view('admin.module.article.post-article');
+        return view('admin.modules.article.post-article');
     }
 
     //Delete//////////////////////////////////////////////////////////////////////

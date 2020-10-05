@@ -16,7 +16,7 @@
 
     @include('admin.layout.partials.footer')
 
-    @include('admin.partials.footer-scripts')
+    @include('admin.layout.partials.footer-scripts')
 
 </body>
 

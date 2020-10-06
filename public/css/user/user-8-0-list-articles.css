@@ -1,0 +1,13 @@
+.jumbotron {
+    background-color: white;
+    margin-bottom: 1rem;
+    padding: 0rem 0rem 1rem 0rem;
+}
+
+.card-body {
+    padding-top: 0;
+}
+
+.article-wrapper {
+    padding-top: 10px;
+}

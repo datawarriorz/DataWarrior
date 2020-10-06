@@ -3,7 +3,7 @@
 @section('content')
 <br>
 <br>
-<link rel="stylesheet" href="{{ asset('css/user/registerform.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/user/user-3-login.css') }}" />
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -50,21 +50,6 @@
                                         id="lastname" value={{ old('lastname') }}>
                                 </div>
                             </div>
-                            {{-- <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Image :</label>
-                                    <div class="upload-btn-wrapper">
-                                        <textarea id="uploadFile" class="disableInputField" placeholder="Choose File"
-                                            disabled="disabled" rows="2" autocomplete="off">
-                                                    </textarea>
-                                        <label class="fileUpload form-control">
-                                            <input id="uploadBtn" enctype="multipart/form-data" type="file"
-                                                name="u_image" class="upload" />
-                                            <span class="uploadBtn">Upload / Browse File ..</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div> --}}
                         </div>
                         <div class="form-group">
                             <label for="email">Email address :</label>
@@ -95,9 +80,8 @@
                                 placeholder="Confirm Password">
                         </div>
                         <div class="form-group">
-                            <input type="checkbox" name="newsletter" id="newsletter" class="form-control" value="yes">
                             <label> Click here to subscribe to our newsletter </label>
-
+                            <input type="checkbox" name="newsletter" id="newsletter" value="yes">
                         </div>
                         <div class="form-group">
                             <label for="referral_code">Referral Code :</label>

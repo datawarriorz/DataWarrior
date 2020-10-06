@@ -9,7 +9,21 @@
                 <div class="col-md-12">
                     <div class="card dashboard-card">
                         <div class="card-header">
-                            <h5>Article #{{ $article->article_id }}</h5>
+                            <div class="col-12 pl-0 pr-0">
+                                <div class="row">
+                                    <div class="col-6 text-left">
+                                        <div style="margin-bottom: 0px">
+                                            <h5><i class="fas fa-columns"></i> Article #{{ $article->article_id }}
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <a class="tab-edit-btn" href="/expert-listarticles">
+                                            <i class="fas fa-arrow-left"></i> Back
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-body dashboard-card-body">
                             <div class="row">
@@ -36,7 +50,7 @@
                                             <strong>{{ $article->description }}</strong>
                                         </div>
                                         <br>
-                                        <div class="col-md-12 text-left">
+                                        <div class="col-md-12 text-left article-content">
                                             <?php echo nl2br($article->content); ?>
                                         </div>
                                         <br>

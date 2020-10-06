@@ -2,7 +2,7 @@
     background-color: #fff0;
     padding: 2rem 2rem;
     margin-bottom: 0;
-    font-family: "Rubik", sans-serif;
+    /* font-family: "Rubik", sans-serif; */
 }
 
 .profile-tab {
@@ -49,13 +49,10 @@
     border-bottom: 1px solid #dee2e6;
 }
 
-.btn {
-    background-color: #171f2a;
-    color: white;
-    height: 33px;
-    padding: 2px 10px;
-}
-
 h5 {
     margin-bottom: 0;
+}
+
+.article-content {
+    font-family: "Rubik", sans-serif;
 }

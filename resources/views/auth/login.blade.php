@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/user/user-3-login.css" />
+<link rel="stylesheet" href="./css/user/user-4-login.css" />
 <br>
 <div class="container">
     <div class="row justify-content-center">
@@ -12,7 +12,7 @@
                 </div>
                 <div class="container loginContainer text-center">
                     <br>
-                    <div id="gSignInWrapper ">
+                    <div id="gSignInWrapper">
                         <form action="login/google" method="GET">
                             <button type="submit" class="googleButton google-wrap"
                                 style="background-image: url(images/btn_google_signin_light_normal_web.png);">

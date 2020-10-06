@@ -160,7 +160,7 @@
         </div>
     </div>
     {{-- <hr class="seperator2"> --}}
-
+    <br>
     <div class="container content1 text-center">
         <div class="container text-center">
             <h2 style="font-weight:600">SERVICES WE OFFER...</h2>

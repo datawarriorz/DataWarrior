@@ -1,8 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/user/user-4-2-0-list-articles.css">
-<br>
+<link rel="stylesheet" href="./css/user/user-8-0-list-articles.css">
 <div class="article-wrapper">
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div class="row">
@@ -48,57 +47,46 @@
                                         <div class="tab-pane fade show active" id="articles" role="tabpanel"
                                             aria-labelledby="home-tab">
                                             <div class="container">
+                                                <br>
                                                 @foreach($articleslive as $article)
-                                                    <div class="jumbotron" style="border-bottom: 2px solid #e7e9ee;">
-                                                        <br>
-                                                        <div class="row">
-                                                            <div class="col-xs-12 col-sm-12 col-md-4 text-center">
-                                                                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($article->article_image); ?>"
-                                                                    style="height:150px;width:100%" />
-                                                            </div>
-                                                            <div class="col-xs-12 col-sm-12 col-md-8 text-center">
-                                                                <div class="col-md-12 text-left">
-                                                                    <h3><b>{{ $article->title }}</b></h3>
-                                                                </div>
-                                                                <div class="col-md-12 text-left">
-                                                                    <p>{{ $article->description }}</p>
-                                                                </div>
-                                                                <div class="col-md-12 text-right">
-                                                                    <div class="row">
-                                                                        <div class="col-md-6 text-left">
-                                                                            <h6>Published by - {{ $article->author }}
-                                                                            </h6>
+                                                    <form method="post" action="/user-view-article">
+                                                        <button type="submit" style="background-color: white;
+                                                        border: none; outline: none;">
+                                                            @csrf
+                                                            <input type="hidden" name="article_id"
+                                                                value={{ $article->article_id }} />
+                                                            <div class="jumbotron"
+                                                                style="border-bottom: 2px solid #e7e9ee;">
+                                                                <div class="row">
+                                                                    <div
+                                                                        class="col-xs-12 col-sm-12 col-md-4 text-center">
+                                                                        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($article->article_image); ?>"
+                                                                            style="height:150px;width:267px;border-radius: 11px;" />
+                                                                    </div>
+                                                                    <div
+                                                                        class="col-xs-12 col-sm-12 col-md-8 text-center">
+                                                                        <div class="col-md-12 pl-0 pr-0 pt-1 text-left">
+                                                                            <h4>{{ $article->title }}</h4>
                                                                         </div>
-                                                                        <div class="col-md-6 text-right">
-                                                                            <form method="post"
-                                                                                action="/user-view-article">
-                                                                                @csrf
-                                                                                <input type="hidden" name="article_id"
-                                                                                    value={{ $article->article_id }} />
-                                                                                <button type="submit" class="btn ">
-                                                                                    View <i class="far fa-eye"></i>
-                                                                                </button>
-                                                                            </form>
+                                                                        <div class="col-md-12 pl-0 pr-0 pt-1 text-left">
+                                                                            <p>Published by - {{ $article->author }}
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="col-md-12 pl-0 pr-0 text-left">
+                                                                            <p>{{ $article->description }}</p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <br>
-                                                    </div>
+                                                        </button>
+                                                    </form>
                                                 @endforeach
-                                                <br>
-                                            </div>
-                                            <div class="container">
-
                                             </div>
                                         </div>
-
                                         <div class="tab-pane fade" id="certification" role="tabpanel"
                                             aria-labelledby="education-tab">
                                             <br>
                                             <div class="container" style="overflow-x: scroll">
-
                                             </div>
                                             <br>
                                         </div>
@@ -109,8 +97,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
-                <div class="col-md-12">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 pl-lg-0">
+                <div class="col-md-12 pl-lg-0">
                     <div class="card feed-card">
                         <div class="card-header text-center">
                             <h5>Our Certifications</h5>

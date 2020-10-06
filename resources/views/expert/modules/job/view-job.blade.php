@@ -99,24 +99,24 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php $i = 0; ?>
-                                                    @foreach ($jobobj as $jo)
-                                                    <?php $i++; ?>
-                                                    <tr>
-                                                        <td><?php echo $i; ?>
-                                                        </td>
-                                                        <td>
+                                                    @foreach($users as $user)
+                                                        <?php $i++; ?>
+                                                        <tr>
+                                                            <td><?php echo $i; ?>
+                                                            </td>
+                                                            <td>
 
-                                                        </td>
-                                                        <td>
+                                                            </td>
+                                                            <td>
 
-                                                        </td>
-                                                        <td>
+                                                            </td>
+                                                            <td>
 
-                                                        </td>
-                                                        <td>
+                                                            </td>
+                                                            <td>
 
-                                                        </td>
-                                                    </tr>
+                                                            </td>
+                                                        </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>

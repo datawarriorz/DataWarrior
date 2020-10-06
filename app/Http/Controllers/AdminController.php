@@ -53,7 +53,7 @@ class AdminController extends Controller
             'author' => 'required|min:2|max:191',
             'description' => 'required',
             'content' => 'required',
-            'article_image' => 'required|file',
+            'article_image' => 'required|mimes:jpeg,jpg,png',
         ]);
         if ($validator->fails()) { // on validator found any error
             return redirect('/admin-postarticle')->withErrors($validator)->withInput();
@@ -123,7 +123,9 @@ class AdminController extends Controller
     public function vieweditarticleform(Request $request)
     {
         $article= Article::find($request->article_id);
-        
+        if ($article==null) {
+            $article=Article::find($request->old('article_id'));
+        }
         return view('admin.modules.article.edit-article', ['article' => $article]);
     }
 
@@ -134,12 +136,13 @@ class AdminController extends Controller
             'author' => 'required|min:2|max:191',
             'description' => 'required',
             'content' => 'required',
-            'article_image' => 'required|file',
+            'article_image' => 'required|mimes:jpeg,jpg,png',
         ]);
-        if ($validator->fails()) { // on validator found any error
-            return redirect('/admin-edit-articleform')->withErrors($validator)->withInput();
-        }
         $article=Article::find($request->article_id);
+        if ($validator->fails()) { // on validator found any error
+            return redirect('/admin-edit-articleform')->withErrors($validator)->withInput(['article_id' => $article->article_id]);
+        }
+       
         $article->title=$request->title;
         $article->author=$request->author;
         $article->description=$request->description;
@@ -190,10 +193,11 @@ class AdminController extends Controller
             'email' => 'required|email|unique:experts',
             'ex_contactcode' => 'required|numeric',
             'ex_contactno' => 'required|digits:10',
+            'ex_image' => 'required|mimes:jpeg,jpg,png',
             
         ]);
         if ($validator->fails()) { // on validator found any error
-            return redirect('/admin-create-expert-form')->withErrors($validator)->withInput();
+            return redirect('/admin-create-expertform')->withErrors($validator)->withInput();
         }
         $expertobj= new Expert();
         $expertobj->ex_firstname = $request->ex_firstname;
@@ -228,7 +232,7 @@ class AdminController extends Controller
             
         ]);
         if ($validator->fails()) { // on validator found any error
-            return redirect('/admin-create-counselor-form')->withErrors($validator)->withInput();
+            return redirect('/admin-create-counselorform')->withErrors($validator)->withInput();
         }
 
         $counselorobj= new Counselor();

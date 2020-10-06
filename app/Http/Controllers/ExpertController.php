@@ -14,6 +14,7 @@ use App\SkillLevel;
 use App\Jobs;
 use App\JobsApplied;
 use Illuminate\Support\Facades\Validator;
+use DB;
 
 class ExpertController extends Controller
 {
@@ -65,6 +66,12 @@ class ExpertController extends Controller
     }
     public function updatebasicdetails(Request $request)
     {
+        $messages = [
+            'ex_firstname.required' => 'Please enter first name',
+            'ex_firstname.min' => 'First Name should be more than 3 characters',
+
+            
+          ];
         $validator=Validator::make($request->all(), [
             'ex_firstname' => 'required|min:3|max:35',
             'ex_lastname' => 'required|min:3|max:35',
@@ -72,8 +79,8 @@ class ExpertController extends Controller
             'ex_aboutme' => 'required|min:3|max:150',
             'ex_description' => 'required',
             'ex_contactcode' => 'required|numeric',
-            'ex_contactno' => 'required|digits:10',  
-        ]);
+            'ex_contactno' => 'required|digits:10',
+        ], $messages);
         if ($validator->fails()) { // on validator found any error
             return redirect('/expert-profile-edit')->withErrors($validator)->withInput();
         }
@@ -240,7 +247,7 @@ class ExpertController extends Controller
             'author' => 'required|min:2|max:191',
             'description' => 'required',
             'content' => 'required',
-            'article_image' => 'required|file',
+            'article_image' => 'required|mimes:jpeg,jpg,png',
         ]);
         
         if ($validator->fails()) { // on validator found any error
@@ -268,7 +275,9 @@ class ExpertController extends Controller
     public function vieweditarticleform(Request $request)
     {
         $article= Article::find($request->article_id);
-        
+        if ($article==null) {
+            $article=Article::find($request->old('article_id'));
+        }
         return view('expert.modules.article.edit-article', ['article' => $article]);
     }
 
@@ -279,13 +288,15 @@ class ExpertController extends Controller
             'author' => 'required|min:2|max:191',
             'description' => 'required',
             'content' => 'required',
-            'article_image' => 'required|file',
+            'article_image' => 'required|mimes:jpeg,jpg,png',
         ]);
+        $article=Article::find($request->article_id);
         if ($validator->fails()) { // on validator found any error
-            return redirect('/expert-edit-articleform')->withErrors($validator)->withInput();
+            
+            return redirect('/expert-edit-articleform')->withErrors($validator)->withInput(['article_id' => $article->article_id]);
         }
 
-        $article=Article::find($request->article_id);
+        
         $article->title=$request->title;
         $article->creator_id=Auth::user()->ex_id;
         $article->creator_flag="expert";
@@ -390,8 +401,12 @@ class ExpertController extends Controller
     public function viewjobdetails(Request $request)
     {
         $jobobj=Jobs::find($request->job_id);
-        $jobappobj = JobsApplied::where('job_id', $jobobj->job_id)->count();
-        return view('expert.modules.job.view-job', ['jobobj'=>$jobobj,'jobappobj'=>$jobappobj]);
+        $jobappobj = JobsApplied::where('job_id', $jobobj->job_id)->get();
+        $users= DB::table('users')
+        ->join('jobs_applied', 'user.user_id', '=', 'jobs_applied.user_id')
+        ->where('jobs_applied.job_id', $jobobj->job_id);
+        dd($users);
+        return view('expert.modules.job.view-job', ['jobobj'=>$jobobj,'users'=>$users]);
     }
     
     public function postinternshipform()

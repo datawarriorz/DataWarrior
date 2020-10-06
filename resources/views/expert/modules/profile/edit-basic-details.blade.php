@@ -9,16 +9,48 @@
         </div>
         <div class="card-body">
             <form method="POST" action="/expert-profile-edit" style="padding: 14px;">
-                <div class="form-group">
-                    <label>First Name :</label>
-                    <input type="text" name='ex_firstname' required class="form-control"
-                        value="{{ $expert->ex_firstname }}">
+                @csrf
+                @if(count($errors))
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.
+                        <br />
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="form-group">
+                            <label>First Name :</label>
+                            <input type="text" name="ex_firstname" class="form-control" placeholder="Eg. "
+                                autocomplete="on" value="{{ $expert->ex_firstname }}">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name :</label>
+                            <input type="text" name="ex_lastname" class="form-control" placeholder="Eg. "
+                                autocomplete="on" value="{{ $expert->ex_lastname }}">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Image :</label>
+                            <div class="upload-btn-wrapper">
+                                <textarea id="uploadFile" class="disableInputField" placeholder="Choose File"
+                                    disabled="disabled" rows="2" autocomplete="off">
+                                </textarea>
+                                <label class="fileUpload form-control">
+                                    <input id="uploadBtn" enctype="multipart/form-data" type="file" name="ex_image"
+                                        class="upload" />
+                                    <span class="uploadBtn">Upload / Browse File ..</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Last Name :</label>
-                    <input type="text" name='ex_lastname' required class="form-control"
-                        value="{{ $expert->ex_lastname }}">
-                </div>
+
                 <div class="form-group">
                     <label>Email Address
                         <small class="text-muted">
@@ -36,7 +68,8 @@
                 <div class="form-group">
                     <label>Description <small class="text-muted">(Optional)</small> :
                     </label>
-                    <input type="text" name='ex_description' class="form-control" value="{{ $expert->ex_description }}">
+                    <input type="text" name='ex_description' class="form-control"
+                        value="{{ $expert->ex_description }}">
                 </div>
                 <div class="form-group">
                     <label>Country Code :</label><br />
@@ -53,18 +86,7 @@
                         value="{{ substr($expert->ex_dateofbirth,0,10) }}">
                 </div>
 
-                @csrf
-                @if(count($errors))
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.
-                    <br />
-                    <ul>
-                        @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
+
 
                 <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 text-center">
                     <a class="btn btn-link" href="{{ route('password.request') }}">

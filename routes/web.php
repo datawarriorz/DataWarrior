@@ -110,6 +110,9 @@ Route::post('/expert-postarticle', 'ExpertController@postarticle');
 Route::get('/expert-listarticles', 'ExpertController@viewexpertarticles');
 Route::post('/expert-viewarticle', 'ExpertController@viewarticle');
 Route::post('/expert-edit-articleform', 'ExpertController@vieweditarticleform');
+Route::get('/expert-edit-articleform', 'ExpertController@vieweditarticleform');
+
+
 Route::post('/expert-edit-article', 'ExpertController@editarticle');
 Route::post('/expert-deletearticle', 'ExpertController@deletearticle');
 
@@ -146,6 +149,9 @@ Route::post('/expert-post-internship', 'ExpertController@postinternship');
 Route::get('/expert-view-internships-posted', 'ExpertController@viewinternshipsposted');
 Route::post('/expert-view-internship-details', 'ExpertController@viewinternshipdetails');
 
+
+
+
 Route::post('/logoutexpert', 'ExpertController@logoutexpert');
 Route::get('/logoutexpert', 'ExpertController@getlogoutexpert');
 
@@ -165,11 +171,15 @@ Route::post('/admin-takedown-article', 'AdminController@takedownarticle');
 Route::get('/admin-manage-articles', 'AdminController@managearticlelist');
 Route::post('/admin-view-article', 'AdminController@viewarticle');
 Route::post('/admin-edit-articleform', 'AdminController@vieweditarticleform');
+Route::get('/admin-edit-articleform', 'AdminController@vieweditarticleform');
+
 Route::post('/admin-edit-article', 'AdminController@editarticle');
 Route::post('/admin-deletearticle', 'AdminController@deletearticle');
 
 Route::get('/admin-create-expertform', 'AdminController@createexpertform');
-Route::post('/admin-create-expertform', 'AdminController@createexpert');
+Route::post('/admin-create-expertform', 'AdminController@createexpertform');
+
+Route::post('/admin-create-expert', 'AdminController@createexpert');
 
 Route::get('/admin-create-counselorform', 'AdminController@createcounselorform');
 Route::post('/admin-create-counselorform', 'AdminController@createcounselor');

@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="{{ asset('css/main/master.css') }}" />
-<link rel="stylesheet" href="{{ asset('css/main/navbar.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/user/user-1-master.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/user/user-2-navbar.css') }}" />
 <div class="navbar-container">
     <nav class="navbar navbar-expand-lg">
 
@@ -62,9 +62,6 @@
                         </a>
                         <div class="dropdown">
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item">
-                                    {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
-                                </a>
                                 <a class="dropdown-item" href="/viewprofile">
                                     <i class="fas fa-user-circle"></i> Profile
                                 </a>

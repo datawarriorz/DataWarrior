@@ -14,7 +14,7 @@
                 @foreach($certification as $cert)
                     <li class="col-sm-12">
                         <br>
-                        <div class="card certification-card">
+                        <div class="certification-card">
                             <br>
                             <p>
                                 <h3>
@@ -51,8 +51,8 @@
                 @endforeach
             </ul>
         </div>
-        <div class="col-md-12 text-center">
-            <div class="card text-center">
+        <div class="col-4 offset-4 text-center">
+            <div class="text-center">
                 <p></p>
                 <h3>Request a Certification</h3>
                 <form action="/requestcertification" method="POST">

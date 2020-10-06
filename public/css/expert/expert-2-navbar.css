@@ -173,18 +173,24 @@
 
 .user-icon {
     position: relative;
-    font-size: 29px;
+    font-size: 20px;
     color: White;
-    width: 80px;
+    width: 100%;
     height: 45px;
     line-height: 45px;
     display: inline-block;
-    text-align: left;
     -webkit-perspective: 50em;
     perspective: 50em;
     text-decoration: none;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    padding-right: 20px;
+}
+
+@media (max-width:990px) {
+    .user-icon {
+        padding-right: 0px;
+    }
 }
 
 .user-icon:hover {

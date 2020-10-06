@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/user/ji-home.css" />
+<link rel="stylesheet" href="./css/user/user-6-0-job-home.css" />
 <div class="ji-content">
     <div class="ji-header">
         <div class="row">

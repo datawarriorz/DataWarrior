@@ -89,12 +89,12 @@
                                     rows="10"><?php echo utf8_decode($article->content); ?></textarea>
                             </div>
                             <div class="form-group col-md-12 text-center">
-                                <button type="submit" class="btn tab-edit-btn" style="font-weight: 600">
+                                <button type="submit" class="btn tab-edit-btn">
                                     Update & Preview Article <i class="far fa-eye"></i>
                                 </button>
                                 <br>
                                 <br>
-                                <a class="btn expert-btn1" href="/admin-manage-articles">
+                                <a class="btn tab-edit-btn" href="/admin-manage-articles">
                                     <i class="fas fa-arrow-left"></i> Back
                                 </a>
                             </div>

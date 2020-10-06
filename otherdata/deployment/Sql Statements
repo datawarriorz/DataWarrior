@@ -20,5 +20,11 @@ INSERT INTO certification VALUES(1,'Flutter & Dart', 700, 'Welcome to his course
 INSERT INTO certification VALUES(2,'Java', 100, 'After placing this code in our CSS file, we can apply the \"tab\" class to any text to create the appearance of a tab. The value of the margin-left can be increased or decreased depending on your needs.\r\n\r\nAlthough we recommend the method above, the margin-', 'DataWarriors', '1 year', 'No Requirememts', 'available', NULL, NULL);
 INSERT INTO certification VALUES(3,'Angular', 1000, 'Angular (commonly referred to as \"Angular 2+\" or \"Angular v2 and above\") is a TypeScript-based open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from t', 'Google', 'infinite', 'clg me kuch kiya nahi kya', 'tera baap bhi available karega', NULL, NULL);
 
-INSERT INTO jobs VALUES (NULL, 'Need Data Analyst with 2 years of Experience.', NULL, 'Open', 'Infosys', 'Data Science', 'Night', 'Mumbai', 'Data Analyst', '1', 'Python, Weka Software', NULL, '5000/- per month', 'Immediately', '2020-09-10', '5', NULL, NULL, NULL, NULL);
-INSERT INTO jobs VALUES (NULL, 'Need Front End Developer with 1 year of Experience.', NULL, 'Open', 'Accenture', 'Web Developer', 'Night', 'Pune', 'Front End Developer', '1', 'PHP, CSS, JS', NULL, '6000/- per month', 'Immediately', '2020-09-20', '2', NULL, NULL, NULL, NULL);
+INSERT INTO jobs VALUES (NULL, 'Need Data Analyst with 1 years of Experience.', NULL, 'Open', 'Infosys Pvt Ltd','www.infosys.com', 'Data Science', 'Full Time', 'Mumbai',
+                         'Data Analyst', '1', 'Python, Weka Software', NULL, '5000/- per month', 'Immediately', '2020-11-12', '5', 1, 'expert', NULL, NULL);
+INSERT INTO jobs VALUES (NULL, 'Need Front End Developer for 2 Months', NULL, 'Open','Accenture Pvt Ltd','www.accenture.com', 'Programming', 'Full Time', 'Pune', 
+                         'Front End Developer', '1', 'PHP, CSS, JS', NULL, '6000/- per month', 'Immediately', '2020-10-12', '2', 1, 'expert', NULL, NULL);     
+INSERT INTO jobs VALUES (NULL, 'Need Fresher for Back End Development', NULL, 'Open','Infomatics Pvt Ltd','www.infomatics.com', 'Programming', 'Night', 'Chennai', 
+                         'SQL Developer', '1', 'SQL', NULL, '8000/- per month', 'Immediately', '2020-12-11', '3', 1, 'admin', NULL, NULL);
+INSERT INTO jobs VALUES (NULL, 'Need Data Scientist for Internship', NULL, 'Open','Datamatics','www.datamatics.com', 'Data Science', 'Part Time', 'Pune', 
+                         'Data Scientist', '2', 'Python, Weka Software', NULL, '10000/- per month', 'Immediately', '2020-11-12', '4', 1, 'expert', NULL, NULL);  

@@ -61,27 +61,22 @@ h4 {
     background-color: rgb(23, 31, 42);
 }
 
-.expert-btn1 {
-    color: #fff;
-    background-color: #171f2a;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.expert-btn1:hover {
-    color: #fa7817;
-    font-weight: 600;
-}
-
 .tab-edit-btn {
     color: #fff;
     background-color: #171f2a;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    height: 39px;
 }
 
 .tab-edit-btn:hover {
     color: #ff8a00;
     background-color: #171f2a;
-    text-decoration: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    height: 39px;
 }
 
 

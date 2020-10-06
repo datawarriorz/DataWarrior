@@ -1,22 +1,8 @@
-.tab-edit-btn {
-    color: #fff;
-    background-color: #171f2a;
-}
-
 .upload-btn-wrapper {
     position: relative;
     overflow: hidden;
     display: inline-block;
     width: 100%;
-}
-
-.btn {
-    color: white;
-    background-color: #171f2a;
-    border-radius: 5px;
-    font-size: 15px;
-    font-weight: bold;
-    height: 39px;
 }
 
 .upload-btn-wrapper input[type=file] {

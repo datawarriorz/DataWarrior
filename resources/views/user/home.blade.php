@@ -34,9 +34,9 @@
 @else
     <br><br>
     <div class="container">
-        <h1>
+        <h2>
             Welcome {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}!
-        </h1>
+        </h2>
     </div>
 
 @endguest
@@ -134,21 +134,21 @@
             <br>
         </div>
         <div class="row container-column">
-            <div class="col-md-4">
+            <div class="col-sm-12 col-md-4">
                 <div class="knowledge-items">
                     {{-- style="background-image: linear-gradient(225deg,#fdfdfd,#7BBAD2);" --}}
                     <img src="./images/blogs.png" alt="First slide" height="100%">
                     <h6 class="knowledge-items-header">BLOGS</h6>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-sm-12 col-md-4">
                 <div class="knowledge-items">
                     {{-- style="background-image: linear-gradient(225deg,#eff0ea,#a8f4b8);" --}}
                     <img src="./images/expertspeak.png" alt="First slide" height="100%">
                     <h6 class="knowledge-items-header">EXPERT SPEAK</h6>
                 </div>
             </div>
-            <div class=" col-md-4">
+            <div class="col-sm-12 col-md-4">
                 <a href="/user-list-articles" style="text-decoration:none">
                     <div class="knowledge-items">
                         {{-- style="background-image: linear-gradient(225deg,#fff,#f4e88c);" --}}
@@ -160,66 +160,65 @@
         </div>
     </div>
     {{-- <hr class="seperator2"> --}}
-    <div class="content-container">
-        <div class="container content1 text-center">
-            <div class="container text-center">
-                <h2 style="font-weight:600">SERVICES WE OFFER...</h2>
-                <br>
-                <br>
+
+    <div class="container content1 text-center">
+        <div class="container text-center">
+            <h2 style="font-weight:600">SERVICES WE OFFER...</h2>
+            <br>
+            <br>
+        </div>
+        <div class="row container-column">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="container-items">
+                    <img src="./images/internship.png" height="100px" />
+                    <h5 class="container-items-header"><small>INTERNSHIPS</small></h5>
+                    <p class="container-items-desc">Explore yourself!<br> Become an Intern.
+                        <br>
+                        <br>
+                        <a href="/ihome">
+                            <small><strong>KNOW MORE ></strong></small>
+                        </a>
+                    </p>
+                </div>
             </div>
-            <div class="row container-column">
-                <div class="col-sm-12 col-md-6 col-lg-3">
-                    <div class="container-items">
-                        <img src="./images/internship.png" height="100px" />
-                        <h5 class="container-items-header"><small>INTERNSHIPS</small></h5>
-                        <p class="container-items-desc">Explore yourself!<br> Become an Intern.
-                            <br>
-                            <br>
-                            <a href="/ihome">
-                                <small><strong>KNOW MORE ></strong></small>
-                            </a>
-                        </p>
-                    </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="container-items">
+                    <img src="./images/certification.png" height="100px" />
+                    <h5 class="container-items-header"><small>CERTIFICATIONS</small></h5>
+                    <p class="container-items-desc">
+                        Growth...through continuous learning
+                        <br>
+                        <br>
+                        <a href="/certification">
+                            <small><strong>KNOW MORE ></strong></small>
+                        </a>
+                    </p>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-3">
-                    <div class="container-items">
-                        <img src="./images/certification.png" height="100px" />
-                        <h5 class="container-items-header"><small>CERTIFICATIONS</small></h5>
-                        <p class="container-items-desc">
-                            Growth...through continuous learning
-                            <br>
-                            <br>
-                            <a href="/certification">
-                                <small><strong>KNOW MORE ></strong></small>
-                            </a>
-                        </p>
-                    </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="container-items">
+                    <img src="./images/jobs.png" height="100px" />
+                    <h5 class="container-items-header"><small>JOBS</small></h5>
+                    <p class="container-items-desc">
+                        Somewhere...someone is looking for you
+                        <br>
+                        <br>
+                        <a href="/jhome">
+                            <small><strong>KNOW MORE ></strong></small>
+                        </a>
+                    </p>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-3">
-                    <div class="container-items">
-                        <img src="./images/jobs.png" height="100px" />
-                        <h5 class="container-items-header"><small>JOBS</small></h5>
-                        <p class="container-items-desc">
-                            Somewhere...someone is looking for you
-                            <br>
-                            <br>
-                            <a href="/jhome">
-                                <small><strong>KNOW MORE ></strong></small>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-3">
-                    <div class="container-items">
-                        <img src="./images/projects.png" height="100px" />
-                        <h5 class="container-items-header"><small>PROJECTS</small></h5>
-                        <p class="container-items-desc">
-                            Have an idea? Let us help you develop it
-                            <br>
-                            <br>
-                            <small><b>COMING SOON</b></small>
-                        </p>
-                    </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="container-items">
+                    <img src="./images/projects.png" height="100px" />
+                    <h5 class="container-items-header"><small>PROJECTS</small></h5>
+                    <p class="container-items-desc">
+                        Have an idea? Let us help you develop it
+                        <br>
+                        <br>
+                        <small><b>COMING SOON</b></small>
+                    </p>
                 </div>
             </div>
         </div>

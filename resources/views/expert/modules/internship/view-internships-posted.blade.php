@@ -62,7 +62,7 @@
                                                 <form method="post" action="/expert-viewarticle">
                                                     @csrf
                                                     <input type="hidden" name="article_id" value={{$jo->job_id }} />
-                                                    <button type="submit" class="btn expert-btn1"
+                                                    <button type="submit" class="btn tab-edit-btn"
                                                         style="margin-left:4px">
                                                         <i class="far fa-eye"></i>
                                                     </button>
@@ -70,7 +70,7 @@
                                                 <form method="post" action="/expert-edit-articleform">
                                                     @csrf
                                                     <input type="hidden" name="article_id" value={{$jo->job_id }} />
-                                                    <button type="submit" class="btn expert-btn1"
+                                                    <button type="submit" class="btn tab-edit-btn"
                                                         style="margin-left:4px">
                                                         <i class="fas fa-edit"></i></i>
                                                     </button>
@@ -78,7 +78,7 @@
                                                 <form method="post" action="/expert-deletearticle">
                                                     @csrf
                                                     <input type="hidden" name="article_id" value={{$jo->job_id }} />
-                                                    <button type="submit" class="btn expert-btn1"
+                                                    <button type="submit" class="btn tab-edit-btn"
                                                         style="margin-left:4px">
                                                         <i class="far fa-trash-alt"></i>
                                                     </button>

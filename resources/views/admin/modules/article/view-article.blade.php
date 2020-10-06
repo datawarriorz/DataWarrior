@@ -1,7 +1,7 @@
 @extends('admin.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert/expert-4-2-1-view-article.css">
+<link rel="stylesheet" href="./css/admin/admin-4-2-1-view-article.css">
 <div class="content-wrapper" id="mycontent-wrapper">
     <div class="col-md-12" style="position: inherit;">
         <div class="row">
@@ -52,7 +52,7 @@
                                     </div>
                                     <br>
                                     <div class="col-md-10 offset-md-1 text-left">
-                                        {{ $article->content }}
+                                        <?php echo nl2br($article->content); ?>
                                     </div>
                                     <br>
                                     <div class="col-md-10 offset-md-1 text-right">
@@ -64,7 +64,7 @@
                                                 @csrf
                                                 <input type="hidden" name="article_id"
                                                     value={{ $article->article_id }} />
-                                                <button type="submit" class="btn ">
+                                                <button type="submit" class="btn tab-edit-btn">
                                                     Publish <i class="far fa-eye"></i>
                                                 </button>
                                             </form>
@@ -74,7 +74,7 @@
                                                 @csrf
                                                 <input type="hidden" name="article_id"
                                                     value={{ $article->article_id }} />
-                                                <button type="submit" class="btn expert-btn1">
+                                                <button type="submit" class="btn tab-edit-btn">
                                                     Take Down <i class="far fa-eye"></i>
                                                 </button>
                                             </form>

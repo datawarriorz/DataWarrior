@@ -145,12 +145,12 @@
                             </div>
                             <br>
                             <div class="form-group col-md-12 text-center">
-                                <button type="submit" class="btn expert-btn1">
+                                <button type="submit" class="btn tab-edit-btn">
                                     Submit
                                 </button>
                                 <br>
                                 <br>
-                                <a class="btn expert-btn1" href="/expertdashboard">
+                                <a class="btn tab-edit-btn" href="/expertdashboard">
                                     <i class="fas fa-arrow-left"></i> Back
                                 </a>
                             </div>

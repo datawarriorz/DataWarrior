@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/user/ji-job-details.css" />
+<link rel="stylesheet" href="./css/user/user-7-2-internship-details.css" />
 <div class="ji-job-container card col-12 col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-center no-pad">
     <div class="job-details-header">
         <div class="data-job-title">
@@ -103,7 +103,7 @@
                     <form method="POST" action="/jobapply">
                         @csrf
                         <input type="hidden" name="job_id" value="{{ $jobobj->job_id }}">
-                        <button type="submit" class="btn expert-btn1">Apply</button>
+                        <button type="submit" class="btn tab-edit-btn">Apply</button>
                     </form>
                 </div>
             @else
@@ -116,7 +116,7 @@
                 <form method="post" action="/jobfilterapply">
                     @csrf
                     <input type="hidden" name="job_type_id" value="2">
-                    <button class="btn expert-btn1" type="submit"><i class="fas fa-arrow-left"></i>Back</button>
+                    <button class="btn tab-edit-btn" type="submit"><i class="fas fa-arrow-left"></i>Back</button>
                 </form>
             </div>
         </div>

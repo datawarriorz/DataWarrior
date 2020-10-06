@@ -1,8 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/user/login.css" />
-<link rel="stylesheet" href="./css/user/user-master.css">
+<link rel="stylesheet" href="./css/user/user-3-login.css" />
 <br>
 <div class="container">
     <div class="row justify-content-center">
@@ -74,7 +73,7 @@
                             </div>
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-2">
-                                    <button type="submit" class="btn login-btn">
+                                    <button type="submit" class="btn tab-edit-btn">
                                         {{ __('Sign in') }}
                                     </button>
                                     @if(Route::has('password.request'))

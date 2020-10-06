@@ -66,3 +66,21 @@ h6 {
     color: White;
     background-color: rgb(23, 31, 42);
 }
+
+.tab-edit-btn {
+    color: #fff;
+    background-color: #171f2a;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    height: 39px;
+}
+
+.tab-edit-btn:hover {
+    color: #fa7817;
+    background-color: #171f2a;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    height: 39px;
+}

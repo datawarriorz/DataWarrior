@@ -38,11 +38,12 @@
 
             <ul class="navbar-nav nav-right justify-content-end">
 
-                @if (Auth::guard('expert')->check())
+                @if(Auth::guard('expert')->check())
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="dropdown-toggle user-icon" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-user-circle"></i>
+                            <i class="fas fa-user-circle"></i> {{ Auth::user()->ex_first_name }}
+                            {{ Auth::user()->ex_last_name }}
                         </a>
                         <div class="dropdown">
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

@@ -1,0 +1,84 @@
+.ji-content {
+    font-family: 'Inter var', sans-serif;
+}
+
+.ji-header {
+    padding: 2rem 4rem 0rem 4rem;
+}
+
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 0;
+}
+
+.pad-zero {
+    padding: 0;
+}
+
+.ji-view-all a {
+    outline: none;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.ji-view-all {
+    padding-right: 2rem;
+    padding-top: 1rem;
+}
+
+.location-header {
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.location-body {
+    padding: 0.5rem 4rem 0rem 4rem;
+    background-color: #f2f4f7;
+}
+
+.location-cards {
+    padding-top: 1rem;
+}
+
+.location-button {
+    background-color: White;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px rgba(60, 64, 67, 0.149);
+    border-radius: 5px;
+    outline: none;
+}
+
+.location-button:hover {
+    box-shadow: 0 5px 11px 0 rgba(18, 149, 201, 0.2), 0 4px 15px 0 rgba(18, 149, 201, 0.2);
+}
+
+.domain-header {
+    padding: 2rem 4rem 0rem 4rem;
+}
+
+.domain-body {
+    padding: 0.5rem 4rem 0rem 4rem;
+    background-color: #f2f4f7;
+}
+
+.domain-cards {
+    padding-top: 1rem;
+}
+
+.domain-button {
+    background-color: White;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px rgba(60, 64, 67, 0.149);
+    border-radius: 5px;
+    outline: none;
+}
+
+.domain-button:hover {
+    box-shadow: 0 5px 11px 0 rgba(18, 149, 201, 0.2), 0 4px 15px 0 rgba(18, 149, 201, 0.2);
+}

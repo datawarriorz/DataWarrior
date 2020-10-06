@@ -10,7 +10,7 @@
 
 <body>
 
-    @include('user.layout.partials.nav')
+    @include('user.layout.partials.navbar')
 
     @yield('content')
 

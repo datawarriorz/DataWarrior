@@ -2,8 +2,7 @@
 
 @section('content')
 
-<link rel="stylesheet" href="./css/user-job/jobexperience.css">
-<link rel="stylesheet" href="./css/user/user-master.css">
+<link rel="stylesheet" href="./css/user/user-5-3-edit-experience.css">
 <br>
 <div class="col-md-8 offset-md-2">
     <div class="card">
@@ -12,6 +11,18 @@
         </div>
         <div class="card-body">
             <form method="POST" action="/updateJobexperience">
+                @csrf
+                @if(count($errors))
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.
+                        <br />
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="form-group">
                     <label for="Fname">Profile :</label>
                     <input type="text" name="profile" class="form-control" placeholder="Eg. Software Developer"
@@ -58,27 +69,15 @@
                         <input type="hidden" name="process" class="form-control" value="job" />
                     </div>
                 @endif
-                @csrf
-                @if(count($errors))
-                    <div class="alert alert-danger">
-                        <strong>Whoops!</strong> There were some problems with your input.
-                        <br />
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
                 <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 text-center">
                     <div class="row text-center">
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6 text-right">
-                            <a class="btn expert-btn1" href="/viewprofile">
+                            <a class="btn tab-edit-btn" href="/viewprofile">
                                 <i class="fas fa-arrow-left"></i> Back
                             </a>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6 text-left">
-                            <button type="submit" class="btn expert-btn1">
+                            <button type="submit" class="btn tab-edit-btn">
                                 Save <i class="far fa-save"></i>
                             </button>
                         </div>

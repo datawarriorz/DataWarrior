@@ -43,12 +43,12 @@
                 <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 text-center">
                     <div class="row text-center">
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6 text-right">
-                            <a class="btn expert-btn1" href="/expert-profile">
+                            <a class="btn tab-edit-btn" href="/expert-profile">
                                 <i class="fas fa-arrow-left"></i> Back
                             </a>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6 text-left">
-                            <button type=" submit" class="btn expert-btn1">
+                            <button type=" submit" class="btn tab-edit-btn">
                                 Save <i class="far fa-save"></i>
                             </button>
                         </div>

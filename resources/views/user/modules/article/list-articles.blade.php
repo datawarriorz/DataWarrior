@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert/expert-4-2-0-list-articles.css">
+<link rel="stylesheet" href="./css/user/user-4-2-0-list-articles.css">
 <br>
 <div class="article-wrapper">
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">

@@ -2,6 +2,7 @@
     .ji-list-filter {
         display: none;
     }
+
     .offset-sm-1 {
         margin-left: 8.333333%;
     }
@@ -11,6 +12,7 @@
     .ji-list-filter {
         display: none;
     }
+
     .offset-sm-1 {
         margin-left: 8.333333%;
     }
@@ -26,6 +28,7 @@
     .ji-list-m-filter {
         display: none;
     }
+
     .offset-sm-1 {
         margin-left: 0%;
     }
@@ -35,6 +38,7 @@
     .ji-list-m-filter {
         display: none;
     }
+
     .offset-sm-1 {
         margin-left: 0%;
     }
@@ -103,4 +107,5 @@ label {
 
 .card {
     border: none;
+    box-shadow: none;
 }

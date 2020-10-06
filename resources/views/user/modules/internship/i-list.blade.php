@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/user/ji-list.css" />
+<link rel="stylesheet" href="./css/user/user-7-1-internship-list.css" />
 <div class="ji-list-content col-12 col-sm-12 col-md-12 col-lg-12 text-center no-pad no-gutters">
     <br>
     <div class="ji-list-header">
@@ -103,6 +103,7 @@
             </div>
         </div>
     </div>
+    <br>
     <br>
 </div>
 @endsection

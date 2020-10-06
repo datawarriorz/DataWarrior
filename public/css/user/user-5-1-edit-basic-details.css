@@ -1,32 +1,28 @@
-.form-group {
-    margin-bottom: 8px;
+.card {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 4px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px rgba(60, 64, 67, 0.149);
 }
 
-.form-group {
-    margin: 0px;
+.card-header {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 0.006em;
+    padding: .48rem 1.25rem;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px rgba(60, 64, 67, 0.149);
 }
 
-.googleButton {
-    width: 191px;
-    height: 46px;
-    border: 0px;
-    background-color: white;
-}
-
-.upload-btn-wrapper {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    width: 100%;
-}
-
-.regbtn {
-    color: white;
+.job_btn {
+    color: #fff;
     background-color: #171f2a;
-    border-radius: 5px;
-    font-size: 15px;
-    font-weight: bold;
-    height: 39px;
+    border-color: #171f2a;
+}
+
+.btn-danger {
+    font-size: 13px;
 }
 
 .upload-btn-wrapper input[type=file] {

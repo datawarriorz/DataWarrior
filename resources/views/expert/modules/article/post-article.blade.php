@@ -84,7 +84,7 @@
                                     </button>
                                     <br>
                                     <br>
-                                    <a class="btn expert-btn1" href="/expertdashboard">
+                                    <a class="btn tab-edit-btn" href="/expertdashboard">
                                         <i class="fas fa-arrow-left"></i> Back
                                     </a>
                                 </div>

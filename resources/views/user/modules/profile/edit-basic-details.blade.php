@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/user/editprofile.css" />
+<link rel="stylesheet" href="./css/user/user-5-1-edit-basic-details.css" />
 <br>
 <div class="contaner col-md-8 offset-md-2">
     <div class="card">
@@ -22,7 +22,6 @@
                         </ul>
                     </div>
                 @endif
-                <br>
                 <div class="row">
                     <div class="col-md-9">
                         <div class="form-group">
@@ -52,11 +51,13 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Email address</label>
+                    <label>Email Address
+                        <small class="text-muted">
+                            (We'll never share your email with anyone else)
+                        </small>:
+                    </label>
                     <input type="email" class="form-control" id="email" disabled required name='email'
                         aria-describedby="emailHelp" placeholder="Enter email" value="{{ $user->email }}">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                        else.</small>
                 </div>
                 <div class="form-group">
                     <label>Phone Number</label><br />
@@ -105,12 +106,12 @@
                 <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 text-center">
                     <div class="row text-center">
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6 text-right">
-                            <a class="btn expert-btn1" href="/viewprofile">
+                            <a class="btn tab-edit-btn" href="/viewprofile">
                                 <i class="fas fa-arrow-left"></i> Back
                             </a>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6 text-left">
-                            <button type="submit" class="btn expert-btn1">
+                            <button type="submit" class="btn tab-edit-btn">
                                 Save <i class="far fa-save"></i>
                             </button>
                         </div>

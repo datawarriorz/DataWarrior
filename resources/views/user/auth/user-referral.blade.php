@@ -1,7 +1,6 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert/expert-4-2-1-view-article.css">
 <br>
 <br>
 <br>
@@ -20,15 +19,15 @@
                     <form method="post" action="/user-referral">
                         @csrf
                         @if(count($errors))
-                        <div class="alert alert-danger">
-                            <strong>Whoops!</strong> There were some problems with your input.
-                            <br />
-                            <ul>
-                                @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
+                            <div class="alert alert-danger">
+                                <strong>Whoops!</strong> There were some problems with your input.
+                                <br />
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         @endif
                         <div class="form-group">
                             <input type="text" name='referral_code' required class="form-control" value="">

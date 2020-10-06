@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/user/ji-list.css" />
+<link rel="stylesheet" href="./css/user/user-6-1-job-list.css" />
 <div class="ji-list-content col-12 col-sm-12 col-md-12 col-lg-12 text-center no-pad no-gutters">
     <br>
     <div class="ji-list-header">
@@ -65,7 +65,6 @@
                             </form>
                         </div>
                     </div>
-                    <br>
                 </div>
                 <div class="col-10 offset-1 col-sm-10 offset-sm-1 col-lg-7">
                     @foreach($jobsobj as $jo)
@@ -103,6 +102,7 @@
             </div>
         </div>
     </div>
+    <br>
     <br>
 </div>
 @endsection

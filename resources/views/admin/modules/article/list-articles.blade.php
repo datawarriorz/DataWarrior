@@ -60,7 +60,7 @@
                                                     <tr>
                                                         <th scope="col" style="min-width: 70px;">Sr. No</th>
                                                         <th scope="col" style="min-width: 180px;">Article Title</th>
-                                                        <th scope="col" style="min-width: 280px;">Description</th>
+                                                        <th scope="col" style="min-width: 280px;">Article Heading</th>
                                                         <th scope="col" style="min-width: 150px;" class="text-center">
                                                             Action</th>
                                                     </tr>
@@ -84,7 +84,7 @@
                                                                         @csrf
                                                                         <input type="hidden" name="article_id"
                                                                             value={{ $article->article_id }} />
-                                                                        <button type="submit" class="btn expert-btn1">
+                                                                        <button type="submit" class="btn tab-edit-btn">
                                                                             <i class="far fa-eye"></i>
                                                                         </button>
                                                                     </form>
@@ -93,7 +93,7 @@
                                                                         @csrf
                                                                         <input type="hidden" name="article_id"
                                                                             value={{ $article->article_id }} />
-                                                                        <button type="submit" class="btn expert-btn1"
+                                                                        <button type="submit" class="btn tab-edit-btn"
                                                                             style="margin-left:4px">
                                                                             <i class="fas fa-edit"></i></i>
                                                                         </button>
@@ -102,7 +102,7 @@
                                                                         @csrf
                                                                         <input type="hidden" name="article_id"
                                                                             value={{ $article->article_id }} />
-                                                                        <button type="submit" class="btn expert-btn1"
+                                                                        <button type="submit" class="btn tab-edit-btn"
                                                                             style="margin-left:4px">
                                                                             <i class="far fa-trash-alt"></i>
                                                                         </button>
@@ -149,7 +149,7 @@
                                                                         @csrf
                                                                         <input type="hidden" name="article_id"
                                                                             value={{ $article->article_id }} />
-                                                                        <button type="submit" class="btn expert-btn1">
+                                                                        <button type="submit" class="btn tab-edit-btn">
                                                                             <i class="far fa-eye"></i>
                                                                         </button>
                                                                     </form>
@@ -158,7 +158,7 @@
                                                                         @csrf
                                                                         <input type="hidden" name="article_id"
                                                                             value={{ $article->article_id }} />
-                                                                        <button type="submit" class="btn expert-btn1"
+                                                                        <button type="submit" class="btn tab-edit-btn"
                                                                             style="margin-left:4px">
                                                                             <i class="fas fa-edit"></i></i>
                                                                         </button>
@@ -167,7 +167,7 @@
                                                                         @csrf
                                                                         <input type="hidden" name="article_id"
                                                                             value={{ $article->article_id }} />
-                                                                        <button type="submit" class="btn expert-btn1"
+                                                                        <button type="submit" class="btn tab-edit-btn"
                                                                             style="margin-left:4px">
                                                                             <i class="far fa-trash-alt"></i>
                                                                         </button>

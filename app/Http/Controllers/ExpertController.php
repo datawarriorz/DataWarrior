@@ -13,6 +13,7 @@ use App\ExSkills;
 use App\SkillLevel;
 use App\Jobs;
 use App\JobsApplied;
+use App\User;
 use Illuminate\Support\Facades\Validator;
 use DB;
 
@@ -402,10 +403,9 @@ class ExpertController extends Controller
     {
         $jobobj=Jobs::find($request->job_id);
         $jobappobj = JobsApplied::where('job_id', $jobobj->job_id)->get();
-        $users= DB::table('users')
-        ->join('jobs_applied', 'user.user_id', '=', 'jobs_applied.user_id')
-        ->where('jobs_applied.job_id', $jobobj->job_id);
-        dd($users);
+        $users= User::join('jobs_applied', 'users.user_id', '=', 'jobs_applied.user_id')
+        ->where('jobs_applied.job_id', $jobobj->job_id)->get();
+        
         return view('expert.modules.job.view-job', ['jobobj'=>$jobobj,'users'=>$users]);
     }
     

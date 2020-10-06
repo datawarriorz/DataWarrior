@@ -25,6 +25,6 @@ INSERT INTO jobs VALUES (NULL, 'Need Data Analyst with 1 years of Experience.', 
 INSERT INTO jobs VALUES (NULL, 'Need Front End Developer for 2 Months', NULL, 'Open','Accenture Pvt Ltd','www.accenture.com', 'Programming', 'Full Time', 'Pune', 
                          'Front End Developer', '1', 'PHP, CSS, JS', NULL, '6000/- per month', 'Immediately', '2020-10-12', '2', 1, 'expert', NULL, NULL);     
 INSERT INTO jobs VALUES (NULL, 'Need Fresher for Back End Development', NULL, 'Open','Infomatics Pvt Ltd','www.infomatics.com', 'Programming', 'Night', 'Chennai', 
-                         'SQL Developer', '1', 'SQL', NULL, '8000/- per month', 'Immediately', '2020-12-11', '3', 1, 'admin', NULL, NULL);
+                         'SQL Developer', '1', 'SQL', NULL, '8000/- per month', 'Immediately', '2020-12-11', '3', 1, 'expert', NULL, NULL);
 INSERT INTO jobs VALUES (NULL, 'Need Data Scientist for Internship', NULL, 'Open','Datamatics','www.datamatics.com', 'Data Science', 'Part Time', 'Pune', 
                          'Data Scientist', '2', 'Python, Weka Software', NULL, '10000/- per month', 'Immediately', '2020-11-12', '4', 1, 'expert', NULL, NULL);  

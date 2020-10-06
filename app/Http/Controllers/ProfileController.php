@@ -213,8 +213,8 @@ class ProfileController extends Controller
             'organisation' => 'required|min:3',
             'location' => 'required|min:3',
             'description' => 'required|min:3',
-            'start_date' =>'required|date|before:tomorrow',
-            'end_date' =>'nullable|date|after:start_date|before:tomorrow',
+            'startdate' =>'required|date|before:tomorrow',
+            'enddate' =>'nullable|date|after:start_date|before:tomorrow',
         ], );
         if ($validator->fails()) { // on validator found any error
             return redirect('/jobexperience')->withErrors($validator)->withInput();

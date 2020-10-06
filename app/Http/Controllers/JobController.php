@@ -177,13 +177,11 @@ class JobController extends Controller
         //dd($jobsobj);
         $jobtype=JobType::find($request->job_type_id);
         //dd($jobtype);
-        if($jobtype->job_type=="job"){
+        if ($jobtype->job_type=="job") {
             return view('user.modules.job.j-list', ['jobsobj'=>$jobsobj]);
-        }
-        else{
+        } else {
             return view('user.modules.internship.i-list', ['jobsobj'=>$jobsobj]);
         }
-        
     }
     public function showjobdetails(Request $request)
     {
@@ -201,11 +199,16 @@ class JobController extends Controller
     }
     public function userapplyjob(Request $request)
     {
-        $jobappobj=new JobsApplied();
-        $jobappobj->ja_status='applied';
-        $jobappobj->user_id=Auth::user()->user_id;
-        $jobappobj->job_id=$request->job_id;
-        $jobappobj->save();
+        $check=JobsApplied::where('user_id', Auth::user()->user_id)->where('job_id', $request->job_id)->count();
+        
+        if ($check==0) {
+            $jobappobj=new JobsApplied();
+            $jobappobj->ja_status='applied';
+            $jobappobj->user_id=Auth::user()->user_id;
+            $jobappobj->job_id=$request->job_id;
+            $jobappobj->save();
+        }
+        
         return redirect()->route(
             'viewjobdetails',
             ['job_id' => $request->job_id]
@@ -213,11 +216,14 @@ class JobController extends Controller
     }
     public function userapplyinternship(Request $request)
     {
-        $jobappobj=new JobsApplied();
-        $jobappobj->ja_status='applied';
-        $jobappobj->user_id=Auth::user()->user_id;
-        $jobappobj->job_id=$request->job_id;
-        $jobappobj->save();
+        $check=JobsApplied::where('user_id', Auth::user()->user_id)->where('job_id', $request->job_id)->count();
+        if ($check==0) {
+            $jobappobj=new JobsApplied();
+            $jobappobj->ja_status='applied';
+            $jobappobj->user_id=Auth::user()->user_id;
+            $jobappobj->job_id=$request->job_id;
+            $jobappobj->save();
+        }
         return redirect()->route(
             'viewinternshipdetails',
             ['job_id' => $request->job_id]

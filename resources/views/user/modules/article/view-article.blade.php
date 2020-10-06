@@ -38,7 +38,7 @@
                                         </div>
                                         <br>
                                         <div class="col-md-12 text-left">
-                                            {{ $article_obj->content }}
+                                            <?php echo nl2br($article_obj->content); ?>
                                         </div>
                                         <br>
                                         <div class="col-md-12 text-center">

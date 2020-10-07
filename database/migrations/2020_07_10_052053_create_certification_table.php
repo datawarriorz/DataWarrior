@@ -15,14 +15,15 @@ class CreateCertificationTable extends Migration
     {
         Schema::create('certification', function (Blueprint $table) {
             $table->id('cert_id');
-            $table->string('title');
-            $table->unsignedBigInteger('price')->nullable();
-            $table->binary('description')->nullable();
-            $table->string('provider')->nullable();
-            $table->string('domain')->nullable();
-            $table->string('validationperiod')->nullable();
-            $table->string('prerequisites')->nullable();
-            $table->string('status')->nullable();
+            $table->string('cert_title');
+            $table->unsignedBigInteger('cert_price')->nullable();
+            $table->binary('cert_description')->nullable();
+            $table->binary('cert_image')->nullable();
+            $table->string('cert_provider')->nullable();
+            $table->string('cert_domain')->nullable();
+            $table->string('cert_validationperiod')->nullable();
+            $table->binary('cert_prerequisites')->nullable();
+            $table->string('cert_status')->nullable();
             $table->timestamps();
         });
     }

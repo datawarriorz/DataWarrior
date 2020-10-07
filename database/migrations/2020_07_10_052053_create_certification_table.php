@@ -24,6 +24,8 @@ class CreateCertificationTable extends Migration
             $table->string('cert_validationperiod')->nullable();
             $table->binary('cert_prerequisites')->nullable();
             $table->string('cert_status')->nullable();
+            $table->unsignedBigInteger('creator_id')->nullable();
+            $table->string('creator_flag')->nullable();
             $table->timestamps();
         });
     }

@@ -484,14 +484,14 @@ class ExpertController extends Controller
     public function postcertification(Request $request)
     {
         $validator=Validator::make($request->all(), [
-        'cert_title'=>'required',
-        'cert_price'=>'required',
-        'cert_description'=>'required',
-        'cert_image'=>'required',
-        'cert_provider'=>'required',
-        'cert_domain'=>'required',
-        'cert_validationperiod'=>'required',
-        'cert_prerequisites'=>'required',
+        'cert_title'=>'required|min:5|max:191',
+        'cert_price'=>'required|numeric',
+        'cert_description'=>'required|min:5',
+        'cert_image'=>'required|mimes:jpeg,jpg,png',
+        'cert_provider'=>'required|max:191',
+        'cert_domain'=>'required|max:191',
+        'cert_validationperiod'=>'required|max:191',
+        'cert_prerequisites'=>'required|min:5',
         
     ]);
         if ($validator->fails()) { // on validator found any error
@@ -507,11 +507,21 @@ class ExpertController extends Controller
         $certification->cert_validationperiod=$request->cert_validationperiod;
         $certification->cert_prerequisites=$request->cert_prerequisites;
         $certification->cert_status="open";
+        
+        $certification->creator_id=Auth::user()->ex_id;
+        $certification->creator_flag="expert";
 
         $certification->save();
 
 
 
         return redirect('/expertdashboard');
+    }
+
+    public function viewcertificationposted()
+    {
+        $certifications= Certification::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert')->get();
+
+        return view('expert.modules.certification.list-certifications', ['certifications'=>$certifications]);
     }
 }

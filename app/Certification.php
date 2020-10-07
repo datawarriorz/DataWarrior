@@ -22,7 +22,7 @@ class Certification extends Model
      *
      * @var array
      */
-    protected $fillable = ['cert_id', 'cert_title', 'cert_price', 'cert_description','cert_image','cert_provider','cert_domain','cert_validationperiod', 'cer_prerequisites', 'cert_status', 'created_at', 'updated_at'];
+    protected $fillable = ['cert_id', 'cert_title', 'cert_price', 'cert_description','cert_image','cert_provider','cert_domain','cert_validationperiod', 'cer_prerequisites', 'cert_status','creator_id','creator_flag', 'created_at', 'updated_at'];
 
     /**
      * The attributes excluded from the model's JSON form.

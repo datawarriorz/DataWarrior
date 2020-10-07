@@ -51,7 +51,7 @@
                                                     <i class="fas fa-edit"></i> Post Certification
                                                 </button>
                                             </a>
-                                            <a href="#">
+                                            <a href="/expert-list-certification">
                                                 <button type="button" class="btn tab-edit-btn">
                                                     <i class="far fa-eye"></i> Certifications
                                                 </button>

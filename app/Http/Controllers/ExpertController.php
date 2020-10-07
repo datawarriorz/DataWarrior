@@ -15,6 +15,7 @@ use App\Jobs;
 use App\JobsApplied;
 use App\User;
 use Illuminate\Support\Facades\Validator;
+use App\Certification;
 use DB;
 
 class ExpertController extends Controller
@@ -469,6 +470,47 @@ class ExpertController extends Controller
         $jobobj->creator_id=Auth::user()->ex_id;
         $jobobj->creator_flag='expert';
         $jobobj->save();
+
+        return redirect('/expertdashboard');
+    }
+    //////////////////////////////////certification///////////
+
+    
+    public function postcertificationform()
+    {
+        return view('expert.modules.certification.post-certification');
+    }
+
+    public function postcertification(Request $request)
+    {
+        $validator=Validator::make($request->all(), [
+        'cert_title'=>'required',
+        'cert_price'=>'required',
+        'cert_description'=>'required',
+        'cert_image'=>'required',
+        'cert_provider'=>'required',
+        'cert_domain'=>'required',
+        'cert_validationperiod'=>'required',
+        'cert_prerequisites'=>'required',
+        
+    ]);
+        if ($validator->fails()) { // on validator found any error
+            return redirect('/expert-post-certification-form')->withErrors($validator)->withInput();
+        }
+        $certification=new Certification();
+        $certification->cert_title=$request->cert_title;
+        $certification->cert_price=$request->cert_price;
+        $certification->cert_description=$request->cert_description;
+        $certification->cert_image=$request->cert_image;
+        $certification->cert_provider=$request->cert_provider;
+        $certification->cert_domain=$request->cert_domain;
+        $certification->cert_validationperiod=$request->cert_validationperiod;
+        $certification->cert_prerequisites=$request->cert_prerequisites;
+        $certification->cert_status="open";
+
+        $certification->save();
+
+
 
         return redirect('/expertdashboard');
     }

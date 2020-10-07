@@ -154,6 +154,9 @@ Route::post('/expert-post-internship', 'ExpertController@postinternship');
 Route::get('/expert-view-internships-posted', 'ExpertController@viewinternshipsposted');
 Route::post('/expert-view-internship-details', 'ExpertController@viewinternshipdetails');
 
+Route::get('/expert-post-certification-form', 'ExpertController@postcertificationform');
+Route::post('/expert-post-certification', 'ExpertController@postcertification');
+
 
 
 

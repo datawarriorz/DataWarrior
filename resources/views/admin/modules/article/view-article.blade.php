@@ -48,7 +48,7 @@
                                     </div>
                                     <br>
                                     <div class="col-md-10 offset-md-1 text-left">
-                                        <strong>{{ $article->description }}</strong>
+                                        <strong><?php echo nl2br( $article->description); ?></strong>
                                     </div>
                                     <br>
                                     <div class="col-md-10 offset-md-1 text-left">

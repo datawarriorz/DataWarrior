@@ -25,15 +25,15 @@
                         <form method="POST" action="/expert-postarticle" enctype="multipart/form-data">
                             @csrf
                             @if(count($errors))
-                            <div class="alert alert-danger">
-                                <strong>Whoops!</strong> There were some problems with your input.
-                                <br />
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                                <div class="alert alert-danger">
+                                    <strong>Whoops!</strong> There were some problems with your input.
+                                    <br />
+                                    <ul>
+                                        @foreach($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                             @endif
                             <div class="col-md-12" style="padding: 0px;">
                                 <div class="row">
@@ -75,7 +75,8 @@
                                 <div class="form-group">
                                     <label>Content :</label>
                                     <textarea name="content" class="form-control" id="content" placeholder="Eg. "
-                                        autocomplete="on" rows="10" value={{ old('content') }}></textarea>
+                                        autocomplete="on" rows="10"
+                                        value={{ old('content') }}></textarea>
                                 </div>
                                 <div class="form-group col-md-12 text-center">
                                     <br>

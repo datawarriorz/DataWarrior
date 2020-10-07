@@ -21,7 +21,7 @@ class CertificationController extends Controller
     {
         $certification = Certification::all();
         $certificationapplied = CertificationApplied::where('user_id', Auth::user()->user_id)->get();
-        return view('user.modules.certification.c-home', ['certification' => $certification, 'certificationapplied' => $certificationapplied]);
+        return view('user.modules.certification.list-certifications', ['certification' => $certification, 'certificationapplied' => $certificationapplied]);
     }
 
     public function requestcertification(Request $request)

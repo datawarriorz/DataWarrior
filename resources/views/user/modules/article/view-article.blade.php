@@ -5,7 +5,7 @@
 <div class="col-12 col-sm-12 col-md-10 offset-md-1" style="background-color: white;">
     <div class="col-12">
         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb" style="background-color: white;">
+            <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
                 <li class="breadcrumb-item"><a href="/user-list-articles">Articles</a></li>
                 <li class="breadcrumb-item active" aria-current="page">
@@ -33,7 +33,7 @@
                 </div>
                 <br>
                 <div class="col-md-12 text-left">
-                    <strong>{{ $article_obj->description }}</strong>
+                    <strong><?php echo nl2br($article_obj->description ); ?></strong>
                 </div>
                 <br>
                 <div class="col-md-12 text-left">

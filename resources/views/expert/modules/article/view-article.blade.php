@@ -47,7 +47,7 @@
                                         </div>
                                         <br>
                                         <div class="col-md-12 text-left">
-                                            <strong>{{ $article->description }}</strong>
+                                            <strong><?php echo nl2br($article->description); ?></strong>
                                         </div>
                                         <br>
                                         <div class="col-md-12 text-left article-content">

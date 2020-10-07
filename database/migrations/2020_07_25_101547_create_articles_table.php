@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->unsignedBigInteger('creator_id')->nullable();
             $table->string('creator_flag')->nullable();
             $table->string('author')->nullable();
-            $table->longText('description');
+            $table->binary('description');
             $table->binary('content')->nullable();
             $table->binary('article_image')->nullable();
             $table->string('status')->nullable();

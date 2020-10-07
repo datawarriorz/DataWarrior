@@ -73,7 +73,8 @@
                                                                             </p>
                                                                         </div>
                                                                         <div class="col-md-12 pl-0 pr-0 text-left">
-                                                                            <p>{{ $article->description }}</p>
+                                                                            <p> <?php echo nl2br($article->description); ?>
+                                                                            </p>
                                                                         </div>
                                                                     </div>
                                                                 </div>

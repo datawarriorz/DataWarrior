@@ -3,41 +3,41 @@
 @section('content')
 <link rel="stylesheet" href="./css/main/home.css" />
 @guest
-    <div class="jumbotron" style="">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-5">
-                    <div class="col-12 logo-image">
-                        <img class="logo" src="./images/justlogo2.png" alt="Logo" />
-                    </div>
+<div class="jumbotron" style="">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-5">
+                <div class="col-12 logo-image">
+                    <img class="logo" src="./images/justlogo2.png" alt="Logo" />
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-7">
-                    <div class="data-wrapper" style="">
-                        <div class="col-12">
-                            <h3>Maximize your potential</h3>
-                            <h1 class="text-orange"><b>Be a Data Warrior <img width="30rem" height="auto"
-                                        src="./images/torch1.png" alt="Logo" /></b></h1>
-                        </div>
-                        <br>
-                        <div class="col-12">
-                            <a class="register-link" href="{{ route('register') }}">
-                                <button type="button" class="btn register-btn">
-                                    Join Us!
-                                </button>
-                            </a>
-                        </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-7">
+                <div class="data-wrapper" style="">
+                    <div class="col-12">
+                        <h3>Maximize your potential</h3>
+                        <h1 class="text-orange"><b>Be a Data Warrior <img width="30rem" height="auto"
+                                    src="./images/torch1.png" alt="Logo" /></b></h1>
+                    </div>
+                    <br>
+                    <div class="col-12">
+                        <a class="register-link" href="{{ route('register') }}">
+                            <button type="button" class="btn register-btn">
+                                Join Us!
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 @else
-    <br><br>
-    <div class="container">
-        <h2>
-            Welcome {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}!
-        </h2>
-    </div>
+<br><br>
+<div class="container">
+    <h2>
+        Welcome {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}!
+    </h2>
+</div>
 
 @endguest
 <br><br>
@@ -189,7 +189,7 @@
                         Growth...through continuous learning
                         <br>
                         <br>
-                        <a href="/certification">
+                        <a href="/certificationhome">
                             <small><strong>KNOW MORE ></strong></small>
                         </a>
                     </p>
@@ -321,27 +321,27 @@
 <div class="container-fluid m-cards">
     <div class="row flex-nowrap">
         @foreach($expertsobj as $ex)
-            <div class="col-12">
-                <div class="card card-block">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center" style="padding-top: 18px;">
-                        <img class="home-expert-dp"
-                            src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($ex->ex_image); ?>"
-                            style="height:144px;width:144px;border-radius:50%" />
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            {{ $ex->ex_firstname }} {{ $ex->ex_lastname }}
-                        </h5>
-                        <p class="card-text">{{ $ex->ex_aboutme }}</p>
-                        <form method="POST" action="/user-view-expert">
-                            @csrf
-                            <input type="hidden" value="{{ $ex->ex_id }}" name="ex_id">
-                            <button type="submit" class="btn btn-primary">View More Info</button>
-                        </form>
+        <div class="col-12">
+            <div class="card card-block">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center" style="padding-top: 18px;">
+                    <img class="home-expert-dp"
+                        src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($ex->ex_image); ?>"
+                        style="height:144px;width:144px;border-radius:50%" />
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{ $ex->ex_firstname }} {{ $ex->ex_lastname }}
+                    </h5>
+                    <p class="card-text">{{ $ex->ex_aboutme }}</p>
+                    <form method="POST" action="/user-view-expert">
+                        @csrf
+                        <input type="hidden" value="{{ $ex->ex_id }}" name="ex_id">
+                        <button type="submit" class="btn btn-primary">View More Info</button>
+                    </form>
 
-                    </div>
                 </div>
             </div>
+        </div>
         @endforeach
     </div>
 </div>

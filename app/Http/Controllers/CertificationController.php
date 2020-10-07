@@ -17,13 +17,16 @@ class CertificationController extends Controller
         $this->middleware('auth')->except('logout');
     }
 
-    public function showallcertification()
+    public function showcertifications()
     {
         $certification = Certification::all();
         $certificationapplied = CertificationApplied::where('user_id', Auth::user()->user_id)->get();
         return view('user.modules.certification.list-certifications', ['certification' => $certification, 'certificationapplied' => $certificationapplied]);
     }
-
+    public function showcertificationhome()
+    {
+        return view('user.modules.certification.c-home');
+    }
     public function requestcertification(Request $request)
     {
         $validator=Validator::make($request->all(), [

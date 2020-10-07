@@ -83,7 +83,11 @@ Route::get('/jobfinal', 'JobController@showjob')->middleware('auth');
 Route::get('/joback', 'JobController@showack')->middleware('auth');
 Route::post('/deleteJob', 'JobController@deleteJob')->middleware('auth');
 
-Route::get('/certification', 'CertificationController@showallcertification')->middleware('auth');
+Route::get('/certificationhome', 'CertificationController@showcertificationhome')->middleware('auth');
+Route::post('/certificationlist', 'CertificationController@showcertifications')->middleware('auth');
+//Route::get('/certificationlist', 'CertificationController@showcertifications')->middleware('auth');
+
+
 Route::post('/applycertification', 'CertificationController@applycertification')->middleware('auth');
 Route::post('/requestcertification', 'CertificationController@requestcertification')->middleware('auth');
 

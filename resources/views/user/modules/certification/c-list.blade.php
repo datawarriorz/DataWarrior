@@ -2,6 +2,21 @@
 
 @section('content')
 <link rel="stylesheet" href="./css/user/user-9-0-list-certifications.css" />
+<div class="col-12 col-sm-12 col-md-10 offset-md-1" style="background-color: white;">
+    <div class="col-12">
+        <h2 class="text-xl lg:text-3xl leading-tight text-gray-800 font-bold mt-2">
+            Certification for
+        </h2>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12">
+            <div class="jumbotron">
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <br>
     <div class="card">

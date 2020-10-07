@@ -15,6 +15,8 @@ php artisan make:migration create_ex_experience_table
 php artisan generate:modelfromtable --table=articles
 php artisan make:mail Newsletter -m emails.newsletter
 
+php artisan migrate:refresh --path=database/migrations/2020_07_10_064331_create_certification_applied_table.php
+
 php artisan tinker
     $expert = new App\Expert;
     $expert->admin_id=1;

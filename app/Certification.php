@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Certification extends Model  
+class Certification extends Model
 {
 
     
@@ -15,13 +15,14 @@ class Certification extends Model
      * @var string
      */
     protected $table = 'certification';
+    protected $primaryKey = 'cert_id';
 
     /**
      * Attributes that should be mass-assignable.
      *
      * @var array
      */
-    protected $fillable = ['cert_id', 'title', 'price', 'description', 'provider','domain','validationperiod', 'prerequisites', 'status', 'created_at', 'updated_at'];
+    protected $fillable = ['cert_id', 'cert_title', 'cert_price', 'cert_description','cert_image','cert_provider','cert_domain','cert_validationperiod', 'cer_prerequisites', 'cert_status', 'created_at', 'updated_at'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -43,5 +44,4 @@ class Certification extends Model
      * @var array
      */
     protected $dates = ['created_at', 'updated_at'];
-
 }

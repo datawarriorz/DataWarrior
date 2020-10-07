@@ -70,13 +70,13 @@
                                     <label>Summary / Description :</label>
                                     <textarea name="cert_description" class="form-control" id="cert_description"
                                         placeholder="Eg. " autocomplete="on" rows="2"
-                                        value={{ old('description') }}></textarea>
+                                        value={{ old('cert_description') }}></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Pre - Requiste :</label>
                                     <textarea name="cert_prerequisites" class="form-control" id="cert_prerequisites"
                                         placeholder="Eg. " autocomplete="on" rows="2"
-                                        value={{ old('description') }}></textarea>
+                                        value={{ old('cert_prerequisites') }}></textarea>
                                 </div>
 
                                 <div class="form-group">
@@ -85,7 +85,7 @@
                                         autocomplete="on" value={{ old('cert_provider') }}>
                                 </div>
                                 <div class="form-group">
-                                    <label>Domian :</label>
+                                    <label>Domain :</label>
                                     <input type="text" name="cert_domain" class="form-control" placeholder="Eg. "
                                         autocomplete="on" value={{ old('cert_domain') }}>
                                 </div>

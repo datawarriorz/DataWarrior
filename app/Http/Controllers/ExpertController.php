@@ -520,8 +520,74 @@ class ExpertController extends Controller
 
     public function viewcertificationposted()
     {
-        $certifications= Certification::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert')->get();
+        $certifications= Certification::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert')->where('cert_status', 'open')->get();
 
         return view('expert.modules.certification.list-certifications', ['certifications'=>$certifications]);
+    }
+    public function vieweditcertificationform(Request $request)
+    {
+        $certification= Certification::find($request->cert_id);
+        if ($certification==null) {
+            $certification=Certification::find($request->old('cert_id'));
+        }
+        return view('expert.modules.certification.edit-certification', ['certification' => $certification]);
+    }
+
+    
+    public function editcertification(Request $request)
+    {
+        $validator=Validator::make($request->all(), [
+        'cert_title'=>'required|min:5|max:191',
+        'cert_price'=>'required|numeric',
+        'cert_description'=>'required|min:5',
+        'cert_image'=>'required|mimes:jpeg,jpg,png',
+        'cert_provider'=>'required|max:191',
+        'cert_domain'=>'required|max:191',
+        'cert_validationperiod'=>'required|max:191',
+        'cert_prerequisites'=>'required|min:5',
+        
+    ]);
+        
+        $certification=Certification::find($request->cert_id);
+        if ($validator->fails()) { // on validator found any error
+            return redirect('/expert-post-certification-form')->withErrors($validator)->withInput(['cert_id' => $certification->cert_id]);
+        }
+        
+        $certification->cert_title=$request->cert_title;
+        $certification->cert_price=$request->cert_price;
+        $certification->cert_description=$request->cert_description;
+        $certification->cert_image=$request->cert_image;
+        $certification->cert_provider=$request->cert_provider;
+        $certification->cert_domain=$request->cert_domain;
+        $certification->cert_validationperiod=$request->cert_validationperiod;
+        $certification->cert_prerequisites=$request->cert_prerequisites;
+        $certification->cert_status="open";
+        $certification->creator_id=Auth::user()->ex_id;
+        $certification->creator_flag="expert";
+        $certification->save();
+
+        $certification=Certification::find($request->cert_id);
+        return view('expert.modules.certification.view-certification', ['certification'=> $certification]);
+    }
+    
+    public function viewcertification(Request $request)
+    {
+        $certification= Certification::find($request->cert_id);
+        dd($certification->cert_title);
+        return view('expert.modules.certification.view-certification', ['certification' => $certification]);
+    }
+
+    public function deletecertification(Request $request)
+    {
+        $certification= Certification::find($request->cert_id);
+        if ($certification->cert_status=="open") {
+            $certification->cert_status="delete";//if published
+            $certification->save();
+        } else {
+            // $certification->delete();//if not published
+        }
+       
+
+        return redirect("/expert-list-certification");
     }
 }

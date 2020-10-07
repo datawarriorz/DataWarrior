@@ -29,7 +29,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link profilenav active" id="articles-tab" data-toggle="tab"
                                             href="#articles" role="tab" aria-controls="articles" aria-selected="true">
-                                            <h5>Live</h5>
+                                            <h5>Certifications</h5>
                                         </a>
                                     </li>
                                 </ul>
@@ -68,7 +68,8 @@
                                                             </td>
                                                             <td class="text-center">
                                                                 <div class="row" class="text-center">
-                                                                    <form method="post" action="/">
+                                                                    <form method="post"
+                                                                        action="/expert-viewcertification">
                                                                         @csrf
                                                                         <input type="hidden" name="cert_id"
                                                                             value={{ $certification->cert_id }} />
@@ -77,7 +78,8 @@
                                                                             <i class="far fa-eye"></i>
                                                                         </button>
                                                                     </form>
-                                                                    <form method="post" action="/expert-edit-">
+                                                                    <form method="post"
+                                                                        action="/expert-edit-certificationform">
                                                                         @csrf
                                                                         <input type="hidden" name="cert_id"
                                                                             value={{ $certification->cert_id }} />

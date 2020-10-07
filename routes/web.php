@@ -158,7 +158,14 @@ Route::get('/expert-post-certification-form', 'ExpertController@postcertificatio
 Route::post('/expert-post-certification', 'ExpertController@postcertification');
 Route::get('/expert-list-certification', 'ExpertController@viewcertificationposted');
 
+Route::post('/expert-edit-certificationform', 'ExpertController@vieweditcertificationform');
+Route::get('/expert-edit-certificationform', 'ExpertController@vieweditcertificationform');
 
+Route::post('/expert-viewcertification', 'ExpertController@viewcertification');
+
+
+Route::post('/expert-edit-certification', 'ExpertController@editcertification');
+Route::post('/expert-deletecertification', 'ExpertController@deletecertification');
 
 
 Route::post('/logoutexpert', 'ExpertController@logoutexpert');

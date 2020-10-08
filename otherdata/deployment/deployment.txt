@@ -18,3 +18,11 @@ To Enable Drop DB Statement
 
 
             chnage newsletter mail link 
+
+
+
+
+
+files for live deployment
+
+env

@@ -2,7 +2,6 @@
 
 @section('content')
 <br>
-<br>
 <link rel="stylesheet" href="{{ asset('css/user/user-3-login.css') }}" />
 <div class="container">
     <div class="row justify-content-center">
@@ -29,7 +28,7 @@
                         @if(count($errors))
                             <div class="alert alert-danger">
                                 <strong>Whoops!</strong> There were some problems with your input.
-                                <br />
+                                <br>
                                 <ul>
                                     @foreach($errors->all() as $error)
                                         <li>{{ $error }}</li>

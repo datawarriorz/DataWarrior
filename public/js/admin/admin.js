@@ -23,6 +23,6 @@ function mcloseNav() {
     document.getElementById("m-myclose-icon").style.display = "none";
 }
 
-document.getElementById("uploadBtn").onchange = function() {
+document.getElementById("uploadBtn").onchange = function () {
     document.getElementById("uploadFile").value = this.value;
 };

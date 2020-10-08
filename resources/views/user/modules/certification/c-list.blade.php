@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row">
             @foreach($certification as $cert)
-                <div class="col-12 col-sm-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+                <div class="col-12 col-sm-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-10 offset-xl-1">
                     <div class="card">
                         <div class="row">
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
@@ -22,28 +22,42 @@
                             </div>
                             <div class="col-12 col-sm-12 col-md-8 col-lg-8">
                                 <div class="card-body">
-                                    <p class="card-text"><strong>{{ $cert->cert_title }}</strong></p>
-                                    <p class="card-text"><?php echo substr(nl2br($cert->cert_description),0,100); ?>
-                                        ...
+                                    <h5 class="card-text">
+                                        <strong>{{ $cert->cert_title }}</strong>
+                                    </h5>
+                                    <h5 class="card-text" style="padding-top: 11px;">
+                                        <small><?php echo substr(nl2br($cert->cert_description),0,100); ?>...</small>
+                                    </h5>
+                                    <p class="card-text" style="padding-top: 11px;">
+                                        <strong>Price: {{ $cert->cert_price }}</strong> /-
                                     </p>
-                                    <p class="card-text">Price: {{ $cert->cert_price }} /-</p>
-                                    <p class="card-text">
-                                        <small class="text-muted">
-                                            <a
-                                                href="<?php echo "http://localhost:8000/certificationdetails/".$cert->cert_id; ?>">
-                                                View More >
-                                            </a>
-                                        </small>
-                                    </p>
-                                    <?php $i=true; ?>
-                                    @foreach($certificationapplied as $ca)
-                                        @if($ca->cert_id==$cert->cert_id)
-                                            <i>*Applied</i>
-                                            <?php $i=false; ?>
-                                            @break
+                                    <div class="col-12 p-0">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p class="card-text">
+                                                    <small class="text-muted">
+                                                        <a class="btn btn-primary"
+                                                            href="<?php echo "http://localhost:8000/certificationdetails/".$cert->cert_id; ?>">
+                                                            View More >
+                                                        </a>
+                                                    </small>
+                                                </p>
+                                            </div>
+                                            <div class="col-6 text-right"
+                                                style="color:#25ac25;padding: .375rem .75rem;">
+                                                <?php $i=true; ?>
+                                                @foreach($certificationapplied as $ca)
+                                                    @if($ca->cert_id==$cert->cert_id)
+                                                        Applied <i class="fas fa-check-square"></i>
+                                                        <?php $i=false; ?>
+                                                        @break
 
-                                        @endif
-                                    @endforeach
+                                                    @endif
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

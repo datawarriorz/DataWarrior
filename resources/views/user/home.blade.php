@@ -3,41 +3,41 @@
 @section('content')
 <link rel="stylesheet" href="./css/main/home.css" />
 @guest
-<div class="jumbotron" style="">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-        <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-5">
-                <div class="col-12 logo-image">
-                    <img class="logo" src="./images/justlogo2.png" alt="Logo" />
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-12 col-lg-7">
-                <div class="data-wrapper" style="">
-                    <div class="col-12">
-                        <h3>Maximize your potential</h3>
-                        <h1 class="text-orange"><b>Be a Data Warrior <img width="30rem" height="auto"
-                                    src="./images/torch1.png" alt="Logo" /></b></h1>
+    <div class="jumbotron" style="">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-5">
+                    <div class="col-12 logo-image">
+                        <img class="logo" src="./images/justlogo2.png" alt="Logo" />
                     </div>
-                    <br>
-                    <div class="col-12">
-                        <a class="register-link" href="{{ route('register') }}">
-                            <button type="button" class="btn register-btn">
-                                Join Us!
-                            </button>
-                        </a>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-7">
+                    <div class="data-wrapper" style="">
+                        <div class="col-12">
+                            <h3>Maximize your potential</h3>
+                            <h1 class="text-orange"><b>Be a Data Warrior <img width="30rem" height="auto"
+                                        src="./images/torch1.png" alt="Logo" /></b></h1>
+                        </div>
+                        <br>
+                        <div class="col-12">
+                            <a class="register-link" href="{{ route('register') }}">
+                                <button type="button" class="btn register-btn">
+                                    Join Us!
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @else
-<br><br>
-<div class="container">
-    <h2>
-        Welcome {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}!
-    </h2>
-</div>
+    <br><br>
+    <div class="container">
+        <h2>
+            Welcome {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}!
+        </h2>
+    </div>
 
 @endguest
 <br><br>
@@ -139,6 +139,7 @@
                     {{-- style="background-image: linear-gradient(225deg,#fdfdfd,#7BBAD2);" --}}
                     <img src="./images/blogs.png" alt="First slide" height="100%">
                     <h6 class="knowledge-items-header">BLOGS</h6>
+                    <small>COMING SOON</small>
                 </div>
             </div>
             <div class="col-sm-12 col-md-4">
@@ -146,6 +147,7 @@
                     {{-- style="background-image: linear-gradient(225deg,#eff0ea,#a8f4b8);" --}}
                     <img src="./images/expertspeak.png" alt="First slide" height="100%">
                     <h6 class="knowledge-items-header">EXPERT SPEAK</h6>
+                    <small>COMING SOON</small>
                 </div>
             </div>
             <div class="col-sm-12 col-md-4">
@@ -154,6 +156,7 @@
                         {{-- style="background-image: linear-gradient(225deg,#fff,#f4e88c);" --}}
                         <img src="./images/article.png" alt="First slide" height="100%">
                         <h6 class="knowledge-items-header">ARTICLES</h6>
+                        <small>KNOW MORE ></strong>
                     </div>
                 </a>
             </div>
@@ -169,45 +172,45 @@
         </div>
         <div class="row container-column">
             <div class="col-sm-12 col-md-6 col-lg-3">
-                <div class="container-items">
-                    <img src="./images/internship.png" height="100px" />
-                    <h5 class="container-items-header"><small>INTERNSHIPS</small></h5>
-                    <p class="container-items-desc">Explore yourself!<br> Become an Intern.
-                        <br>
-                        <br>
-                        <a href="/ihome">
+                <a href="/ihome" style="text-decoration: none">
+                    <div class="container-items">
+                        <img src="./images/internship.png" height="100px" />
+                        <h5 class="container-items-header"><small>INTERNSHIPS</small></h5>
+                        <p class="container-items-desc">Explore yourself!<br> Become an Intern.
+                            <br>
+                            <br>
                             <small><strong>KNOW MORE ></strong></small>
-                        </a>
-                    </p>
-                </div>
+                        </p>
+                    </div>
+                </a>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3">
-                <div class="container-items">
-                    <img src="./images/certification.png" height="100px" />
-                    <h5 class="container-items-header"><small>CERTIFICATIONS</small></h5>
-                    <p class="container-items-desc">
-                        Growth...through continuous learning
-                        <br>
-                        <br>
-                        <a href="/certificationhome">
+                <a href="/certificationhome" style="text-decoration: none">
+                    <div class="container-items">
+                        <img src="./images/certification.png" height="100px" />
+                        <h5 class="container-items-header"><small>CERTIFICATIONS</small></h5>
+                        <p class="container-items-desc">
+                            Growth...through continuous learning
+                            <br>
+                            <br>
                             <small><strong>KNOW MORE ></strong></small>
-                        </a>
-                    </p>
-                </div>
+                        </p>
+                    </div>
+                </a>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3">
-                <div class="container-items">
-                    <img src="./images/jobs.png" height="100px" />
-                    <h5 class="container-items-header"><small>JOBS</small></h5>
-                    <p class="container-items-desc">
-                        Somewhere...someone is looking for you
-                        <br>
-                        <br>
-                        <a href="/jhome">
+                <a href="/jhome" style="text-decoration: none">
+                    <div class="container-items">
+                        <img src="./images/jobs.png" height="100px" />
+                        <h5 class="container-items-header"><small>JOBS</small></h5>
+                        <p class="container-items-desc">
+                            Somewhere...someone is looking for you
+                            <br>
+                            <br>
                             <small><strong>KNOW MORE ></strong></small>
-                        </a>
-                    </p>
-                </div>
+                        </p>
+                    </div>
+                </a>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3">
                 <div class="container-items">
@@ -321,27 +324,27 @@
 <div class="container-fluid m-cards">
     <div class="row flex-nowrap">
         @foreach($expertsobj as $ex)
-        <div class="col-12">
-            <div class="card card-block">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center" style="padding-top: 18px;">
-                    <img class="home-expert-dp"
-                        src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($ex->ex_image); ?>"
-                        style="height:144px;width:144px;border-radius:50%" />
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">
-                        {{ $ex->ex_firstname }} {{ $ex->ex_lastname }}
-                    </h5>
-                    <p class="card-text">{{ $ex->ex_aboutme }}</p>
-                    <form method="POST" action="/user-view-expert">
-                        @csrf
-                        <input type="hidden" value="{{ $ex->ex_id }}" name="ex_id">
-                        <button type="submit" class="btn btn-primary">View More Info</button>
-                    </form>
+            <div class="col-12">
+                <div class="card card-block">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center" style="padding-top: 18px;">
+                        <img class="home-expert-dp"
+                            src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($ex->ex_image); ?>"
+                            style="height:144px;width:144px;border-radius:50%" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{ $ex->ex_firstname }} {{ $ex->ex_lastname }}
+                        </h5>
+                        <p class="card-text">{{ $ex->ex_aboutme }}</p>
+                        <form method="POST" action="/user-view-expert">
+                            @csrf
+                            <input type="hidden" value="{{ $ex->ex_id }}" name="ex_id">
+                            <button type="submit" class="btn btn-primary">View More Info</button>
+                        </form>
 
+                    </div>
                 </div>
             </div>
-        </div>
         @endforeach
     </div>
 </div>

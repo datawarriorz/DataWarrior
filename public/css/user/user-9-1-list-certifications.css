@@ -44,4 +44,12 @@
     background-color: #61bee9;
 }
 
-.
+.btn-primary {
+    color: #007bff;
+    background-color: white;
+    border-color: #007bff;
+}
+
+.card {
+    box-shadow: none;
+}

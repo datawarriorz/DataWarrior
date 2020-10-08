@@ -1,4 +1,4 @@
-.container {
+/* .container {
     text-align: center;
     padding-top: 0px;
 }
@@ -34,4 +34,14 @@
 .contact-table .form-control:focus {
     border: 1px solid #d5d5d5;
     background-color: white;
+} */
+
+.cert-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-color: #61bee9;
 }
+
+.

@@ -61,7 +61,7 @@
                                                                     <div
                                                                         class="col-xs-12 col-sm-12 col-md-4 text-center">
                                                                         <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($article->article_image); ?>"
-                                                                            style="height:150px;width:267px;border-radius: 11px;" />
+                                                                            style="height:150px;width:100%;border-radius: 11px;" />
                                                                     </div>
                                                                     <div
                                                                         class="col-xs-12 col-sm-12 col-md-8 text-center">

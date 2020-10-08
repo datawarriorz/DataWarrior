@@ -10,10 +10,11 @@
                     <div class="card-header">
                         <div class="col-12 pl-0 pr-0">
                             <div class="row">
-                                <div class="col-6 text-left">
-                                    <div style="margin-bottom: 0px"><i class="fas fa-columns"></i> Job Form</div>
+                                <div class="col-8 text-left">
+                                    <div style="margin-bottom: 0px"><i class="fas fa-columns"></i> Certification Form
+                                    </div>
                                 </div>
-                                <div class="col-6 text-right">
+                                <div class="col-4 text-right">
                                     <a class="tab-edit-btn" href="/expertdashboard">
                                         <i class="fas fa-arrow-left"></i> Back
                                     </a>
@@ -41,12 +42,12 @@
                                         <div class="form-group">
                                             <label>Title :</label>
                                             <input type="text" name="cert_title" class="form-control" placeholder="Eg. "
-                                                autocomplete="on" value={{ old('cert_title') }}>
+                                                autocomplete="on" value="{{ old('cert_title') }}">
                                         </div>
                                         <div class="form-group">
                                             <label>Price :</label>
                                             <input type="text" name="cert_price" class="form-control" placeholder="Eg. "
-                                                autocomplete="on" value={{ old('cert_price') }}>
+                                                autocomplete="on" value="{{ old('cert_price') }}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -70,37 +71,37 @@
                                     <label>Summary / Description :</label>
                                     <textarea name="cert_description" class="form-control" id="cert_description"
                                         placeholder="Eg. " autocomplete="on" rows="2"
-                                        value={{ old('cert_description') }}></textarea>
+                                        value="{{ old('cert_description') }}"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Pre - Requiste :</label>
                                     <textarea name="cert_prerequisites" class="form-control" id="cert_prerequisites"
                                         placeholder="Eg. " autocomplete="on" rows="2"
-                                        value={{ old('cert_prerequisites') }}></textarea>
+                                        value="{{ old('cert_prerequisites') }}"></textarea>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Provider :</label>
                                     <input type="text" name="cert_provider" class="form-control" placeholder="Eg. "
-                                        autocomplete="on" value={{ old('cert_provider') }}>
+                                        autocomplete="on" value="{{ old('cert_provider') }}">
                                 </div>
                                 <div class="form-group">
                                     <label>Domain :</label>
                                     <input type="text" name="cert_domain" class="form-control" placeholder="Eg. "
-                                        autocomplete="on" value={{ old('cert_domain') }}>
+                                        autocomplete="on" value="{{ old('cert_domain') }}">
                                 </div>
                                 <div class="form-group">
                                     <label>Validation Period :</label>
                                     <input type="text" name="cert_validationperiod" class="form-control"
                                         placeholder="Eg. " autocomplete="on"
-                                        value={{ old('cert_validationperiod ') }}>
+                                        value="{{ old('cert_validationperiod ') }}">
                                 </div>
 
 
                                 <div class="form-group col-md-12 text-center">
                                     <br>
-                                    <button type="submit" class="btn tab-edit-btn" style="font-weight: 600">
-                                        Post Certification <i class="far fa-eye"></i>
+                                    <button type="submit" class="btn tab-edit-btn">
+                                        Post Certification</i>
                                     </button>
                                     <br>
                                     <br>

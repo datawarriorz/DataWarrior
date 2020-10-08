@@ -10,11 +10,11 @@
                     <div class="card-header">
                         <div class="col-12 pl-0 pr-0">
                             <div class="row">
-                                <div class="col-6 text-left">
+                                <div class="col-8 text-left">
                                     <div style="margin-bottom: 0px"><i class="fas fa-columns"></i> Your Certifications
                                     </div>
                                 </div>
-                                <div class="col-6 text-right">
+                                <div class="col-4 text-right">
                                     <a class="tab-edit-btn" href="/expertdashboard">
                                         <i class="fas fa-arrow-left"></i> Back
                                     </a>
@@ -25,14 +25,7 @@
                     <div class="card-body dashboard-card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link profilenav active" id="articles-tab" data-toggle="tab"
-                                            href="#articles" role="tab" aria-controls="articles" aria-selected="true">
-                                            <h5>Certifications</h5>
-                                        </a>
-                                    </li>
-                                </ul>
+
                             </div>
                         </div>
                         <div class="row">
@@ -64,7 +57,7 @@
                                                                 {{ $certification->cert_title }}
                                                             </td>
                                                             <td>
-                                                                {{ $certification->cert_description }}
+                                                                <?php echo substr(nl2br($certification->cert_description),0,100); ?>...
                                                             </td>
                                                             <td class="text-center">
                                                                 <div class="row" class="text-center">

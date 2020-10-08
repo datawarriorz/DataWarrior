@@ -76,7 +76,7 @@
                 <div class="domain-cards col-sm-6 col-md-4 col-lg-2 text-center">
                     <form method="post" action="/certificationlist">
                         @csrf
-                        <input type="hidden" name="cert_domain" value="data science">
+                        <input type="hidden" name="cert_domain" value="Data Science">
                         <button class="btn domain-button" type="submit">
                             <div class="domain-image">
                                 <img src="./images/jihome/datascience.png" alt="First slide" height="100%">
@@ -90,7 +90,7 @@
                 <div class="domain-cards col-sm-6 col-md-4 col-lg-2 text-center">
                     <form method="post" action="/certificationlist">
                         @csrf
-                        <input type="hidden" name="cert_domain" value="machine learning">
+                        <input type="hidden" name="cert_domain" value="Machine Learning">
                         <button class="btn domain-button" type="submit">
                             <div class="domain-image">
                                 <img src="./images/jihome/machinelearning.png" alt="First slide" height="100%">

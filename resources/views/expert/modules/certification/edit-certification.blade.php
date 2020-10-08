@@ -29,12 +29,12 @@
                             <div class="form-group">
                                 <label>Title :</label>
                                 <input type="text" name="cert_title" class="form-control" placeholder="Eg. "
-                                    autocomplete="on" value={{ $certification->cert_title }}>
+                                    autocomplete="on" value="{{ $certification->cert_title }}">
                             </div>
                             <div class="form-group">
                                 <label>Price :</label>
                                 <input type="text" name="cert_price" class="form-control" placeholder="Eg. "
-                                    autocomplete="on" value={{ $certification->cert_price }}>
+                                    autocomplete="on" value="{{ $certification->cert_price }}">
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -54,41 +54,40 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="hidden" name="cert_id" value={{ $certification->cert_id }} />
+                        <input type="hidden" name="cert_id" value="{{ $certification->cert_id }}" />
                     </div>
                     <div class="form-group">
                         <label>Summary / Description :</label>
-                        <textarea name="cert_description" class="form-control" id="cert_description" placeholder="Eg. "
-                            autocomplete="on" rows="2" value={{ $certification->cert_description }}></textarea>
+                        <textarea name="cert_description" class="form-control" id="cert_description" autocomplete="on"
+                            rows="10"><?php echo utf8_decode($certification->cert_description); ?></textarea>
                     </div>
                     <div class="form-group">
                         <label>Pre - Requiste :</label>
                         <textarea name="cert_prerequisites" class="form-control" id="cert_prerequisites"
-                            placeholder="Eg. " autocomplete="on" rows="2"
-                            value={{ $certification->cert_prerequisites }}></textarea>
+                            autocomplete="on"
+                            rows="10"> <?php echo utf8_decode($certification->cert_prerequisites); ?></textarea>
                     </div>
 
                     <div class="form-group">
                         <label>Provider :</label>
                         <input type="text" name="cert_provider" class="form-control" placeholder="Eg. "
-                            autocomplete="on" value={{ $certification->cert_provider }}>
+                            autocomplete="on" value="{{ $certification->cert_provider }}">
                     </div>
                     <div class="form-group">
                         <label>Domain :</label>
                         <input type="text" name="cert_domain" class="form-control" placeholder="Eg. " autocomplete="on"
-                            value={{ $certification->cert_domain }}>
+                            value="{{ $certification->cert_domain }}">
                     </div>
                     <div class="form-group">
                         <label>Validation Period :</label>
                         <input type="text" name="cert_validationperiod" class="form-control" placeholder="Eg. "
-                            autocomplete="on" value={{ $certification->cert_validationperiod }}>
+                            autocomplete="on" value="{{ $certification->cert_validationperiod }}">
                     </div>
-
 
                     <div class="form-group col-md-12 text-center">
                         <br>
                         <button type="submit" class="btn tab-edit-btn" style="font-weight: 600">
-                            Post Certification <i class="far fa-eye"></i>
+                            Update Certification <i class="far fa-eye"></i>
                         </button>
                         <br>
                         <br>

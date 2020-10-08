@@ -10,10 +10,10 @@
                     <div class="card-header">
                         <div class="col-12 pl-0 pr-0">
                             <div class="row">
-                                <div class="col-6 text-left">
+                                <div class="col-8 text-left">
                                     <div style="margin-bottom: 0px"><i class="fas fa-columns"></i> Article Form</div>
                                 </div>
-                                <div class="col-6 text-right">
+                                <div class="col-4 text-right">
                                     <a class="tab-edit-btn" href="/expertdashboard">
                                         <i class="fas fa-arrow-left"></i> Back
                                     </a>
@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="form-group col-md-12 text-center">
                                     <br>
-                                    <button type="submit" class="btn tab-edit-btn" style="font-weight: 600">
+                                    <button type="submit" class="btn tab-edit-btn">
                                         Submit & Preview Article <i class="far fa-eye"></i>
                                     </button>
                                     <br>

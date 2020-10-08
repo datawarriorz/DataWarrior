@@ -298,7 +298,6 @@ class ExpertController extends Controller
             return redirect('/expert-edit-articleform')->withErrors($validator)->withInput(['article_id' => $article->article_id]);
         }
 
-        
         $article->title=$request->title;
         $article->creator_id=Auth::user()->ex_id;
         $article->creator_flag="expert";
@@ -501,7 +500,14 @@ class ExpertController extends Controller
         $certification->cert_title=$request->cert_title;
         $certification->cert_price=$request->cert_price;
         $certification->cert_description=$request->cert_description;
-        $certification->cert_image=$request->cert_image;
+        $file = $request->file('cert_image');
+        // Get the contents of the file
+        if ($file!=null) {
+            $contents = $file->openFile()->fread($file->getSize());
+            $certification->cert_image=$contents;
+        } else {
+            $certification->cert_image=null;
+        }
         $certification->cert_provider=$request->cert_provider;
         $certification->cert_domain=$request->cert_domain;
         $certification->cert_validationperiod=$request->cert_validationperiod;
@@ -530,6 +536,7 @@ class ExpertController extends Controller
         if ($certification==null) {
             $certification=Certification::find($request->old('cert_id'));
         }
+        // dd($certification);
         return view('expert.modules.certification.edit-certification', ['certification' => $certification]);
     }
 
@@ -556,7 +563,14 @@ class ExpertController extends Controller
         $certification->cert_title=$request->cert_title;
         $certification->cert_price=$request->cert_price;
         $certification->cert_description=$request->cert_description;
-        $certification->cert_image=$request->cert_image;
+        $file = $request->file('cert_image');
+        // Get the contents of the file
+        if ($file!=null) {
+            $contents = $file->openFile()->fread($file->getSize());
+            $certification->cert_image=$contents;
+        } else {
+            $certification->cert_image=null;
+        }
         $certification->cert_provider=$request->cert_provider;
         $certification->cert_domain=$request->cert_domain;
         $certification->cert_validationperiod=$request->cert_validationperiod;
@@ -573,7 +587,7 @@ class ExpertController extends Controller
     public function viewcertification(Request $request)
     {
         $certification= Certification::find($request->cert_id);
-        dd($certification->cert_title);
+        // dd($certification->cert_title);
         return view('expert.modules.certification.view-certification', ['certification' => $certification]);
     }
 

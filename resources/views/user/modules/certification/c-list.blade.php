@@ -35,6 +35,15 @@
                                             </a>
                                         </small>
                                     </p>
+                                    <?php $i=true; ?>
+                                    @foreach($certificationapplied as $ca)
+                                        @if($ca->cert_id==$cert->cert_id)
+                                            <i>*Applied</i>
+                                            <?php $i=false; ?>
+                                            @break
+
+                                        @endif
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

@@ -26,7 +26,9 @@ class CertificationController extends Controller
     public function certificationdetails($cert_id)
     {
         $certification = Certification::find($cert_id);
-        return view('user.modules.certification.c-details', ['certification' => $certification]);
+        $certificationapplied = CertificationApplied::where('user_id', Auth::user()->user_id)->where('cert_id', $cert_id)->count();
+
+        return view('user.modules.certification.c-details', ['certification' => $certification, 'certificationapplied' => $certificationapplied]);
     }
     public function showcertificationhome()
     {

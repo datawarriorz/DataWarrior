@@ -28,14 +28,14 @@
                         <br>
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <div class="col-sm-6 col-md-6 col-lg-12">
-                                <a href="/certification">
+                                <a href="/certificationhome">
                                     <button type="button" class="btn cert-ack-btn"> <i class="fas fa-list-ul"></i>
                                         View More Certification</button>
                                 </a>
                             </div>
                             <p></p>
                             <div class="col-sm-6 col-md-6 col-lg-12">
-                                <a href="/home">
+                                <a href="/">
                                     <button type="button" class="btn cert-ack-btn">Go to HomePage</button>
                                 </a>
                             </div>

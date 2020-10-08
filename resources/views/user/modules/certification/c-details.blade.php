@@ -66,14 +66,18 @@
                         </div>
                         <br>
                         <div class="col-md-12 text-center">
-                            <form method="POST" action="/applycertification">
-                                @csrf
-                                <input type="hidden" name="cert_id" value={{ $certification->cert_id }} />
-                                <button type="submit" class="btn tab-edit-btn">Apply For Certification
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <br>
-                            </form>
+                            @if($certificationapplied==0)
+                                <form method="POST" action="/applycertification">
+                                    @csrf
+                                    <input type="hidden" name="cert_id" value={{ $certification->cert_id }} />
+                                    <button type="submit" class="btn tab-edit-btn">Apply For Certification
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <br>
+                                </form>
+                            @else
+                                You have already applied for this Certification
+                            @endif
                         </div>
                     </div>
                 </div>

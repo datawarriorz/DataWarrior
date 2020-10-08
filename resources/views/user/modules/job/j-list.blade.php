@@ -14,7 +14,60 @@
                     <i class="fas fa-chevron-down"></i></h4>
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-7 offset-lg-4 ji-list-m-filter">
-                <h4><small>Filters</small></h4>
+                <div class="accordion" id="accordionExample">
+                    <div class="col-10 offset-1">
+                        <div class="card text-center" style="background-color:transparent">
+                            <div class="" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block" type="button" data-toggle="collapse"
+                                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <h4><small><b>Filters</b></small> <i class="fas fa-filter"></i></h4>
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseOne" class="collapse hide" aria-labelledby="headingOne"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <form method="POST" action="/jobfilterapply">
+                                        @csrf
+                                        @if(count($errors))
+                                            <div class="alert alert-danger">
+                                                <strong>Whoops!</strong> There were some problems with your input.
+                                                <br />
+                                                <ul>
+                                                    @foreach($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+                                        <div class="form-group">
+                                            <label>Domain</label>
+                                            <input type="text" name="job_domain" class="form-control"
+                                                placeholder="e.g Data Science" autocomplete="on" value="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Location</label>
+                                            <input type="text" name="job_location" class="form-control"
+                                                placeholder="e.g. Mumbai " autocomplete="on" value="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Job Duration</label>
+                                            <input type="text" name="job_shift" class="form-control"
+                                                placeholder="e.g. Full Time " autocomplete="on" value="">
+                                        </div>
+                                        <input type="hidden" name="job_type_id" value="1">
+                                        <div class="form-group col-md-12 text-center">
+                                            <button type="submit" class="btn btn-primary" style="font-weight: 500">
+                                                Search
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -58,7 +111,7 @@
                                 </div>
                                 <input type="hidden" name="job_type_id" value="1">
                                 <div class="form-group col-md-12 text-center">
-                                    <button type="submit" class="btn tab-edit-btn" style="font-weight: 500">
+                                    <button type="submit" class="btn btn-primary" style="font-weight: 500">
                                         Search
                                     </button>
                                 </div>

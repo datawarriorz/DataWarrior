@@ -40,52 +40,54 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 0; ?>
-                                    @foreach ($jobsobj as $jo)
-                                    <?php $i++; ?>
-                                    <tr>
-                                        <td><?php echo $i; ?>
-                                        </td>
-                                        <td>
-                                            {{$jo->job_title }}
-                                        </td>
-                                        <td>
-                                            {{$jo->job_company }}
-                                        </td>
-                                        <td>
-                                            {{$jo->job_duration }}
-                                        </td>
-                                        <td>
-                                            <?php echo date_format($jo->created_at,"d M' Y");?>
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="row" class="text-center">
-                                                <form method="post" action="/expert-viewarticle">
-                                                    @csrf
-                                                    <input type="hidden" name="article_id" value={{$jo->job_id }} />
-                                                    <button type="submit" class="btn tab-edit-btn"
-                                                        style="margin-left:4px">
-                                                        <i class="far fa-eye"></i>
-                                                    </button>
-                                                </form>
-                                                <form method="post" action="/expert-edit-articleform">
-                                                    @csrf
-                                                    <input type="hidden" name="article_id" value={{$jo->job_id }} />
+                                    @foreach($jobsobj as $jo)
+                                        <?php $i++; ?>
+                                        <tr>
+                                            <td><?php echo $i; ?>
+                                            </td>
+                                            <td>
+                                                {{ $jo->job_title }}
+                                            </td>
+                                            <td>
+                                                {{ $jo->job_company }}
+                                            </td>
+                                            <td>
+                                                {{ $jo->job_duration }}
+                                            </td>
+                                            <td>
+                                                <?php echo date_format($jo->created_at,"d M' Y");?>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="row" class="text-center">
+                                                    <form method="post" action="/expert-viewarticle">
+                                                        @csrf
+                                                        <input type="hidden" name="article_id"
+                                                            value={{ $jo->job_id }} />
+                                                        <button type="submit" class="btn tab-edit-btn"
+                                                            style="margin-left:4px">
+                                                            <i class="far fa-eye"></i>
+                                                        </button>
+                                                    </form>
+                                                    {{-- <form method="post" action="">
+@csrf
+                                                    <input type="hidden" name="article_id" value={{ $jo->job_id }} />
                                                     <button type="submit" class="btn tab-edit-btn"
                                                         style="margin-left:4px">
                                                         <i class="fas fa-edit"></i></i>
                                                     </button>
-                                                </form>
-                                                <form method="post" action="/expert-deletearticle">
-                                                    @csrf
-                                                    <input type="hidden" name="article_id" value={{$jo->job_id }} />
-                                                    <button type="submit" class="btn tab-edit-btn"
-                                                        style="margin-left:4px">
-                                                        <i class="far fa-trash-alt"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                                    </form> --}}
+                                                    <form method="post" action="/expert-deletearticle">
+                                                        @csrf
+                                                        <input type="hidden" name="article_id"
+                                                            value={{ $jo->job_id }} />
+                                                        <button type="submit" class="btn tab-edit-btn"
+                                                            style="margin-left:4px">
+                                                            <i class="far fa-trash-alt"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>

@@ -404,7 +404,15 @@
                             Get Mentorship from our practicing Data Scientist
                         </div>
                         <div class="know-more-box">
-                            <a href="" class="btn know-more-cta">KNOW MORE</a>
+                            <form method="post" action="/certificationlist">
+                                @csrf
+                                <input type="hidden" name="cert_domain" value="Data Science">
+                                <button class="btn tab-edit-btn" type="submit">
+                                    <div class="domain-name">
+                                        KNOW MORE
+                                    </div>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

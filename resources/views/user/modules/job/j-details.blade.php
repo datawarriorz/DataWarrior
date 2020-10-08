@@ -96,19 +96,6 @@
             </div>
             <div class="card-text data-job-description-data">
                 <?php echo nl2br($jobobj->job_description); ?>
-                {{-- <p>We're looking for front-end development interns familiar with ReactJS, who are aligned with the
-                    companies
-                    vision, can create the best user experience possible, share our passion for innovation, and are
-                    ready to
-                    step out of their comfort zone and always give priority to creativity.</p>
-                <p>Selected intern's day-to-day responsibilities include:</p>
-                <p>1. Developing, and testing UI for web applications using ReactJS</p>
-                <p>2. Building reusable code and libraries for future use</p>
-                <p>3. Brainstorming for ideas to improve the design</p>
-                <p>4. Building reusable code and libraries for future use</p>
-                <p>5. Translating user and business needs into functional front-end </p>
-                <p>6. Keeping user experience a top priority</p> --}}
-
             </div>
             <br>
 

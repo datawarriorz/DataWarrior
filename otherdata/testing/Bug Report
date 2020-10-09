@@ -1,0 +1,51 @@
+Bugs after 3rd Deployment:
+    To Do:
+        Converting css js and images links into assets
+        Default Images for all modules    
+    User
+        Adding description in profile
+        
+        DoB format in profile
+        
+        Enddate issue in Job Experience edit
+        
+        Job Experience-> currently working js disabling enddate not working
+        
+        Job Experience->validation
+        
+        Newsletter article css and goback button
+        
+        article list 
+
+        layout in certification replacing web development with programming
+        
+        certification ack css link rename
+        
+        removing image validation everywhere and replacing it by default image if null
+        
+        expert certification edit page link issue after validation
+        
+        post certification time during validation time old textarea + 
+        validationperiods values not appearing
+
+        you have already applied color update in certification detail page
+
+        view more certification button on cert detail page
+
+        cert detail page img and text overlapping in few res
+
+        cert detail css not working maybe
+
+        All image size validation
+
+        cert detail near domain rupee mark 
+
+        job detail page applied button update
+
+        job list page applied button
+
+        expert post job value double quotes issue + text area issue after posting
+
+        specify domain in job detail in expert side
+
+        participant data update in expert side

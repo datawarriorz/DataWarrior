@@ -40,6 +40,10 @@
                                                             href="<?php echo "http://localhost:8000/certificationdetails/".$cert->cert_id; ?>">
                                                             View More >
                                                         </a>
+                                                        {{-- <a class="btn btn-primary"
+                                                        href="<?php echo "http://datawarriors.co.in/certificationdetails/".$cert->cert_id; ?>">
+                                                        View More >
+                                                    </a> --}}
                                                     </small>
                                                 </p>
                                             </div>

@@ -15,6 +15,7 @@ class Counselor extends Model
      * @var string
      */
     protected $table = 'counselor';
+    protected $primaryKey = 'co_id';
 
     /**
      * Attributes that should be mass-assignable.

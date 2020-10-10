@@ -46,7 +46,7 @@ Route::get('/user-list-articles', 'NoAuthController@userallarticles');
 
 Route::get('/newsletterarticle/{article_id}', 'NoAuthController@newletterarticle');
 
-Route::post('/user-referral', 'Auth\LoginController@userreferral');
+Route::post('/add-user-referral', 'UserServiceController@userreferral');
 Route::get('/user-referral', function () {
     return view('user.auth.user-referral');
 });

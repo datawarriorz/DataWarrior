@@ -16,7 +16,7 @@
             <div class="card-body dashboard-card-body">
                 <div class="col-md-12 text-center">
                     <br>
-                    <form method="post" action="/user-referral">
+                    <form method="POST" action="/add-user-referral">
                         @csrf
                         @if(count($errors))
                             <div class="alert alert-danger">
@@ -30,7 +30,7 @@
                             </div>
                         @endif
                         <div class="form-group">
-                            <input type="text" name='referral_code' required class="form-control" value="">
+                            <input type="text" name='referral_code' class="form-control">
                         </div>
                         <div class="row">
                             <div class="col-md-6 text-center">
@@ -47,6 +47,7 @@
                             <small>Press Skip if you dont have one</small>
                             <br>
                         </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -249,7 +249,7 @@ class ExpertController extends Controller
             'author' => 'required|min:2|max:191',
             'description' => 'required|max:120',
             'content' => 'required',
-            'article_image' => 'required|mimes:jpeg,jpg,png',
+            'article_image' => 'required|mimes:jpeg,jpg,png|max:1024',
         ]);
         
         if ($validator->fails()) { // on validator found any error
@@ -290,7 +290,7 @@ class ExpertController extends Controller
             'author' => 'required|min:2|max:191',
             'description' => 'required|max:120',
             'content' => 'required',
-            'article_image' => 'required|mimes:jpeg,jpg,png',
+            'article_image' => 'required|mimes:jpeg,jpg,png|max:1024',
         ]);
         $article=Article::find($request->article_id);
         if ($validator->fails()) { // on validator found any error
@@ -486,7 +486,7 @@ class ExpertController extends Controller
         'cert_title'=>'required|min:5|max:191',
         'cert_price'=>'required|numeric',
         'cert_description'=>'required|min:5',
-        'cert_image'=>'required|mimes:jpeg,jpg,png',
+        'cert_image'=>'required|mimes:jpeg,jpg,png|max:1024',
         'cert_provider'=>'required|max:191',
         'cert_domain'=>'required|max:191',
         'cert_validationperiod'=>'required|max:191',
@@ -547,7 +547,7 @@ class ExpertController extends Controller
         'cert_title'=>'required|min:5|max:191',
         'cert_price'=>'required|numeric',
         'cert_description'=>'required|min:5',
-        'cert_image'=>'required|mimes:jpeg,jpg,png',
+        'cert_image'=>'required|mimes:jpeg,jpg,png|max:1024',
         'cert_provider'=>'required|max:191',
         'cert_domain'=>'required|max:191',
         'cert_validationperiod'=>'required|max:191',

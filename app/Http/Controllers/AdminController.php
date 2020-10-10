@@ -53,7 +53,7 @@ class AdminController extends Controller
             'author' => 'required|min:2|max:191',
             'description' => 'required|max:120',
             'content' => 'required',
-            'article_image' => 'required|mimes:jpeg,jpg,png',
+            'article_image' => 'required|mimes:jpeg,jpg,png|max:1024',
         ]);
         if ($validator->fails()) { // on validator found any error
             return redirect('/admin-postarticle')->withErrors($validator)->withInput();
@@ -136,7 +136,7 @@ class AdminController extends Controller
             'author' => 'required|min:2|max:191',
             'description' => 'required|max:120',
             'content' => 'required',
-            'article_image' => 'required|mimes:jpeg,jpg,png',
+            'article_image' => 'required|mimes:jpeg,jpg,png|max:1024',
         ]);
         $article=Article::find($request->article_id);
         if ($validator->fails()) { // on validator found any error
@@ -193,7 +193,7 @@ class AdminController extends Controller
             'email' => 'required|email|unique:experts',
             'ex_contactcode' => 'required|numeric',
             'ex_contactno' => 'required|digits:10',
-            'ex_image' => 'required|mimes:jpeg,jpg,png',
+            'ex_image' => 'required|mimes:jpeg,jpg,png|max:1024',
             
         ]);
         if ($validator->fails()) { // on validator found any error

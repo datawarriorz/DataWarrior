@@ -1,6 +1,7 @@
+<script type="text/javascript" src="{{ asset('js/user/user.js') }}">
+</script>
 <script type="text/javascript" src="{{ asset('js/fontawesome-5.14.0.js') }}">
 </script>
-
 <script type="text/javascript" src="{{ asset('js/popper-1.16.1.min.js') }}">
 </script>
 <script type="text/javascript" src="{{ asset('js/bootstrap-4.5.2.min.js') }}">

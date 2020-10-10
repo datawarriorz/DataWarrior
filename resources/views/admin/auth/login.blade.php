@@ -1,7 +1,7 @@
 @extends('admin.layout.auth-layout')
 
 @section('content')
-<link rel="stylesheet" href="./css/login.css" />
+<link rel="stylesheet" href="{{ asset('css/login.css') }}" />
 <br>
 <br>
 <div class="container">

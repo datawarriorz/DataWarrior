@@ -24,51 +24,41 @@
                     </div>
                 @endif
                 <div class="form-group">
-                    <label for="Fname">Profile :</label>
+                    <label for="Fname">Job Profile :</label>
                     <input type="text" name="profile" class="form-control" placeholder="Eg. Software Developer"
-                        autocomplete="on" value={{ old('profile') }}>
+                        autocomplete="on" value="{{ old('profile') }}">
                 </div>
                 <div class="form-group">
                     <label for="Lname">Organisation :</label>
                     <input type="text" name="organisation" class="form-control" placeholder="Eg. ABC Private Limited"
-                        autocomplete="on" value={{ old('oraganisation') }}>
+                        autocomplete="on" value="{{ old('oraganisation') }}">
                 </div>
                 <div class="form-group">
                     <label for="InputEmail">Location :</label>
                     <input type="text" name="location" class="form-control" placeholder="Eg. Mumbai" autocomplete="on"
-                        id="location" value={{ old('location') }}>
+                        id="location" value="{{ old('location') }}">
                 </div>
                 <div class="form-group form-inline">
                     <label>Currently Working ?</label>
-                    <input type="checkbox" name="currentjob" class="form-control" id="currentjob" value="yes"
+                    <input type="checkbox" name="currentjob" class="form-control" id="currentjob" value="Yes"
                         onclick="onCheckCounselling(this);" style="margin-left: 8px;margin-top: 2px;">
                 </div>
                 <div class="form-group">
                     <label for="start_date">Start Date :</label>
                     <input type="text" name="startdate" class="form-control" id="jobstartdate"
                         onfocus="(this.type='date')" placeholder="Click here to Select Date."
-                        value={{ old('start_date') }}>
+                        value="{{ old('startdate') }}">
                 </div>
                 <div class="form-group">
                     <label for="end_date">End Date :</label>
                     <input type="text" name="enddate" class="form-control" id="jobenddate" onfocus="(this.type='date')"
-                        placeholder="Click here to Select Date." value={{ old('end_date') }}>
+                        placeholder="Click here to Select Date." value="{{ old('enddate') }}">
                 </div>
                 <div class="form-group">
                     <label>Description :</label>
                     <textarea name="description" class="form-control" id="description" placeholder="Eg. Mumbai"
-                        autocomplete="on" rows="4" value={{ old('description') }}></textarea>
+                        autocomplete="on" rows="4">{{ old('description') }}</textarea>
                 </div>
-                @if($process=="internship")
-                    <div class="form-group">
-                        <input type="hidden" name="process" class="form-control" value="internship" />
-                    </div>
-                @endif
-                @if($process=="job")
-                    <div class="form-group">
-                        <input type="hidden" name="process" class="form-control" value="job" />
-                    </div>
-                @endif
                 <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 text-center">
                     <div class="row text-center">
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6 text-right">
@@ -96,10 +86,10 @@
                         <th scope="col">Organisation</th>
                         <th scope="col">Location</th>
                         <th scope="col">Description</th>
-                        <th scope="col">Current Job</th>
-                        <th scope="col">Start Date</th>
-                        <th scope="col">End Date</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" style="min-width: 113px;">Current Job</th>
+                        <th scope="col" style="min-width: 100px;">Start Date</th>
+                        <th scope="col" style="min-width: 92px;">End Date</th>
+                        <th scope="col" class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -108,40 +98,27 @@
                             <td>{{ $je->profile }}</td>
                             <td>{{ $je->organisation }}</td>
                             <td>{{ $je->location }}</td>
-                            <td>{{ $je->description }}</td>
+                            <td>{{ substr($je->description,0,20) }}...</td>
                             <td>{{ $je->currentjob }}</td>
                             <td>{{ substr($je->startdate,0,10) }}</td>
-                            <td>{{ substr($je->enddate,0,10) }}</td>
+                            <td>
+                                @if($je->enddate != null)
+                                    {{ substr($je->enddate,0,10) }}
+                                @else
+                                    -
+                                @endif
+                            </td>
                             <td>
                                 <form method="POST" action="/deleteJobexperience">
                                     @csrf
                                     <input type="hidden" name="jobid" value={{ $je->jobid }} />
                                     <button type="submit" class="btn btn-danger">Delete</button>
-                                    @if($process=="internship")
-                                        <div class="form-group">
-                                            <input type="hidden" name="process" class="form-control"
-                                                value="internship" />
-                                        </div>
-                                    @endif
-                                    @if($process=="job")
-                                        <div class="form-group">
-                                            <input type="hidden" name="process" class="form-control" value="job" />
-                                        </div>
-                                    @endif
                                 </form>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
-            <div class="form-group col-md-12">
-                @if($process=="internship")
-                    <a href="/internshipfinal" class="btn job_btn">View Internship form</a>
-                @endif
-                @if($process=="job")
-                    <a href="/jobfinal" class="btn job_btn">View Job Application form</a>
-                @endif
-            </div>
         </div>
     </div>
 </div>

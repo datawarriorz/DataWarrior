@@ -34,10 +34,9 @@
                         <div class="form-group col-md-4">
                             <label for="skill1">Experience :</label>
                             <br>
-                            <select class="form-control custom-select col-md-12" id="skill_level_id"
-                                name="skill_level_id">
+                            <select class="form-control custom-select col-md-12" id="sl_id" name="sl_id">
                                 @foreach($skilllevel as $sl)
-                                    <option value={{ $sl->skill_level_id }}>{{ $sl->skill_level_name }}</option>
+                                    <option value={{ $sl->sl_id }}>{{ $sl->skill_level_name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -54,16 +53,6 @@
                                 </a>
                             </div>
                         </div>
-                        @if($process=="internship")
-                            <div class="form-group">
-                                <input type="hidden" name="process" class="form-control" value="internship" />
-                            </div>
-                        @endif
-                        @if($process=="job")
-                            <div class="form-group">
-                                <input type="hidden" name="process" class="form-control" value="job" />
-                            </div>
-                        @endif
                     </form>
                     <br>
                 </div>
@@ -94,7 +83,7 @@
                                     </td>
                                     <td>
                                         @foreach($skilllevel as $sk)
-                                            @if($sk->skill_level_id==$skill->skill_level_id)
+                                            @if($sk->sl_id==$skill->sl_id)
                                                 {{ $sk->skill_level_name }}
                                             @endif
                                         @endforeach
@@ -123,21 +112,12 @@
                             @endforeach
                         </tbody>
                     </table>
-                    @if($process=="internship")
-                        <a href="/internshipfinal" class="btn skill_btn">View Internship form</a>
-                    @endif
-                    @if($process=="job")
-                        <a href="/jobfinal" class="btn skill_btn">View Job Application form</a>
-                    @endif
                 </div>
             </div>
 
         </div>
     </div>
-</div>
-</div>
-</div>
-<br>
+    <br>
 </div>
 
 @endsection

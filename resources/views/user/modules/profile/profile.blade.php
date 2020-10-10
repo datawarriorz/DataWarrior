@@ -14,13 +14,15 @@
                     <div class="profile-head">
                         <div class="col-md-12">
                             <div class="row">
-                                <div class="col-md-2 text-center" style="padding-left: 0;padding-right:0">
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-3 text-center"
+                                    style="padding-left: 0;padding-right:0">
                                     <div class="col-12" style="padding-left: 0;padding-right:0">
                                         <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($userdetails->u_image); ?>"
                                             style="height:144px;width:144px;border-radius:50%" />
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-10 text-left" style="padding-left: 33px">
+                                <div
+                                    class="col-12 col-sm-12 col-md-8 col-lg-9 text-md-left pl-4 pr-4 pt-4 pb-0 text-center">
                                     <div class=".justify-content-sm-center">
                                         <h5>{{ $userdetails->first_name }} {{ $userdetails->last_name }}</h5>
                                     </div>
@@ -71,13 +73,19 @@
                                         <td>: {{ $userdetails->first_name }} {{ $userdetails->last_name }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Phone</td>
-                                        <td>: +@if(!empty($userdetails->contact_no)){{ $userdetails->contact_no }}
+                                        <td>Phone No.</td>
+                                        <td>: @if(!empty($userdetails->contact_no)){{ $userdetails->contact_no }}
                                         @else- @endif</td>
                                     </tr>
                                     <tr>
                                         <td>DOB</td>
-                                        <td>: {{ $userdetails->date_of_birth }}</td>
+                                        <td>:
+                                            @if(!empty($userdetails->date_of_birth))
+                                                <?php echo date_format($userdetails->date_of_birth,"d M' Y");?>
+                                            @else
+                                                -
+                                            @endif
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Gender</td>
@@ -95,7 +103,7 @@
 
                         <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
                             <table class="table">
-                                <thead>
+                                <thead style="border-bottom:1px solid #b9b9b9">
                                     <tr>
                                         <td scope="col">Qualification Type</td>
                                         <td scope="col">Course Name</td>
@@ -110,20 +118,21 @@
                                 <tbody>
                                     @foreach($eduDetails as $ed)
                                         <tr>
-                                            <td> @foreach ($qualificationType as $qt)
-                                                @if($qt->qualtype_id==$ed->qualtype_id)
-                                                    {{ $qt->qualification_type }}
-                                                @endif
-                                    @endforeach
-                                    </td>
-                                    <td>{{ $ed->course_name }}</td>
-                                    <td>{{ $ed->college_name }}</td>
-                                    <td>{{ $ed->University }}</td>
-                                    <td>{{ $ed->percentage }}</td>
-                                    <td>{{ $ed->grade }}</td>
-                                    <td>{{ substr($ed->start_date,0,10) }}</td>
-                                    <td>{{ substr($ed->end_date,0,10) }}</td>
-                                    </tr>
+                                            <td>
+                                                @foreach($qualificationType as $qt)
+                                                    @if($qt->qualtype_id==$ed->qualtype_id)
+                                                        {{ $qt->qualification_type }}
+                                                    @endif
+                                                @endforeach
+                                            </td>
+                                            <td>{{ $ed->course_name }}</td>
+                                            <td>{{ $ed->college_name }}</td>
+                                            <td>{{ $ed->University }}</td>
+                                            <td>{{ $ed->percentage }}</td>
+                                            <td>{{ $ed->grade }}</td>
+                                            <td>{{ substr($ed->start_date,0,10) }}</td>
+                                            <td>{{ substr($ed->end_date,0,10) }}</td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -137,7 +146,7 @@
                         <div class="tab-pane fade" id="jobexperience" role="tabpanel"
                             aria-labelledby="jobexperience-tab">
                             <table class="table">
-                                <thead>
+                                <thead style="border-bottom:1px solid #b9b9b9">
                                     <tr>
                                         <td scope="col">Profile</td>
                                         <td scope="col">Organisation</td>
@@ -172,7 +181,7 @@
 
                         <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
                             <table class="table">
-                                <thead>
+                                <thead style="border-bottom:1px solid #b9b9b9">
                                     <tr>
                                         <td scope="col">Sr. No</td>
                                         <td scope="col">Skill Name</td>
@@ -190,13 +199,14 @@
                                                 {{ $skill->skill_name }}
                                             </td>
                                             <td>
-                                                {{-- @foreach($skilllevel as $sk)
-@if($sk->skill_level_id==$skill->skill_level_id)
+                                                @foreach($skilllevel as $sk)
+                                                    @if( $sk->sl_id == $skill->sl_id )
                                                         {{ $sk->skill_level_name }}
-                                    @endif
-                                    @endforeach--}}
-                                    </td>
-                                    </tr>
+                                                    @else
+                                                    @endif
+                                                @endforeach
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>

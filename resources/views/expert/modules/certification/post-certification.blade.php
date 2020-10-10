@@ -70,16 +70,15 @@
                                 <div class="form-group">
                                     <label>Summary / Description :</label>
                                     <textarea name="cert_description" class="form-control" id="cert_description"
-                                        placeholder="Eg. " autocomplete="on" rows="2"
-                                        value="{{ old('cert_description') }}"></textarea>
+                                        placeholder="Eg. " autocomplete="on" rows="2">{{ old('cert_description') }}
+                                    </textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Pre - Requiste :</label>
                                     <textarea name="cert_prerequisites" class="form-control" id="cert_prerequisites"
-                                        placeholder="Eg. " autocomplete="on" rows="2"
-                                        value="{{ old('cert_prerequisites') }}"></textarea>
+                                        placeholder="Eg. " autocomplete="on" rows="2">{{ old('cert_prerequisites') }}
+                                    </textarea>
                                 </div>
-
                                 <div class="form-group">
                                     <label>Provider :</label>
                                     <input type="text" name="cert_provider" class="form-control" placeholder="Eg. "
@@ -94,9 +93,8 @@
                                     <label>Validation Period :</label>
                                     <input type="text" name="cert_validationperiod" class="form-control"
                                         placeholder="Eg. " autocomplete="on"
-                                        value="{{ old('cert_validationperiod ') }}">
+                                        value="{{ old('cert_validationperiod') }}">
                                 </div>
-
 
                                 <div class="form-group col-md-12 text-center">
                                     <br>

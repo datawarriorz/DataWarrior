@@ -41,12 +41,12 @@
                                         <div class="form-group">
                                             <label>Title :</label>
                                             <input type="text" name="title" class="form-control" placeholder="Eg. "
-                                                autocomplete="on" value={{ old('title') }}>
+                                                autocomplete="on" value="{{ old('title') }}">
                                         </div>
                                         <div class="form-group">
                                             <label>Author :</label>
                                             <input type="text" name="author" class="form-control" placeholder="Eg. "
-                                                autocomplete="on" value={{ old('author') }}>
+                                                autocomplete="on" value="{{ old('author') }}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -69,14 +69,13 @@
                                 <div class="form-group">
                                     <label>Summary / Description :</label>
                                     <textarea name="description" class="form-control" id="description"
-                                        placeholder="Eg. " autocomplete="on" rows="2"
-                                        value={{ old('description') }}></textarea>
+                                        placeholder="Eg. " autocomplete="on"
+                                        rows="2">{{ old('description') }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Content :</label>
                                     <textarea name="content" class="form-control" id="content" placeholder="Eg. "
-                                        autocomplete="on" rows="10"
-                                        value={{ old('content') }}></textarea>
+                                        autocomplete="on" rows="10">{{ old('content') }}</textarea>
                                 </div>
                                 <div class="form-group col-md-12 text-center">
                                     <br>

@@ -21,7 +21,7 @@ class SkillLevel extends Model
      *
      * @var array
      */
-    protected $fillable = ['skill_level_id', 'skill_level_name', 'created_at', 'updated_at'];
+    protected $fillable = ['sl_id', 'skill_level_name', 'created_at', 'updated_at'];
 
     /**
      * The attributes excluded from the model's JSON form.

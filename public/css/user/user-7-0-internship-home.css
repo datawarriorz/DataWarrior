@@ -2,10 +2,6 @@
     font-family: 'Inter var', sans-serif;
 }
 
-.ji-header {
-    padding: 2rem 4rem 0rem 4rem;
-}
-
 .row {
     margin-right: 0;
     margin-left: 0;
@@ -35,17 +31,8 @@ h6 {
     padding-top: 1rem;
 }
 
-.location-header {
-    padding: 0rem 4rem 0rem 4rem;
-}
-
 .location-body {
-    padding: 0.5rem 4rem 0rem 4rem;
     background-color: #f2f4f7;
-}
-
-.location-cards {
-    padding-top: 1rem;
 }
 
 .location-button {
@@ -59,17 +46,8 @@ h6 {
     box-shadow: 0 5px 11px 0 rgba(18, 149, 201, 0.2), 0 4px 15px 0 rgba(18, 149, 201, 0.2);
 }
 
-.domain-header {
-    padding: 2rem 4rem 0rem 4rem;
-}
-
 .domain-body {
-    padding: 0.5rem 4rem 0rem 4rem;
     background-color: #f2f4f7;
-}
-
-.domain-cards {
-    padding-top: 1rem;
 }
 
 .domain-button {

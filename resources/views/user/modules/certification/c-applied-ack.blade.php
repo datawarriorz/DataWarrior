@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/certification/certificationack.css" />
+<link rel="stylesheet" href="./css/user/user-9-3-certificationack.css" />
 <div class="container">
     <br>
     <div class="card">

@@ -2,14 +2,14 @@
 
 @section('content')
 <link rel="stylesheet" href="./css/user/user-7-0-internship-home.css" />
-<div class="ji-content">
-    <div class="ji-header">
+<div class="ji-content container">
+    <div class="ji-header pt-4 pl-2 pr-2">
         <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-6 pad-zero text-left">
+            <div class="col-sm-6 col-md-6 col-lg-6 p-0 text-left">
                 <h4><b>Iternships</b></h4>
-                <h5 style="margin-top:0.5rem;">Select internship based on your preference</h5>
+                <h5 class="pt-2">Select internship based on your preference</h5>
             </div>
-            <div class="ji-view-all col-sm-6 col-md-6 col-lg-6 pad-zero text-right">
+            <div class="ji-view-all col-sm-6 col-md-6 col-lg-6 p-4 text-right">
                 <form method="post" action="/jobfilterapply">
                     @csrf
                     <input type="hidden" name="job_type_id" value="2">
@@ -19,14 +19,14 @@
             </div>
         </div>
     </div>
-    <div class="ji-body">
+    <div class="ji-body pt-3">
         <div class="domain-content">
-            <div class="domain-header">
+            <div class="domain-header pl-2 pr-2">
                 <h4>Popular domains</h4>
             </div>
-            <div class="domain-body jumbotron">
+            <div class="domain-body pt-2">
                 <div class="row">
-                    <div class="domain-cards col-sm-6 col-md-4 col-lg-2 text-center">
+                    <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 p-0 pt-3 text-center">
                         <form method="post" action="/jobfilterapply">
                             @csrf
                             <input type="hidden" name="job_domain" value="datascience">
@@ -41,7 +41,7 @@
                             </button>
                         </form>
                     </div>
-                    <div class="domain-cards col-sm-6 col-md-4 col-lg-2 text-center">
+                    <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 p-0 pt-3 text-center">
                         <form method="post" action="/jobfilterapply">
                             @csrf
                             <input type="hidden" name="job_domain" value="machinelearning">
@@ -56,7 +56,7 @@
                             </button>
                         </form>
                     </div>
-                    <div class="domain-cards col-sm-6 col-md-4 col-lg-2 text-center">
+                    <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 p-0 pt-3 text-center">
                         <form method="post" action="/jobfilterapply">
                             @csrf
                             <input type="hidden" name="job_domain" value="programming">
@@ -71,7 +71,7 @@
                             </button>
                         </form>
                     </div>
-                    <div class="domain-cards col-sm-6 col-md-4 col-lg-2 text-center">
+                    <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 p-0 pt-3 text-center">
                         <form method="post" action="/jobfilterapply">
                             @csrf
                             <input type="hidden" name="job_domain" value="digitalmarketing">
@@ -86,7 +86,7 @@
                             </button>
                         </form>
                     </div>
-                    <div class="domain-cards col-sm-6 col-md-4 col-lg-2 text-center">
+                    <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 p-0 pt-3 text-center">
                         <form method="post" action="/jobfilterapply">
                             @csrf
                             <input type="hidden" name="job_domain" value="automation">
@@ -101,7 +101,7 @@
                             </button>
                         </form>
                     </div>
-                    <div class="domain-cards col-sm-6 col-md-4 col-lg-2 text-center">
+                    <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 p-0 pt-3 text-center">
                         <form method="post" action="/jobfilterapply">
                             @csrf
                             <input type="hidden" name="job_domain" value="graphic design">
@@ -119,17 +119,17 @@
                 </div>
             </div>
         </div>
-        <div class="location-content">
-            <div class="location-header">
+        <div class="location-content pt-4 pb-4">
+            <div class="location-header pl-2 pr-2">
                 <div class="row">
                     <div class="pad-zero text-left">
                         <h4>Popular cities</h4>
                     </div>
                 </div>
             </div>
-            <div class="location-body jumbotron">
+            <div class="location-body">
                 <div class="row">
-                    <div class="location-cards col-sm-6 col-md-3 col-lg-2 text-center">
+                    <div class="location-cards col-6 col-sm-6 col-md-4 col-lg-2 p-0 pt-3 text-center">
                         <form method="post" action="/jobfilterapply">
                             @csrf
                             <input type="hidden" name="job_location" value="mumbai">
@@ -144,7 +144,7 @@
                             </button>
                         </form>
                     </div>
-                    <div class="location-cards col-sm-6 col-md-3 col-lg-2 text-center">
+                    <div class="location-cards col-6 col-sm-6 col-md-4 col-lg-2 p-0 pt-3 text-center">
                         <form method="post" action="/jobfilterapply">
                             @csrf
                             <input type="hidden" name="job_location" value="mumbai">
@@ -159,7 +159,7 @@
                             </button>
                         </form>
                     </div>
-                    <div class="location-cards col-sm-6 col-md-3 col-lg-2 text-center">
+                    <div class="location-cards col-6 col-sm-6 col-md-4 col-lg-2 p-0 pt-3 text-center">
                         <form method="post" action="/jobfilterapply">
                             @csrf
                             <input type="hidden" name="job_location" value="pune">
@@ -174,7 +174,7 @@
                             </button>
                         </form>
                     </div>
-                    <div class="location-cards col-sm-6 col-md-3 col-lg-2 text-center">
+                    <div class="location-cards col-6 col-sm-6 col-md-4 col-lg-2 p-0 pt-3 text-center">
                         <form method="post" action="/jobfilterapply">
                             @csrf
                             <input type="hidden" name="job_location" value="bangalore">
@@ -189,7 +189,7 @@
                             </button>
                         </form>
                     </div>
-                    <div class="location-cards col-sm-6 col-md-3 col-lg-2 text-center">
+                    <div class="location-cards col-6 col-sm-6 col-md-4 col-lg-2 p-0 pt-3 text-center">
                         <form method="post" action="/jobfilterapply">
                             @csrf
                             <input type="hidden" name="job_location" value="hyderabad">
@@ -204,7 +204,7 @@
                             </button>
                         </form>
                     </div>
-                    <div class="location-cards col-sm-6 col-md-3 col-lg-2 text-center">
+                    <div class="location-cards col-6 col-sm-6 col-md-4 col-lg-2 p-0 pt-3 text-center">
                         <form method="post" action="/jobfilterapply">
                             @csrf
                             <input type="hidden" name="job_location" value="chennai">

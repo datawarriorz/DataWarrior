@@ -2,10 +2,6 @@
     font-family: 'Inter var', sans-serif;
 }
 
-.ji-header {
-    padding: 2rem 4rem 0rem 4rem;
-}
-
 .row {
     margin-right: 0;
     margin-left: 0;
@@ -35,12 +31,7 @@ h6 {
     padding-top: 1rem;
 }
 
-.location-header {
-    padding: 0rem 4rem 0rem 4rem;
-}
-
 .location-body {
-    padding: 0.5rem 4rem 0rem 4rem;
     background-color: #f2f4f7;
 }
 
@@ -60,17 +51,13 @@ h6 {
 }
 
 .domain-header {
-    padding: 2rem 4rem 0rem 4rem;
+    margin: 0;
 }
 
 .domain-body {
-    padding: 0.5rem 4rem 0rem 4rem;
     background-color: #f2f4f7;
 }
 
-.domain-cards {
-    padding-top: 1rem;
-}
 
 .domain-button {
     background-color: White;

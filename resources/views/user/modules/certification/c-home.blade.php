@@ -73,10 +73,10 @@
         </div>
         <div class="domain-body jumbotron">
             <div class="row">
-                <div class="domain-cards col-sm-6 col-md-4 col-lg-2 text-center">
+                <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 text-center">
                     <form method="post" action="/certificationlist">
                         @csrf
-                        <input type="hidden" name="cert_domain" value="Data Science">
+                        <input type="hidden" name="cert_domain" value="datascience">
                         <button class="btn domain-button" type="submit">
                             <div class="domain-image">
                                 <img src="./images/jihome/datascience.png" alt="First slide" height="100%">
@@ -87,10 +87,10 @@
                         </button>
                     </form>
                 </div>
-                <div class="domain-cards col-sm-6 col-md-4 col-lg-2 text-center">
+                <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 text-center">
                     <form method="post" action="/certificationlist">
                         @csrf
-                        <input type="hidden" name="cert_domain" value="Machine Learning">
+                        <input type="hidden" name="cert_domain" value="machinelearning">
                         <button class="btn domain-button" type="submit">
                             <div class="domain-image">
                                 <img src="./images/jihome/machinelearning.png" alt="First slide" height="100%">
@@ -101,24 +101,24 @@
                         </button>
                     </form>
                 </div>
-                <div class="domain-cards col-sm-6 col-md-4 col-lg-2 text-center">
+                <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 text-center">
                     <form method="post" action="/certificationlist">
                         @csrf
-                        <input type="hidden" name="cert_domain" value="web development">
+                        <input type="hidden" name="cert_domain" value="programming">
                         <button class="btn domain-button" type="submit">
                             <div class="domain-image">
                                 <img src="./images/jihome/webdevelopment.png" alt="First slide" height="100%">
                             </div>
                             <div class="domain-name">
-                                Web Development
+                                Programming
                             </div>
                         </button>
                     </form>
                 </div>
-                <div class="domain-cards col-sm-6 col-md-4 col-lg-2 text-center">
+                <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 text-center">
                     <form method="post" action="/certificationlist">
                         @csrf
-                        <input type="hidden" name="cert_domain" value="digital marketing">
+                        <input type="hidden" name="cert_domain" value="digitalmarketing">
                         <button class="btn domain-button" type="submit">
                             <div class="domain-image">
                                 <img src="./images/jihome/digitalmarketing.png" alt="First slide" height="100%">
@@ -129,7 +129,7 @@
                         </button>
                     </form>
                 </div>
-                <div class="domain-cards col-sm-6 col-md-4 col-lg-2 text-center">
+                <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 text-center">
                     <form method="post" action="/certificationlist">
                         @csrf
                         <input type="hidden" name="cert_domain" value="automation">
@@ -143,10 +143,10 @@
                         </button>
                     </form>
                 </div>
-                <div class="domain-cards col-sm-6 col-md-4 col-lg-2 text-center">
+                <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 text-center">
                     <form method="post" action="/certificationlist">
                         @csrf
-                        <input type="hidden" name="cert_domain" value="graphic design">
+                        <input type="hidden" name="cert_domain" value="graphicdesign">
                         <button class="btn domain-button" type="submit">
                             <div class="domain-image">
                                 <img src="./images/jihome/graphicdesign.png" alt="First slide" height="100%">

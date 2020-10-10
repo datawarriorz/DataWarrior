@@ -99,6 +99,8 @@ Route::post('/viewjobdetails', 'JobController@showjobdetails')->middleware('auth
 Route::get('/viewjobdetails', 'JobController@showjobdetails')->middleware('auth')->name('viewjobdetails');
 
 Route::post('/jobapply', 'JobController@userapplyjob')->middleware('auth');
+Route::post('/internshipapply', 'JobController@userapplyinternship')->middleware('auth');
+
 
 Route::get('/ihome', 'JobController@showinternshiphome')->middleware('auth');
 Route::get('/ilist', 'JobController@showallinternships')->middleware('auth');

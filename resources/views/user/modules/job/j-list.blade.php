@@ -148,6 +148,15 @@
                                     </button>
                                 </form>
                             </div>
+                            <?php $i=true; ?>
+                            @foreach($jobsappboj as $ja)
+                                @if($ja->job_id==$jo->job_id)
+                                    Applied <i class="fas fa-check-square"></i>
+                                    <?php $i=false; ?>
+                                    @break
+
+                                @endif
+                            @endforeach
                             <br>
                         </div>
                     @endforeach

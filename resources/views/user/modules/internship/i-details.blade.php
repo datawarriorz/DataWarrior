@@ -100,7 +100,7 @@
             <br>
             @if($jobappobj==0)
                 <div class="col-12 text-center">
-                    <form method="POST" action="/jobapply">
+                    <form method="POST" action="/internshipapply">
                         @csrf
                         <input type="hidden" name="job_id" value="{{ $jobobj->job_id }}">
                         <button type="submit" class="btn tab-edit-btn">Apply</button>

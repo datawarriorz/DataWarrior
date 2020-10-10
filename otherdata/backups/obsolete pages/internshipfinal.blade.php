@@ -127,7 +127,7 @@
                             <tr>
                                 </td>{{ $skill->skill_name }}</td>
                                 <td>
-                                    @if($sk->skill_level_id == $skill->skill_level_id)
+                                    @if($sk->sl_id == $skill->sl_id)
                                         {{ $sk->skill_level_name }}
                                     @endif
                                 </td>

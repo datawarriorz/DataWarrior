@@ -8,7 +8,6 @@
 
     <script>
         window.onload = function () {
-            //display loader on page load 
             $('.loader').fadeOut('medium');
         }
 
@@ -35,7 +34,6 @@
 </head>
 
 <body>
-
 
     <div class="loader"><img src="{{ asset('./images/loading.gif') }}">
 

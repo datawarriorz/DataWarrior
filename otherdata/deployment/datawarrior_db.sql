@@ -481,7 +481,7 @@ INSERT INTO `qualification_types` (`qualtype_id`, `qualification_type`, `created
 --
 
 CREATE TABLE `skill_level` (
-  `skill_level_id` bigint(20) UNSIGNED NOT NULL,
+  `sl_id` bigint(20) UNSIGNED NOT NULL,
   `skill_level_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -500,7 +500,7 @@ TRUNCATE TABLE `skill_level`;
 -- Dumping data for table `skill_level`
 --
 
-INSERT INTO `skill_level` (`skill_level_id`, `skill_level_name`, `created_at`, `updated_at`) VALUES
+INSERT INTO `skill_level` (`sl_id`, `skill_level_name`, `created_at`, `updated_at`) VALUES
 (1, 'Beginner', NULL, NULL),
 (2, 'Intermediate', NULL, NULL),
 (3, 'Professional', NULL, NULL);
@@ -597,15 +597,15 @@ CREATE TABLE `user_skills` (
   `userskills_id` bigint(20) UNSIGNED NOT NULL,
   `skill_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `skill_level_id` bigint(20) UNSIGNED NOT NULL,
+  `sl_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- RELATIONSHIPS FOR TABLE `user_skills`:
---   `skill_level_id`
---       `skill_level` -> `skill_level_id`
+--   `sl_id`
+--       `skill_level` -> `sl_id`
 --   `user_id`
 --       `users` -> `user_id`
 --
@@ -710,7 +710,7 @@ ALTER TABLE `qualification_types`
 -- Indexes for table `skill_level`
 --
 ALTER TABLE `skill_level`
-  ADD PRIMARY KEY (`skill_level_id`);
+  ADD PRIMARY KEY (`sl_id`);
 
 --
 -- Indexes for table `users`
@@ -733,7 +733,7 @@ ALTER TABLE `user_qualifications`
 ALTER TABLE `user_skills`
   ADD PRIMARY KEY (`userskills_id`),
   ADD KEY `user_skills_user_id_foreign` (`user_id`),
-  ADD KEY `user_skills_skill_level_id_foreign` (`skill_level_id`);
+  ADD KEY `user_skills_sl_id_foreign` (`sl_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -815,7 +815,7 @@ ALTER TABLE `qualification_types`
 -- AUTO_INCREMENT for table `skill_level`
 --
 ALTER TABLE `skill_level`
-  MODIFY `skill_level_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `sl_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -894,7 +894,7 @@ ALTER TABLE `user_qualifications`
 -- Constraints for table `user_skills`
 --
 ALTER TABLE `user_skills`
-  ADD CONSTRAINT `user_skills_skill_level_id_foreign` FOREIGN KEY (`skill_level_id`) REFERENCES `skill_level` (`skill_level_id`),
+  ADD CONSTRAINT `user_skills_sl_id_foreign` FOREIGN KEY (`sl_id`) REFERENCES `skill_level` (`sl_id`),
   ADD CONSTRAINT `user_skills_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 COMMIT;
 

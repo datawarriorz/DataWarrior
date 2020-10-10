@@ -7,7 +7,6 @@
     @include('admin.layout.partials.head')
     <script>
         window.onload = function () {
-            //display loader on page load 
             $('.loader').fadeOut('medium');
         }
 
@@ -35,11 +34,9 @@
 
 <body>
 
-
     <div class="loader"><img src="{{ asset('./images/loading.gif') }}">
 
     </div>
-
 
     @include('admin.layout.partials.navbar')
 
@@ -48,7 +45,6 @@
     @yield('content')
 
     @include('admin.layout.partials.footer')
-
 
     @include('admin.layout.partials.footer-scripts')
 

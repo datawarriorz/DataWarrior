@@ -59,14 +59,14 @@
                     <div class="domain-cards col-sm-6 col-md-4 col-lg-2 text-center">
                         <form method="post" action="/jobfilterapply">
                             @csrf
-                            <input type="hidden" name="job_domain" value="webdevelopment">
+                            <input type="hidden" name="job_domain" value="programming">
                             <input type="hidden" name="job_type_id" value="2">
                             <button class="btn domain-button" type="submit">
                                 <div class="domain-image">
                                     <img src="./images/jihome/webdevelopment.png" alt="First slide" height="100%">
                                 </div>
                                 <div class="domain-name">
-                                    Web Development
+                                    Programming
                                 </div>
                             </button>
                         </form>

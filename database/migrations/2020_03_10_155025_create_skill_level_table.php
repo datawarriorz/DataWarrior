@@ -14,7 +14,7 @@ class CreateSkillLevelTable extends Migration
     public function up()
     {
         Schema::create('skill_level', function (Blueprint $table) {
-            $table->id('skill_level_id');
+            $table->id('sl_id');
             $table->string('skill_level_name');
             $table->timestamps();
         });

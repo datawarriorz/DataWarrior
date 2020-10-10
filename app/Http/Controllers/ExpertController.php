@@ -557,7 +557,7 @@ class ExpertController extends Controller
         
         $certification=Certification::find($request->cert_id);
         if ($validator->fails()) { // on validator found any error
-            return redirect('/expert-post-certification-form')->withErrors($validator)->withInput(['cert_id' => $certification->cert_id]);
+            return redirect('/expert-edit-certificationform')->withErrors($validator)->withInput(['cert_id' => $certification->cert_id]);
         }
         
         $certification->cert_title=$request->cert_title;

@@ -21,8 +21,10 @@ class CertificationController extends Controller
     {
         $certification = Certification::where('cert_domain', $request->cert_domain)->where('cert_status','open')->get();
         $certificationapplied = CertificationApplied::where('user_id', Auth::user()->user_id)->get();
+
         return view('user.modules.certification.c-list', ['certification' => $certification, 'certificationapplied' => $certificationapplied]);
     }
+
     public function certificationdetails($cert_id)
     {
         $certification = Certification::find($cert_id);
@@ -30,10 +32,12 @@ class CertificationController extends Controller
 
         return view('user.modules.certification.c-details', ['certification' => $certification, 'certificationapplied' => $certificationapplied]);
     }
+
     public function showcertificationhome()
     {
         return view('user.modules.certification.c-home');
     }
+
     public function requestcertification(Request $request)
     {
         $validator=Validator::make($request->all(), [
@@ -41,10 +45,8 @@ class CertificationController extends Controller
             'description' => 'required',
             'provider' => 'required|min:3|max:100',
             
-            
         ]);
-        if ($validator->fails()) { // on validator found any error
-            // pass validator object in withErrors method & also withInput it should be null by default
+        if ($validator->fails()) { 
             return redirect('/certification')->withErrors($validator)->withInput();
         }
         $certificationrequestedobj = new CertificationRequested();
@@ -53,6 +55,7 @@ class CertificationController extends Controller
         $certificationrequestedobj->provider = $request->provider;
         $certificationrequestedobj->user_id = Auth::user()->user_id;
         $certificationrequestedobj->save();
+
         return view('user.modules.certification.c-request-ack', ['certificationrequestedobj' => $certificationrequestedobj]);
     }
 

@@ -37,13 +37,9 @@
                                                 <p class="card-text">
                                                     <small class="text-muted">
                                                         <a class="btn btn-primary"
-                                                            href="<?php echo "http://localhost:8000/certificationdetails/".$cert->cert_id; ?>">
-                                                            View More >
+                                                            href="{{ url('/certificationdetails/'.$cert->cert_id) }}">
+                                                            View More
                                                         </a>
-                                                        {{-- <a class="btn btn-primary"
-                                                        href="<?php echo "http://datawarriors.co.in/certificationdetails/".$cert->cert_id; ?>">
-                                                        View More >
-                                                    </a> --}}
                                                     </small>
                                                 </p>
                                             </div>
@@ -55,7 +51,6 @@
                                                         Applied <i class="fas fa-check-square"></i>
                                                         <?php $i=false; ?>
                                                         @break
-
                                                     @endif
                                                 @endforeach
                                             </div>

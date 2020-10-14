@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/user/user-9-3-certificationack.css" />
+<link rel="stylesheet" href="{{ asset('/css/user/user-9-3-certificationack.css') }}" />
 <div class="container">
     <br>
     <div class="card">
@@ -29,14 +29,14 @@
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <div class="col-sm-6 col-md-6 col-lg-12">
                                 <a href="/certificationhome">
-                                    <button type="button" class="btn cert-ack-btn"> <i class="fas fa-list-ul"></i>
+                                    <button type="button" class="btn tab-edit-btn"> <i class="fas fa-list-ul"></i>
                                         View More Certification</button>
                                 </a>
                             </div>
                             <p></p>
                             <div class="col-sm-6 col-md-6 col-lg-12">
                                 <a href="/">
-                                    <button type="button" class="btn cert-ack-btn">Go to HomePage</button>
+                                    <button type="button" class="btn tab-edit-btn">Go to HomePage</button>
                                 </a>
                             </div>
                             <p></p>

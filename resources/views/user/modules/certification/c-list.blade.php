@@ -1,11 +1,11 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/user/user-9-1-list-certifications.css" />
+<link rel="stylesheet" href="{{ asset('/css/user/user-9-1-list-certifications.css') }}" />
 <div class="col-12 col-sm-12 col-md-10 offset-md-1" style="background-color: white;">
     <div class="col-12">
         <br>
-        <h3 class="text-xl lg:text-3xl leading-tight text-gray-800 font-bold mt-2">
+        <h3 class="text-xl lg:text-3xl leading-tight text-gray-800 font-bold mt-2 text-center">
             Certifications for <br class="d-block d-lg-none"> Data Science Domain
         </h3>
         <br>
@@ -38,7 +38,7 @@
                                                     <small class="text-muted">
                                                         <a class="btn btn-primary"
                                                             href="{{ url('/certificationdetails/'.$cert->cert_id) }}">
-                                                            View More
+                                                            View Details
                                                         </a>
                                                     </small>
                                                 </p>

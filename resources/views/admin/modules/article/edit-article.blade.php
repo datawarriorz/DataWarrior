@@ -1,7 +1,7 @@
 @extends('admin.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/admin/admin-4-1-post-article.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/admin/admin-6-3-edit-article.css') }}" />
 <div class="content-wrapper" id="mycontent-wrapper">
     <div class="col-md-12" style="position: inherit;">
         <div class="row">
@@ -86,7 +86,7 @@
                             <div class="form-group">
                                 <label>Content :</label>
                                 <textarea name="content" class="form-control" id="content" autocomplete="on"
-                                    rows="10"><?php echo utf8_decode($article->content); ?></textarea>
+                                    rows="10">{{ $article->content }}</textarea>
                             </div>
                             <div class="form-group col-md-12 text-center">
                                 <button type="submit" class="btn tab-edit-btn">

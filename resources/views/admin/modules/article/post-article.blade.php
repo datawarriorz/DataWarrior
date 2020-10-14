@@ -1,7 +1,7 @@
 @extends('admin.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/admin/admin-4-1-post-article.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/admin/admin-6-0-post-article.css') }}" />
 <div class="content-wrapper" id="mycontent-wrapper">
     <div class="col-md-12" style="position: inherit;">
         <div class="row">
@@ -95,34 +95,6 @@
                         </form>
                     </div>
                 </div>
-                {{-- <div class="col-md-3">
-                <div class="col-md-12">
-                    <div class="card notification-card right-card">
-                        <div class="card-header">
-                            <i class="far fa-bell"></i> Notifications
-                        </div>
-                        <div class="card-body">
-                            empty
-                        </div>
-                    </div>
-                    <div class="card trending-card right-card">
-                        <div class="card-header">
-                            <i class="fas fa-hashtag"></i> Trending Articles
-                        </div>
-                        <div class="card-body">
-                            no articles
-                        </div>
-                    </div>
-                    <div class="card views-card right-card">
-                        <div class="card-header">
-                            <i class="far fa-eye"></i> Total Views
-                        </div>
-                        <div class="card-body">
-                            no views
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
             </div>
         </div>
     </div>

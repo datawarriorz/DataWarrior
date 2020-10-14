@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/user/user-9-0-certification-home.css" />
+<link rel="stylesheet" href="{{ asset('/css/user/user-9-0-certification-home.css') }}" />
 <div class="container" style="Padding-top:17px;">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">

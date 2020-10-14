@@ -1,7 +1,8 @@
 @extends('expert.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert/expert-4-1-1-list-articles.css">
+<link rel="stylesheet" href="{{ asset('css/expert/expert-7-1-list-certifications.css') }}">
+
 <div class="col-12">
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-9 offset-lg-0 no-gutters pl-4 pr-4">
@@ -65,7 +66,7 @@
                                                                         action="/expert-viewcertification">
                                                                         @csrf
                                                                         <input type="hidden" name="cert_id"
-                                                                            value={{ $certification->cert_id }} />
+                                                                            value="{{ $certification->cert_id }}" />
                                                                         <button type="submit" class="btn tab-edit-btn"
                                                                             style="margin-left:4px">
                                                                             <i class="far fa-eye"></i>
@@ -75,7 +76,7 @@
                                                                         action="/expert-edit-certificationform">
                                                                         @csrf
                                                                         <input type="hidden" name="cert_id"
-                                                                            value={{ $certification->cert_id }} />
+                                                                            value="{{ $certification->cert_id }}" />
                                                                         <button type="submit" class="btn tab-edit-btn"
                                                                             style="margin-left:4px">
                                                                             <i class="fas fa-edit"></i></i>
@@ -85,7 +86,7 @@
                                                                         action="/expert-deletecertification">
                                                                         @csrf
                                                                         <input type="hidden" name="cert_id"
-                                                                            value={{ $certification->cert_id }} />
+                                                                            value="{{ $certification->cert_id }}" />
                                                                         <button type="submit" class="btn tab-edit-btn"
                                                                             style="margin-left:4px">
                                                                             <i class="far fa-trash-alt"></i>

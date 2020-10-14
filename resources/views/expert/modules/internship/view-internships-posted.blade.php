@@ -1,7 +1,7 @@
 @extends('expert.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert/expert-4-3-1-view-jobs.css">
+<link rel="stylesheet" href="{{ asset('css/expert/expert-9-1-view-internships.css') }}">
 <div class="col-12">
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-9 offset-lg-0 no-gutters pl-4 pr-4">
@@ -30,8 +30,7 @@
                                     <tr>
                                         <th scope="col" style="min-width: 70px;">Sr. No</th>
                                         <th scope="col" style="min-width: 242px;">Internship Title</th>
-                                        <th scope="col" style="min-width: 199px;">Designation</th>
-                                        <th scope="col" style="min-width: 93px;">Duration</th>
+                                        <th scope="col" style="min-width: 199px;">Company</th>
                                         <th scope="col" style="min-width: 140px;">Created on</th>
                                         <th scope="col" style="min-width: 160px;" class="text-left">
                                             Action
@@ -52,17 +51,14 @@
                                                 {{ $jo->job_company }}
                                             </td>
                                             <td>
-                                                {{ $jo->job_duration }}
-                                            </td>
-                                            <td>
                                                 <?php echo date_format($jo->created_at,"d M' Y");?>
                                             </td>
                                             <td class="text-center">
                                                 <div class="row" class="text-center">
-                                                    <form method="post" action="/expert-viewarticle">
+                                                    <form method="post" action="/expert-view-job-details">
                                                         @csrf
-                                                        <input type="hidden" name="article_id"
-                                                            value={{ $jo->job_id }} />
+                                                        <input type="hidden" name="job_id"
+                                                            value="{{ $jo->job_id }}" />
                                                         <button type="submit" class="btn tab-edit-btn"
                                                             style="margin-left:4px">
                                                             <i class="far fa-eye"></i>
@@ -76,10 +72,10 @@
                                                         <i class="fas fa-edit"></i></i>
                                                     </button>
                                                     </form> --}}
-                                                    <form method="post" action="/expert-deletearticle">
+                                                    <form method="post" action="/expert-delete-job">
                                                         @csrf
-                                                        <input type="hidden" name="article_id"
-                                                            value={{ $jo->job_id }} />
+                                                        <input type="hidden" name="job_id"
+                                                            value="{{ $jo->job_id }}" />
                                                         <button type="submit" class="btn tab-edit-btn"
                                                             style="margin-left:4px">
                                                             <i class="far fa-trash-alt"></i>

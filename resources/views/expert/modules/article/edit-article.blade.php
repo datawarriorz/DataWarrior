@@ -2,7 +2,7 @@
 
 @section('content')
 
-<link rel="stylesheet" href="./css/expert/expert-4-1-3-edit-article.css">
+<link rel="stylesheet" href="{{ asset('css/expert/expert-6-3-edit-article.css') }}">
 <br>
 <div class="contaner col-md-8 offset-md-2">
     <div class="card">
@@ -12,16 +12,16 @@
         <div class="card-body">
             <form method="POST" action="/expert-edit-article" enctype="multipart/form-data">
                 @csrf
-                @if (count($errors))
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.
-                    <br />
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+                @if(count($errors))
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.
+                        <br />
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                 @endif
                 <br>
                 <div class="form-group">
@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="hidden" name="article_id" value={{ $article->article_id }} />
+                    <input type="hidden" name="article_id" value="{{ $article->article_id }}" />
                 </div>
                 <div class="form-group">
                     <label>Summary / Description :</label>
@@ -66,7 +66,7 @@
                 <div class="form-group">
                     <label>Content :</label>
                     <textarea name="content" class="form-control" id="content" autocomplete="on"
-                        rows="10"><?php echo utf8_decode($article->content); ?></textarea>
+                        rows="10">{{ $article->content }}</textarea>
                 </div>
                 <div class="form-group col-md-12 text-center">
                     <button type="submit" class="btn tab-edit-btn" style="font-weight: 600">

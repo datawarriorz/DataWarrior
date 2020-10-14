@@ -1,7 +1,7 @@
 @extends('expert.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert/expert-4-3-0-post-internship.css">
+<link rel="stylesheet" href="{{ asset('css/expert/expert-9-0-post-internship.css') }}">
 <div class="col-12">
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-9 offset-lg-0 no-gutters pl-4 pr-4">
@@ -39,7 +39,7 @@
                                 <label>Title :</label>
                                 <input type="text" name="job_title" class="form-control"
                                     placeholder="e.g Software Developer required with 1 year Experience."
-                                    autocomplete="on" value={{ old('job_title') }}>
+                                    autocomplete="on" value="{{ old('job_title') }}">
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
@@ -47,7 +47,7 @@
                                         <label>Company :</label>
                                         <input type="text" name="job_company" class="form-control"
                                             placeholder="e.g Data Warrior Pvt LTD." autocomplete="on"
-                                            value={{ old('job_company') }}>
+                                            value="{{ old('job_company') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -55,7 +55,7 @@
                                         <label>Domain :</label>
                                         <input type="text" name="job_domain" class="form-control"
                                             placeholder="e.g Programming." autocomplete="on"
-                                            value={{ old('job_domain') }}>
+                                            value="{{ old('job_domain') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -63,7 +63,7 @@
                                         <label>Designation :</label>
                                         <input type="text" name="job_designation" class="form-control"
                                             placeholder="e.g Software Developer." autocomplete="on"
-                                            value={{ old('job_designation') }}>
+                                            value="{{ old('job_designation') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -71,7 +71,7 @@
                                         <label>Internship Location :</label>
                                         <input type="text" name="job_location" class="form-control"
                                             placeholder="e.g Borivali,Mumbai." autocomplete="on"
-                                            value={{ old('job_location') }}>
+                                            value="{{ old('job_location') }}">
                                     </div>
                                 </div>
 
@@ -80,14 +80,14 @@
                                         <label>Skills Required :</label>
                                         <input type="text" name="job_skills_required" class="form-control"
                                             placeholder="e.g PHP/JS/CSS" autocomplete="on"
-                                            value={{ old('job_skills_required') }}>
+                                            value="{{ old('job_skills_required') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Stipend :</label>
                                         <input type="text" name="job_salary" class="form-control" placeholder="e.g 5000"
-                                            autocomplete="on" value={{ old('job_salary') }}>
+                                            autocomplete="on" value="{{ old('job_salary') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -95,21 +95,21 @@
                                         <label>Internship Starts in:</label>
                                         <input type="text" name="job_starttime" class="form-control"
                                             placeholder="e.g 2 Weeks or Immediately" autocomplete="on"
-                                            value={{ old('job_salary') }}>
+                                            value="{{ old('job_salary') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Internship Apply By :</label>
                                         <input type="date" name="job_apply_by" class="form-control" placeholder=" "
-                                            autocomplete="on" value={{ old('job_salary') }}>
+                                            autocomplete="on" value="{{ old('job_salary') }}">
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                     <div class="form-group">
                                         <label>Internship Openings :</label>
                                         <input type="text" name="job_openings" class="form-control" placeholder="e.g 3."
-                                            autocomplete="on" value={{ old('job_openings') }}>
+                                            autocomplete="on" value="{{ old('job_openings') }}">
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
@@ -117,7 +117,7 @@
                                         <label>Internship Duration :</label>
                                         <input type="text" name="job_duration" class="form-control"
                                             placeholder="e.g 2 Years Bond" autocomplete="on"
-                                            value={{ old('job_duration') }}>
+                                            value="{{ old('job_duration') }}">
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
@@ -125,7 +125,7 @@
                                         <label>Internship Shift :</label>
                                         <input type="text" name="job_shift" class="form-control"
                                             placeholder="e.g Full Time " autocomplete="on"
-                                            value={{ old('job_shift') }}>
+                                            value="{{ old('job_shift') }}">
                                     </div>
                                 </div>
                             </div>
@@ -134,13 +134,13 @@
                                 <label>Company Website :</label>
                                 <input type="text" name="job_companywebsite" class="form-control"
                                     placeholder="Eg. http://www.datawarriors.co.in" autocomplete="on"
-                                    value={{ old('job_companywebsite') }}>
+                                    value="{{ old('job_companywebsite') }}">
                             </div>
                             <div class="form-group">
                                 <label>Internship Summary/Description :</label>
                                 <textarea name="job_description" class="form-control" id="description"
                                     placeholder="Eg. " autocomplete="on" rows="2"
-                                    value={{ old('job_description') }}></textarea>
+                                    value="{{ old('job_description') }}"></textarea>
                             </div>
                             <br>
                             <div class="form-group col-md-12 text-center">

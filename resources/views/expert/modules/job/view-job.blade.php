@@ -1,7 +1,7 @@
 @extends('expert.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert/expert-4-3-0-post-job.css">
+<link rel="stylesheet" href="{{ asset('css/expert/expert-8-2-view-job.css') }}">
 <div class="col-12">
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-9 offset-lg-0 no-gutters pl-4 pr-4">
@@ -68,7 +68,7 @@
                                         <div class="col-6 col-sm-6 col-md-3 col-lg-3">
                                             <b>Salary</b>
                                             <br>
-                                            <div class="">{{ $jobobj->job_salary }}</div>
+                                            <div class="">{{ $jobobj->job_salary }} /-</div>
                                         </div>
                                         <div class="col-6 col-sm-6 col-md-3 col-lg-3">
                                             <b>Location</b>
@@ -82,49 +82,50 @@
                                         </div>
                                     </div>
                                     <br>
-                                    <div class="card-title data-job-description-header">
-                                        <b>Job Participants</b>
-                                        <br>
-                                        <br>
-                                        <div class="container" style="overflow-x: scroll">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col" style="min-width: 70px;">Sr. No</th>
-                                                        <th scope="col" style="min-width: 242px;">Particiant Name</th>
-                                                        <th scope="col" style="min-width: 199px;">Contact No</th>
-                                                        <th scope="col" style="min-width: 157px;">Email Id</th>
-                                                        <th scope="col" style="min-width: 157px;">Applied on</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $i = 0; ?>
-                                                    @foreach($users as $user)
-                                                        <?php $i++; ?>
-                                                        <tr>
-                                                            <td><?php echo $i; ?>
-                                                            </td>
-                                                            <td>
-                                                                {{ $user->first_name }}
-                                                                {{ $user->last_name }}
-                                                            </td>
-                                                            <td>
 
-                                                            </td>
-                                                            <td>
-
-                                                            </td>
-                                                            <td>
-
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="card-title data-job-description-header">
+                        <b>Job Participants</b>
+                        <br>
+                        <br>
+                        <div class="container" style="overflow-x: scroll">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="min-width: 70px;">Sr. No</th>
+                                        <th scope="col" style="min-width: 242px;">Particiant Name</th>
+                                        <th scope="col" style="min-width: 199px;">Contact No</th>
+                                        <th scope="col" style="min-width: 157px;">Email Id</th>
+                                        <th scope="col" style="min-width: 157px;">Applied on</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i = 0; ?>
+                                    @foreach($users as $user)
+                                        <?php $i++; ?>
+                                        <tr>
+                                            <td><?php echo $i; ?>
+                                            </td>
+                                            <td>
+                                                {{ $user->first_name }}
+                                                {{ $user->last_name }}
+                                            </td>
+                                            <td>
+                                                {{ $user->contact_no }}
+                                            </td>
+                                            <td>
+                                                {{ $user->email }}
+                                            </td>
+                                            <td>
+                                                <?php echo date_format($jobobj->created_at,"d M' Y");?>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

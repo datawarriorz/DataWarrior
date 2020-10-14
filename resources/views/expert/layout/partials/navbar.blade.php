@@ -18,7 +18,7 @@
                             <p class="nav-link-header"><i class="fas fa-home"></i> Dashboard</p>
                         </a>
                     </li>
-                    <li class="nav-item-left navli">
+                    {{-- <li class="nav-item-left navli">
                         <a class="nav-link" href="#">
                             <p class="nav-link-header"><i class="fas fa-wrench"></i> Services</p>
                         </a>
@@ -32,7 +32,7 @@
                         <a class="nav-link" href="#">
                             <p class="nav-link-header"><i class="fas fa-info-circle"></i> About Us</p>
                         </a>
-                    </li>
+                    </li> --}}
                 @endguest
             </ul>
 

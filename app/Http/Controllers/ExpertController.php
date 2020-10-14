@@ -405,8 +405,13 @@ class ExpertController extends Controller
         $jobappobj = JobsApplied::where('job_id', $jobobj->job_id)->get();
         $users= User::join('jobs_applied', 'users.user_id', '=', 'jobs_applied.user_id')
         ->where('jobs_applied.job_id', $jobobj->job_id)->get();
-        
-        return view('expert.modules.job.view-job', ['jobobj'=>$jobobj,'users'=>$users]);
+        dd($request->job_id);
+        if (($request->job_id) == 1) {
+            return view('expert.modules.job.view-job', ['jobobj'=>$jobobj,'users'=>$users,'jobappobj'=>$jobappobj]);
+        }
+        else{
+            return view('expert.modules.internship.view-internship', ['jobobj'=>$jobobj,'users'=>$users,'jobappobj'=>$jobappobj]);
+        }
     }
     
     public function postinternshipform()

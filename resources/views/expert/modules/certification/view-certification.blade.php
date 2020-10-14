@@ -1,7 +1,7 @@
 @extends('expert.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert/expert-6-1-view-certification.css">
+<link rel="stylesheet" href="{{ asset('css/expert/expert-7-2-view-certification.css') }}">
 
 <div class="col-12">
     <div class="row">

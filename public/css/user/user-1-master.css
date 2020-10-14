@@ -84,3 +84,8 @@ h6 {
     font-weight: bold;
     height: 39px;
 }
+
+b,
+strong {
+    font-weight: 600;
+}

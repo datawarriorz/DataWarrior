@@ -27,34 +27,36 @@
                     <div class="card-body dashboard-card-body">
                         <br>
                         <form method="POST" action="/admin-create-counselorform">
-                            @csrf
-                            @if(count($errors))
-                                <div class="alert alert-danger">
-                                    <strong>Whoops!</strong> There were some problems with your input.
-                                    <br />
-                                    <ul>
-                                        @foreach($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
+                            <div class="col-md-12">
+                                @csrf
+                                @if(count($errors))
+                                    <div class="alert alert-danger">
+                                        <strong>Whoops!</strong> There were some problems with your input.
+                                        <br />
+                                        <ul>
+                                            @foreach($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                            </div>
                             <div class="col-md-12" style="padding: 0px;">
                                 <div class="form-group">
                                     <label>First Name :</label>
                                     <input type="text" name="co_firstname" class="form-control" placeholder="Eg. "
-                                        autocomplete="on" value={{ old('co_firstname') }}>
+                                        autocomplete="on" value="{{ old('co_firstname') }}">
                                 </div>
                                 <div class="form-group">
                                     <label>Last Name :</label>
                                     <input type="text" name="co_lastname" class="form-control" placeholder="Eg. "
-                                        autocomplete="on" value={{ old('co_lastname') }}>
+                                        autocomplete="on" value="{{ old('co_lastname') }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email address :</label>
                                     <input type="email" class="form-control" name="email" aria-describedby="emailHelp"
                                         placeholder="Ex. example@datawarriors.co.in" id="email"
-                                        value={{ old('email') }}>
+                                        value="{{ old('email') }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password :</label>
@@ -64,7 +66,7 @@
                                 <div class="form-group">
                                     <label>Referral Code :</label>
                                     <input type="text" name="referral_code" class="form-control"
-                                        value={{ old('referral_code') }}>
+                                        value="{{ old('referral_code') }}">
                                 </div>
                                 <div class="form-group col-md-12 text-center">
                                     <button type="submit" class="btn tab-edit-btn">

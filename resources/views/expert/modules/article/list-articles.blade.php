@@ -1,7 +1,7 @@
 @extends('expert.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert/expert-4-1-1-list-articles.css">
+<link rel="stylesheet" href="{{ asset('css/expert/expert-6-1-list-articles.css') }}">
 <div class="col-12">
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-9 offset-lg-0 no-gutters pl-4 pr-4">
@@ -52,7 +52,7 @@
                                                 <thead>
                                                     <tr>
                                                         <th scope="col" style="min-width: 70px;">Sr. No</th>
-                                                        <th scope="col" style="min-width: 180px;">Artile Title</th>
+                                                        <th scope="col" style="min-width: 180px;">Article Title</th>
                                                         <th scope="col" style="min-width: 280px;">Description</th>
                                                         <th scope="col" style="min-width: 130px;" class="text-left">
                                                             Action
@@ -61,49 +61,50 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php $i = 0; ?>
-                                                    @foreach ($articleslive as $article)
-                                                    <?php $i++; ?>
-                                                    <tr>
-                                                        <td><?php echo $i; ?>
-                                                        </td>
-                                                        <td>
-                                                            {{ $article->title }}
-                                                        </td>
-                                                        <td>
-                                                            {{ $article->description }}
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <div class="row" class="text-center">
-                                                                <form method="post" action="/expert-viewarticle">
-                                                                    @csrf
-                                                                    <input type="hidden" name="article_id"
-                                                                        value={{ $article->article_id }} />
-                                                                    <button type="submit" class="btn tab-edit-btn"
-                                                                        style="margin-left:4px">
-                                                                        <i class="far fa-eye"></i>
-                                                                    </button>
-                                                                </form>
-                                                                <form method="post" action="/expert-edit-articleform">
-                                                                    @csrf
-                                                                    <input type="hidden" name="article_id"
-                                                                        value={{ $article->article_id }} />
-                                                                    <button type="submit" class="btn tab-edit-btn"
-                                                                        style="margin-left:4px">
-                                                                        <i class="fas fa-edit"></i></i>
-                                                                    </button>
-                                                                </form>
-                                                                <form method="post" action="/expert-deletearticle">
-                                                                    @csrf
-                                                                    <input type="hidden" name="article_id"
-                                                                        value={{ $article->article_id }} />
-                                                                    <button type="submit" class="btn tab-edit-btn"
-                                                                        style="margin-left:4px">
-                                                                        <i class="far fa-trash-alt"></i>
-                                                                    </button>
-                                                                </form>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                    @foreach($articleslive as $article)
+                                                        <?php $i++; ?>
+                                                        <tr>
+                                                            <td><?php echo $i; ?>
+                                                            </td>
+                                                            <td>
+                                                                {{ $article->title }}
+                                                            </td>
+                                                            <td>
+                                                                {{ $article->description }}
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <div class="row" class="text-center">
+                                                                    <form method="post" action="/expert-viewarticle">
+                                                                        @csrf
+                                                                        <input type="hidden" name="article_id"
+                                                                            value="{{ $article->article_id }}" />
+                                                                        <button type="submit" class="btn tab-edit-btn"
+                                                                            style="margin-left:4px">
+                                                                            <i class="far fa-eye"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                    <form method="post"
+                                                                        action="/expert-edit-articleform">
+                                                                        @csrf
+                                                                        <input type="hidden" name="article_id"
+                                                                            value="{{ $article->article_id }}" />
+                                                                        <button type="submit" class="btn tab-edit-btn"
+                                                                            style="margin-left:4px">
+                                                                            <i class="fas fa-edit"></i></i>
+                                                                        </button>
+                                                                    </form>
+                                                                    <form method="post" action="/expert-deletearticle">
+                                                                        @csrf
+                                                                        <input type="hidden" name="article_id"
+                                                                            value="{{ $article->article_id }}" />
+                                                                        <button type="submit" class="btn tab-edit-btn"
+                                                                            style="margin-left:4px">
+                                                                            <i class="far fa-trash-alt"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>
@@ -127,49 +128,50 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php $i = 0; ?>
-                                                    @foreach ($articlesreview as $article)
-                                                    <?php $i++; ?>
-                                                    <tr>
-                                                        <td><?php echo $i; ?>
-                                                        </td>
-                                                        <td>
-                                                            {{ $article->title }}
-                                                        </td>
-                                                        <td>
-                                                            {{ $article->description }}
-                                                        </td>
-                                                        <td>
-                                                            <div class="row" class="text-center">
-                                                                <form method="post" action="/expert-viewarticle">
-                                                                    @csrf
-                                                                    <input type="hidden" name="article_id"
-                                                                        value={{ $article->article_id }} />
-                                                                    <button type="submit" class="btn tab-edit-btn"
-                                                                        style="margin-left:4px">
-                                                                        <i class="far fa-eye"></i>
-                                                                    </button>
-                                                                </form>
-                                                                <form method="post" action="/expert-edit-articleform">
-                                                                    @csrf
-                                                                    <input type="hidden" name="article_id"
-                                                                        value={{ $article->article_id }} />
-                                                                    <button type="submit" class="btn tab-edit-btn"
-                                                                        style="margin-left:4px">
-                                                                        <i class="fas fa-edit"></i></i>
-                                                                    </button>
-                                                                </form>
-                                                                <form method="post" action="/expert-deletearticle">
-                                                                    @csrf
-                                                                    <input type="hidden" name="article_id"
-                                                                        value={{ $article->article_id }} />
-                                                                    <button type="submit" class="btn tab-edit-btn"
-                                                                        style="margin-left:4px">
-                                                                        <i class="far fa-trash-alt"></i>
-                                                                    </button>
-                                                                </form>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                    @foreach($articlesreview as $article)
+                                                        <?php $i++; ?>
+                                                        <tr>
+                                                            <td><?php echo $i; ?>
+                                                            </td>
+                                                            <td>
+                                                                {{ $article->title }}
+                                                            </td>
+                                                            <td>
+                                                                {{ $article->description }}
+                                                            </td>
+                                                            <td>
+                                                                <div class="row" class="text-center">
+                                                                    <form method="post" action="/expert-viewarticle">
+                                                                        @csrf
+                                                                        <input type="hidden" name="article_id"
+                                                                            value="{{ $article->article_id }}" />
+                                                                        <button type="submit" class="btn tab-edit-btn"
+                                                                            style="margin-left:4px">
+                                                                            <i class="far fa-eye"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                    <form method="post"
+                                                                        action="/expert-edit-articleform">
+                                                                        @csrf
+                                                                        <input type="hidden" name="article_id"
+                                                                            value="{{ $article->article_id }}" />
+                                                                        <button type="submit" class="btn tab-edit-btn"
+                                                                            style="margin-left:4px">
+                                                                            <i class="fas fa-edit"></i></i>
+                                                                        </button>
+                                                                    </form>
+                                                                    <form method="post" action="/expert-deletearticle">
+                                                                        @csrf
+                                                                        <input type="hidden" name="article_id"
+                                                                            value="{{ $article->article_id }}" />
+                                                                        <button type="submit" class="btn tab-edit-btn"
+                                                                            style="margin-left:4px">
+                                                                            <i class="far fa-trash-alt"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>

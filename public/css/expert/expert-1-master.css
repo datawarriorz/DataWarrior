@@ -79,13 +79,7 @@ h4 {
     height: 39px;
 }
 
-
-/* 
-a {
-    color: White;
+b,
+strong {
+    font-weight: 600;
 }
-
-a:hover,
-a:active {
-    color: #fa7817;
-} */

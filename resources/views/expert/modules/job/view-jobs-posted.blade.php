@@ -1,7 +1,7 @@
 @extends('expert.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert/expert-4-3-1-view-jobs.css">
+<link rel="stylesheet" href="{{ asset('css/expert/expert-8-1-view-jobs.css') }}">
 <div class="col-12">
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-9 offset-lg-0 no-gutters pl-4 pr-4">
@@ -29,7 +29,7 @@
                                     <tr>
                                         <th scope="col" style="min-width: 70px;">Sr. No</th>
                                         <th scope="col" style="min-width: 242px;">Job Title</th>
-                                        <th scope="col" style="min-width: 199px;">Job Designation</th>
+                                        <th scope="col" style="min-width: 199px;">Company</th>
                                         <th scope="col" style="min-width: 157px;">Created on</th>
                                         <th scope="col" style="min-width: 160px;" class="text-left">
                                             Action

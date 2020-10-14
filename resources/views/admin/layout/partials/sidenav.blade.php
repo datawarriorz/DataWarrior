@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('css/admin/admin-4-0-dashboard.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/admin/admin-4-dashboard.css') }}" />
 <div>
     <div class="sidenav-wrapper" id="mysidenav-wrapper">
         <div class="sidenav-fixed" id="mysidenav-fixed">

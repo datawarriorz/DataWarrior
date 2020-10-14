@@ -1,7 +1,7 @@
 @extends('admin.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/admin/admin-4-2-1-view-article.css">
+<link rel="stylesheet" href="{{ asset('css/admin/admin-6-2-view-article.css') }}">
 <div class="content-wrapper" id="mycontent-wrapper">
     <div class="col-md-12" style="position: inherit;">
         <div class="row">
@@ -63,7 +63,7 @@
                                             <form method="POST" action="/admin-publish-article">
                                                 @csrf
                                                 <input type="hidden" name="article_id"
-                                                    value={{ $article->article_id }} />
+                                                    value="{{ $article->article_id }}" />
                                                 <button type="submit" class="btn tab-edit-btn">
                                                     Publish <i class="far fa-eye"></i>
                                                 </button>
@@ -73,8 +73,8 @@
                                             <form method="POST" action="/admin-takedown-article">
                                                 @csrf
                                                 <input type="hidden" name="article_id"
-                                                    value={{ $article->article_id }} />
-                                                <button type="submit" class="btn tab-edit-btn">
+                                                    value="{{ $article->article_id }}" />
+                                                <button type=" submit" class="btn tab-edit-btn">
                                                     Take Down <i class="far fa-eye"></i>
                                                 </button>
                                             </form>

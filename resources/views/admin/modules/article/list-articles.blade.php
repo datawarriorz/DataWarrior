@@ -1,7 +1,7 @@
 @extends('admin.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/admin-4-2-0-list-articles.css">
+<link rel="stylesheet" href="{{ asset('css/admin-6-1-list-articles.css') }}">
 <div class="content-wrapper" id="mycontent-wrapper">
     <div class="col-md-12" style="position: inherit;">
         <div class="row">
@@ -83,8 +83,8 @@
                                                                     <form method="post" action="/admin-view-article">
                                                                         @csrf
                                                                         <input type="hidden" name="article_id"
-                                                                            value={{ $article->article_id }} />
-                                                                        <button type="submit" class="btn tab-edit-btn">
+                                                                            value="{{ $article->article_id }}" />
+                                                                        <button type=" submit" class="btn tab-edit-btn">
                                                                             <i class="far fa-eye"></i>
                                                                         </button>
                                                                     </form>
@@ -92,7 +92,7 @@
                                                                         action="/admin-edit-articleform">
                                                                         @csrf
                                                                         <input type="hidden" name="article_id"
-                                                                            value={{ $article->article_id }} />
+                                                                            value="{{ $article->article_id }}" />
                                                                         <button type="submit" class="btn tab-edit-btn"
                                                                             style="margin-left:4px">
                                                                             <i class="fas fa-edit"></i></i>
@@ -101,7 +101,7 @@
                                                                     <form method="post" action="/admin-deletearticle">
                                                                         @csrf
                                                                         <input type="hidden" name="article_id"
-                                                                            value={{ $article->article_id }} />
+                                                                            value="{{ $article->article_id }}" />
                                                                         <button type="submit" class="btn tab-edit-btn"
                                                                             style="margin-left:4px">
                                                                             <i class="far fa-trash-alt"></i>
@@ -148,7 +148,7 @@
                                                                     <form method="post" action="/admin-view-article">
                                                                         @csrf
                                                                         <input type="hidden" name="article_id"
-                                                                            value={{ $article->article_id }} />
+                                                                            value="{{ $article->article_id }}" />
                                                                         <button type="submit" class="btn tab-edit-btn">
                                                                             <i class="far fa-eye"></i>
                                                                         </button>
@@ -157,7 +157,7 @@
                                                                         action="/admin-edit-articleform">
                                                                         @csrf
                                                                         <input type="hidden" name="article_id"
-                                                                            value={{ $article->article_id }} />
+                                                                            value="{{ $article->article_id }}" />
                                                                         <button type="submit" class="btn tab-edit-btn"
                                                                             style="margin-left:4px">
                                                                             <i class="fas fa-edit"></i></i>
@@ -166,7 +166,7 @@
                                                                     <form method="post" action="/admin-deletearticle">
                                                                         @csrf
                                                                         <input type="hidden" name="article_id"
-                                                                            value={{ $article->article_id }} />
+                                                                            value="{{ $article->article_id }}" />
                                                                         <button type="submit" class="btn tab-edit-btn"
                                                                             style="margin-left:4px">
                                                                             <i class="far fa-trash-alt"></i>

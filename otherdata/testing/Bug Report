@@ -1,7 +1,7 @@
 Bugs after 3rd Deployment:
     To Do:
         Converting css js and images links into assets
-        Default Images for all modules    
+        Default Images for all modules + removing image validation everywhere and replacing it by default image if null
     User
         
         DoB format in profile - done
@@ -24,33 +24,32 @@ Bugs after 3rd Deployment:
         
         certification ack css link rename - done
         
-        removing image validation everywhere and replacing it by default image if null
-        
         expert certification edit page link issue after validation - done
         
         post certification time during validation time old textarea + 
         validationperiods values not appearing - done
 
-        you have already applied color update in certification detail page
+        you have already applied color update in certification detail page - done
 
-        view more certification button on cert detail page
+        view more certification button on cert detail page - done
 
-        cert detail page img and text overlapping in few res
+        cert detail page img and text overlapping in few res - done
 
-        cert detail css not working maybe
+        cert detail css not working maybe - done
 
         All image size validation - done
 
-        cert detail near domain rupee mark 
+        cert detail near domain rupee mark - done
 
         job detail page applied button update
 
         job list page applied button
 
-        expert post job value double quotes issue + text area issue after posting
+        expert post job value double quotes issue + text area issue after posting - done
 
         specify domain in job detail in expert side
 
-        participant data update in expert side
+        participant data update in expert side require proper applied date(backend + frontend issue) (need discussion)
 
         url issue for all modules
+

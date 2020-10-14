@@ -2,7 +2,7 @@
 
 @section('content')
 
-<link rel="stylesheet" href="./css/expert/expert-4-1-3-edit-article.css">
+<link rel="stylesheet" href="{{ asset('css/expert/expert-7-3-edit-certification.css') }}">
 <br>
 <div class="contaner col-md-8 offset-md-2">
     <div class="card">
@@ -59,15 +59,13 @@
                     <div class="form-group">
                         <label>Summary / Description :</label>
                         <textarea name="cert_description" class="form-control" id="cert_description" autocomplete="on"
-                            rows="10"><?php echo utf8_decode($certification->cert_description); ?></textarea>
+                            rows="10">{{ $certification->cert_description }}</textarea>
                     </div>
                     <div class="form-group">
                         <label>Pre - Requiste :</label>
                         <textarea name="cert_prerequisites" class="form-control" id="cert_prerequisites"
-                            autocomplete="on"
-                            rows="10"> <?php echo utf8_decode($certification->cert_prerequisites); ?></textarea>
+                            autocomplete="on" rows="10">{{ $certification->cert_prerequisites }}</textarea>
                     </div>
-
                     <div class="form-group">
                         <label>Provider :</label>
                         <input type="text" name="cert_provider" class="form-control" placeholder="Eg. "
@@ -83,10 +81,9 @@
                         <input type="text" name="cert_validationperiod" class="form-control" placeholder="Eg. "
                             autocomplete="on" value="{{ $certification->cert_validationperiod }}">
                     </div>
-
                     <div class="form-group col-md-12 text-center">
                         <br>
-                        <button type="submit" class="btn tab-edit-btn" style="font-weight: 600">
+                        <button type="submit" class="btn tab-edit-btn">
                             Update Certification <i class="far fa-eye"></i>
                         </button>
                         <br>

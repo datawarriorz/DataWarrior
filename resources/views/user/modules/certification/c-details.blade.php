@@ -36,17 +36,15 @@
                                         src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($certification->cert_image); ?>" />
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-8 col-lg-8 text-sm-center text-md-left">
-                                    <p class="card-text">
-                                        <strong>{{ $certification->cert_title }}</strong></p>
+                                    <h4 class="card-text">
+                                        {{ $certification->cert_title }}
+                                    </h4>
                                     <br>
-                                    <p class="card-text">
-                                        By - {{ $certification->cert_provider }}
+                                    <p class="card-text data">
+                                        <strong class="heading">By :</strong> {{ $certification->cert_provider }}
                                     </p>
-                                    <p class="card-text">
-                                        Price - {{ $certification->cert_price }} /-
-                                    </p>
-                                    <p class="card-text">
-                                        Domain - {{ $certification->cert_domain }} /-
+                                    <p class="card-text data">
+                                        <strong class="heading">Price :</strong> {{ $certification->cert_price }} /-
                                     </p>
                                 </div>
                             </div>
@@ -54,15 +52,15 @@
                         <br>
                         <div class="col-md-12 text-left">
                             <strong>Description :</strong>
-                            <p><?php echo nl2br($certification->cert_description); ?></p>
+                            <p class="data"><?php echo nl2br($certification->cert_description); ?></p>
                         </div>
                         <div class="col-md-12 text-left">
                             <strong>Pre Requisites :</strong>
-                            <p><?php echo nl2br($certification->cert_prerequisites); ?></p>
+                            <p class="data"><?php echo nl2br($certification->cert_prerequisites); ?></p>
                         </div>
                         <div class="col-md-12 text-left">
                             <strong>Validation :</strong>
-                            <p><?php echo nl2br($certification->cert_validationperiod); ?></p>
+                            <p class="data"><?php echo nl2br($certification->cert_validationperiod); ?></p>
                         </div>
                         <br>
                         <div class="col-md-12 text-center">
@@ -76,8 +74,21 @@
                                     <br>
                                 </form>
                             @else
-                                You have already applied for this Certification
+                                <div style="color:#25ac25;">
+                                    You have already applied for this Certification <i class="fas fa-check-square"></i>
+                                </div>
+
                             @endif
+                        </div>
+                        <br>
+                        <div class="col-md-12 text-center">
+                            <form method="post" action="/certificationlist">
+                                @csrf
+                                <input type="hidden" name="cert_domain" value="{{ $certification->cert_domain }}">
+                                <button class="btn tab-edit-btn" type="submit">
+                                    View More
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

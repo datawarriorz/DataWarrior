@@ -149,12 +149,16 @@ Route::get('/expert-view-jobs-posted', 'ExpertController@viewjobsposted');
 // Route::post('/expert-view-jobs-posted', 'ExpertController@viewjobsposted');
 
 Route::post('/expert-view-job-details', 'ExpertController@viewjobdetails');
+Route::post('/expert-delete-job', 'ExpertController@deletejob');
+
 
 Route::get('/expert-post-internship-form', 'ExpertController@postinternshipform');
 Route::post('/expert-post-internship', 'ExpertController@postinternship');
 
 Route::get('/expert-view-internships-posted', 'ExpertController@viewinternshipsposted');
 Route::post('/expert-view-internship-details', 'ExpertController@viewinternshipdetails');
+Route::post('/expert-delete-internship', 'ExpertController@deleteinternship');
+
 
 Route::get('/expert-post-certification-form', 'ExpertController@postcertificationform');
 Route::post('/expert-post-certification', 'ExpertController@postcertification');

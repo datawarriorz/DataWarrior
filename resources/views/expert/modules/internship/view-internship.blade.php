@@ -120,7 +120,11 @@
                                                 {{ $user->email }}
                                             </td>
                                             <td>
-                                                <?php echo date_format($jobobj->created_at,"d M' Y");?>
+                                                @foreach($jobappobj as $ja)
+                                                    @if($ja->user_id==$user->user_id)
+                                                       {{ $ja->created_at }}
+                                                    @endif
+                                                @endforeach
                                             </td>
                                         </tr>
                                     @endforeach

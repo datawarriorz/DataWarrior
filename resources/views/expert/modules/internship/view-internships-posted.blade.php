@@ -72,7 +72,7 @@
                                                         <i class="fas fa-edit"></i></i>
                                                     </button>
                                                     </form> --}}
-                                                    <form method="post" action="/expert-delete-job">
+                                                    <form method="post" action="/expert-delete-internship">
                                                         @csrf
                                                         <input type="hidden" name="job_id"
                                                             value="{{ $jo->job_id }}" />

@@ -395,7 +395,7 @@ class ExpertController extends Controller
 
     public function viewjobsposted()
     {
-        $jobsobj= Jobs::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert')->where('job_type_id', '1')->get();
+        $jobsobj= Jobs::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert')->where('job_type_id', '1')->where('job_status', '!=', 'deleted')->get();
         return view('expert.modules.job.view-jobs-posted', ['jobsobj'=>$jobsobj]);
     }
     
@@ -405,14 +405,27 @@ class ExpertController extends Controller
         $jobappobj = JobsApplied::where('job_id', $jobobj->job_id)->get();
         $users= User::join('jobs_applied', 'users.user_id', '=', 'jobs_applied.user_id')
         ->where('jobs_applied.job_id', $jobobj->job_id)->get();
-        dd($request->job_id);
-        if (($request->job_id) == 1) {
-            return view('expert.modules.job.view-job', ['jobobj'=>$jobobj,'users'=>$users,'jobappobj'=>$jobappobj]);
-        }
-        else{
-            return view('expert.modules.internship.view-internship', ['jobobj'=>$jobobj,'users'=>$users,'jobappobj'=>$jobappobj]);
-        }
+       
+        
+        return view('expert.modules.job.view-job', ['jobobj'=>$jobobj,'users'=>$users,'jobappobj'=>$jobappobj]);
     }
+    public function deletejob(Request $request)
+    {
+        $affected = DB::table('jobs')
+              ->where('job_id', $request->job_id)
+              ->update(['job_status' => 'deleted']);
+
+        return redirect('/expert-view-jobs-posted');
+    }
+    public function deleteinternship(Request $request)
+    {
+        $affected = DB::table('jobs')
+              ->where('job_id', $request->job_id)
+              ->update(['job_status' => 'deleted']);
+
+        return redirect('/expert-view-internships-posted');
+    }
+
     
     public function postinternshipform()
     {
@@ -421,7 +434,7 @@ class ExpertController extends Controller
 
     public function viewinternshipsposted()
     {
-        $jobsobj= Jobs::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert')->where('job_type_id', '2')->get();
+        $jobsobj= Jobs::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert')->where('job_type_id', '2')->where('job_status', '!=', 'deleted')->get();
         return view('expert.modules.internship.view-internships-posted', ['jobsobj'=>$jobsobj]);
     }
     
@@ -429,7 +442,9 @@ class ExpertController extends Controller
     {
         $jobobj=Jobs::find($request->job_id);
         $jobappobj = JobsApplied::where('job_id', $jobobj->job_id)->count();
-        return view('expert.modules.internship.internship-details', ['jobobj'=>$jobobj,'jobappobj'=>$jobappobj]);
+        $users= User::join('jobs_applied', 'users.user_id', '=', 'jobs_applied.user_id')
+        ->where('jobs_applied.job_id', $jobobj->job_id)->get();
+        return view('expert.modules.internship.view-internship', ['jobobj'=>$jobobj,'users'=>$users,'jobappobj'=>$jobappobj]);
     }
     
     public function postinternship(Request $request)

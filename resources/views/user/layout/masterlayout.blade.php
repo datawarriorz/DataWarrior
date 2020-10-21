@@ -27,8 +27,8 @@
 
         .loader img {
             position: relative;
-
-            top: 40%
+            top: 35%;
+            height: 14rem;
         }
 
     </style>

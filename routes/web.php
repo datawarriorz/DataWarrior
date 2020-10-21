@@ -71,24 +71,23 @@ Route::get('/skills', 'ProfileController@skills')->middleware('auth');
 Route::post('/skills', 'ProfileController@skills')->middleware('auth');
 Route::post('/updateskills', 'ProfileController@updateSkills')->middleware('auth');
 Route::post('/deleteskills', 'ProfileController@deleteSkills')->middleware('auth');
-Route::get('/internship', 'InternshipController@showinternship')->middleware('auth');
-Route::post('/internshipform', 'InternshipController@applyInternship')->middleware('auth');
-Route::get('/internshipfinal', 'InternshipController@showinternship')->middleware('auth');
-Route::get('/internshipack', 'InternshipController@showack')->middleware('auth');
-Route::post('/deleteInternship', 'InternshipController@deleteInternship')->middleware('auth');
 
-Route::get('/job', 'JobController@showjob')->middleware('auth');
-Route::post('/jobform', 'JobController@applyJob')->middleware('auth');
-Route::get('/jobfinal', 'JobController@showjob')->middleware('auth');
-Route::get('/joback', 'JobController@showack')->middleware('auth');
-Route::post('/deleteJob', 'JobController@deleteJob')->middleware('auth');
+// Route::get('/internship', 'InternshipController@showinternship')->middleware('auth');
+// Route::post('/internshipform', 'InternshipController@applyInternship')->middleware('auth');
+// Route::get('/internshipfinal', 'InternshipController@showinternship')->middleware('auth');
+// Route::get('/internshipack', 'InternshipController@showack')->middleware('auth');
+// Route::post('/deleteInternship', 'InternshipController@deleteInternship')->middleware('auth');
+
+// Route::get('/job', 'JobController@showjob')->middleware('auth');
+// Route::post('/jobform', 'JobController@applyJob')->middleware('auth');
+// Route::get('/jobfinal', 'JobController@showjob')->middleware('auth');
+// Route::get('/joback', 'JobController@showack')->middleware('auth');
+// Route::post('/deleteJob', 'JobController@deleteJob')->middleware('auth');
 
 Route::get('/certificationhome', 'CertificationController@showcertificationhome')->middleware('auth');
 // Route::get('/certificationlist', 'CertificationController@showcertificationhome')->middleware('auth');
 Route::post('/certificationlist', 'CertificationController@showcertifications')->middleware('auth');
 Route::get('/certificationdetails/{cert_id}', 'CertificationController@certificationdetails');
-
-
 Route::post('/applycertification', 'CertificationController@applycertification')->middleware('auth');
 Route::post('/requestcertification', 'CertificationController@requestcertification')->middleware('auth');
 
@@ -97,15 +96,14 @@ Route::get('/jlist', 'JobController@showalljobs')->middleware('auth');
 Route::post('/jobfilterapply', 'JobController@jobfilterapply')->middleware('auth');
 Route::post('/viewjobdetails', 'JobController@showjobdetails')->middleware('auth');
 Route::get('/viewjobdetails', 'JobController@showjobdetails')->middleware('auth')->name('viewjobdetails');
-
 Route::post('/jobapply', 'JobController@userapplyjob')->middleware('auth');
-Route::post('/internshipapply', 'JobController@userapplyinternship')->middleware('auth');
-
 
 Route::get('/ihome', 'JobController@showinternshiphome')->middleware('auth');
 Route::get('/ilist', 'JobController@showallinternships')->middleware('auth');
 Route::post('/viewinternshipdetails', 'JobController@showinternshipdetails')->middleware('auth');
 Route::get('/viewinternshipdetails', 'JobController@showinternshipdetails')->middleware('auth')->name('viewinternshipdetails');
+Route::post('/internshipapply', 'JobController@userapplyinternship')->middleware('auth');
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Route::get('/expertlogin', 'Auth\ExpertLoginController@showLoginForm')->name('expert.login');
@@ -118,8 +116,6 @@ Route::get('/expert-listarticles', 'ExpertController@viewexpertarticles');
 Route::post('/expert-viewarticle', 'ExpertController@viewarticle');
 Route::post('/expert-edit-articleform', 'ExpertController@vieweditarticleform');
 Route::get('/expert-edit-articleform', 'ExpertController@vieweditarticleform');
-
-
 Route::post('/expert-edit-article', 'ExpertController@editarticle');
 Route::post('/expert-deletearticle', 'ExpertController@deletearticle');
 
@@ -144,35 +140,25 @@ Route::post('/expert-skill-delete', 'ExpertController@deleteskilldetails');
 
 Route::get('/expert-post-job-form', 'ExpertController@postjobform');
 Route::post('/expert-post-job', 'ExpertController@postjob');
-
 Route::get('/expert-view-jobs-posted', 'ExpertController@viewjobsposted');
 // Route::post('/expert-view-jobs-posted', 'ExpertController@viewjobsposted');
-
 Route::post('/expert-view-job-details', 'ExpertController@viewjobdetails');
 Route::post('/expert-delete-job', 'ExpertController@deletejob');
 
-
 Route::get('/expert-post-internship-form', 'ExpertController@postinternshipform');
 Route::post('/expert-post-internship', 'ExpertController@postinternship');
-
 Route::get('/expert-view-internships-posted', 'ExpertController@viewinternshipsposted');
 Route::post('/expert-view-internship-details', 'ExpertController@viewinternshipdetails');
 Route::post('/expert-delete-internship', 'ExpertController@deleteinternship');
 
-
 Route::get('/expert-post-certification-form', 'ExpertController@postcertificationform');
 Route::post('/expert-post-certification', 'ExpertController@postcertification');
 Route::get('/expert-list-certification', 'ExpertController@viewcertificationposted');
-
 Route::post('/expert-edit-certificationform', 'ExpertController@vieweditcertificationform');
 Route::get('/expert-edit-certificationform', 'ExpertController@vieweditcertificationform');
-
 Route::post('/expert-viewcertification', 'ExpertController@viewcertification');
-
-
 Route::post('/expert-edit-certification', 'ExpertController@editcertification');
 Route::post('/expert-deletecertification', 'ExpertController@deletecertification');
-
 
 Route::post('/logoutexpert', 'ExpertController@logoutexpert');
 Route::get('/logoutexpert', 'ExpertController@getlogoutexpert');

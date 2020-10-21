@@ -3,99 +3,81 @@
 @section('content')
 <link rel="stylesheet" href="./css/user/user-6-2-job-details.css" />
 <div class="ji-job-container card col-12 col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-center no-pad">
-    <div class="job-details-header">
-        <div class="data-job-title">
-            {{ $jobobj->job_title }}
-        </div>
-    </div>
-    <div class="card-body job-details-data text-left">
-        <div class="col-12">
-            <div class="row">
-                <div class="col-8 col-sm-8 col-md-6 pl-0 pr-0 text-center">
-                    <div class="data-job-designation">
-                        {{ $jobobj->job_designation }}
-                    </div>
-                    <div class="data-job-company">
-                        {{ $jobobj->job_company }}
-                    </div>
+    <div class="card-body dashboard-card-body pb-0">
+        <div class="text-center">
+            <div class="job-details-header">
+                <div class="data-job-title">
+                    <h3><b>{{ $jobobj->job_title }}</b></h3>
                 </div>
-                <div class="col-4 col-sm-4 col-md-6 pl-0 pr-0 text-center">
-                    <div class="card-text data-job-description-data">
-                        <a href="{{ $jobobj->job_companywebsite }}" style="color: #171f2a;">
-                            <i class="fas fa-globe"></i>
-                            <br>
-                            Website
-                        </a>
+            </div>
+            <div class="card-body job-details-data pb-0">
+                <div class="col-12 pl-0 pr-0">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-4 pl-0 pr-0 text-center">
+                            <div class="">
+                                <b>Designation</b>
+                                <br>
+                                {{ $jobobj->job_designation }}
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-4 pl-0 pr-0 text-center">
+                            <div class="">
+                                <b>Company</b>
+                                <br>
+                                {{ $jobobj->job_company }}
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-4 pl-0 pr-0 text-center">
+                            <div class="card-text data-job-website-data">
+                                <b>Website</b>
+                                <br>
+                                <a href="{{ $jobobj->job_companywebsite }}" style="color: #171f2a;">
+                                    Click here
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <br>
+    </div>
+    <div class="card-body job-details-data text-center">
         <div class="col-12 no-gutters no-padding">
-            <div class="row">
-                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="data-job-bold-header">Apply By</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class=""> {{ substr($jobobj->job_apply_by ,0,9) }}</div>
-                            </td>
-                        </tr>
-                    </table>
+            <div class="row no-gutters"
+                style="border-bottom: 1px solid #c8c8c8;border-top: 1px solid #c8c8c8;padding-bottom: 8px;padding-top: 8px;">
+                <div class="col-12 col-sm-12 col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="data-job-bold-header">Apply By</div>
+                            <div class=""><?php echo date_format($jobobj->job_apply_by,"d M' Y");?> </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="data-job-bold-header">Salary</div>
+                            <div class="">₹ {{ $jobobj->job_salary }}/-</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="data-job-bold-header">Salary</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="">{{ $jobobj->job_salary }}</div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="data-job-bold-header">Location</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="">{{ ucwords( $jobobj->job_location) }}</div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="data-job-bold-header">Duration</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="">{{ $jobobj->job_duration }}</div>
-                            </td>
-                        </tr>
-                    </table>
+                <div class="col-12 col-sm-12 col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="data-job-bold-header">Location</div>
+                            <div class="">{{ ucwords( $jobobj->job_location) }}</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="data-job-bold-header">Duration</div>
+                            <div class="">{{ $jobobj->job_duration }}</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <br>
             <div class="card-title data-job-description-header">
                 <b>Job Description</b>
             </div>
-            <div class="card-text data-job-description-data">
-                <?php echo nl2br($jobobj->job_description); ?>
+            <div class="text-left">
+                <div class="card-text data-job-description-data">
+                    <?php echo nl2br($jobobj->job_description); ?>
+                </div>
             </div>
             <br>
 
@@ -108,8 +90,8 @@
                     </form>
                 </div>
             @else
-                <div class="col-12 text-center">
-                    <button class="btn disabled">Applied</button>
+                <div class="col-12 text-center" style="color:#25ac25;padding: .375rem .75rem;">
+                    Applied <i class="fas fa-check-square"></i>
                 </div>
             @endif
             <br>

@@ -55,7 +55,7 @@
                                             </td>
                                             <td class="text-center">
                                                 <div class="row" class="text-center">
-                                                    <form method="post" action="/expert-view-job-details">
+                                                    <form method="post" action="/expert-view-internship-details">
                                                         @csrf
                                                         <input type="hidden" name="job_id"
                                                             value="{{ $jo->job_id }}" />

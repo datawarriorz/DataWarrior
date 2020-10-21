@@ -24,7 +24,7 @@
                     <h6>By - {{ $article_obj->author }}</h6>
                 </div>
                 <div class="col-md-12 text-right">
-                    <h6>Published on - {{ $article_obj->created_at }}</h6>
+                    <h6>Published on - <?php echo date_format($article_obj->created_at,"d M' Y");?></h6>
                 </div>
                 <br>
                 <div class="col-md-12">

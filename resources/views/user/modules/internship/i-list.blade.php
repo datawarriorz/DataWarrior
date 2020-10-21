@@ -138,26 +138,31 @@
                                 Start Date: {{ $jo->job_starttime }}
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                Apply By: {{ $jo->job_apply_by }}
+                                Apply By: <?php echo date_format($jo->job_apply_by,"d M' Y");?>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
-                                <form method="post" action="/viewinternshipdetails">
-                                    @csrf
-                                    <input type="hidden" name="job_id" value={{ $jo->job_id }} />
-                                    <button type="submit" class="btn btn-primary">
-                                        View Details <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </form>
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 text-left" style="color:#25ac25;padding: .375rem 1rem;">
+                                        <?php $i=true; ?>
+                                        @foreach($jobsappboj as $ja)
+                                            @if($ja->job_id==$jo->job_id)
+                                                Applied <i class="fas fa-check-square"></i>
+                                                <?php $i=false; ?>
+                                                @break
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                    <div class="col-12 col-md-6 text-right">
+                                        <form method="post" action="/viewinternshipdetails">
+                                            @csrf
+                                            <input type="hidden" name="job_id" value={{ $jo->job_id }} />
+                                            <button type="submit" class="btn btn-primary">
+                                                View Details <i class="fas fa-arrow-right"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                            <?php $i=true; ?>
-                            @foreach($jobsappboj as $ja)
-                                @if($ja->job_id==$jo->job_id)
-                                    Applied <i class="fas fa-check-square"></i>
-                                    <?php $i=false; ?>
-                                    @break
-
-                                @endif
-                            @endforeach
                             <br>
                         </div>
                     @endforeach

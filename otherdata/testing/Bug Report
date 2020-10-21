@@ -18,7 +18,7 @@ Bugs after 3rd Deployment:
         
         Newsletter article css and goback button
         
-        article list 
+        article list - done
 
         layout in certification replacing web development with programming - done
         
@@ -47,9 +47,9 @@ Bugs after 3rd Deployment:
 
         expert post job value double quotes issue + text area issue after posting - done
 
-        specify domain in job detail in expert side
+        specify domain in job detail in expert side - postponed till domain table appears
 
-        participant data update in expert side require proper applied date(backend + frontend issue) (need discussion)
+        participant data update in expert side require proper applied date - done
 
         url issue for all modules
 

@@ -406,7 +406,7 @@
                         <div class="know-more-box">
                             <form method="post" action="/certificationlist">
                                 @csrf
-                                <input type="hidden" name="cert_domain" value="Data Science">
+                                <input type="hidden" name="cert_domain" value="datascience">
                                 <button class="btn tab-edit-btn" type="submit">
                                     <div class="domain-name">
                                         KNOW MORE

@@ -405,9 +405,13 @@ class ExpertController extends Controller
         $jobappobj = JobsApplied::where('job_id', $jobobj->job_id)->get();
         $users= User::join('jobs_applied', 'users.user_id', '=', 'jobs_applied.user_id')
         ->where('jobs_applied.job_id', $jobobj->job_id)->get();
-       
-        
         return view('expert.modules.job.view-job', ['jobobj'=>$jobobj,'users'=>$users,'jobappobj'=>$jobappobj]);
+
+        // $jobobj=Jobs::find($request->job_id);
+        // $jobappobj = JobsApplied::where('job_id', $jobobj->job_id)->get();
+        // $users= User::join('jobs_applied', 'users.user_id', '=', 'jobs_applied.user_id')
+        // ->where('jobs_applied.job_id', $jobobj->job_id)->get();
+        // return view('expert.modules.job.view-job', ['jobobj'=>$jobobj,'users'=>$users,'jobappobj'=>$jobappobj]);
     }
     public function deletejob(Request $request)
     {
@@ -441,7 +445,7 @@ class ExpertController extends Controller
     public function viewinternshipdetails(Request $request)
     {
         $jobobj=Jobs::find($request->job_id);
-        $jobappobj = JobsApplied::where('job_id', $jobobj->job_id)->count();
+        $jobappobj = JobsApplied::where('job_id', $jobobj->job_id)->get();
         $users= User::join('jobs_applied', 'users.user_id', '=', 'jobs_applied.user_id')
         ->where('jobs_applied.job_id', $jobobj->job_id)->get();
         return view('expert.modules.internship.view-internship', ['jobobj'=>$jobobj,'users'=>$users,'jobappobj'=>$jobappobj]);

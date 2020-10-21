@@ -10,11 +10,11 @@
                     <div class="card-header">
                         <div class="col-12 pl-0 pr-0">
                             <div class="row">
-                                <div class="col-6 text-left">
-                                    <div style="margin-bottom: 0px"><i class="fas fa-columns"></i> Job Details
+                                <div class="col-8 text-left">
+                                    <div style="margin-bottom: 0px"><i class="fas fa-columns"></i> Internship Details
                                     </div>
                                 </div>
-                                <div class="col-6 text-right">
+                                <div class="col-4 text-right">
                                     <a class="tab-edit-btn" href="/expert-view-jobs-posted">
                                         <i class="fas fa-arrow-left"></i> Back
                                     </a>
@@ -51,7 +51,7 @@
                                                 <b>Website</b>
                                                 <br>
                                                 <a href="{{ $jobobj->job_companywebsite }}" style="color: #171f2a;">
-                                                    Link
+                                                    Click here
                                                 </a>
                                             </div>
                                         </div>
@@ -68,7 +68,7 @@
                                         <div class="col-6 col-sm-6 col-md-3 col-lg-3">
                                             <b>Salary</b>
                                             <br>
-                                            <div class="">{{ $jobobj->job_salary }} /-</div>
+                                            <div class="">₹ {{ $jobobj->job_salary }} /-</div>
                                         </div>
                                         <div class="col-6 col-sm-6 col-md-3 col-lg-3">
                                             <b>Location</b>
@@ -81,15 +81,12 @@
                                             <div class="">{{ $jobobj->job_duration }}</div>
                                         </div>
                                     </div>
-                                    <br>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-title data-job-description-header">
-                        <b>Job Participants</b>
-                        <br>
+                        <div class="col-12 text-center"><b>Internships Participants</b></div>
                         <br>
                         <div class="container" style="overflow-x: scroll">
                             <table class="table">
@@ -122,7 +119,7 @@
                                             <td>
                                                 @foreach($jobappobj as $ja)
                                                     @if($ja->user_id==$user->user_id)
-                                                       {{ $ja->created_at }}
+                                                        <?php echo date_format($ja->created_at,"d M' Y");?>
                                                     @endif
                                                 @endforeach
                                             </td>
@@ -139,10 +136,10 @@
             <div class="col-md-12">
                 <div class="card trending-card right-card ml-0 mr-0 mb-4 mb-sm-4 mb-md-4 mb-sm-0">
                     <div class="card-header">
-                        <i class="fas fa-hashtag"></i> Last Job Posted
+                        <i class="fas fa-hashtag"></i> Lastest Internships
                     </div>
                     <div class="card-body">
-                        no jobs posted
+                        coming soon
                     </div>
                 </div>
             </div>

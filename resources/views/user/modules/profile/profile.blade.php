@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/user/user-5-0-profile.css">
+<link rel="stylesheet" href="{{ asset('css/user/user-5-0-profile.css') }}">
 <br>
 <div class="col-12 col-sm-12 col-md-8 col-lg-8 offset-md-2 ">
     <div class="card">

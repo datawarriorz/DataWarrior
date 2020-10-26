@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/user/user-8-1-view-article.css">
+<link rel="stylesheet" href="{{ asset('css/user/user-8-1-view-article.css') }}">
 <div class="col-12 col-sm-12 col-md-10 offset-md-1" style="background-color: white;">
     <div class="col-12">
         <nav aria-label="breadcrumb">

@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/user/user-5-4-edit-skill.css">
+<link rel="stylesheet" href="{{ asset('css/user/user-5-4-edit-skill.css') }}">
 <br>
 <div class="container">
     <div class="row justify-content-center">

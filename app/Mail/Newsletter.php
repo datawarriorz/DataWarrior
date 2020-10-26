@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\Article;
+use Illuminate\Support\Facades\URL;
 
 class Newsletter extends Mailable
 {
@@ -24,7 +25,7 @@ class Newsletter extends Mailable
     public function __construct(Article $article)
     {
         $this->article=$article;
-        $this->url='http://localhost:8000/newsletterarticle/'.$article->article_id;
+        $this->url=URL::to('').'/newsletterarticle/'.$article->article_id;
     }
 
     /**

@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/user/user-5-1-edit-basic-details.css" />
+<link rel="stylesheet" href="{{ asset('css/user/user-5-1-edit-basic-details.css') }}"/>
 <br>
 <div class="contaner col-md-8 offset-md-2">
     <div class="card">

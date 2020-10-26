@@ -2,7 +2,7 @@
 
 @section('content')
 
-<link rel="stylesheet" href="./css/user/user-5-3-edit-experience.css">
+<link rel="stylesheet" href="{{ asset('css/user/user-5-3-edit-experience.css') }}">
 <br>
 <div class="col-md-8 offset-md-2">
     <div class="card">

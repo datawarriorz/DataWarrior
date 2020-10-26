@@ -1,7 +1,7 @@
 @extends('expert.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/expert/expert-5-1-edit-basic-details.css" />
+<link rel="stylesheet" href="{{ asset('css/expert/expert-5-1-edit-basic-details.css') }}"/>
 <div class="col-12 col-sm-12 col-md-8 col-lg-8 offset-md-2">
     <div class="card">
         <div class="card-header text-center">

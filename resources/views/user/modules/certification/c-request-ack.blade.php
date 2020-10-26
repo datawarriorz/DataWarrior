@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/certification/certificationreqack.css" />
+<link rel="stylesheet" href="{{ asset('css/certification/certificationreqack.css') }}"/>
 <div class="container">
     <br>
     <div class="card">

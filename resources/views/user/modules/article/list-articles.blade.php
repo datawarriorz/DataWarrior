@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/user/user-8-0-list-articles.css">
+<link rel="stylesheet" href="{{ asset('css/user/user-8-0-list-articles.css') }}">
 <div class="article-wrapper">
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div class="row">

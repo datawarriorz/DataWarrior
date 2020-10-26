@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/user/user-7-2-internship-details.css" />
+<link rel="stylesheet" href="{{ asset('css/user/user-7-2-internship-details.css') }}"/>
 <div class="ji-job-container card col-12 col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-center no-pad">
     <div class="card-body dashboard-card-body pb-0">
         <div class="text-center">

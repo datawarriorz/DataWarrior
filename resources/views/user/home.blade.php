@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/main/home.css" />
+<link rel="stylesheet" href="{{ asset('css/main/home.css') }}"/>
 @guest
     <div class="jumbotron" style="">
         <div class="col-sm-12 col-md-12 col-lg-12">

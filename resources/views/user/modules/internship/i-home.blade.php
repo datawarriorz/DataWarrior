@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="./css/user/user-7-0-internship-home.css" />
+<link rel="stylesheet" href="{{ asset('css/user/user-7-0-internship-home.css') }}"/>
 <div class="ji-content container">
     <div class="ji-header pt-4 pl-2 pr-2">
         <div class="row">

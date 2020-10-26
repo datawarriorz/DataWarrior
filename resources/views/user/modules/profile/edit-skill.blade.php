@@ -93,18 +93,6 @@
                                             @csrf
                                             <input type="hidden" name="userskills_id"
                                                 value={{ $skill->userskills_id }} />
-                                            @if($process=="internship")
-                                                <div class="form-group">
-                                                    <input type="hidden" name="process" class="form-control"
-                                                        value="internship" />
-                                                </div>
-                                            @endif
-                                            @if($process=="job")
-                                                <div class="form-group">
-                                                    <input type="hidden" name="process" class="form-control"
-                                                        value="job" />
-                                                </div>
-                                            @endif
                                             <button type="submit" class="btn btn-danger" onclick="">Delete</button>
                                         </form>
                                     </td>

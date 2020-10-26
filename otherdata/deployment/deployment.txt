@@ -28,6 +28,7 @@ files for live deployment
 env
 service.php
 appserviceprovider -> Schema::defaultStringLength(191);
+use Illuminate\Support\Facades\Schema;
 mail/newsletter.php->
     // $this->url='http://localhost:8000/newsletterarticle/'.$article->article_id;
        $this->url='http://datawarriors.co.in/newsletterarticle/'.$article->article_id;

@@ -123,7 +123,7 @@ class ProfileController extends Controller
             'grade' => 'required|alpha',
             'start_date' =>'required|date|before:tomorrow',
             'end_date' =>'required|date|after:start_date'
-        ], );
+        ]);
         if ($validator->fails()) {
             return redirect('/qualification')->withErrors($validator)->withInput();
         }
@@ -166,7 +166,7 @@ class ProfileController extends Controller
             'description' => 'required|min:3',
             'startdate' =>'required|date|before:tomorrow',
             'enddate' =>'nullable|date|after:start_date|before:tomorrow',
-        ], );
+        ]);
         if ($validator->fails()) {
             return redirect('/jobexperience')->withErrors($validator)->withInput();
         }
@@ -209,8 +209,8 @@ class ProfileController extends Controller
     {
         $validator=Validator::make($request->all(), [
             'skill_name' => 'required|min:2',
-        ], );
-        if ($validator->fails()) { 
+        ]);
+        if ($validator->fails()) {
             return redirect('/skills')->withErrors($validator)->withInput();
         }
         $skills = new UserSkills();

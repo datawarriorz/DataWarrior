@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 use App\Subscription;
 use App\Referral;
 use App\Counselor;
+use DB;
+use Exception;
 
 class RegisterController extends Controller
 {
@@ -83,36 +85,43 @@ class RegisterController extends Controller
             // pass validator object in withErrors method & also withInput it should be null by default
             return redirect('/register')->withErrors($validator)->withInput();
         }
+        DB::beginTransaction();
+        try {
+            $newUser= new User();
+            $newUser->first_name= $request->firstname;
+            $newUser->email= $request->email;
+            $newUser->last_name = $request->lastname;
+            $newUser->password=Hash::make($request->password);
+            $newUser->contact_no=$request->contact_no;
+            $newUser->date_of_birth=$request->date_of_birth;
+            $newUser->save();
         
-        $newUser= new User();
-        $newUser->first_name= $request->firstname;
-        $newUser->email= $request->email;
-        $newUser->last_name = $request->lastname;
-        $newUser->password=Hash::make($request->password);
-        $newUser->contact_no=$request->contact_no;
-        $newUser->date_of_birth=$request->date_of_birth;
-        $newUser->save();
-        
-        auth()->login($newUser, true);
-        if ($request->newsletter=="yes") {
-            $subcribe= new Subscription();
-            $subcribe->newsletter=$request->newsletter;
-            $subcribe->user_id=Auth::user()->user_id;
-            $subcribe->save();
-        } else {
-            $subcribe= new Subscription();
-            $subcribe->newsletter="no";
-            $subcribe->user_id=Auth::user()->user_id;
-            $subcribe->save();
+            auth()->login($newUser, true);
+            if ($request->newsletter=="yes") {
+                $subcribe= new Subscription();
+                $subcribe->newsletter=$request->newsletter;
+                $subcribe->user_id=Auth::user()->user_id;
+                $subcribe->save();
+            } else {
+                $subcribe= new Subscription();
+                $subcribe->newsletter="no";
+                $subcribe->user_id=Auth::user()->user_id;
+                $subcribe->save();
+            }
+            if ($request->referral_code!=null) {
+                $refer= new Referral();
+                $counselor = Counselor::where('referral_code', $request->referral_code)->get();
+                $refer->co_id=$counselor->co_id;
+                $refer->user_id=Auth::user()->user_id;
+                $refer->save();
+            }
+            //throw new Exception('Testing....');
+            DB::commit();
+            return view('auth.verify');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            DB::statement('ALTER TABLE users AUTO_INCREMENT = '.(count(User::all())+1).';');
         }
-        if ($request->referral_code!=null) {
-            $refer= new Referral();
-            $counselor = Counselor::where('referral_code', $request->referral_code)->get();
-            $refer->co_id=$counselor->co_id;
-            $refer->user_id=Auth::user()->user_id;
-            $refer->save();
-        }
-        return view('auth.verify');
         //return view('auth.login');
     }
 

@@ -1,0 +1,7 @@
+transaction- convert everything into database-transactions
+admin- some module not added
+ssl certificate
+payment gateway- need bank account- easier with upi
+experts - showcase expert profile
+blog module
+project module

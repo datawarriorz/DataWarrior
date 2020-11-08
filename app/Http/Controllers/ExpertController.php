@@ -17,6 +17,7 @@ use App\User;
 use Illuminate\Support\Facades\Validator;
 use App\Certification;
 use DB;
+use Exception;
 
 class ExpertController extends Controller
 {
@@ -120,20 +121,25 @@ class ExpertController extends Controller
         if ($validator->fails()) { // on validator found any error
             return redirect('/expert-experience-edit')->withErrors($validator)->withInput();
         }
+        DB::beginTransaction();
+        try {
+            $experienceobj = new ExExperience();
+            $experienceobj->exp_profile = $request->exp_profile;
+            $experienceobj->exp_organisation = $request->exp_organisation;
+            $experienceobj->exp_location = $request->exp_location;
+            $experienceobj->exp_description = $request->exp_description;
+            $experienceobj->exp_currentjob = $request->exp_currentjob;
+            $experienceobj->exp_startdate = $request->exp_startdate;
+            $experienceobj->exp_enddate = $request->exp_enddate;
+            $experienceobj->ex_id = Auth::user()->ex_id;
+            $experienceobj->save();
+            $experienceobj=ExExperience::where('ex_id', '=', Auth::user()->ex_id)->get();
+            DB::commit();
 
-        $experienceobj = new ExExperience();
-        $experienceobj->exp_profile = $request->exp_profile;
-        $experienceobj->exp_organisation = $request->exp_organisation;
-        $experienceobj->exp_location = $request->exp_location;
-        $experienceobj->exp_description = $request->exp_description;
-        $experienceobj->exp_currentjob = $request->exp_currentjob;
-        $experienceobj->exp_startdate = $request->exp_startdate;
-        $experienceobj->exp_enddate = $request->exp_enddate;
-        $experienceobj->ex_id = Auth::user()->ex_id;
-        $experienceobj->save();
-        $experienceobj=ExExperience::where('ex_id', '=', Auth::user()->ex_id)->get();
-
-        return view('expert.modules.profile.edit-experience', ['experienceobj' => $experienceobj]);
+            return view('expert.modules.profile.edit-experience', ['experienceobj' => $experienceobj]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
     public function deleteexpdetails(Request $request)
     {
@@ -149,12 +155,20 @@ class ExpertController extends Controller
     }
     public function updateexpertimage(Request $request)
     {
-        $file = $request->file('ex_image');
-        // Get the contents of the file
-        $contents = $file->openFile()->fread($file->getSize());
+        DB::beginTransaction();
+
+        try {
+            $file = $request->file('ex_image');
+            // Get the contents of the file
+            $contents = $file->openFile()->fread($file->getSize());
         
-        Expert::where('ex_id', Auth::user()->ex_id)->update(['ex_image'=>$contents]);
-        return redirect('/expert-profile');
+            Expert::where('ex_id', Auth::user()->ex_id)->update(['ex_image'=>$contents]);
+            DB::commit();
+
+            return redirect('/expert-profile');
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
     //////////////////////////////////////////////////////////////////////////
     public function addquadetails(Request $request)
@@ -167,17 +181,24 @@ class ExpertController extends Controller
         if ($validator->fails()) { // on validator found any error
             return redirect('/expert-qualification-edit')->withErrors($validator)->withInput();
         }
-        $qualificationobj = new ExQualification();
-        $qualificationobj->qualtype_id = $request->qualtype_id;
-        $qualificationobj->qua_degree = $request->qua_degree;
-        $qualificationobj->qua_univerity = $request->qua_univerity;
-        $qualificationobj->ex_id = Auth::user()->ex_id;
-        
-        $qualificationobj->save();
-        $qualificationType = QualificationTypes::all();
-        $qualificationobj=ExQualification::where('ex_id', '=', Auth::user()->ex_id)->get();
+        DB::beginTransaction();
 
-        return view('expert.modules.profile.edit-qualification', ['qualificationobj' => $qualificationobj, 'qualificationType' => $qualificationType]);
+        try {
+            $qualificationobj = new ExQualification();
+            $qualificationobj->qualtype_id = $request->qualtype_id;
+            $qualificationobj->qua_degree = $request->qua_degree;
+            $qualificationobj->qua_univerity = $request->qua_univerity;
+            $qualificationobj->ex_id = Auth::user()->ex_id;
+        
+            $qualificationobj->save();
+            $qualificationType = QualificationTypes::all();
+            $qualificationobj=ExQualification::where('ex_id', '=', Auth::user()->ex_id)->get();
+            DB::commit();
+
+            return view('expert.modules.profile.edit-qualification', ['qualificationobj' => $qualificationobj, 'qualificationType' => $qualificationType]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
     public function deletequadetails(Request $request)
     {
@@ -204,15 +225,21 @@ class ExpertController extends Controller
         if ($validator->fails()) { // on validator found any error
             return redirect('/expert-skill-edit')->withErrors($validator)->withInput();
         }
-        $skillsobj = new ExSkills();
-        $skillsobj->sk_name = $request->sk_name;
-        $skillsobj->ex_id = Auth::user()->ex_id;
+        DB::beginTransaction();
+        try {
+            $skillsobj = new ExSkills();
+            $skillsobj->sk_name = $request->sk_name;
+            $skillsobj->ex_id = Auth::user()->ex_id;
         
-        $skillsobj->save();
-        
-        $skillsobj=ExSkills::where('ex_id', '=', Auth::user()->ex_id)->get();
+            $skillsobj->save();
+            DB::commit();
 
-        return view('expert.modules.profile.edit-skill', ['skillsobj' => $skillsobj]);
+            $skillsobj=ExSkills::where('ex_id', '=', Auth::user()->ex_id)->get();
+
+            return view('expert.modules.profile.edit-skill', ['skillsobj' => $skillsobj]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
     public function deleteskilldetails(Request $request)
     {
@@ -255,24 +282,31 @@ class ExpertController extends Controller
         if ($validator->fails()) { // on validator found any error
             return redirect('/expert-postarticle')->withErrors($validator)->withInput();
         }
-        $article=new Article();
-        $article->title=$request->title;
-        $article->creator_id=Auth::user()->ex_id;
-        $article->creator_flag="expert";
-        $article->author=$request->author;
-        $article->description=$request->description;
-        $article->content=$request->content;
-        $file = $request->file('article_image');
-        // Get the contents of the file
-        if ($file!=null) {
-            $contents = $file->openFile()->fread($file->getSize());
-            $article->article_image=$contents;
+        DB::beginTransaction();
+        try {
+            $article=new Article();
+            $article->title=$request->title;
+            $article->creator_id=Auth::user()->ex_id;
+            $article->creator_flag="expert";
+            $article->author=$request->author;
+            $article->description=$request->description;
+            $article->content=$request->content;
+            $file = $request->file('article_image');
+            // Get the contents of the file
+            if ($file!=null) {
+                $contents = $file->openFile()->fread($file->getSize());
+                $article->article_image=$contents;
+            }
+            $article->status="review";
+            $article->save();
+            DB::commit();
+
+            // $articles= Article::where('ex_id', Auth::user()->ex_id)->get();
+            // return view('expert.expert-dashboard', ['articles' => $articles]);
+            return view('expert.modules.article.view-article', ['article' => $article]);
+        } catch (\Exception $e) {
+            DB::rollBack();
         }
-        $article->status="review";
-        $article->save();
-        // $articles= Article::where('ex_id', Auth::user()->ex_id)->get();
-        // return view('expert.expert-dashboard', ['articles' => $articles]);
-        return view('expert.modules.article.view-article', ['article' => $article]);
     }
     public function vieweditarticleform(Request $request)
     {
@@ -297,40 +331,50 @@ class ExpertController extends Controller
             
             return redirect('/expert-edit-articleform')->withErrors($validator)->withInput(['article_id' => $article->article_id]);
         }
+        DB::beginTransaction();
 
-        $article->title=$request->title;
-        $article->creator_id=Auth::user()->ex_id;
-        $article->creator_flag="expert";
-        $article->author=$request->author;
-        $article->description=$request->description;
-        $article->content=$request->content;
-        $file = $request->file('article_image');
-        // Get the contents of the file
-        if ($file!=null) {
-            $contents = $file->openFile()->fread($file->getSize());
-            $article->article_image=$contents;
-        } else {
-            $article->article_image=null;
-        }
-        $article->status="review";
-        $article->save();
-        $article=Article::find($request->article_id);
+        try {
+            $article->title=$request->title;
+            $article->creator_id=Auth::user()->ex_id;
+            $article->creator_flag="expert";
+            $article->author=$request->author;
+            $article->description=$request->description;
+            $article->content=$request->content;
+            $file = $request->file('article_image');
+            // Get the contents of the file
+            if ($file!=null) {
+                $contents = $file->openFile()->fread($file->getSize());
+                $article->article_image=$contents;
+            } else {
+                $article->article_image=null;
+            }
+            $article->status="review";
+            $article->save();
+            DB::commit();
+            $article=Article::find($request->article_id);
         
-        return view('expert.modules.article.view-article', ['article' => $article]);
+            return view('expert.modules.article.view-article', ['article' => $article]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
 
     public function deletearticle(Request $request)
     {
-        $article= Article::find($request->article_id);
-        if ($article->status=="published") {
-            $article->status="delete";//if published
-            $article->save();
-        } else {
-            $article->delete();//if not published
+        DB::beginTransaction();
+        try {
+            $article= Article::find($request->article_id);
+            if ($article->status=="published") {
+                $article->status="delete";//if published
+                $article->save();
+            } else {
+                $article->delete();//if not published
+            }
+            DB::commit();
+            return redirect("/expert-listarticles");
+        } catch (\Exception $e) {
+            DB::rollBack();
         }
-       
-
-        return redirect("/expert-listarticles");
     }
     
     public function viewarticle(Request $request)
@@ -368,29 +412,35 @@ class ExpertController extends Controller
         if ($validator->fails()) { // on validator found any error
             return redirect('/expert-post-job-form')->withErrors($validator)->withInput();
         }
+        DB::beginTransaction();
 
-        $jobobj = new Jobs();
-        $jobobj->job_title=$request->job_title;
-        $jobobj->job_description=$request->job_description;
-        $jobobj->job_status='open';
-        $jobobj->job_company=$request->job_company;
-        $jobobj->job_domain=$request->job_domain;
-        $jobobj->job_shift=$request->job_shift;
-        $jobobj->job_location=$request->job_location;
-        $jobobj->job_designation=$request->job_designation;
-        $jobobj->job_companywebsite=$request->job_companywebsite;
-        $jobobj->job_type_id=$request->job_type_id;
-        $jobobj->job_skills_required=$request->job_skills_required;
-        $jobobj->job_duration=$request->job_duration;
-        $jobobj->job_salary=$request->job_salary;
-        $jobobj->job_starttime=$request->job_starttime;
-        $jobobj->job_apply_by=$request->job_apply_by;
-        $jobobj->job_openings=$request->job_openings;
-        $jobobj->creator_id=Auth::user()->ex_id;
-        $jobobj->creator_flag='expert';
-        $jobobj->save();
+        try {
+            $jobobj = new Jobs();
+            $jobobj->job_title=$request->job_title;
+            $jobobj->job_description=$request->job_description;
+            $jobobj->job_status='open';
+            $jobobj->job_company=$request->job_company;
+            $jobobj->job_domain=$request->job_domain;
+            $jobobj->job_shift=$request->job_shift;
+            $jobobj->job_location=$request->job_location;
+            $jobobj->job_designation=$request->job_designation;
+            $jobobj->job_companywebsite=$request->job_companywebsite;
+            $jobobj->job_type_id=$request->job_type_id;
+            $jobobj->job_skills_required=$request->job_skills_required;
+            $jobobj->job_duration=$request->job_duration;
+            $jobobj->job_salary=$request->job_salary;
+            $jobobj->job_starttime=$request->job_starttime;
+            $jobobj->job_apply_by=$request->job_apply_by;
+            $jobobj->job_openings=$request->job_openings;
+            $jobobj->creator_id=Auth::user()->ex_id;
+            $jobobj->creator_flag='expert';
+            $jobobj->save();
+            DB::commit();
 
-        return redirect('/expertdashboard');
+            return redirect('/expertdashboard');
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
 
     public function viewjobsposted()
@@ -415,19 +465,33 @@ class ExpertController extends Controller
     }
     public function deletejob(Request $request)
     {
-        $affected = DB::table('jobs')
+        DB::beginTransaction();
+
+        try {
+            $affected = DB::table('jobs')
               ->where('job_id', $request->job_id)
               ->update(['job_status' => 'deleted']);
+            DB::commit();
 
-        return redirect('/expert-view-jobs-posted');
+            return redirect('/expert-view-jobs-posted');
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
     public function deleteinternship(Request $request)
     {
-        $affected = DB::table('jobs')
+        DB::beginTransaction();
+
+        try {
+            $affected = DB::table('jobs')
               ->where('job_id', $request->job_id)
               ->update(['job_status' => 'deleted']);
+            DB::commit();
 
-        return redirect('/expert-view-internships-posted');
+            return redirect('/expert-view-internships-posted');
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
 
     
@@ -473,28 +537,35 @@ class ExpertController extends Controller
         if ($validator->fails()) { // on validator found any error
             return redirect('/expert-post-internship-form')->withErrors($validator)->withInput();
         }
-        $jobobj = new Jobs();
-        $jobobj->job_title=$request->job_title;
-        $jobobj->job_description=$request->job_description;
-        $jobobj->job_status='open';
-        $jobobj->job_company=$request->job_company;
-        $jobobj->job_domain=$request->job_domain;
-        $jobobj->job_shift=$request->job_shift;
-        $jobobj->job_location=$request->job_location;
-        $jobobj->job_designation=$request->job_designation;
-        $jobobj->job_companywebsite=$request->job_companywebsite;
-        $jobobj->job_type_id=$request->job_type_id;
-        $jobobj->job_skills_required=$request->job_skills_required;
-        $jobobj->job_duration=$request->job_duration;
-        $jobobj->job_salary=$request->job_salary;
-        $jobobj->job_starttime=$request->job_starttime;
-        $jobobj->job_apply_by=$request->job_apply_by;
-        $jobobj->job_openings=$request->job_openings;
-        $jobobj->creator_id=Auth::user()->ex_id;
-        $jobobj->creator_flag='expert';
-        $jobobj->save();
+        DB::beginTransaction();
 
-        return redirect('/expertdashboard');
+        try {
+            $jobobj = new Jobs();
+            $jobobj->job_title=$request->job_title;
+            $jobobj->job_description=$request->job_description;
+            $jobobj->job_status='open';
+            $jobobj->job_company=$request->job_company;
+            $jobobj->job_domain=$request->job_domain;
+            $jobobj->job_shift=$request->job_shift;
+            $jobobj->job_location=$request->job_location;
+            $jobobj->job_designation=$request->job_designation;
+            $jobobj->job_companywebsite=$request->job_companywebsite;
+            $jobobj->job_type_id=$request->job_type_id;
+            $jobobj->job_skills_required=$request->job_skills_required;
+            $jobobj->job_duration=$request->job_duration;
+            $jobobj->job_salary=$request->job_salary;
+            $jobobj->job_starttime=$request->job_starttime;
+            $jobobj->job_apply_by=$request->job_apply_by;
+            $jobobj->job_openings=$request->job_openings;
+            $jobobj->creator_id=Auth::user()->ex_id;
+            $jobobj->creator_flag='expert';
+            $jobobj->save();
+            DB::commit();
+
+            return redirect('/expertdashboard');
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
     //////////////////////////////////certification///////////
 
@@ -520,32 +591,39 @@ class ExpertController extends Controller
         if ($validator->fails()) { // on validator found any error
             return redirect('/expert-post-certification-form')->withErrors($validator)->withInput();
         }
-        $certification=new Certification();
-        $certification->cert_title=$request->cert_title;
-        $certification->cert_price=$request->cert_price;
-        $certification->cert_description=$request->cert_description;
-        $file = $request->file('cert_image');
-        // Get the contents of the file
-        if ($file!=null) {
-            $contents = $file->openFile()->fread($file->getSize());
-            $certification->cert_image=$contents;
-        } else {
-            $certification->cert_image=null;
-        }
-        $certification->cert_provider=$request->cert_provider;
-        $certification->cert_domain=$request->cert_domain;
-        $certification->cert_validationperiod=$request->cert_validationperiod;
-        $certification->cert_prerequisites=$request->cert_prerequisites;
-        $certification->cert_status="open";
+        DB::beginTransaction();
+
+        try {
+            $certification=new Certification();
+            $certification->cert_title=$request->cert_title;
+            $certification->cert_price=$request->cert_price;
+            $certification->cert_description=$request->cert_description;
+            $file = $request->file('cert_image');
+            // Get the contents of the file
+            if ($file!=null) {
+                $contents = $file->openFile()->fread($file->getSize());
+                $certification->cert_image=$contents;
+            } else {
+                $certification->cert_image=null;
+            }
+            $certification->cert_provider=$request->cert_provider;
+            $certification->cert_domain=$request->cert_domain;
+            $certification->cert_validationperiod=$request->cert_validationperiod;
+            $certification->cert_prerequisites=$request->cert_prerequisites;
+            $certification->cert_status="open";
         
-        $certification->creator_id=Auth::user()->ex_id;
-        $certification->creator_flag="expert";
+            $certification->creator_id=Auth::user()->ex_id;
+            $certification->creator_flag="expert";
 
-        $certification->save();
+            $certification->save();
+
+            DB::commit();
 
 
-
-        return redirect('/expertdashboard');
+            return redirect('/expertdashboard');
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
 
     public function viewcertificationposted()
@@ -578,34 +656,41 @@ class ExpertController extends Controller
         'cert_prerequisites'=>'required|min:5',
         
     ]);
-        
-        $certification=Certification::find($request->cert_id);
-        if ($validator->fails()) { // on validator found any error
-            return redirect('/expert-edit-certificationform')->withErrors($validator)->withInput(['cert_id' => $certification->cert_id]);
-        }
-        
-        $certification->cert_title=$request->cert_title;
-        $certification->cert_price=$request->cert_price;
-        $certification->cert_description=$request->cert_description;
-        $file = $request->file('cert_image');
-        // Get the contents of the file
-        if ($file!=null) {
-            $contents = $file->openFile()->fread($file->getSize());
-            $certification->cert_image=$contents;
-        } else {
-            $certification->cert_image=null;
-        }
-        $certification->cert_provider=$request->cert_provider;
-        $certification->cert_domain=$request->cert_domain;
-        $certification->cert_validationperiod=$request->cert_validationperiod;
-        $certification->cert_prerequisites=$request->cert_prerequisites;
-        $certification->cert_status="open";
-        $certification->creator_id=Auth::user()->ex_id;
-        $certification->creator_flag="expert";
-        $certification->save();
+        DB::beginTransaction();
 
-        $certification=Certification::find($request->cert_id);
-        return view('expert.modules.certification.view-certification', ['certification'=> $certification]);
+        try {
+            $certification=Certification::find($request->cert_id);
+            if ($validator->fails()) { // on validator found any error
+                return redirect('/expert-edit-certificationform')->withErrors($validator)->withInput(['cert_id' => $certification->cert_id]);
+            }
+        
+            $certification->cert_title=$request->cert_title;
+            $certification->cert_price=$request->cert_price;
+            $certification->cert_description=$request->cert_description;
+            $file = $request->file('cert_image');
+            // Get the contents of the file
+            if ($file!=null) {
+                $contents = $file->openFile()->fread($file->getSize());
+                $certification->cert_image=$contents;
+            } else {
+                $certification->cert_image=null;
+            }
+            $certification->cert_provider=$request->cert_provider;
+            $certification->cert_domain=$request->cert_domain;
+            $certification->cert_validationperiod=$request->cert_validationperiod;
+            $certification->cert_prerequisites=$request->cert_prerequisites;
+            $certification->cert_status="open";
+            $certification->creator_id=Auth::user()->ex_id;
+            $certification->creator_flag="expert";
+            $certification->save();
+
+            $certification=Certification::find($request->cert_id);
+            DB::commit();
+
+            return view('expert.modules.certification.view-certification', ['certification'=> $certification]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
     
     public function viewcertification(Request $request)
@@ -617,15 +702,22 @@ class ExpertController extends Controller
 
     public function deletecertification(Request $request)
     {
-        $certification= Certification::find($request->cert_id);
-        if ($certification->cert_status=="open") {
-            $certification->cert_status="delete";//if published
-            $certification->save();
-        } else {
-            // $certification->delete();//if not published
-        }
-       
+        DB::beginTransaction();
 
-        return redirect("/expert-list-certification");
+        try {
+            $certification= Certification::find($request->cert_id);
+            if ($certification->cert_status=="open") {
+                $certification->cert_status="delete";//if published
+                $certification->save();
+            } else {
+                // $certification->delete();//if not published
+            }
+       
+            DB::commit();
+
+            return redirect("/expert-list-certification");
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
 }

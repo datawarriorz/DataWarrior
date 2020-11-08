@@ -14,6 +14,7 @@ use App\JobPreferences;
 use App\SkillLevel;
 use App\Subscription;
 use Exception;
+use DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
@@ -62,10 +63,13 @@ class ProfileController extends Controller
         if ($validator->fails()) {
             return redirect('/userdetails')->withErrors($validator)->withInput();
         }
-        $file = $request->file('u_image');
-        if ($file != null) {
-            $u_image = $file->openFile()->fread($file->getSize());
-            User::where('user_id', Auth::user()->user_id)->update([
+        DB::beginTransaction();
+
+        try {
+            $file = $request->file('u_image');
+            if ($file != null) {
+                $u_image = $file->openFile()->fread($file->getSize());
+                User::where('user_id', Auth::user()->user_id)->update([
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'u_image' => $u_image,
@@ -73,37 +77,42 @@ class ProfileController extends Controller
                 'date_of_birth' => $request->date_of_birth,
                 'gender' => $request->gender
             ]);
-        } else {
-            User::where('user_id', Auth::user()->user_id)->update([
+            } else {
+                User::where('user_id', Auth::user()->user_id)->update([
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'contact_no' => $request->contact_no,
                 'date_of_birth' => $request->date_of_birth,
                 'gender' => $request->gender
             ]);
-        }
-        $subscription = Subscription::where('user_id', '=', Auth::user()->user_id)->get();
+            }
+            $subscription = Subscription::where('user_id', '=', Auth::user()->user_id)->get();
         
-        if ($request->newsletter=="yes") {
-            if ($subscription==null) {
-                $subcribe= new Subscription();
-                $subcribe->newsletter=$request->newsletter;
-                $subcribe->user_id=Auth::user()->user_id;
-                $subcribe->save();
-            } else {
-                Subscription::where('user_id', Auth::user()->user_id)->update([
+            if ($request->newsletter=="yes") {
+                if ($subscription==null) {
+                    $subcribe= new Subscription();
+                    $subcribe->newsletter=$request->newsletter;
+                    $subcribe->user_id=Auth::user()->user_id;
+                    $subcribe->save();
+                } else {
+                    Subscription::where('user_id', Auth::user()->user_id)->update([
                     'newsletter'=>$request->newsletter
                 ]);
-            }
-        } else {
-            if ($subscription!=null) {
-                Subscription::where('user_id', Auth::user()->user_id)->update([
+                }
+            } else {
+                if ($subscription!=null) {
+                    Subscription::where('user_id', Auth::user()->user_id)->update([
                 'newsletter'=>$request->newsletter,
             ]);
+                }
             }
+            DB::commit();
+
+            // Get the contents of the file
+            return redirect('/viewprofile');
+        } catch (\Exception $e) {
+            DB::rollBack();
         }
-        // Get the contents of the file
-        return redirect('/viewprofile');
     }
 
     public function qualificationDetails(Request $request)
@@ -127,20 +136,27 @@ class ProfileController extends Controller
         if ($validator->fails()) {
             return redirect('/qualification')->withErrors($validator)->withInput();
         }
+        DB::beginTransaction();
 
-        $qualification = new UserQualification();
-        $qualification->user_id = Auth::user()->user_id;
-        $qualification->college_name = $request->college_name;
-        $qualification->qualtype_id = $request->qualificationtype;
-        $qualification->University = $request->university;
-        $qualification->start_date = $request->start_date;
-        $qualification->end_date = $request->end_date;
-        $qualification->percentage = $request->percentage;
-        $qualification->course_name = $request->course_name;
-        $qualification->grade = $request->grade;
+        try {
+            $qualification = new UserQualification();
+            $qualification->user_id = Auth::user()->user_id;
+            $qualification->college_name = $request->college_name;
+            $qualification->qualtype_id = $request->qualificationtype;
+            $qualification->University = $request->university;
+            $qualification->start_date = $request->start_date;
+            $qualification->end_date = $request->end_date;
+            $qualification->percentage = $request->percentage;
+            $qualification->course_name = $request->course_name;
+            $qualification->grade = $request->grade;
 
-        $qualification->save();
-        return redirect('/qualification');
+            $qualification->save();
+            DB::commit();
+
+            return redirect('/qualification');
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
 
     public function deleteQualification(Request $request)
@@ -170,37 +186,51 @@ class ProfileController extends Controller
         if ($validator->fails()) {
             return redirect('/jobexperience')->withErrors($validator)->withInput();
         }
-        $jobexp = new Jobexperience();
-        $jobexp->user_id = Auth::user()->user_id;
-        $jobexp->profile = $request->profile;
-        $jobexp->organisation = $request->organisation;
-        $jobexp->location = $request->location;
-        $jobexp->startdate = $request->startdate;
-        $jobexp->enddate = $request->enddate;
-        $jobexp->description = $request->description;
-        if ($request->currentjob == null) {
-            $jobexp->currentjob = "No";
-        } else {
-            $jobexp->currentjob = $request->currentjob;
+        DB::beginTransaction();
+
+        try {
+            $jobexp = new Jobexperience();
+            $jobexp->user_id = Auth::user()->user_id;
+            $jobexp->profile = $request->profile;
+            $jobexp->organisation = $request->organisation;
+            $jobexp->location = $request->location;
+            $jobexp->startdate = $request->startdate;
+            $jobexp->enddate = $request->enddate;
+            $jobexp->description = $request->description;
+            if ($request->currentjob == null) {
+                $jobexp->currentjob = "No";
+            } else {
+                $jobexp->currentjob = $request->currentjob;
+            }
+
+            $jobexp->save();
+            DB::commit();
+
+            return redirect('/jobexperience');
+        } catch (\Exception $e) {
+            DB::rollBack();
         }
-
-        $jobexp->save();
-
-        return redirect('/jobexperience');
     }
 
     public function deleteJobexperience(Request $request)
     {
-        $res = Jobexperience::where('jobid', '=', $request->jobid)->delete();
+        DB::beginTransaction();
 
-        return Redirect::back();
+        try {
+            $res = Jobexperience::where('jobid', '=', $request->jobid)->delete();
+            DB::commit();
+
+            return Redirect::back();
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
 
     public function skills(Request $request)
     {
         $skills = UserSkills::where('user_id', '=', Auth::user()->user_id)->get();
         $skilllevel = Skilllevel::all();
-        $process = "";
+        
 
         return view('user.modules.profile.edit-skill', ['skills' => $skills, 'skilllevel' => $skilllevel]);
     }
@@ -213,21 +243,35 @@ class ProfileController extends Controller
         if ($validator->fails()) {
             return redirect('/skills')->withErrors($validator)->withInput();
         }
-        $skills = new UserSkills();
-        $skills->user_id = Auth::user()->user_id;
-        $skills->skill_name = $request->skill_name;
-        $skills->sl_id = $request->sl_id;
-        $skilllevel = Skilllevel::all();
-        $skills->save();
+        DB::beginTransaction();
 
-        return redirect('/skills');
+        try {
+            $skills = new UserSkills();
+            $skills->user_id = Auth::user()->user_id;
+            $skills->skill_name = $request->skill_name;
+            $skills->sl_id = $request->sl_id;
+            $skilllevel = Skilllevel::all();
+            $skills->save();
+            DB::commit();
+
+            return redirect('/skills');
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
 
     public function deleteSkills(Request $request)
     {
-        $skilllevel = Skilllevel::all();
-        $res = UserSkills::where('userskills_id', '=', $request->userskills_id)->delete();
-        
-        return Redirect::back();
+        DB::beginTransaction();
+
+        try {
+            $skilllevel = Skilllevel::all();
+            $res = UserSkills::where('userskills_id', '=', $request->userskills_id)->delete();
+            DB::commit();
+
+            return Redirect::back();
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
 }

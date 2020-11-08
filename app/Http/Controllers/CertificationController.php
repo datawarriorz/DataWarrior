@@ -8,6 +8,8 @@ use App\CertificationApplied;
 use App\CertificationRequested;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Support\Facades\Validator;
+use DB;
+use Exception;
 
 class CertificationController extends Controller
 {
@@ -19,7 +21,7 @@ class CertificationController extends Controller
 
     public function showcertifications(Request $request)
     {
-        $certification = Certification::where('cert_domain', $request->cert_domain)->where('cert_status','open')->get();
+        $certification = Certification::where('cert_domain', $request->cert_domain)->where('cert_status', 'open')->get();
         $certificationapplied = CertificationApplied::where('user_id', Auth::user()->user_id)->get();
 
         return view('user.modules.certification.c-list', ['certification' => $certification, 'certificationapplied' => $certificationapplied]);
@@ -46,27 +48,41 @@ class CertificationController extends Controller
             'provider' => 'required|min:3|max:100',
             
         ]);
-        if ($validator->fails()) { 
+        if ($validator->fails()) {
             return redirect('/certification')->withErrors($validator)->withInput();
         }
-        $certificationrequestedobj = new CertificationRequested();
-        $certificationrequestedobj->title = $request->title;
-        $certificationrequestedobj->description = $request->description;
-        $certificationrequestedobj->provider = $request->provider;
-        $certificationrequestedobj->user_id = Auth::user()->user_id;
-        $certificationrequestedobj->save();
+        DB::beginTransaction();
 
-        return view('user.modules.certification.c-request-ack', ['certificationrequestedobj' => $certificationrequestedobj]);
+        try {
+            $certificationrequestedobj = new CertificationRequested();
+            $certificationrequestedobj->title = $request->title;
+            $certificationrequestedobj->description = $request->description;
+            $certificationrequestedobj->provider = $request->provider;
+            $certificationrequestedobj->user_id = Auth::user()->user_id;
+            $certificationrequestedobj->save();
+            DB::commit();
+
+            return view('user.modules.certification.c-request-ack', ['certificationrequestedobj' => $certificationrequestedobj]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
 
     public function applycertification(Request $request)
     {
-        $certificationapplied = new CertificationApplied();
-        $certificationapplied->cert_id = $request->cert_id;
-        $certificationapplied->user_id = Auth::user()->user_id;
-        $certificationapplied->save();
-        $certification = Certification::where('cert_id', $request->cert_id)->get();
+        DB::beginTransaction();
 
-        return view('user.modules.certification.c-applied-ack', ['certification' => $certification,]);
+        try {
+            $certificationapplied = new CertificationApplied();
+            $certificationapplied->cert_id = $request->cert_id;
+            $certificationapplied->user_id = Auth::user()->user_id;
+            $certificationapplied->save();
+            DB::commit();
+            $certification = Certification::where('cert_id', $request->cert_id)->get();
+
+            return view('user.modules.certification.c-applied-ack', ['certification' => $certification,]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
 }

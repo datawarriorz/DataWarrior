@@ -9,6 +9,8 @@ use App\Referral;
 use App\Subscription;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use DB;
+use Exception;
 
 class UserServiceController extends Controller
 {
@@ -31,11 +33,18 @@ class UserServiceController extends Controller
         if ($counselor==null) {
             return redirect('/user-referral')->with(['message'=> 'Invalid Referral Code']);
         }
-        
-        $refer= new Referral();
-        $refer->co_id=$counselor->co_id;
-        $refer->user_id=Auth::user()->user_id;
-        $refer->save();
-        return redirect('/');
+        DB::beginTransaction();
+
+        try {
+            $refer= new Referral();
+            $refer->co_id=$counselor->co_id;
+            $refer->user_id=Auth::user()->user_id;
+            $refer->save();
+            DB::commit();
+
+            return redirect('/');
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
 }

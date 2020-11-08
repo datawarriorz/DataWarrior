@@ -14,6 +14,7 @@ use App\Article;
 use DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Exception;
 
 class AdminController extends Controller
 {
@@ -58,23 +59,32 @@ class AdminController extends Controller
         if ($validator->fails()) { // on validator found any error
             return redirect('/admin-postarticle')->withErrors($validator)->withInput();
         }
-        $article=new Article();
-        $article->title=$request->title;
-        $article->creator_id=Auth::user()->admin_id;
-        $article->creator_flag="admin";
-        $article->author=$request->author;
-        $article->description=$request->description;
-        $article->content=$request->content;
-        $file = $request->file('article_image');
-        // Get the contents of the file
-        $contents = $file->openFile()->fread($file->getSize());
-        $article->article_image=$contents;
+            
+        DB::beginTransaction();
+
+        try {
+            $article=new Article();
+            $article->title=$request->title;
+            $article->creator_id=Auth::user()->admin_id;
+            $article->creator_flag="admin";
+            $article->author=$request->author;
+            $article->description=$request->description;
+            $article->content=$request->content;
+            $file = $request->file('article_image');
+            // Get the contents of the file
+            $contents = $file->openFile()->fread($file->getSize());
+            $article->article_image=$contents;
        
-        $article->status="review";
-        $article->save();
-        // $articles= Article::where('ex_id', Auth::user()->ex_id)->get();
-        // return view('expert.expert-dashboard', ['articles' => $articles]);
-        return view('admin.modules.article.view-article', ['article' => $article]);
+            $article->status="review";
+            $article->save();
+            DB::commit();
+
+            // $articles= Article::where('ex_id', Auth::user()->ex_id)->get();
+            // return view('expert.expert-dashboard', ['articles' => $articles]);
+            return view('admin.modules.article.view-article', ['article' => $article]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
 
     public function viewarticle(Request $request)
@@ -86,20 +96,26 @@ class AdminController extends Controller
 
     public function publisharticle(Request $request)
     {
-        Article::where('article_id', $request->article_id)->update([
+        DB::beginTransaction();
+
+        try {
+            Article::where('article_id', $request->article_id)->update([
             'status'=>'published'
         ]);
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
         $users = DB::table('users')
             ->join('subscription', 'users.user_id', '=', 'subscription.user_id')
             ->where('subscription.newsletter', '=', 'yes')
             ->select('users.email')
             ->get();
         $article=Article::find($request->article_id);
-
-        
         foreach ($users as $user) {
             Mail::to($user->email)->send(new Newsletter($article));
         }
+        
 
         return redirect('/admin-manage-articles');
     }
@@ -142,38 +158,50 @@ class AdminController extends Controller
         if ($validator->fails()) { // on validator found any error
             return redirect('/admin-edit-articleform')->withErrors($validator)->withInput(['article_id' => $article->article_id]);
         }
-       
-        $article->title=$request->title;
-        $article->author=$request->author;
-        $article->description=$request->description;
-        $article->content=$request->content;
-        $file = $request->file('article_image');
-        // Get the contents of the file
-        if ($file!=null) {
-            $contents = $file->openFile()->fread($file->getSize());
-            $article->article_image=$contents;
-        } else {
-            $article->article_image=null;
+        DB::beginTransaction();
+
+        try {
+            $article->title=$request->title;
+            $article->author=$request->author;
+            $article->description=$request->description;
+            $article->content=$request->content;
+            $file = $request->file('article_image');
+            // Get the contents of the file
+            if ($file!=null) {
+                $contents = $file->openFile()->fread($file->getSize());
+                $article->article_image=$contents;
+            } else {
+                $article->article_image=null;
+            }
+            $article->status="review";
+            $article->save();
+            $article=Article::find($request->article_id);
+            DB::commit();
+
+            return view('admin.modules.article.view-article', ['article' => $article]);
+        } catch (\Exception $e) {
+            DB::rollBack();
         }
-        $article->status="review";
-        $article->save();
-        $article=Article::find($request->article_id);
-        
-        return view('admin.modules.article.view-article', ['article' => $article]);
     }
 
     public function deletearticle(Request $request)
     {
-        $article= Article::find($request->article_id);
-        if ($article->status=="published") {
-            $article->status="delete";//if published
-            $article->save();
-        } else {
-            $article->delete();//if not published
-        }
-       
+        DB::beginTransaction();
 
-        return redirect("/admin-manage-articles");
+        try {
+            $article= Article::find($request->article_id);
+            if ($article->status=="published") {
+                $article->status="delete";//if published
+                $article->save();
+            } else {
+                $article->delete();//if not published
+            }
+            DB::commit();
+
+            return redirect("/admin-manage-articles");
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
     ////////////////////////////////////////////////////////////////////////////////
 
@@ -199,22 +227,30 @@ class AdminController extends Controller
         if ($validator->fails()) { // on validator found any error
             return redirect('/admin-create-expertform')->withErrors($validator)->withInput();
         }
-        $expertobj= new Expert();
-        $expertobj->ex_firstname = $request->ex_firstname;
-        $expertobj->ex_lastname = $request->ex_lastname;
-        $file = $request->file('ex_image');
-        $contents = $file->openFile()->fread($file->getSize());
-        $expertobj->ex_image=$contents;
-        $expertobj->ex_dateofbirth = $request->ex_dateofbirth;
-        $expertobj->ex_aboutme = $request->ex_aboutme;
-        $expertobj->ex_description = $request->ex_description;
-        $expertobj->email = $request->email;
-        $expertobj->password =Hash::make($request->password);
-        $expertobj->ex_contactcode = $request->ex_contactcode;
-        $expertobj->ex_contactno = $request->ex_contactno;
-        $expertobj->admin_id=Auth::user()->admin_id;
-        $expertobj->save();
-        return redirect('/admindashboard');
+        DB::beginTransaction();
+
+        try {
+            $expertobj= new Expert();
+            $expertobj->ex_firstname = $request->ex_firstname;
+            $expertobj->ex_lastname = $request->ex_lastname;
+            $file = $request->file('ex_image');
+            $contents = $file->openFile()->fread($file->getSize());
+            $expertobj->ex_image=$contents;
+            $expertobj->ex_dateofbirth = $request->ex_dateofbirth;
+            $expertobj->ex_aboutme = $request->ex_aboutme;
+            $expertobj->ex_description = $request->ex_description;
+            $expertobj->email = $request->email;
+            $expertobj->password =Hash::make($request->password);
+            $expertobj->ex_contactcode = $request->ex_contactcode;
+            $expertobj->ex_contactno = $request->ex_contactno;
+            $expertobj->admin_id=Auth::user()->admin_id;
+            $expertobj->save();
+            DB::commit();
+
+            return redirect('/admindashboard');
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
 
     public function createcounselorform(Request $request)
@@ -234,16 +270,22 @@ class AdminController extends Controller
         if ($validator->fails()) { // on validator found any error
             return redirect('/admin-create-counselorform')->withErrors($validator)->withInput();
         }
+        DB::beginTransaction();
 
-        $counselorobj= new Counselor();
-        $counselorobj->co_firstname = $request->co_firstname;
-        $counselorobj->co_lastname = $request->co_lastname;
-        $counselorobj->email = $request->email;
-        $counselorobj->password = $request->password;
-        $counselorobj->referral_code = $request->referral_code;
-        $counselorobj->admin_id=Auth::user()->admin_id;
-        $counselorobj->save();
-        return redirect('/admindashboard');
+        try {
+            $counselorobj= new Counselor();
+            $counselorobj->co_firstname = $request->co_firstname;
+            $counselorobj->co_lastname = $request->co_lastname;
+            $counselorobj->email = $request->email;
+            $counselorobj->password = $request->password;
+            $counselorobj->referral_code = $request->referral_code;
+            $counselorobj->admin_id=Auth::user()->admin_id;
+            $counselorobj->save();
+            DB::commit();
+            return redirect('/admindashboard');
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
     }
     public function viewcounselorlist()
     {

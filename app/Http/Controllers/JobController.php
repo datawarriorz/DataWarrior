@@ -15,6 +15,8 @@ use App\JobsApplied;
 use App\JobType;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Support\Facades\Validator;
+use DB;
+use Exception;
 
 class JobController extends Controller
 {
@@ -143,11 +145,18 @@ class JobController extends Controller
         $check=JobsApplied::where('user_id', Auth::user()->user_id)->where('job_id', $request->job_id)->count();
         
         if ($check==0) {
-            $jobappobj=new JobsApplied();
-            $jobappobj->ja_status='applied';
-            $jobappobj->user_id=Auth::user()->user_id;
-            $jobappobj->job_id=$request->job_id;
-            $jobappobj->save();
+            DB::beginTransaction();
+
+            try {
+                $jobappobj=new JobsApplied();
+                $jobappobj->ja_status='applied';
+                $jobappobj->user_id=Auth::user()->user_id;
+                $jobappobj->job_id=$request->job_id;
+                $jobappobj->save();
+                DB::commit();
+            } catch (\Exception $e) {
+                DB::rollBack();
+            }
         }
         
         return redirect()->route(
@@ -159,11 +168,18 @@ class JobController extends Controller
     {
         $check=JobsApplied::where('user_id', Auth::user()->user_id)->where('job_id', $request->job_id)->count();
         if ($check==0) {
-            $jobappobj=new JobsApplied();
-            $jobappobj->ja_status='applied';
-            $jobappobj->user_id=Auth::user()->user_id;
-            $jobappobj->job_id=$request->job_id;
-            $jobappobj->save();
+            DB::beginTransaction();
+
+            try {
+                $jobappobj=new JobsApplied();
+                $jobappobj->ja_status='applied';
+                $jobappobj->user_id=Auth::user()->user_id;
+                $jobappobj->job_id=$request->job_id;
+                $jobappobj->save();
+                DB::commit();
+            } catch (\Exception $e) {
+                DB::rollBack();
+            }
         }
         return redirect()->route(
             'viewinternshipdetails',

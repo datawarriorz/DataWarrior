@@ -120,7 +120,6 @@ class RegisterController extends Controller
             return view('auth.verify');
         } catch (\Exception $e) {
             DB::rollBack();
-            DB::statement('ALTER TABLE users AUTO_INCREMENT = '.(count(User::all())+1).';');
         }
         //return view('auth.login');
     }

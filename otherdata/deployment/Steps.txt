@@ -1,0 +1,37 @@
+-> 
+	After Final Commit before deployment Clear Cache
+->
+	Back up Code Folders and db
+->
+	Delete datawarrior folder in server
+->
+	Upload and extract Latest Code 
+->	
+	Delete css js images folder in Public_html
+->
+	Copy the latest css js and images folder to public_html
+->
+	Making changes to env file
+->	
+	Uncomment the domain in config/services.php
+->
+	Add 
+		Schema::defaultStringLength(191); 
+		use Illuminate\Support\Facades\Schema;
+	in boot function of app/providers/appserviceprovider.php
+->	
+	Start Up Putty enter credentials
+-> 
+	Change directory in terminal
+->
+	Clear cache again
+->
+	Migrate Db 
+->	
+	Enter Fixed Data in Db
+-> 
+	Pray
+	
+	
+	
+	

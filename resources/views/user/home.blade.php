@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/main/home.css') }}"/>
+<link rel="stylesheet" href="{{ asset('css/main/home.css') }}" />
 @guest
     <div class="jumbotron" style="">
         <div class="col-sm-12 col-md-12 col-lg-12">
@@ -172,7 +172,8 @@
         </div>
         <div class="row container-column">
             <div class="col-sm-12 col-md-6 col-lg-3">
-                <a href="/ihome" style="text-decoration: none">
+                <button type="button" onclick="ihomeSession('ihome')"
+                    style="text-decoration:none; outline:none; border:none">
                     <div class="container-items">
                         <img src="./images/internship.png" height="100px" />
                         <h5 class="container-items-header"><small>INTERNSHIPS</small></h5>
@@ -182,7 +183,7 @@
                             <small><strong>KNOW MORE ></strong></small>
                         </p>
                     </div>
-                </a>
+                </button>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3">
                 <a href="/certificationhome" style="text-decoration: none">

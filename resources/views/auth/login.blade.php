@@ -8,7 +8,10 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-center">
-                    <h5>Welcome Back! Data Warrior!</h5>
+                    <h5>{{ Session::start() }} {{ Session::get('process') }} Welcome
+                        Back!
+                        Data Warrior!
+                    </h5>
                 </div>
                 <div class="container loginContainer text-center">
                     <br>

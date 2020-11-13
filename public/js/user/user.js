@@ -12,3 +12,12 @@ function onCheckCounselling(checkbox) {
         //dateElement1.value = '';
         dateElement2.value = '';
 }
+
+function ihomeSession(process){
+    if(process=="ihome"){   
+    // sessionStorage.removeItem("process");
+    sessionStorage.setItem("process", "ihome");
+    
+    window.location = "/ihome";  
+    }
+}

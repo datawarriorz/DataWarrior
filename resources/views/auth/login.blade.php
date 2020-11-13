@@ -8,7 +8,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-center">
-                    <h5>{{ Session::start() }} {{ Session::get('process') }} Welcome
+                    <h5> <?php session_start();
+                    // echo $_SESSION['process']; 
+                    ?> {{ $_SESSION['process'] }}Welcome
                         Back!
                         Data Warrior!
                     </h5>

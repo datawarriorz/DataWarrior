@@ -17,11 +17,20 @@ use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Support\Facades\Validator;
 use DB;
 use Exception;
+use Session;
+use Illuminate\Support\Facades\URL;
 
 class JobController extends Controller
 {
     public function __construct()
     {
+        if (URL::current()==URL::to("/")."/jhome") {
+            Session::put('process', 'jhome');
+        }
+        if (URL::current()==URL::to("/")."/ihome") {
+            Session::put('process', 'ihome');
+        }
+        
         $this->middleware('auth')->except('logout');
     }
 

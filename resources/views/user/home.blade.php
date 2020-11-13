@@ -172,8 +172,7 @@
         </div>
         <div class="row container-column">
             <div class="col-sm-12 col-md-6 col-lg-3">
-                <button type="button" onclick="processSession('ihome')"
-                    style="text-decoration:none; outline:none; border:none">
+                <a href="/ihome" style="text-decoration: none">
                     <div class="container-items">
                         <img src="./images/internship.png" height="100px" />
                         <h5 class="container-items-header"><small>INTERNSHIPS</small></h5>
@@ -183,7 +182,7 @@
                             <small><strong>KNOW MORE ></strong></small>
                         </p>
                     </div>
-                </button>
+                </a>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3">
                 <a href="/certificationhome" style="text-decoration: none">

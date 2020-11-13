@@ -9,8 +9,12 @@
             <div class="" style="background-color: white">
                 <div class="card-body text-center">
                     <div class="jumbotron">
-                        <?php session_start(); ?>
-                        {{ $_SESSION['process'] }}
+                         <?php session_start(); ?>
+                         {{ Session::get('process') }}
+                         {{ Session::forget('process') }}
+                        
+                        
+                        
                     </div>
                 </div>
             </div>

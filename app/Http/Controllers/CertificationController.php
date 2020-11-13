@@ -16,6 +16,9 @@ class CertificationController extends Controller
     //
     public function __construct()
     {
+        if (URL::current()==URL::to("/")."/certificationhome") {
+            Session::put('process', 'certificationhome');
+        }
         $this->middleware('auth')->except('logout');
     }
 

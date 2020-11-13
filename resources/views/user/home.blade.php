@@ -172,7 +172,7 @@
         </div>
         <div class="row container-column">
             <div class="col-sm-12 col-md-6 col-lg-3">
-                <button type="button" onclick="ihomeSession('ihome')"
+                <button type="button" onclick="processSession('ihome')"
                     style="text-decoration:none; outline:none; border:none">
                     <div class="container-items">
                         <img src="./images/internship.png" height="100px" />

@@ -3,39 +3,41 @@
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/user/user-4-login.css') }}" />
 <br>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header text-center">
-                    <h5> <?php session_start();
-                    // echo $_SESSION['process']; 
-                    ?> {{ $_SESSION['process'] }}Welcome
-                        Back!
-                        Data Warrior!
-                    </h5>
-                </div>
-                <div class="container loginContainer text-center">
-                    <br>
-                    <div id="gSignInWrapper">
-                        <form action="login/google" method="GET">
-                            <button type="submit" class="googleButton google-wrap"
-                                style="background-image: url(images/btn_google_signin_light_normal_web.png);">
-                        </form>
+<div class="col-12">
+    <div class="row">
+        <div class="col-12 col-md-8 col-lg-9 no-gutters">
+            <div class="" style="background-color: white">
+                <div class="card-body text-center">
+                    <div class="jumbotron">
+                        <?php session_start(); ?>
+                        {{ $_SESSION['process'] }}
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3 pl-0">
+            <div class="" style="background-color: white">
                 <div class="card-body text-center">
+                    <div class="container loginContainer text-center">
+                        <br>
+                        <div id="gSignInWrapper">
+                            <form action="login/google" method="GET">
+                                <button type="submit" class="googleButton google-wrap"
+                                    style="background-image: url(images/btn_google_signin_light_normal_web.png);">
+                            </form>
+                        </div>
+                    </div>
                     <form method="POST" action="{{ route('login') }}">
                         <p>or</p>
                         @csrf
                         <div>
                             <div class="form-group row">
-                                <div class="col-md-6 offset-md-3">
+                                <div class="col-10 offset-1 text-center">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="far fa-envelope"></i></div>
                                         </div>
-                                        <input id="email" type="email" placeholder="Email Id"
+                                        <input id="email" type="email" placeholder="Email"
                                             class="form-control @error('email') is-invalid @enderror" name="email"
                                             value="{{ old('email') }}" required autocomplete="email"
                                             autofocus>
@@ -48,7 +50,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-md-6 offset-md-3">
+                                <div class="col-10 offset-1 text-center">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fas fa-key"></i></div>
@@ -65,7 +67,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-md-6 offset-md-3">
+                                <div class="col-md-10 offset-md-1">
                                     <div class="form-check custom-control">
                                         <input class="form-check-input custom-checkbox" type="checkbox" name="remember"
                                             id="remember"
@@ -77,7 +79,7 @@
                                 </div>
                             </div>
                             <div class="form-group row mb-0">
-                                <div class="col-md-8 offset-md-2">
+                                <div class="col-md-10 offset-md-1">
                                     <button type="submit" class="btn tab-edit-btn">
                                         {{ __('Sign in') }}
                                     </button>
@@ -98,6 +100,8 @@
         </div>
     </div>
 </div>
+<br>
+<br>
 <br>
 <br>
 @endsection

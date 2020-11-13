@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/main/home.css') }}"/>
+<link rel="stylesheet" href="{{ asset('css/main/home.css') }}" />
 @guest
     <div class="jumbotron" style="">
         <div class="col-sm-12 col-md-12 col-lg-12">
@@ -172,17 +172,22 @@
         </div>
         <div class="row container-column">
             <div class="col-sm-12 col-md-6 col-lg-3">
-                <a href="/ihome" style="text-decoration: none">
-                    <div class="container-items">
-                        <img src="./images/internship.png" height="100px" />
-                        <h5 class="container-items-header"><small>INTERNSHIPS</small></h5>
-                        <p class="container-items-desc">Explore yourself!<br> Become an Intern.
-                            <br>
-                            <br>
-                            <small><strong>KNOW MORE ></strong></small>
-                        </p>
-                    </div>
-                </a>
+                <form method="POST" action="/ihome">
+                    {{-- <a href="/ihome" style="text-decoration: none"> --}}
+                    <input type="hidden" name="process" value="ihome">
+                    <button type="submit" style="border: none;outline: none;   ">
+                        <div class="container-items">
+                            <img src="./images/internship.png" height="100px" />
+                            <h5 class="container-items-header"><small>INTERNSHIPS</small></h5>
+                            <p class="container-items-desc">Explore yourself!<br> Become an Intern.
+                                <br>
+                                <br>
+                                <small><strong>KNOW MORE ></strong></small>
+                            </p>
+                        </div>
+                    </button>
+                    {{-- </a> --}}
+                </form>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3">
                 <a href="/certificationhome" style="text-decoration: none">

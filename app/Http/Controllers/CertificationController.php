@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Support\Facades\Validator;
 use DB;
 use Exception;
+use Illuminate\Support\Facades\URL;
+use Session;
 
 class CertificationController extends Controller
 {

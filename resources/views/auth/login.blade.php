@@ -10,8 +10,22 @@
                 <div class="card-body text-center">
                     <div class="jumbotron">
                         <?php session_start(); ?>
-                        {{ Session::get('process') }}
+                        @if(Session::get('process')=="ihome")
+                        backgroungcode ihome
                         {{ Session::forget('process') }}
+                        @endif
+                        @if(Session::get('process')=="jhome")
+                        backgroungcode jhome
+                        {{ Session::forget('process') }}
+                        @endif
+                        @if(Session::get('process')=="certificationhome")
+                        backgroungcode certifiactionhome
+                        {{ Session::forget('process') }}
+                        @endif
+                        @if(Session::get('process')=="projecthome")
+                        backgroungcode projecthome
+                        {{ Session::forget('process') }}
+                        @endif
                     </div>
                 </div>
             </div>

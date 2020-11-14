@@ -44,14 +44,14 @@
                     <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 p-0 pt-3 text-center">
                         <form method="post" action="/jobfilterapply">
                             @csrf
-                            <input type="hidden" name="job_domain" value="machinelearning">
+                            <input type="hidden" name="job_domain" value="itcse">
                             <input type="hidden" name="job_type_id" value="2">
                             <button class="btn domain-button" type="submit">
                                 <div class="domain-image">
                                     <img src="./images/jihome/machinelearning.png" alt="First slide" height="100%">
                                 </div>
                                 <div class="domain-name">
-                                    Machine Learning
+                                    IT/CS & Engineering
                                 </div>
                             </button>
                         </form>
@@ -59,14 +59,14 @@
                     <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 p-0 pt-3 text-center">
                         <form method="post" action="/jobfilterapply">
                             @csrf
-                            <input type="hidden" name="job_domain" value="programming">
+                            <input type="hidden" name="job_domain" value="sales">
                             <input type="hidden" name="job_type_id" value="2">
                             <button class="btn domain-button" type="submit">
                                 <div class="domain-image">
                                     <img src="./images/jihome/webdevelopment.png" alt="First slide" height="100%">
                                 </div>
                                 <div class="domain-name">
-                                    Programming
+                                    Sales
                                 </div>
                             </button>
                         </form>
@@ -74,14 +74,14 @@
                     <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 p-0 pt-3 text-center">
                         <form method="post" action="/jobfilterapply">
                             @csrf
-                            <input type="hidden" name="job_domain" value="digitalmarketing">
+                            <input type="hidden" name="job_domain" value="marketing">
                             <input type="hidden" name="job_type_id" value="2">
                             <button class="btn domain-button" type="submit">
                                 <div class="domain-image">
                                     <img src="./images/jihome/digitalmarketing.png" alt="First slide" height="100%">
                                 </div>
                                 <div class="domain-name">
-                                    Digital Marketing
+                                    Marketing
                                 </div>
                             </button>
                         </form>
@@ -89,14 +89,14 @@
                     <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 p-0 pt-3 text-center">
                         <form method="post" action="/jobfilterapply">
                             @csrf
-                            <input type="hidden" name="job_domain" value="automation">
+                            <input type="hidden" name="job_domain" value="finance">
                             <input type="hidden" name="job_type_id" value="2">
                             <button class="btn domain-button" type="submit">
                                 <div class="domain-image">
                                     <img src="./images/jihome/automation.png" alt="First slide" height="100%">
                                 </div>
                                 <div class="domain-name">
-                                    Automation
+                                    Finance
                                 </div>
                             </button>
                         </form>
@@ -104,14 +104,14 @@
                     <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 p-0 pt-3 text-center">
                         <form method="post" action="/jobfilterapply">
                             @csrf
-                            <input type="hidden" name="job_domain" value="graphic design">
+                            <input type="hidden" name="job_domain" value="agriculture">
                             <input type="hidden" name="job_type_id" value="2">
                             <button class="btn domain-button" type="submit">
                                 <div class="domain-image">
                                     <img src="./images/jihome/graphicdesign.png" alt="First slide" height="100%">
                                 </div>
                                 <div class="domain-name">
-                                    Graphic Design
+                                    Agriculture
                                 </div>
                             </button>
                         </form>

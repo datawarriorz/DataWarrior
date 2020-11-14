@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/user/user-7-1-internship-list.css') }}"/>
+<link rel="stylesheet" href="{{ asset('css/user/user-7-1-internship-list.css') }}" />
 <div class="ji-list-content col-12 col-sm-12 col-md-12 col-lg-12 text-center no-pad no-gutters">
     <br>
     <div class="ji-list-header">
@@ -43,28 +43,34 @@
                                         @endif
                                         <div class="form-group">
                                             <label>Domain</label>
-                                            <select  id="job_domain" name="job_domain">
+                                            <select class="form-control custom-select col-12" id="job_domain"
+                                                name="job_domain">
                                                 <option value=''>--</option>
                                                 @foreach($jobdomainobj as $sl)
-                                                    <option value="{{ $sl->job_domain }}">{{ $sl->job_domain }}</option>
+                                                    <option value="{{ $sl->job_domain }}">{{ $sl->job_domain }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Location</label>
-                                            <select  id="job_location" name="job_location">
+                                            <select class="form-control custom-select col-12" id="job_location"
+                                                name="job_location">
                                                 <option value=''>--</option>
                                                 @foreach($joblocationobj as $sl)
-                                                    <option value="{{ $sl->job_location}}">{{ $sl->job_location }}</option>
+                                                    <option value="{{ $sl->job_location }}">{{ $sl->job_location }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Job Duration</label>
-                                            <select  id="job_shift" name="job_shift">
+                                            <select class="form-control custom-select col-12" id="job_shift"
+                                                name="job_shift">
                                                 <option value=''>--</option>
                                                 @foreach($jobshiftobj as $sl)
-                                                    <option value="{{ $sl->job_shift}}">{{ $sl->job_shift }}</option>
+                                                    <option value="{{ $sl->job_shift }}">{{ $sl->job_shift }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -108,7 +114,7 @@
                                 @endif
                                 <div class="form-group">
                                     <label>Domain</label>
-                                    <select  id="job_domain" name="job_domain">
+                                    <select class="form-control custom-select col-12" id="job_domain" name="job_domain">
                                         <option value=''>--</option>
                                         @foreach($jobdomainobj as $sl)
                                             <option value="{{ $sl->job_domain }}">{{ $sl->job_domain }}</option>
@@ -117,19 +123,20 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Location</label>
-                                    <select  id="job_location" name="job_location">
+                                    <select class="form-control custom-select col-12" id="job_location"
+                                        name="job_location">
                                         <option value=''>--</option>
                                         @foreach($joblocationobj as $sl)
-                                            <option value="{{ $sl->job_location}}">{{ $sl->job_location }}</option>
+                                            <option value="{{ $sl->job_location }}">{{ $sl->job_location }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Job Shift</label>
-                                    <select  id="job_shift" name="job_shift">
+                                    <select class="form-control custom-select col-12" id="job_shift" name="job_shift">
                                         <option value=''>--</option>
                                         @foreach($jobshiftobj as $sl)
-                                            <option value="{{ $sl->job_shift}}">{{ $sl->job_shift }}</option>
+                                            <option value="{{ $sl->job_shift }}">{{ $sl->job_shift }}</option>
                                         @endforeach
                                     </select>
                                 </div>

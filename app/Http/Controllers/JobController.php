@@ -45,16 +45,22 @@ class JobController extends Controller
     public function showalljobs(Request $request)
     {
         $jobtype=JobType::where('job_type', 'job')->get();
-        $jobsobj=Job::where('job_type_id', $jobtype->job_type_id)->get();
+        $jobsobj=Jobs::where('job_type_id', $jobtype->job_type_id)->get();
         $jobsappboj=JobsApplied::where('user_id', Auth::user()->user_id)->get();
-        return view('user.modules.job.j-list', ['jobsobj'=>$jobsobj,'jobsappboj'=>$jobsappboj]);
+        $jobdomainobj=DB::table('jobs')->select('job_domain')->distinct('job_domain')->get();
+        $joblocationobj=DB::table('jobs')->select('job_location')->distinct('job_location')->get();
+        $jobshiftobj=DB::table('jobs')->select('job_shift')->distinct('job_shift')->get();
+        return view('user.modules.job.j-list', ['jobsobj'=>$jobsobj,'jobsappboj'=>$jobsappboj,'jobdomainobj'=>$jobdomainobj,'joblocationobj'=>$joblocationobj,'jobshiftobj'=>$jobshiftobj]);
     }
     public function showallinternships(Request $request)
     {
         $jobtype=JobType::where('job_type', 'internship')->get();
-        $internshipsobj=Job::where('job_type_id', $jobtype->job_type_id)->get();
+        $internshipsobj=Jobs::where('job_type_id', $jobtype->job_type_id)->get();
         $jobsappboj=JobsApplied::where('user_id', Auth::user()->user_id)->get();
-        return view('user.modules.internship.i-list', ['internshipsobj'=>$internshipsobj,'jobsappboj'=>$jobsappboj]);
+        $jobdomainobj=DB::table('jobs')->select('job_domain')->distinct('job_domain')->get();
+        $joblocationobj=DB::table('jobs')->select('job_location')->distinct('job_location')->get();
+        $jobshiftobj=DB::table('jobs')->select('job_shift')->distinct('job_shift')->get();
+        return view('user.modules.internship.i-list', ['internshipsobj'=>$internshipsobj,'jobsappboj'=>$jobsappboj,'jobdomainobj'=>$jobdomainobj,'joblocationobj'=>$joblocationobj,'jobshiftobj'=>$jobshiftobj]);
     }
 
     public function jobfilterapply(Request $request)
@@ -127,12 +133,14 @@ class JobController extends Controller
         }
         
         $jobtype=JobType::find($request->job_type_id);
-        
+        $jobdomainobj=DB::table('jobs')->select('job_domain')->distinct('job_domain')->get();
+        $joblocationobj=DB::table('jobs')->select('job_location')->distinct('job_location')->get();
+        $jobshiftobj=DB::table('jobs')->select('job_shift')->distinct('job_shift')->get();
         $jobsappboj=JobsApplied::where('user_id', Auth::user()->user_id)->get();
         if ($jobtype->job_type=="job") {
-            return view('user.modules.job.j-list', ['jobsobj'=>$jobsobj,'jobsappboj'=>$jobsappboj]);
+            return view('user.modules.job.j-list', ['jobsobj'=>$jobsobj,'jobsappboj'=>$jobsappboj,'jobdomainobj'=>$jobdomainobj,'joblocationobj'=>$joblocationobj,'jobshiftobj'=>$jobshiftobj]);
         } else {
-            return view('user.modules.internship.i-list', ['jobsobj'=>$jobsobj,'jobsappboj'=>$jobsappboj]);
+            return view('user.modules.internship.i-list', ['jobsobj'=>$jobsobj,'jobsappboj'=>$jobsappboj,'jobdomainobj'=>$jobdomainobj,'joblocationobj'=>$joblocationobj,'jobshiftobj'=>$jobshiftobj]);
         }
     }
     public function showjobdetails(Request $request)

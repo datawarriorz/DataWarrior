@@ -43,18 +43,30 @@
                                         @endif
                                         <div class="form-group">
                                             <label>Domain</label>
-                                            <input type="text" name="job_domain" class="form-control"
-                                                placeholder="e.g Data Science" autocomplete="on" value="">
+                                            <select  id="job_domain" name="job_domain">
+                                                <option value=''>--</option>
+                                                @foreach($jobdomainobj as $sl)
+                                                    <option value="{{ $sl->job_domain }}">{{ $sl->job_domain }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Location</label>
-                                            <input type="text" name="job_location" class="form-control"
-                                                placeholder="e.g. Mumbai " autocomplete="on" value="">
+                                            <select  id="job_location" name="job_location">
+                                                <option value=''>--</option>
+                                                @foreach($joblocationobj as $sl)
+                                                    <option value="{{ $sl->job_location}}">{{ $sl->job_location }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Job Duration</label>
-                                            <input type="text" name="job_type" class="form-control"
-                                                placeholder="e.g. Full Time " autocomplete="on" value="">
+                                            <select  id="job_shift" name="job_shift">
+                                                <option value=''>--</option>
+                                                @foreach($jobshiftobj as $sl)
+                                                    <option value="{{ $sl->job_shift}}">{{ $sl->job_shift }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <input type="hidden" name="job_type_id" value="2">
                                         <div class="form-group col-md-12 text-center">
@@ -96,18 +108,30 @@
                                 @endif
                                 <div class="form-group">
                                     <label>Domain</label>
-                                    <input type="text" name="job_domain" class="form-control"
-                                        placeholder="e.g Data Science" autocomplete="on" value="">
+                                    <select  id="job_domain" name="job_domain">
+                                        <option value=''>--</option>
+                                        @foreach($jobdomainobj as $sl)
+                                            <option value="{{ $sl->job_domain }}">{{ $sl->job_domain }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Location</label>
-                                    <input type="text" name="job_location" class="form-control"
-                                        placeholder="e.g. Mumbai " autocomplete="on" value="">
+                                    <select  id="job_location" name="job_location">
+                                        <option value=''>--</option>
+                                        @foreach($joblocationobj as $sl)
+                                            <option value="{{ $sl->job_location}}">{{ $sl->job_location }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Job Duration</label>
-                                    <input type="text" name="job_type" class="form-control"
-                                        placeholder="e.g. Full Time " autocomplete="on" value="">
+                                    <label>Job Shift</label>
+                                    <select  id="job_shift" name="job_shift">
+                                        <option value=''>--</option>
+                                        @foreach($jobshiftobj as $sl)
+                                            <option value="{{ $sl->job_shift}}">{{ $sl->job_shift }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <input type="hidden" name="job_type_id" value="2">
                                 <div class="form-group col-md-12 text-center">

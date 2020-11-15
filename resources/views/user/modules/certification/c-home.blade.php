@@ -74,7 +74,7 @@
                 <div class="cert-cards col-12 col-sm-12 col-md-6 col-lg-6 pl-md-0">
                     <form method="post" action="/certificationlist">
                         @csrf
-                        <input type="hidden" name="cert_domain" value="datascience">
+                        <input type="hidden" name="cert_provider" value="Data Warriors">
                         <button class="btn cert-button" type="submit" style="color: #203e68;">
                             {{-- <div class="cert-image">
                                 <img src="./images/jihome/datascience.png" alt="First slide" height="100%">
@@ -88,7 +88,7 @@
                 <div class="cert-cards col-12 col-sm-12 col-md-6 col-lg-6 pr-md-0">
                     <form method="post" action="/certificationlist">
                         @csrf
-                        <input type="hidden" name="cert_domain" value="datascience">
+                        <input type="hidden" name="cert_provider" value="IBM">
                         <button class="btn cert-button" type="submit" style="color: #203e68;">
                             {{-- <div class="cert-image">
                                 <img src="./images/jihome/datascience.png" alt="First slide" height="100%">

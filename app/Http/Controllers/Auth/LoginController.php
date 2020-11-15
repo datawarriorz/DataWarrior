@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use Exception;
+use Session;
 
 class LoginController extends Controller
 {
@@ -66,9 +67,22 @@ class LoginController extends Controller
 
         try {
             $existingUser = User::where('email', $user->getEmail())->first();
-
+            
             if ($existingUser) {
                 auth()->login($existingUser, true);
+               
+                if (Session::get('process')=='ihome') {
+                    Session::forget('process');
+                    return redirect('/ihome');
+                }
+                if (Session::get('process')=='jhome') {
+                    Session::forget('process');
+                    return redirect('/jhome');
+                }
+                if (Session::get('process')=='chome') {
+                    Session::forget('process');
+                    return redirect('/chome');
+                }
                 return redirect($this->redirectPath());
             } else {
                 $newUser                    = new User;

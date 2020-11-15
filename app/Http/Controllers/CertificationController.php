@@ -26,7 +26,13 @@ class CertificationController extends Controller
 
     public function showcertifications(Request $request)
     {
-        $certification = Certification::where('cert_domain', $request->cert_domain)->where('cert_status', 'open')->get();
+        if (!empty($request->cert_domain)) {
+            $certification = Certification::where('cert_domain', $request->cert_domain)->where('cert_status', 'open')->get();
+        }
+        if (!empty($request->cert_provider)) {
+            $certification = Certification::where('cert_provider', $request->cert_provider)->where('cert_status', 'open')->get();
+        }
+        
         $certificationapplied = CertificationApplied::where('user_id', Auth::user()->user_id)->get();
 
         return view('user.modules.certification.c-list', ['certification' => $certification, 'certificationapplied' => $certificationapplied]);

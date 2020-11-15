@@ -20,10 +20,10 @@
                             <br>
                             <p>
                                 We provide internships in the domains of data science, information technology (CSE &amp;
-                                IT), sales, marketing and finance -for BA, BSc, B Tech, MCA, MBA, and M Tech students.
+                                IT), sales, marketing and finance -for BA, BSc, BCom, B Tech, MCA, MBA, and M Tech students.
                             </p>
                             <b>Sign-In to avail our services.</b>
-                            {{ Session::forget('process') }}
+                            
                         @endif
                         @if(Session::get('process')=="chome")
                             <h1>Looking to do Certification?</h1>
@@ -33,7 +33,7 @@
                                 advice on the best certification for a particular job profile.
                             </p>
                             <b>Sign-In to avail our services.</b>
-                            {{ Session::forget('process') }}
+                            
                         @endif
                         @if(Session::get('process')=="jhome")
                             <h1>Looking for Jobs?</h1>
@@ -45,14 +45,14 @@
                                 opportunities.
                             </p>
                             <b>Sign up to avail our services.</b>
-                            {{ Session::forget('process') }}
+                           
                         @endif
                         @if(Session::get('process')=="phome")
                             Projects are an essential activity for all professional. We offer live projects for BA, BSc,
                             B
                             Tech, MCA, MBA, and M Tech students. We also design and implement projects for
                             corporates and industry requirements. Sign up to avail of our services.
-                            {{ Session::forget('process') }}
+                           
                         @endif
                     </div>
                 </div>

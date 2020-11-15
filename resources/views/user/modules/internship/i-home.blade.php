@@ -6,7 +6,7 @@
     <div class="ji-header pt-4 pl-2 pr-2">
         <div class="row">
             <div class="col-sm-6 col-md-6 col-lg-6 p-0 text-left">
-                <h4><b>Iternships</b></h4>
+                <h4><b>Internships</b></h4>
                 <h5 class="pt-2">Select internship based on your preference</h5>
             </div>
             <div class="ji-view-all col-sm-6 col-md-6 col-lg-6 p-4 text-right">

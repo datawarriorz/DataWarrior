@@ -29,8 +29,8 @@
                 <img class="carousel-image d-block w-100" style="border-radius:5px;" src="./images/certification2.png"
                     alt="Second slide">
                 <div class="carousel-caption">
-                    <div class="primary_heading">Get Certified on Machine
-                        <br class="d-block d-lg-none"> Learning with Python
+                    <div class="primary_heading" style="color:#394c66">Get Certified on Machine <br>
+                        <br class=" d-block d-lg-none"> Learning with Python
                     </div>
                     <div class="secondary_heading d-none d-md-block d-lg-none">Apply Now
                         <br class="d-block d-sm-none"> for free !
@@ -44,7 +44,7 @@
                 <img class="carousel-image d-block w-100" style="border-radius:5px;" src="./images/certification3.png"
                     alt="Third slide">
                 <div class="carousel-caption">
-                    <div class="primary_heading">Certification on
+                    <div class="primary_heading" style="color:#394c66">Certification on
                         <br> Tableau with Excel</div>
                     <div class="secondary_heading d-none d-md-block d-lg-none">Apply Now
                         <br class="d-block d-sm-none"> for free !
@@ -66,6 +66,43 @@
     </div>
 </div>
 <br>
+
+<div class="container">
+    <div class="certificate-content">
+        <div class="col-12">
+            <div class="row">
+                <div class="cert-cards col-12 col-sm-12 col-md-6 col-lg-6 pl-md-0">
+                    <form method="post" action="/certificationlist">
+                        @csrf
+                        <input type="hidden" name="cert_domain" value="datascience">
+                        <button class="btn cert-button" type="submit" style="color: #203e68;">
+                            {{-- <div class="cert-image">
+                                <img src="./images/jihome/datascience.png" alt="First slide" height="100%">
+                            </div> --}}
+                            <div class="cert-name">
+                                <h3>Certification from Data Warriors </h3>
+                            </div>
+                        </button>
+                    </form>
+                </div>
+                <div class="cert-cards col-12 col-sm-12 col-md-6 col-lg-6 pr-md-0">
+                    <form method="post" action="/certificationlist">
+                        @csrf
+                        <input type="hidden" name="cert_domain" value="datascience">
+                        <button class="btn cert-button" type="submit" style="color: #203e68;">
+                            {{-- <div class="cert-image">
+                                <img src="./images/jihome/datascience.png" alt="First slide" height="100%">
+                            </div> --}}
+                            <div class="cert-name">
+                                <h3>Certificaiton from IBM</h3>
+                            </div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="domain-content">
         <div class="domain-header">

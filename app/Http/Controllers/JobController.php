@@ -24,11 +24,12 @@ class JobController extends Controller
 {
     public function __construct()
     {
-        if (URL::current()==URL::to("/")."/jhome") {
-            Session::put('process', 'jhome');
-        }
+        
         if (URL::current()==URL::to("/")."/ihome") {
             Session::put('process', 'ihome');
+        }
+        if (URL::current()==URL::to("/")."/jhome") {
+            Session::put('process', 'jhome');
         }
         
         $this->middleware('auth')->except('logout');

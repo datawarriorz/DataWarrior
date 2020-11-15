@@ -185,7 +185,7 @@
                 </a>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3">
-                <a href="/certificationhome" style="text-decoration: none">
+                <a href="/chome" style="text-decoration: none">
                     <div class="container-items">
                         <img src="./images/certification.png" height="100px" />
                         <h5 class="container-items-header"><small>CERTIFICATIONS</small></h5>

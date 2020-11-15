@@ -2,39 +2,64 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/user/user-4-login.css') }}" />
-<br>
-<div class="col-12">
-    <div class="row">
-        <div class="col-12 col-md-8 col-lg-9 no-gutters">
-            <div class="" style="background-color: white">
-                <div class="card-body text-center">
-                    <div class="jumbotron">
+<div class="login-wrapper col-12 pt-4 pb-4">
+    <div class="col-12 col-sm-12 col-md-8 offset-md-2 pt-4 pb-4 no-gutters"
+        style="background-color: white;border-radius:10px;">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-7" style="background-color: white">
+                <div class="card-body text-center text-md-left">
+                    <div class="jumbotron" style="background-color: white">
                         <?php session_start(); ?>
+                        @if(Session::get('process')==null)
+                            <h1>Welcome Data Warrior!</h1>
+                            <br>
+                            <h6>Sign-In to apply for internship, jobs or to obtain a certification.</h6>
+                        @endif
                         @if(Session::get('process')=="ihome")
-                        backgroungcode ihome
-                        {{ Session::forget('process') }}
+                            <h1>Looking for Internships?</h1>
+                            <br>
+                            <p>
+                                We provide internships in the domains of data science, information technology (CSE &amp;
+                                IT), sales, marketing and finance -for BA, BSc, B Tech, MCA, MBA, and M Tech students.
+                            </p>
+                            <b>Sign-In to avail our services.</b>
+                            {{ Session::forget('process') }}
+                        @endif
+                        @if(Session::get('process')=="chome")
+                            <h1>Looking to do Certification?</h1>
+                            <br>
+                            <p>
+                                We offer IBM as well as inhouse certifications from our experts. We also give free
+                                advice on the best certification for a particular job profile.
+                            </p>
+                            <b>Sign-In to avail our services.</b>
+                            {{ Session::forget('process') }}
                         @endif
                         @if(Session::get('process')=="jhome")
-                        backgroungcode jhome
-                        {{ Session::forget('process') }}
+                            <h1>Looking for Jobs?</h1>
+                            <br>
+                            <p>
+                                We are in touch with over 100 corporates to get jobs for young professionals and
+                                energetic freshers.
+                                Even in turbulent post COVID19 scenario, we have facilitated many job
+                                opportunities.
+                            </p>
+                            <b>Sign up to avail our services.</b>
+                            {{ Session::forget('process') }}
                         @endif
-                        @if(Session::get('process')=="certificationhome")
-                        backgroungcode certifiactionhome
-                        {{ Session::forget('process') }}
-                        @endif
-                        @if(Session::get('process')=="projecthome")
-                        backgroungcode projecthome
-                        {{ Session::forget('process') }}
+                        @if(Session::get('process')=="phome")
+                            Projects are an essential activity for all professional. We offer live projects for BA, BSc,
+                            B
+                            Tech, MCA, MBA, and M Tech students. We also design and implement projects for
+                            corporates and industry requirements. Sign up to avail of our services.
+                            {{ Session::forget('process') }}
                         @endif
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-md-4 col-lg-3 pl-0">
-            <div class="" style="background-color: white">
+            <div class="col-12 col-sm-12 col-md-5" style="background-color: white">
                 <div class="card-body text-center">
                     <div class="container loginContainer text-center">
-                        <br>
                         <div id="gSignInWrapper">
                             <form action="login/google" method="GET">
                                 <button type="submit" class="googleButton google-wrap"
@@ -115,8 +140,4 @@
         </div>
     </div>
 </div>
-<br>
-<br>
-<br>
-<br>
 @endsection

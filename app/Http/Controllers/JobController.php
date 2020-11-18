@@ -24,7 +24,6 @@ class JobController extends Controller
 {
     public function __construct()
     {
-        
         if (URL::current()==URL::to("/")."/ihome") {
             Session::put('process', 'ihome');
         }

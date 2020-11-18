@@ -11,11 +11,15 @@
                     <div class="jumbotron" style="background-color: white">
                         <?php session_start(); ?>
                         @if(Session::get('process')==null)
+                        {{ Session::forget('process') }}
+                        
                             <h1>Welcome Data Warrior!</h1>
                             <br>
                             <h6>Sign-In to apply for internship, jobs or to obtain a certification.</h6>
                         @endif
                         @if(Session::get('process')=="ihome")
+                        {{ Session::forget('process') }}
+                        {{  Session::put('processcont', 'ihome') }}
                             <h1>Looking for Internships?</h1>
                             <br>
                             <p>
@@ -26,6 +30,8 @@
                             
                         @endif
                         @if(Session::get('process')=="chome")
+                        {{ Session::forget('process') }}
+                        {{  Session::put('processcont', 'chome') }}
                             <h1>Looking to do Certification?</h1>
                             <br>
                             <p>
@@ -36,6 +42,8 @@
                             
                         @endif
                         @if(Session::get('process')=="jhome")
+                        {{ Session::forget('process') }}
+                        {{  Session::put('processcont', 'jhome') }}
                             <h1>Looking for Jobs?</h1>
                             <br>
                             <p>
@@ -48,6 +56,8 @@
                            
                         @endif
                         @if(Session::get('process')=="phome")
+                        {{ Session::forget('process') }}
+                        {{  Session::put('processcont', 'phome') }}
                             Projects are an essential activity for all professional. We offer live projects for BA, BSc,
                             B
                             Tech, MCA, MBA, and M Tech students. We also design and implement projects for

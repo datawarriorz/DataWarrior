@@ -71,16 +71,16 @@ class LoginController extends Controller
             if ($existingUser) {
                 auth()->login($existingUser, true);
                
-                if (Session::get('process')=='ihome') {
-                    Session::forget('process');
+                if (Session::get('processcont')=='ihome') {
+                    Session::forget('processcont');
                     return redirect('/ihome');
                 }
-                if (Session::get('process')=='jhome') {
-                    Session::forget('process');
+                if (Session::get('processcont')=='jhome') {
+                    Session::forget('processcont');
                     return redirect('/jhome');
                 }
-                if (Session::get('process')=='chome') {
-                    Session::forget('process');
+                if (Session::get('processcont')=='chome') {
+                    Session::forget('processcont');
                     return redirect('/chome');
                 }
                 return redirect($this->redirectPath());

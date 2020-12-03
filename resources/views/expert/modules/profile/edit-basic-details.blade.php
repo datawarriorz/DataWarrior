@@ -8,7 +8,7 @@
             <h4>Personal Details</h4>
         </div>
         <div class="card-body">
-            <form method="POST" action="/expert-profile-edit" style="padding: 14px;">
+            <form method="POST" action="/expert-profile-edit" enctype="multipart/form-data" style="padding: 14px;">
                 @csrf
                 @if(count($errors))
                     <div class="alert alert-danger">

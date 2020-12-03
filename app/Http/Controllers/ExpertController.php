@@ -78,6 +78,7 @@ class ExpertController extends Controller
         $validator=Validator::make($request->all(), [
             'ex_firstname' => 'required|min:3|max:35',
             'ex_lastname' => 'required|min:3|max:35',
+            
             'ex_dateofbirth' => 'date|before:tomorrow',
             'ex_aboutme' => 'required|min:3|max:150',
             'ex_description' => 'required',
@@ -87,16 +88,32 @@ class ExpertController extends Controller
         if ($validator->fails()) { // on validator found any error
             return redirect('/expert-profile-edit')->withErrors($validator)->withInput();
         }
-        Expert::where('ex_id', Auth::user()->ex_id)->update([
-            'ex_firstname' => $request->ex_firstname,
-            'ex_lastname' => $request->ex_lastname,
-            'ex_dateofbirth' => $request->ex_dateofbirth,
-            'ex_aboutme' => $request->ex_aboutme,
-            'ex_description' => $request->ex_description,
-            'ex_contactcode' => $request->ex_contactcode,
-            'ex_contactno' => $request->ex_contactno,
-        ]);
-
+        $file = $request->file('ex_image');
+        
+        if ($file != null) {
+            $image = $file->openFile()->fread($file->getSize());
+            Expert::where('ex_id', Auth::user()->ex_id)->update([
+                'ex_firstname' => $request->ex_firstname,
+                'ex_lastname' => $request->ex_lastname,
+                'ex_image'=>$image,
+                'ex_dateofbirth' => $request->ex_dateofbirth,
+                'ex_aboutme' => $request->ex_aboutme,
+                'ex_description' => $request->ex_description,
+                'ex_contactcode' => $request->ex_contactcode,
+                'ex_contactno' => $request->ex_contactno,
+            ]);
+        } else {
+            Expert::where('ex_id', Auth::user()->ex_id)->update([
+                'ex_firstname' => $request->ex_firstname,
+                'ex_lastname' => $request->ex_lastname,
+                'ex_dateofbirth' => $request->ex_dateofbirth,
+                'ex_aboutme' => $request->ex_aboutme,
+                'ex_description' => $request->ex_description,
+                'ex_contactcode' => $request->ex_contactcode,
+                'ex_contactno' => $request->ex_contactno,
+            ]);
+        }
+    
         return redirect('/expert-profile');
     }
     public function updatebasicdetailsform()

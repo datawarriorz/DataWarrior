@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\ContactUs;
 use App\Expert;
-use App\Article;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -26,7 +23,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('user.home');
+        $expertsobj=Expert::all();
+        return view('user.home', ['expertsobj'=>$expertsobj]);
     }
 
    

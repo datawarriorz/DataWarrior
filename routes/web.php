@@ -44,6 +44,8 @@ Route::post('/user-view-article', 'NoAuthController@userviewarticle');
 Route::post('/user-expert-view-article', 'NoAuthController@userexpertviewarticle');
 Route::get('/user-list-articles', 'NoAuthController@userallarticles');
 
+Route::get('/eshome', 'NoAuthController@showexpertspeakhome');
+
 Route::get('/newsletterarticle/{article_id}', 'NoAuthController@newletterarticle');
 
 Route::post('/add-user-referral', 'UserServiceController@userreferral');

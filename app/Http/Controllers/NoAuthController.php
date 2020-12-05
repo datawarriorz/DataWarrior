@@ -82,4 +82,10 @@ class NoAuthController extends Controller
         $article_obj= Article::find($article_id);
         return view('user.modules.article.view-article', ['article_obj' => $article_obj]);
     }
+
+    public function showexpertspeakhome()
+    {
+        $expertsobj=Expert::all();
+        return view('user.modules.expertspeak.es-home', ['expertsobj'=>$expertsobj]);
+    }
 }

@@ -97,8 +97,22 @@ class LoginController extends Controller
                 $subcribe->newsletter="yes";
                 $subcribe->user_id=Auth::user()->user_id;
                 $subcribe->save();
+                DB::commit();
+                Session::put('newuser', 'yes');
+                if (Session::get('processcont')=='ihome') {
+                    Session::forget('processcont');
+                    return redirect('/ihome');
+                }
+                if (Session::get('processcont')=='jhome') {
+                    Session::forget('processcont');
+                    return redirect('/jhome');
+                }
+                if (Session::get('processcont')=='chome') {
+                    Session::forget('processcont');
+                    return redirect('/chome');
+                }
             }
-            DB::commit();
+            
             
             return view('user.auth.user-referral');
             //return redirect($this->redirectPath());

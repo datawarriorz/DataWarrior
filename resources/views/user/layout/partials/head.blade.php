@@ -16,3 +16,11 @@
 {{-- <link rel="stylesheet" href="{{ asset('css/bootstrap-4.5.2.min.css') }}" />
 <script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}"></script> --}}
 <!-- Bootstrap Local End -->
+
+@if(Session::get('newuser')=="yes")
+<script>
+//popus code here
+
+</script>
+{{ Session::forget('newuser') }}
+@endif

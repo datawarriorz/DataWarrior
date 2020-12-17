@@ -13,14 +13,23 @@
 <!-- Bootstrap Online End -->
 
 <!-- Bootstrap Local -->
-{{-- <link rel="stylesheet" href="{{ asset('css/bootstrap-4.5.2.min.css') }}" />
+{{-- <link rel="stylesheet" href="{{ asset('css/bootstrap-4.5.2.min.css') }}"
+/>
 <script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}"></script> --}}
 <!-- Bootstrap Local End -->
 
 @if(Session::get('newuser')=="yes")
-<script>
-//popus code here
+    <script>
+        function PopUp(hideOrshow) {
+            if (hideOrshow == 'hide') document.getElementById('ac-wrapper').style.display = "none";
+            else document.getElementById('ac-wrapper').removeAttribute('style');
+        }
+        window.onload = function () {
+            setTimeout(function () {
+                PopUp('show');
+            }, 1000);
+        }
 
-</script>
-{{ Session::forget('newuser') }}
+    </script>
+    {{ Session::forget('newuser') }}
 @endif

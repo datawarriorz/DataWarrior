@@ -1,7 +1,15 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/user/user-7-0-internship-home.css') }}"/>
+<link rel="stylesheet" href="{{ asset('css/user/user-7-0-internship-home.css') }}" />
+<div id="ac-wrapper" style='position: relative;display:none'>
+    <div id="popup">
+        <center>
+            <h2>Thank You for Signing Up! Our Counsellor will get in touch with you in 24 hrs.</h2>
+            <input type="submit" name="submit" value="Submit" onClick="PopUp('hide')" />
+        </center>
+    </div>
+</div>
 <div class="ji-content container">
     <div class="ji-header pt-4 pl-2 pr-2">
         <div class="row">

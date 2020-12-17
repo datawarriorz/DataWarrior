@@ -12,4 +12,5 @@ function onCheckCounselling(checkbox) {
         //dateElement1.value = '';
         dateElement2.value = '';
 }
+  
 

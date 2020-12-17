@@ -2,7 +2,7 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/user/user-7-0-internship-home.css') }}" />
-<div id="ac-wrapper" style='position: relative;display:none'>
+<div id="ac-wrapper" style='position: relative;'>
     <div id="popup">
         <center>
             <h2>Thank You for Signing Up! Our Counsellor will get in touch with you in 24 hrs.</h2>

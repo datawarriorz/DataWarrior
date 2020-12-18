@@ -17,15 +17,3 @@
 />
 <script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}"></script> --}}
 <!-- Bootstrap Local End -->
-<script>
-    function PopUp(hideOrshow) {
-        if (hideOrshow == 'hide') document.getElementById('ac-wrapper').style.display = "none";
-        else document.getElementById('ac-wrapper').removeAttribute('style');
-    }
-</script>
-@if(Session::get('newuser')!="yes")
-    <script>
-    PopUp('hide');
-    </script>
-    {{ Session::forget('newuser') }}
-@endif

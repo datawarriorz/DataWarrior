@@ -215,16 +215,18 @@
                 </a>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3">
-                <div class="container-items">
-                    <img src="./images/projects.png" height="100px" />
-                    <h5 class="container-items-header"><small>PROJECTS</small></h5>
-                    <p class="container-items-desc">
-                        Have an idea? Let us help you develop it
-                        <br>
-                        <br>
-                        <small><b>COMING SOON</b></small>
-                    </p>
-                </div>
+                <a href="/phome" style="text-decoration: none">
+                    <div class="container-items">
+                        <img src="./images/projects.png" height="100px" />
+                        <h5 class="container-items-header"><small>PROJECTS</small></h5>
+                        <p class="container-items-desc">
+                            Have an idea? Let us help you develop it
+                            <br>
+                            <br>
+                            <small><strong>KNOW MORE ></strong></small>
+                        </p>
+                    </div>
+                </a>
             </div>
         </div>
     </div>

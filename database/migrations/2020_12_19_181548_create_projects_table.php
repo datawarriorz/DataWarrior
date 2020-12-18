@@ -14,16 +14,16 @@ class CreateProjectsTable extends Migration
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('user_id')->on('users');
-            $table->string('name');
-            $table->longText('description');
-            $table->string('reqskill1');
-            $table->string('reqskill2');
-            $table->string('reqskill3');
-            $table->string('billingtype');
-            $table->BigInteger('maxamount');
+            $table->id('project_id');
+            $table->string('project_name');
+            $table->longText('project_description');
+            $table->string('project_domain');
+            $table->BigInteger('project_price')->nullable();
+            $table->longText('project_link')->nullable();
+            $table->binary('project_image')->nullable();
+            $table->unsignedBigInteger('creator_id')->nullable();
+            $table->string('creator_flag')->nullable();
+            $table->string('project_status')->nullable();
             $table->timestamps();
         });
     }

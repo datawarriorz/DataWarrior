@@ -106,6 +106,11 @@ Route::post('/viewinternshipdetails', 'JobController@showinternshipdetails')->mi
 Route::get('/viewinternshipdetails', 'JobController@showinternshipdetails')->middleware('auth')->name('viewinternshipdetails');
 Route::post('/internshipapply', 'JobController@userapplyinternship')->middleware('auth');
 
+Route::get('/phome', 'ProjectController@showprojecthome')->middleware('auth');
+
+
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Route::get('/expertlogin', 'Auth\ExpertLoginController@showLoginForm')->name('expert.login');

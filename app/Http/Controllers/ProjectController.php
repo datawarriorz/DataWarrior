@@ -20,4 +20,16 @@ class ProjectController extends Controller
     {
         return view('user.modules.project.p-home', []);
     }
+
+    public function showallprojects(Request $request)
+    {
+    }
+
+    public function projectfilterapply(Request $request)
+    {
+    }
+
+    public function showprojectdetails(Request $request)
+    {
+    }
 }

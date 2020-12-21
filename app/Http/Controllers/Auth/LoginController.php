@@ -115,6 +115,10 @@ class LoginController extends Controller
                     Session::forget('processcont');
                     return redirect('/chome');
                 }
+                if (Session::get('processcont')=='phome') {
+                    Session::forget('processcont');
+                    return redirect('pchome');
+                }
             }
             
             

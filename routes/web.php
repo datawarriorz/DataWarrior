@@ -107,7 +107,10 @@ Route::get('/viewinternshipdetails', 'JobController@showinternshipdetails')->mid
 Route::post('/internshipapply', 'JobController@userapplyinternship')->middleware('auth');
 
 Route::get('/phome', 'ProjectController@showprojecthome')->middleware('auth');
-Route::get('/plist', 'ProjectController@showallprojects')->middleware('auth');
+Route::post('/projectfilterapply', 'ProjectController@projectfilterapply')->middleware('auth');
+Route::get('/projectdetails/{project_id}', 'ProjectController@viewprojectdetails');
+
+Route::post('/plist', 'ProjectController@showallprojects')->middleware('auth');
 Route::post('/viewprojectdetails', 'ProjectController@showprojectdetails')->middleware('auth');
 Route::get('/viewprojectdetails', 'ProjectController@showprojectdetails')->middleware('auth')->name('viewprojectdetails');
 

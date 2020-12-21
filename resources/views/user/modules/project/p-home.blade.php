@@ -14,8 +14,8 @@
                 <img class="carousel-image d-block w-100" style="border-radius:5px;" src="./images/certification1.png"
                     alt="First slide">
                 <div class="carousel-caption">
-                    <div class="primary_heading" style="color:#394c66"> Find the project you need
-                        <br> for your mini project.
+                    <div class="primary_heading" style="color:#394c66"> Need a Mini/Major Project
+                        <br> for your Degree?
                     </div>
                     <div class="secondary_heading d-none d-md-block d-lg-none">Apply Now
                         <br class="d-block d-sm-none"> for free
@@ -29,8 +29,8 @@
                 <img class="carousel-image d-block w-100" style="border-radius:5px;" src="./images/certification2.png"
                     alt="Second slide">
                 <div class="carousel-caption">
-                    <div class="primary_heading" style="color:#394c66"> Find the project you need
-                        <br class=" d-block d-lg-none"> for your mini project.
+                    <div class="primary_heading" style="color:#394c66"> Need a Mini/Major Project
+                        <br> for your Degree?
                     </div>
                     <div class="secondary_heading d-none d-md-block d-lg-none">Apply Now
                         <br class="d-block d-sm-none"> for free !
@@ -44,8 +44,8 @@
                 <img class="carousel-image d-block w-100" style="border-radius:5px;" src="./images/certification3.png"
                     alt="Third slide">
                 <div class="carousel-caption">
-                    <div class="primary_heading" style="color:#394c66"> Find the project you need
-                        <br class=" d-block d-lg-none"> for your mini project.
+                    <div class="primary_heading" style="color:#394c66"> Need a Mini/Major Project
+                        <br> for your Degree?
                     </div>
                     <div class="secondary_heading d-none d-md-block d-lg-none">Apply Now
                         <br class="d-block d-sm-none"> for free !
@@ -111,10 +111,10 @@
         </div>
         <div class="domain-body jumbotron">
             <div class="row">
-                <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 text-center">
-                    <form method="post" action="/certificationlist">
+                <div class="domain-cards col-6 col-sm-6 col-md-3 col-lg-3 text-center">
+                    <form method="post" action="/projectfilterapply">
                         @csrf
-                        <input type="hidden" name="cert_domain" value="datascience">
+                        <input type="hidden" name="project_domain" value="data science">
                         <button class="btn domain-button" type="submit">
                             <div class="domain-image">
                                 <img src="./images/jihome/datascience.png" alt="First slide" height="100%">
@@ -125,24 +125,24 @@
                         </button>
                     </form>
                 </div>
-                <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 text-center">
-                    <form method="post" action="/certificationlist">
+                <div class="domain-cards col-6 col-sm-6 col-md-3 col-lg-3 text-center">
+                    <form method="post" action="/projectfilterapply">
                         @csrf
-                        <input type="hidden" name="cert_domain" value="informationsecurity">
+                        <input type="hidden" name="project_domain" value="iot">
                         <button class="btn domain-button" type="submit">
                             <div class="domain-image">
                                 <img src="./images/jihome/machinelearning.png" alt="First slide" height="100%">
                             </div>
                             <div class="domain-name">
-                                Information Security
+                                IOT
                             </div>
                         </button>
                     </form>
                 </div>
-                <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 text-center">
-                    <form method="post" action="/certificationlist">
+                <div class="domain-cards col-6 col-sm-6 col-md-3 col-lg-3 text-center">
+                    <form method="post" action="/projectfilterapply">
                         @csrf
-                        <input type="hidden" name="cert_domain" value="programming">
+                        <input type="hidden" name="project_domain" value="programming">
                         <button class="btn domain-button" type="submit">
                             <div class="domain-image">
                                 <img src="./images/jihome/webdevelopment.png" alt="First slide" height="100%">
@@ -153,10 +153,10 @@
                         </button>
                     </form>
                 </div>
-                <div class="domain-cards col-6 col-sm-6 col-md-4 col-lg-2 text-center">
-                    <form method="post" action="/certificationlist">
+                <div class="domain-cards col-6 col-sm-6 col-md-3 col-lg-3 text-center">
+                    <form method="post" action="/projectfilterapply">
                         @csrf
-                        <input type="hidden" name="cert_domain" value="networking">
+                        <input type="hidden" name="project_domain" value="networking">
                         <button class="btn domain-button" type="submit">
                             <div class="domain-image">
                                 <img src="./images/jihome/automation.png" alt="First slide" height="100%">

@@ -11,27 +11,28 @@
                     <div class="jumbotron" style="background-color: white">
                         <?php session_start(); ?>
                         @if(Session::get('process')==null)
-                        {{ Session::forget('process') }}
-                        
+                            {{ Session::forget('process') }}
+
                             <h1>Welcome Data Warrior!</h1>
                             <br>
                             <h6>Sign-In to apply for internship, jobs or to obtain a certification.</h6>
                         @endif
                         @if(Session::get('process')=="ihome")
-                        {{ Session::forget('process') }}
-                        {{  Session::put('processcont', 'ihome') }}
+                            {{ Session::forget('process') }}
+                            {{ Session::put('processcont', 'ihome') }}
                             <h1>Looking for Internships?</h1>
                             <br>
                             <p>
                                 We provide internships in the domains of data science, information technology (CSE &amp;
-                                IT), sales, marketing and finance -for BA, BSc, BCom, B Tech, MCA, MBA, and M Tech students.
+                                IT), sales, marketing and finance -for BA, BSc, BCom, B Tech, MCA, MBA, and M Tech
+                                students.
                             </p>
                             <b>Sign-In to avail our services.</b>
-                            
+
                         @endif
                         @if(Session::get('process')=="chome")
-                        {{ Session::forget('process') }}
-                        {{  Session::put('processcont', 'chome') }}
+                            {{ Session::forget('process') }}
+                            {{ Session::put('processcont', 'chome') }}
                             <h1>Looking to do Certification?</h1>
                             <br>
                             <p>
@@ -39,11 +40,11 @@
                                 advice on the best certification for a particular job profile.
                             </p>
                             <b>Sign-In to avail our services.</b>
-                            
+
                         @endif
                         @if(Session::get('process')=="jhome")
-                        {{ Session::forget('process') }}
-                        {{  Session::put('processcont', 'jhome') }}
+                            {{ Session::forget('process') }}
+                            {{ Session::put('processcont', 'jhome') }}
                             <h1>Looking for Jobs?</h1>
                             <br>
                             <p>
@@ -53,16 +54,19 @@
                                 opportunities.
                             </p>
                             <b>Sign up to avail our services.</b>
-                           
+
                         @endif
                         @if(Session::get('process')=="phome")
-                        {{ Session::forget('process') }}
-                        {{  Session::put('processcont', 'phome') }}
-                            Projects are an essential activity for all professional. We offer live projects for BA, BSc,
-                            B
-                            Tech, MCA, MBA, and M Tech students. We also design and implement projects for
-                            corporates and industry requirements. Sign up to avail of our services.
-                           
+                            {{ Session::forget('process') }}
+                            {{ Session::put('processcont', 'phome') }}
+                            <h1>Looking for Projects?</h1>
+                            <br>
+                            <p>
+                                We offer live projects for BA, BSc,BTech, MCA, MBA, and M Tech students.
+                                We also design and implement projects for
+                                corporates and industry requirements.
+                            </p>
+                            <b>Sign up to avail our services.</b>
                         @endif
                     </div>
                 </div>

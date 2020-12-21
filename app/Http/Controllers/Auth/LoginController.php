@@ -117,7 +117,7 @@ class LoginController extends Controller
                 }
                 if (Session::get('processcont')=='phome') {
                     Session::forget('processcont');
-                    return redirect('pchome');
+                    return redirect('phome');
                 }
             }
             

@@ -83,6 +83,10 @@ class LoginController extends Controller
                     Session::forget('processcont');
                     return redirect('/chome');
                 }
+                if (Session::get('processcont')=='phome') {
+                    Session::forget('processcont');
+                    return redirect('/phome');
+                }
                 return redirect($this->redirectPath());
             } else {
                 $newUser                    = new User;

@@ -1,7 +1,7 @@
 @extends('user.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/user/user-9-3-certificationack.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/user/user-10-3-projectack.css') }}" />
 <div class="container">
     <br>
     <div class="card">
@@ -17,11 +17,12 @@
                         <br>
                         <h4>Thank You</h4>
                         <br>
-                        <p>You have successfully applied for
-                            @foreach($certification as $cert)
-                                {{ $cert->title }}
-                            @endforeach
-                            Certification
+                        <p>You have successfully requested for
+                            <b>
+                                @foreach($project as $proj)
+                                    {{ $proj->project_name }}
+                                @endforeach
+                            </b>
                         </p>
                         <p>We will contact you via your registererd email within 1 to 2 business days
                         </p>
@@ -30,7 +31,7 @@
                             <div class="col-sm-6 col-md-6 col-lg-12">
                                 <a href="/phome">
                                     <button type="button" class="btn tab-edit-btn"> <i class="fas fa-list-ul"></i>
-                                        View More Certification</button>
+                                        View More Project</button>
                                 </a>
                             </div>
                             <p></p>

@@ -26,6 +26,7 @@ class CreateProjectsTable extends Migration
             $table->string('project_status')->nullable();
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE projects Modify project_image MEDIUMBLOB");
     }
 
     /**

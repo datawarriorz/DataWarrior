@@ -310,4 +310,155 @@ class AdminController extends Controller
     public function deletecounselor(Request $request)
     {
     }
+
+
+
+
+    //////////////////////////////project///////////////////////////////////
+
+    public function postprojectform()
+    {
+        return view('admin.modules.project.post-project');
+    }
+
+    public function postproject(Request $request)
+    {
+        $validator=Validator::make($request->all(), [
+        'project_name'=>'required|min:5|max:191',
+        'project_description'=>'required|min:5',
+        'project_domain'=>'required|max:191',
+        'project_price'=>'required|numeric',
+        'project_link'=>'required|min:5',
+        'project_image'=>'required|mimes:jpeg,jpg,png|max:1024',
+        
+    ]);
+        if ($validator->fails()) { // on validator found any error
+            return redirect('/admin-post-project-form')->withErrors($validator)->withInput();
+        }
+        DB::beginTransaction();
+
+        try {
+            $project=new Projects();
+            $project->project_name=$request->project_name;
+            $project->project_description=$request->project_description;
+            $project->project_domain=$request->project_domain;
+            $project->project_price=$request->project_price;
+            $project->project_link=$request->project_link;
+
+            $file = $request->file('project_image');
+            // Get the contents of the file
+            if ($file!=null) {
+                $contents = $file->openFile()->fread($file->getSize());
+                $project->project_image=$contents;
+            } else {
+                $project->project_image=null;
+            }
+            $project->project_status="open";
+        
+            $project->creator_id=Auth::user()->ex_id;
+            $project->creator_flag="expert";
+
+            $project->save();
+
+            DB::commit();
+
+
+            return redirect('/admindashboard');
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
+    }
+
+    public function viewprojectposted()
+    {
+        $projects= Projects::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert')->where('project_status', 'open')->get();
+
+        return view('admin.modules.project.list-project', ['projects'=>$projects]);
+    }
+    public function vieweditprojectform(Request $request)
+    {
+        $project= Projects::find($request->project_id);
+        if ($project==null) {
+            $project=Projects::find($request->old('project_id'));
+        }
+        return view('admin.modules.project.edit-project', ['project' => $project]);
+    }
+
+    
+    public function editproject(Request $request)
+    {
+        $validator=Validator::make($request->all(), [
+            'project_name'=>'required|min:5|max:191',
+            'project_description'=>'required|min:5',
+            'project_domain'=>'required|max:191',
+            'project_price'=>'required|numeric',
+            'project_link'=>'required|min:5',
+            'project_image'=>'required|mimes:jpeg,jpg,png|max:1024',
+            
+        ]);
+        DB::beginTransaction();
+
+        try {
+            $project=Projects::find($request->cert_id);
+            if ($validator->fails()) { // on validator found any error
+                return redirect('/admin-edit-projectform')->withErrors($validator)->withInput(['project_id' => $project->project_id]);
+            }
+        
+            $project->project_name=$request->project_name;
+            $project->project_description=$request->project_description;
+            $project->project_domain=$request->project_domain;
+            $project->project_price=$request->project_price;
+            $project->project_link=$request->project_link;
+
+            $file = $request->file('project_image');
+            // Get the contents of the file
+            if ($file!=null) {
+                $contents = $file->openFile()->fread($file->getSize());
+                $project->project_image=$contents;
+            } else {
+                $project->project_image=null;
+            }
+            $project->project_status="open";
+        
+            $project->creator_id=Auth::user()->ex_id;
+            $project->creator_flag="expert";
+
+            $project->save();
+
+            $project=Projects::find($request->project_id);
+            DB::commit();
+
+            return view('admin.modules.project.view-project', ['project'=> $project]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
+    }
+    
+    public function viewproject(Request $request)
+    {
+        $project= Projects::find($request->project_id);
+        
+        return view('admin.modules.project.view-project', ['project' => $project]);
+    }
+
+    public function deleteproject(Request $request)
+    {
+        DB::beginTransaction();
+
+        try {
+            $project= Projects::find($request->project_id);
+            if ($project->project_status=="open") {
+                $project->project_status="delete";//if published
+                $project->save();
+            } else {
+                // $project->delete();//if not published
+            }
+       
+            DB::commit();
+
+            return redirect("/admin-list-project");
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
+    }
 }

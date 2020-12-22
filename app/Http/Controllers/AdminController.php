@@ -11,6 +11,7 @@ use App\Mail\Newsletter;
 use App\Counselor;
 use App\Expert;
 use App\Article;
+use App\Projects;
 use DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;

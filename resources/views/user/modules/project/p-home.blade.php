@@ -112,7 +112,7 @@
         <div class="domain-body jumbotron">
             <div class="row">
                 <div class="domain-cards col-6 col-sm-6 col-md-3 col-lg-3 text-center">
-                    <form method="post" action="/projectfilterapply">
+                    <form method="post" action="/showprojects">
                         @csrf
                         <input type="hidden" name="project_domain" value="data science">
                         <button class="btn domain-button" type="submit">
@@ -126,7 +126,7 @@
                     </form>
                 </div>
                 <div class="domain-cards col-6 col-sm-6 col-md-3 col-lg-3 text-center">
-                    <form method="post" action="/projectfilterapply">
+                    <form method="post" action="/showprojects">
                         @csrf
                         <input type="hidden" name="project_domain" value="iot">
                         <button class="btn domain-button" type="submit">
@@ -140,7 +140,7 @@
                     </form>
                 </div>
                 <div class="domain-cards col-6 col-sm-6 col-md-3 col-lg-3 text-center">
-                    <form method="post" action="/projectfilterapply">
+                    <form method="post" action="/showprojects">
                         @csrf
                         <input type="hidden" name="project_domain" value="programming">
                         <button class="btn domain-button" type="submit">
@@ -154,7 +154,7 @@
                     </form>
                 </div>
                 <div class="domain-cards col-6 col-sm-6 col-md-3 col-lg-3 text-center">
-                    <form method="post" action="/projectfilterapply">
+                    <form method="post" action="/showprojects">
                         @csrf
                         <input type="hidden" name="project_domain" value="networking">
                         <button class="btn domain-button" type="submit">

@@ -8,6 +8,7 @@ use App\Projects;
 use App\ProjectReq;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Support\Facades\URL;
+use DB;
 
 class ProjectController extends Controller
 {
@@ -33,9 +34,8 @@ class ProjectController extends Controller
 
     public function showprojectdetails($project_id)
     {
-        $project = Project::find($project_id);
+        $project = Projects::find($project_id);
         $projectrequested = ProjectReq::where('user_id', Auth::user()->user_id)->where('project_id', $project_id)->count();
-
         return view('user.modules.project.p-details', ['project' => $project, 'projectrequested' => $projectrequested]);
     }
     

@@ -25,12 +25,27 @@
                             <p class="card-text">
                                 <?php echo substr(nl2br($proj->project_description),0,150); ?>...
                             </p>
-                            <div class="text-right">
-                                <p class="card-text">
-                                    <a class="project-view-btn btn btn-primary" href="">
-                                        View Details
-                                    </a>
-                                </p>
+                            <div class="col-12 p-0">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p class="card-text">
+                                            <a class="project-view-btn btn btn-primary"
+                                                href="{{ url('/showprojectdetails/'.$proj->project_id) }}">
+                                                View Details
+                                            </a>
+                                        </p>
+                                    </div>
+                                    <div class="col-6 text-right" style="color:#25ac25;padding: .375rem 1.75rem;">
+                                        <?php $i=true; ?>
+                                        @foreach($projectsreqobj as $pr)
+                                            @if($pr->project_id==$proj->project_id)
+                                                Requested <i class="fas fa-check-square"></i>
+                                                <?php $i=false; ?>
+                                                @break
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

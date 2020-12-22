@@ -111,9 +111,6 @@ Route::post('/showprojects', 'ProjectController@showprojects')->middleware('auth
 Route::get('/showprojectdetails/{project_id}', 'ProjectController@showprojectdetails');
 Route::post('/requestproject', 'ProjectController@requestproject')->middleware('auth');
 
-
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Route::get('/expertlogin', 'Auth\ExpertLoginController@showLoginForm')->name('expert.login');

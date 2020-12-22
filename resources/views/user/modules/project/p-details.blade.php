@@ -32,9 +32,13 @@
                         <div class="col-md-12 text-left">
                             <div class="row">
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-sm-center text-md-left">
-                                    <img class="cert-img" alt="..."
-                                        src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($project->project_image); ?>"
-                                        alt="" />
+                                    @if($project->project_image == null)
+                                        <img src="{{ asset('images/project_alt.jpg') }}"
+                                            style="height:166px;width:100%;border-radius:10px;" />
+                                    @else
+                                        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($project->project_image); ?>"
+                                            style="height:166px;width:100%;border-radius:10px;" />
+                                    @endif
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-8 col-lg-8 text-sm-center text-md-left">
                                     <h4 class="card-text">

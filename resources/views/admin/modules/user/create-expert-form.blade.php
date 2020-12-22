@@ -1,7 +1,7 @@
 @extends('admin.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/admin/admin-4-1-post-article.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/admin/admin-6-0-post-article.css') }}" />
 <div class="content-wrapper" id="mycontent-wrapper">
     <div class="col-md-12" style="position: inherit;">
         <div class="row">

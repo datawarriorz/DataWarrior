@@ -312,9 +312,6 @@ class AdminController extends Controller
     {
     }
 
-
-
-
     //////////////////////////////project///////////////////////////////////
 
     public function postprojectform()
@@ -322,15 +319,13 @@ class AdminController extends Controller
         return view('admin.modules.project.post-project');
     }
 
-    public function postproject(Request $request)
+    public function postprojectdata(Request $request)
     {
         $validator=Validator::make($request->all(), [
         'project_name'=>'required|min:5|max:191',
         'project_description'=>'required|min:5',
-        'project_domain'=>'required|max:191',
+        'project_domain'=>'required',
         'project_price'=>'required|numeric',
-        'project_link'=>'required|min:5',
-        'project_image'=>'required|mimes:jpeg,jpg,png|max:1024',
         
     ]);
         if ($validator->fails()) { // on validator found any error
@@ -354,55 +349,52 @@ class AdminController extends Controller
             } else {
                 $project->project_image=null;
             }
+            
             $project->project_status="open";
         
-            $project->creator_id=Auth::user()->ex_id;
-            $project->creator_flag="expert";
-
+            $project->creator_id=Auth::user()->admin_id;
+            $project->creator_flag="admin";
+           
             $project->save();
-
             DB::commit();
-
-
-            return redirect('/admindashboard');
+            return view('admin.modules.project.view-project', ['project'=> $project]);
         } catch (\Exception $e) {
             DB::rollBack();
         }
     }
 
-    public function viewprojectposted()
+    public function manageprojectlist()
     {
-        $projects= Projects::where('creator_id', Auth::user()->ex_id)->where('creator_flag', 'expert')->where('project_status', 'open')->get();
+        $projects= Projects::where('project_status', 'open')->get();
 
-        return view('admin.modules.project.list-project', ['projects'=>$projects]);
+        return view('admin.modules.project.list-projects', ['projects'=>$projects]);
     }
+
     public function vieweditprojectform(Request $request)
     {
         $project= Projects::find($request->project_id);
         if ($project==null) {
             $project=Projects::find($request->old('project_id'));
         }
-        return view('admin.modules.project.edit-project', ['project' => $project]);
+        return view('admin.modules.project.edit-project', ['project' => $p]);
     }
 
     
-    public function editproject(Request $request)
+    public function editprojectdata(Request $request)
     {
         $validator=Validator::make($request->all(), [
             'project_name'=>'required|min:5|max:191',
             'project_description'=>'required|min:5',
-            'project_domain'=>'required|max:191',
+            'project_domain'=>'required',
             'project_price'=>'required|numeric',
-            'project_link'=>'required|min:5',
-            'project_image'=>'required|mimes:jpeg,jpg,png|max:1024',
             
         ]);
         DB::beginTransaction();
 
         try {
-            $project=Projects::find($request->cert_id);
+            $project=Projects::find($request->project_id);
             if ($validator->fails()) { // on validator found any error
-                return redirect('/admin-edit-projectform')->withErrors($validator)->withInput(['project_id' => $project->project_id]);
+                return redirect('/admin-edit-project-form')->withErrors($validator)->withInput(['project_id' => $project->project_id]);
             }
         
             $project->project_name=$request->project_name;
@@ -421,9 +413,9 @@ class AdminController extends Controller
             }
             $project->project_status="open";
         
-            $project->creator_id=Auth::user()->ex_id;
-            $project->creator_flag="expert";
-
+            $project->creator_id=Auth::user()->admin_id;
+            $project->creator_flag="admin";
+            
             $project->save();
 
             $project=Projects::find($request->project_id);
@@ -457,7 +449,7 @@ class AdminController extends Controller
        
             DB::commit();
 
-            return redirect("/admin-list-project");
+            return redirect("/admin-manage-projects");
         } catch (\Exception $e) {
             DB::rollBack();
         }

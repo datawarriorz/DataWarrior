@@ -25,12 +25,24 @@
                     <li><a href="/admin-postarticle">Post Article</a></li>
                     <li><a href="/admin-manage-articles">Manage Articles</a></li>
                 </ul>
+                <a href="#">Projects</a>
+                <ul class="sidenav-item">
+                    <li><a href="/admin-post-project-form">Post Project</a></li>
+                    <li><a href="/admin-manage-projects">Manage Projects</a></li>
+                </ul>
+                <a href="#">Certifications</a>
+                <ul class="sidenav-item">
+                    <li><a href="#">Post Certification</a></li>
+                    <li><a href="#">Manage Certifications</a></li>
+                </ul>
                 <a href="#">Job</a>
                 <ul class="sidenav-item">
+                    <li><a href="#">Post Job</a></li>
                     <li><a href="#">Manage Jobs</a></li>
                 </ul>
                 <a href="#">Internship</a>
                 <ul class="sidenav-item">
+                    <li><a href="#">Post Internship</a></li>
                     <li><a href="#">Manage Internships</a></li>
                 </ul>
             </ul>
@@ -68,12 +80,24 @@
                     <li><a href="/admin-postarticle">Post Article</a></li>
                     <li><a href="/admin-manage-articles">Manage Articles</a></li>
                 </ul>
+                <a href="#">Projects</a>
+                <ul class="sidenav-item">
+                    <li><a href="/admin-post-project-form">Post Project</a></li>
+                    <li><a href="/admin-manage-projects">Manage Projects</a></li>
+                </ul>
+                <a href="#">Certifications</a>
+                <ul class="sidenav-item">
+                    <li><a href="#">Post Certification</a></li>
+                    <li><a href="#">Manage Certifications</a></li>
+                </ul>
                 <a href="#">Job</a>
                 <ul class="sidenav-item">
+                    <li><a href="#">Post Job</a></li>
                     <li><a href="#">Manage Jobs</a></li>
                 </ul>
                 <a href="#">Internship</a>
                 <ul class="sidenav-item">
+                    <li><a href="#">Post Internship</a></li>
                     <li><a href="#">Manage Internships</a></li>
                 </ul>
             </ul>

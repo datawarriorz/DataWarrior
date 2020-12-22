@@ -1,7 +1,7 @@
 @extends('admin.layout.masterlayout')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/admin/admin-6-3-edit-article.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/admin/admin-7-3-edit-project.css') }}" />
 <div class="content-wrapper" id="mycontent-wrapper">
     <div class="col-md-12" style="position: inherit;">
         <div class="row">
@@ -21,7 +21,7 @@
                                     </div>
                                 </div>
                                 <div class="col-8 text-center">
-                                    Edit Article Details
+                                    Edit Project Details
                                 </div>
                                 <div class="col-2 text-left">
                                 </div>
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="/admin-edit-article" enctype="multipart/form-data">
+                        <form method="POST" action="/admin-edit-project-data" enctype="multipart/form-data">
                             @csrf
                             @if(count($errors))
                                 <div class="alert alert-danger">
@@ -42,19 +42,20 @@
                                     </ul>
                                 </div>
                             @endif
-                            <br>
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-9">
                                         <div class="form-group">
-                                            <label>Title :</label>
-                                            <input type="text" name="title" class="form-control" placeholder="Eg. "
-                                                autocomplete="on" value="{{ $article->title }}">
+                                            <label>Project Name :</label>
+                                            <input type="text" name="project_name" class="form-control"
+                                                placeholder="Eg. Festo - Find College Festivals" autocomplete="on"
+                                                value="{{ $p->project_name }}">
                                         </div>
                                         <div class="form-group">
-                                            <label>Author :</label>
-                                            <input type="text" name="author" class="form-control" placeholder="Eg. "
-                                                autocomplete="on" value="{{ $article->author }}">
+                                            <label>Price :</label>
+                                            <input type="text" name="project_price" class="form-control"
+                                                placeholder="Eg. 1400" autocomplete="on"
+                                                value="{{ $p->project_price }}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -63,11 +64,10 @@
                                             <div class="upload-btn-wrapper">
                                                 <textarea id="uploadFile" class="disableInputField"
                                                     placeholder="Choose File" disabled="disabled" rows="2"
-                                                    autocomplete="off">
-                                                                            </textarea>
+                                                    autocomplete="off"></textarea>
                                                 <label class="fileUpload form-control">
                                                     <input id="uploadBtn" enctype="multipart/form-data" type="file"
-                                                        name="article_image" class="upload" />
+                                                        name="project_image" class="upload" />
                                                     <span class="uploadBtn">Upload / Browse File ..</span>
                                                 </label>
                                             </div>
@@ -76,25 +76,45 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="hidden" name="article_id" value="{{ $article->article_id }}" />
+                                <input type="hidden" name="project_id" value="{{ $p->project_id }}" />
                             </div>
                             <div class="form-group">
                                 <label>Summary / Description :</label>
-                                <textarea name="description" class="form-control" id="description" autocomplete="on"
-                                    rows="4">{{ $article->description }}</textarea>
+                                <textarea name="project_description" class="form-control" id="project_description" autocomplete="on" rows="4">{{ $p->project_description }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label>Content :</label>
-                                <textarea name="content" class="form-control" id="content" autocomplete="on"
-                                    rows="10">{{ $article->content }}</textarea>
+                                <label>Domain :</label>
+                                <select class="form-control custom-select col-md-12" name="project_domain">
+                                @if($p->project_domain== "data science")
+                                    <option selected value="data science">Data Science</option>
+                                    <option value="iot">IOT</option>
+                                    <option value="programming">Programming</option>
+                                    <option value="networking">Networking</option>
+                                @elseif($p->project_domain== "iot")
+                                    <option value="data science">Data Science</option>
+                                    <option selected value="iot">IOT</option>
+                                    <option value="programming">Programming</option>
+                                    <option value="networking">Networking</option>
+                                @elseif($p->project_domain == "programming")
+                                    <option value="data science">Data Science</option>
+                                    <option value="iot">IOT</option>
+                                    <option selected value="programming">Programming</option>
+                                    <option value="networking">Networking</option>
+                                @elseif($p->project_domain == "networking")
+                                    <option value="data science">Data Science</option>
+                                    <option value="iot">IOT</option>
+                                    <option value="programming">Programming</option>
+                                    <option selected value="networking">Networking</option>    
+                                @endif
+                                </select>
                             </div>
                             <div class="form-group col-md-12 text-center">
                                 <button type="submit" class="btn tab-edit-btn">
-                                    Update & Preview Article <i class="far fa-eye"></i>
+                                    Update & Preview Project
                                 </button>
                                 <br>
                                 <br>
-                                <a class="btn tab-edit-btn" href="/admin-manage-articles">
+                                <a class="btn tab-edit-btn" href="/admin-manage-projects">
                                     <i class="fas fa-arrow-left"></i> Back
                                 </a>
                             </div>

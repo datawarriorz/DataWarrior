@@ -178,7 +178,7 @@ Route::get('/admindashboard', 'AdminController@index')->name('admin.home');
 
 Route::post('/logoutadmin', 'AdminController@logoutadmin');
 Route::get('/logoutadmin', 'AdminController@getlogoutadmin');
-
+//Admin Article
 Route::get('/admin-postarticle', 'AdminController@viewarticleform');
 Route::post('/admin-postarticle', 'AdminController@postarticle');
 Route::post('/admin-publish-article', 'AdminController@publisharticle');
@@ -187,10 +187,22 @@ Route::get('/admin-manage-articles', 'AdminController@managearticlelist');
 Route::post('/admin-view-article', 'AdminController@viewarticle');
 Route::post('/admin-edit-articleform', 'AdminController@vieweditarticleform');
 Route::get('/admin-edit-articleform', 'AdminController@vieweditarticleform');
-
 Route::post('/admin-edit-article', 'AdminController@editarticle');
 Route::post('/admin-deletearticle', 'AdminController@deletearticle');
 
+//Admin Project
+Route::get('/admin-post-project-form', 'AdminController@postprojectform');
+Route::post('/admin-post-project-data', 'AdminController@postprojectdata');
+Route::get('/admin-manage-projects', 'AdminController@manageprojectlist');
+//Project Manage - Edit View Delete
+Route::get('/admin-edit-project-form', 'AdminController@vieweditprojectform');
+Route::post('/admin-edit-project-form', 'AdminController@vieweditprojectform');
+Route::post('/admin-edit-project-data', 'AdminController@editprojectdata');
+Route::post('/admin-view-project', 'AdminController@viewproject');
+Route::post('/admin-delete-project', 'AdminController@deleteproject');
+//Admin Project End
+
+//Admin Expert
 Route::get('/admin-create-expertform', 'AdminController@createexpertform');
 Route::post('/admin-create-expertform', 'AdminController@createexpertform');
 

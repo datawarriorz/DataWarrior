@@ -21,50 +21,48 @@
                                     </div>
                                 </div>
                                 <div class="col-8 text-center">
-                                    Project #{{ $project->project_id }}
+                                    <strong>Project #{{ $project->project_id }}</strong>
                                 </div>
                                 <div class="col-2 text-left">
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="card-body dashboard-card-body">
                         <div class="row">
                             <div class="col-md-12 text-left">
                                 <div class="jumbotron" style="padding: 1rem 1rem;">
                                     <div class="col-md-10 offset-md-1 text-left">
                                         <div class="row">
-                                            <div class="col-md-8 text-left">
-                                                <h2
-                                                    class="text-xl lg:text-3xl leading-tight text-gray-800 font-bold mt-2">
-                                                    {{ $project->project_name }}
-                                                </h2>
-                                                <br>
-                                                <h6>
-                                                    Price: {{ $project->project_price }} /-
-                                                </h6>
-                                                <br>
-                                                <h6>
-                                                    Domain: <?php echo ucwords($project->project_domain);?>
-                                                </h6>
-                                            </div>
-                                            <div class="col-md-4 ">
+                                            <div class="col-md-4 text-left">
                                                 @if($project->project_image == null)
                                                     <img src="{{ asset('images/project_alt.jpg') }}"
-                                                        style="height:166px;width:100%;border-radius:10px;margin: 11px;" />
+                                                        style="height:166px;width:100%;border-radius:10px;" />
                                                 @else
                                                     <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($project->project_image); ?>"
-                                                        style="height:166px;width:100%;border-radius:10px;margin: 11px;" />
+                                                        style="height:166px;width:100%;border-radius:10px;" />
                                                 @endif
+                                            </div>
+                                            <div class="col-md-8 ">
+                                                <h3 class="card-text">
+                                                    {{ $project->project_name }}
+                                                </h3>
+                                                <br>
+                                                <p class="card-text data">
+                                                    <strong class="heading">Price :</strong>
+                                                    {{ $project->project_price }} /-
+                                                </p>
+                                                <p class="card-text data">
+                                                    <strong class="heading">Domain :</strong>
+                                                    <?php echo ucwords($project->project_domain);?>.
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                     <br>
                                     <div class="col-md-10 offset-md-1 text-left">
-                                        <h5>Description: </h5>
-                                        <br>
-                                        <strong><?php echo nl2br( $project->project_description); ?></strong>
+                                        <strong>Description :</strong>
+                                        <p class="data"><?php echo nl2br($project->project_description); ?></p>
                                     </div>
                                     <br>
                                     <div class="col-md-12 text-center">

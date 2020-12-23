@@ -15,7 +15,7 @@
                         <div class="card-body dashboard-card-body">
                             <div class="row">
                                 <div class="col-md-12 text-left">
-                                    <div class="jumbotron">
+                                    <div class="jumbotron" style="background-color: white;padding: 0rem 2rem;">
                                         <div class="col-md-12 text-left">
                                             <h2 class="text-xl lg:text-3xl leading-tight text-gray-800 font-bold mt-2">
                                                 {{ $article_obj->title }}

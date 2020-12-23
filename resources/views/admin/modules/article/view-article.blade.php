@@ -21,7 +21,7 @@
                                     </div>
                                 </div>
                                 <div class="col-8 text-center">
-                                    Article #{{ $article->article_id }}
+                                    <strong>Article #{{ $article->article_id }}</strong>
                                 </div>
                                 <div class="col-2 text-left">
                                 </div>

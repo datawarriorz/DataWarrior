@@ -21,7 +21,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6 text-center">
-                                    Project Form
+                                    <strong>Project Form</strong>
                                 </div>
                                 <div class="col-3 text-right">
 

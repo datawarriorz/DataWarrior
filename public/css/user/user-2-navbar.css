@@ -148,6 +148,7 @@
     right: 0;
     left: auto;
     width: 185px;
+    margin-right: 18px;
 }
 
 @media (max-width: 990px) {

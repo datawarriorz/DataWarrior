@@ -21,11 +21,11 @@
                                     </div>
                                 </div>
                                 <div class="col-6 text-center">
-                                    Your Projects
+                                    <strong>Your Projects</strong>
                                 </div>
                                 <div class="col-3 text-right">
                                     <a class="tab-edit-btn" href="/admindashboard">
-                                        <i class="fas fa-arrow-left"></i> Back
+                                        Back
                                     </a>
                                 </div>
                             </div>

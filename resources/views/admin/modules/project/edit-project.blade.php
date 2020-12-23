@@ -21,7 +21,7 @@
                                     </div>
                                 </div>
                                 <div class="col-8 text-center">
-                                    Edit Project Details
+                                    <strong>Edit Project Details</strong>
                                 </div>
                                 <div class="col-2 text-left">
                                 </div>

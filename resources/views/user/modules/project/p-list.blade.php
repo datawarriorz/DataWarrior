@@ -11,7 +11,8 @@
         </h3>
         <br>
         <div class="alert alert-light text-center" role="alert">
-            <i class="fas fa-exclamation-circle"></i> These are the projects which we have carried out earlier. Our experts can train you on these projects as well as share the documentation necessary for the project report
+            <i class="fas fa-exclamation-circle"></i> These are the projects which we have carried out earlier. Our
+            experts can train you on these projects as well as share the documentation necessary for the project report.
         </div>
     </div>
     <div class="container">

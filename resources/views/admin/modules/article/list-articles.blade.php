@@ -21,7 +21,7 @@
                                     </div>
                                 </div>
                                 <div class="col-8 text-center">
-                                    Your Articles
+                                    <strong>Your Articles</strong>
                                 </div>
                                 <div class="col-2 text-left">
                                 </div>

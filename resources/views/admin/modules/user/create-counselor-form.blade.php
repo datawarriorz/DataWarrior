@@ -18,7 +18,7 @@
                                 </div>
                             </div>
                             <div class="col-8 text-center">
-                                Counselor Form
+                                <strong>Counselor Form</strong>
                             </div>
                             <div class="col-2 text-left">
                             </div>

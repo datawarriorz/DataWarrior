@@ -17,11 +17,11 @@
                         <p class="nav-link-header"><i class="fas fa-home"></i> Home</p>
                     </a>
                 </li>
-                <li class="nav-item-left navli">
+                {{-- <li class="nav-item-left navli">
                     <a class="nav-link" href="#">
                         <p class="nav-link-header"><i class="fas fa-wrench"></i> Services</p>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item-left navli">
                     <a class="nav-link" href="/contact">
                         <p class="nav-link-header"><i class="fas fa-phone-alt"></i> Contact</p>

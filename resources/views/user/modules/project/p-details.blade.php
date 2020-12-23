@@ -48,6 +48,10 @@
                                     <p class="card-text data">
                                         <strong class="heading">Price :</strong> {{ $project->project_price }} /-
                                     </p>
+                                    <p class="card-text data">
+                                        <strong class="heading">Domain :</strong>
+                                        <?php echo ucwords($project->project_domain);?>.
+                                    </p>
                                 </div>
                             </div>
                         </div>

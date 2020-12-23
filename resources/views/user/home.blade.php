@@ -32,6 +32,11 @@
             </div>
         </div>
     </div>
+    <div class="col-12 text-center p-4" style="font-size: 2.5rem;">
+        <a href="#seperator2" style="color:#bdbdbd;text-shadow: 0px 14px #d2d2d2;"><i
+                class="fas fa-chevron-down"></i></a>
+    </div>
+
 @else
     <br><br>
     <div class="container">
@@ -125,7 +130,7 @@
 </div>
 <br>
 <br> --}}
-<hr class="seperator2">
+<hr class="seperator2" id="seperator2">
 <br>
 <div class="content-container">
     <div class="container content1 text-center">

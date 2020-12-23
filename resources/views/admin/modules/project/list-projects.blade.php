@@ -10,7 +10,7 @@
                     <div class="card-header">
                         <div class="col-12 pl-0 pr-0">
                             <div class="row">
-                                <div class="col-2 text-left">
+                                <div class="col-3 text-left">
                                     <div style="margin-bottom: 0px">
                                         <i class="fas fa-arrow-right open-icon" id="myopen-icon"
                                             onclick="openNav()"></i>
@@ -23,7 +23,7 @@
                                 <div class="col-6 text-center">
                                     Your Projects
                                 </div>
-                                <div class="col-4 text-right">
+                                <div class="col-3 text-right">
                                     <a class="tab-edit-btn" href="/admindashboard">
                                         <i class="fas fa-arrow-left"></i> Back
                                     </a>

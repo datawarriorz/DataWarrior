@@ -7,7 +7,7 @@
     <div class="col-12">
         <br>
         <h3 class="text-xl lg:text-3xl leading-tight text-gray-800 font-bold mt-2 text-center">
-            Projects in <br class="d-block d-lg-none"> <?php echo ucwords("programming")?>
+            Projects in <br class="d-block d-lg-none"> <?php echo ucwords($projectdomain[0]->project_domain)?>
         </h3>
         <br>
         <div class="alert alert-light text-center" role="alert">

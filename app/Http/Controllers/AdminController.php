@@ -376,7 +376,7 @@ class AdminController extends Controller
         if ($project==null) {
             $project=Projects::find($request->old('project_id'));
         }
-        return view('admin.modules.project.edit-project', ['project' => $p]);
+        return view('admin.modules.project.edit-project', ['p' => $project]);
     }
 
     

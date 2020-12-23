@@ -1,4 +1,4 @@
-@extends('expert.layout.masterlayout')
+@extends('admin.layout.masterlayout')
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/admin/admin-7-1-list-projects.css') }}">

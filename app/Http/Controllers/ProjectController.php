@@ -27,9 +27,10 @@ class ProjectController extends Controller
 
     public function showprojects(Request $request)
     {
+        $projectdomain=DB::table('projects')->select('project_domain')->where('project_domain', $request->project_domain)->distinct('project_domain')->get();
         $projectsreqobj=ProjectReq::where('user_id', Auth::user()->user_id)->get();
         $projectsobj=Projects::where('project_domain', $request->project_domain)->where('project_status', 'open')->get();
-        return view('user.modules.project.p-list', ['projectsobj'=>$projectsobj,'projectsreqobj'=>$projectsreqobj]);
+        return view('user.modules.project.p-list', ['projectsobj'=>$projectsobj,'projectsreqobj'=>$projectsreqobj,'projectdomain'=>$projectdomain]);
     }
 
     public function showprojectdetails($project_id)

@@ -454,4 +454,183 @@ class AdminController extends Controller
             DB::rollBack();
         }
     }
+
+
+    ///////////////////////////////job and Internship//////////////////////////////////
+    public function postjobform()
+    {
+        return view('admin.modules.job.post-job');
+    }
+
+    public function postjob(Request $request)
+    {
+        $validator=Validator::make($request->all(), [
+        'job_title' => 'required|min:5|max:191',
+        'job_description' => 'required|min:5',
+        'job_company' => 'required|min:3|max:50',
+        'job_domain' => 'required|min:3|max:100',
+        'job_shift' => 'required|min:3|max:50',
+        'job_location' => 'required|min:3|max:100',
+        'job_designation' => 'required|min:3|max:50',
+        'job_companywebsite' => 'required|min:3|max:150',
+        'job_skills_required' => 'required|min:3|max:100',
+        'job_duration' => 'required|min:3|max:50',
+        'job_salary' => 'required|min:3|max:50',
+        'job_starttime' => 'required|min:3|max:50',
+        'job_apply_by' => 'required|date|after:tomorrow',
+        'job_openings' => 'required|numeric',
+        
+    ]);
+        if ($validator->fails()) { // on validator found any error
+            return redirect('/admin-post-job-form')->withErrors($validator)->withInput();
+        }
+        DB::beginTransaction();
+
+        try {
+            $jobobj = new Jobs();
+            $jobobj->job_title=$request->job_title;
+            $jobobj->job_description=$request->job_description;
+            $jobobj->job_status='open';
+            $jobobj->job_company=$request->job_company;
+            $jobobj->job_domain=$request->job_domain;
+            $jobobj->job_shift=$request->job_shift;
+            $jobobj->job_location=$request->job_location;
+            $jobobj->job_designation=$request->job_designation;
+            $jobobj->job_companywebsite=$request->job_companywebsite;
+            $jobobj->job_type_id=$request->job_type_id;
+            $jobobj->job_skills_required=$request->job_skills_required;
+            $jobobj->job_duration=$request->job_duration;
+            $jobobj->job_salary=$request->job_salary;
+            $jobobj->job_starttime=$request->job_starttime;
+            $jobobj->job_apply_by=$request->job_apply_by;
+            $jobobj->job_openings=$request->job_openings;
+            $jobobj->creator_id=Auth::user()->admin_id;
+            $jobobj->creator_flag='admin';
+            $jobobj->save();
+            DB::commit();
+
+            return redirect('/admintdashboard');
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
+    }
+
+    public function viewjobsposted()
+    {
+        $jobsobj= Jobs::where('creator_id', Auth::user()->admin_id)->where('creator_flag', 'admin')->where('job_type_id', '1')->where('job_status', '!=', 'deleted')->get();
+        return view('admin.modules.job.view-jobs-posted', ['jobsobj'=>$jobsobj]);
+    }
+
+    public function viewjobdetails(Request $request)
+    {
+        $jobobj=Jobs::find($request->job_id);
+        $jobappobj = JobsApplied::where('job_id', $jobobj->job_id)->get();
+        $users= User::join('jobs_applied', 'users.user_id', '=', 'jobs_applied.user_id')
+    ->where('jobs_applied.job_id', $jobobj->job_id)->get();
+        return view('admin.modules.job.view-job', ['jobobj'=>$jobobj,'users'=>$users,'jobappobj'=>$jobappobj]);
+    }
+    public function deletejob(Request $request)
+    {
+        DB::beginTransaction();
+
+        try {
+            $affected = DB::table('jobs')
+          ->where('job_id', $request->job_id)
+          ->update(['job_status' => 'deleted']);
+            DB::commit();
+
+            return redirect('/admin-view-jobs-posted');
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
+    }
+    public function deleteinternship(Request $request)
+    {
+        DB::beginTransaction();
+
+        try {
+            $affected = DB::table('jobs')
+          ->where('job_id', $request->job_id)
+          ->update(['job_status' => 'deleted']);
+            DB::commit();
+
+            return redirect('/admin-view-internships-posted');
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
+    }
+
+
+    public function postinternshipform()
+    {
+        return view('admin.modules.internship.post-internship');
+    }
+
+    public function viewinternshipsposted()
+    {
+        $jobsobj= Jobs::where('creator_id', Auth::user()->admin_id)->where('creator_flag', 'admin')->where('job_type_id', '2')->where('job_status', '!=', 'deleted')->get();
+        return view('admin.modules.internship.view-internships-posted', ['jobsobj'=>$jobsobj]);
+    }
+
+    public function viewinternshipdetails(Request $request)
+    {
+        $jobobj=Jobs::find($request->job_id);
+        $jobappobj = JobsApplied::where('job_id', $jobobj->job_id)->get();
+        $users= User::join('jobs_applied', 'users.user_id', '=', 'jobs_applied.user_id')
+    ->where('jobs_applied.job_id', $jobobj->job_id)->get();
+        return view('admin.modules.internship.view-internship', ['jobobj'=>$jobobj,'users'=>$users,'jobappobj'=>$jobappobj]);
+    }
+
+    public function postinternship(Request $request)
+    {
+        $validator=Validator::make($request->all(), [
+        'job_title' => 'required|min:5|max:191',
+        'job_description' => 'required|min:5',
+        'job_company' => 'required|min:3|max:50',
+        'job_domain' => 'required|min:3|max:100',
+        'job_shift' => 'required|min:3|max:50',
+        'job_location' => 'required|min:3|max:100',
+        'job_designation' => 'required|min:3|max:50',
+        'job_companywebsite' => 'required|min:3|max:150',
+        'job_skills_required' => 'required|min:3|max:100',
+        'job_duration' => 'required|min:3|max:50',
+        'job_salary' => 'required|min:3|max:50',
+        'job_starttime' => 'required|min:3|max:50',
+        'job_apply_by' => 'required|date|after:tomorrow',
+        'job_openings' => 'required|numeric',
+        
+    ]);
+        if ($validator->fails()) { // on validator found any error
+            return redirect('/admin-post-internship-form')->withErrors($validator)->withInput();
+        }
+        DB::beginTransaction();
+
+        try {
+            $jobobj = new Jobs();
+            $jobobj->job_title=$request->job_title;
+            $jobobj->job_description=$request->job_description;
+            $jobobj->job_status='open';
+            $jobobj->job_company=$request->job_company;
+            $jobobj->job_domain=$request->job_domain;
+            $jobobj->job_shift=$request->job_shift;
+            $jobobj->job_location=$request->job_location;
+            $jobobj->job_designation=$request->job_designation;
+            $jobobj->job_companywebsite=$request->job_companywebsite;
+            $jobobj->job_type_id=$request->job_type_id;
+            $jobobj->job_skills_required=$request->job_skills_required;
+            $jobobj->job_duration=$request->job_duration;
+            $jobobj->job_salary=$request->job_salary;
+            $jobobj->job_starttime=$request->job_starttime;
+            $jobobj->job_apply_by=$request->job_apply_by;
+            $jobobj->job_openings=$request->job_openings;
+            $jobobj->creator_id=Auth::user()->admin_id;
+            $jobobj->creator_flag='admin';
+            $jobobj->save();
+            DB::commit();
+
+            return redirect('/admindashboard');
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
+    }
 }

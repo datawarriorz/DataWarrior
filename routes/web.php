@@ -211,6 +211,22 @@ Route::post('/admin-create-expert', 'AdminController@createexpert');
 Route::get('/admin-create-counselorform', 'AdminController@createcounselorform');
 Route::post('/admin-create-counselorform', 'AdminController@createcounselor');
 
+//Admin Job
+Route::get('/admin-post-job-form', 'AdminController@postjobform');
+Route::post('/admin-post-job', 'AdminController@postjob');
+Route::get('/admin-view-jobs-posted', 'AdminController@viewjobsposted');
+// Route::post('/admin-view-jobs-posted', 'AdminController@viewjobsposted');
+Route::post('/admin-view-job-details', 'AdminController@viewjobdetails');
+Route::post('/admin-delete-job', 'AdminController@deletejob');
+
+Route::get('/admin-post-internship-form', 'AdminController@postinternshipform');
+Route::post('/admin-post-internship', 'AdminController@postinternship');
+Route::get('/admin-view-internships-posted', 'AdminController@viewinternshipsposted');
+Route::post('/admin-view-internship-details', 'AdminController@viewinternshipdetails');
+Route::post('/admin-delete-internship', 'AdminController@deleteinternship');
+
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Route::get('/cc', function () {

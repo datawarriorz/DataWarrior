@@ -131,44 +131,7 @@
 <br>
 <br> --}}
 <hr class="seperator2" id="seperator2">
-<br>
 <div class="content-container">
-    <div class="container content1 text-center">
-        <div class="container text-center">
-            <h2 style="font-weight:600">KNOWLEDGE FORUM</h2>
-            <br>
-            <br>
-        </div>
-        <div class="row container-column">
-            <div class="col-sm-12 col-md-4">
-                <div class="knowledge-items">
-                    {{-- style="background-image: linear-gradient(225deg,#fdfdfd,#7BBAD2);" --}}
-                    <img src="./images/blogs.png" alt="First slide" height="100%">
-                    <h6 class="knowledge-items-header">BLOGS</h6>
-                    <small>COMING SOON</small>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <a href="/eshome" style="text-decoration:none">
-                    <div class="knowledge-items">
-                        <img src="./images/expertspeak.png" alt="First slide" height="100%">
-                        <h6 class="knowledge-items-header">EXPERT SPEAK</h6>
-                        <small>KNOW MORE ></small>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <a href="/user-list-articles" style="text-decoration:none">
-                    <div class="knowledge-items">
-                        {{-- style="background-image: linear-gradient(225deg,#fff,#f4e88c);" --}}
-                        <img src="./images/article.png" alt="First slide" height="100%">
-                        <h6 class="knowledge-items-header">ARTICLES</h6>
-                        <small>KNOW MORE ></small>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
     {{-- <hr class="seperator2"> --}}
     <br>
     <div class="container content1 text-center">
@@ -233,6 +196,42 @@
                     </div>
                 </a>
             </div>
+        </div>
+    </div>
+</div>
+<div class="container content1 text-center">
+    <div class="container text-center">
+        <h2 style="font-weight:600">KNOWLEDGE FORUM</h2>
+        <br>
+        <br>
+    </div>
+    <div class="row container-column">
+        {{-- <div class="col-sm-12 col-md-4">
+            <div class="knowledge-items">
+                style="background-image: linear-gradient(225deg,#fdfdfd,#7BBAD2);"
+                <img src="./images/blogs.png" alt="First slide" height="100%">
+                <h6 class="knowledge-items-header">BLOGS</h6>
+                <small>COMING SOON</small>
+            </div>
+        </div> --}}
+        <div class="col-sm-12 col-md-6">
+            <a href="/eshome" style="text-decoration:none">
+                <div class="knowledge-items">
+                    <img src="./images/expertspeak.png" alt="First slide" height="100%">
+                    <h6 class="knowledge-items-header">EXPERT SPEAK</h6>
+                    <small>KNOW MORE ></small>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <a href="/user-list-articles" style="text-decoration:none">
+                <div class="knowledge-items">
+                    {{-- style="background-image: linear-gradient(225deg,#fff,#f4e88c);" --}}
+                    <img src="./images/article.png" alt="First slide" height="100%">
+                    <h6 class="knowledge-items-header">ARTICLES</h6>
+                    <small>KNOW MORE ></small>
+                </div>
+            </a>
         </div>
     </div>
 </div>

@@ -119,7 +119,14 @@
                             <input type="text" class="form-control" name="referral_code" id="referral_code"
                                 value="{{ old('referral_code') }}">
                         </div>
-                        <br>
+                        <div class="form-group">
+                            <div class="col-lg-10 offset-lg-1 text-center">
+                                <small name="agreement" class="form-text text-muted">
+                                    By clicking Register, you agree to our Terms, Data Policy and Cookie Policy. You may
+                                    receive SMS notifications from us.
+                                </small>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-6 col-sm-6 col-md-6 col-lg-6 text-right">
                                 <a class="btn tab-edit-btn" href="/">
@@ -128,7 +135,7 @@
                             </div>
                             <div class="col-6 col-sm-6 col-md-6 col-lg-6 text-left">
                                 <button type=" submit" class="btn tab-edit-btn">
-                                    Submit
+                                    Register
                                 </button>
                             </div>
                         </div>

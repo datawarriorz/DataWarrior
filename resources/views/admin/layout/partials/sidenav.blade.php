@@ -37,13 +37,13 @@
                 </ul>
                 <a href="#">Job</a>
                 <ul class="sidenav-item">
-                    <li><a href="#">Post Job</a></li>
-                    <li><a href="#">Manage Jobs</a></li>
+                    <li><a href="/admin-post-job-form">Post Job</a></li>
+                    <li><a href="/admin-view-jobs-posted">Manage Jobs</a></li>
                 </ul>
                 <a href="#">Internship</a>
                 <ul class="sidenav-item">
-                    <li><a href="#">Post Internship</a></li>
-                    <li><a href="#">Manage Internships</a></li>
+                    <li><a href="/admin-post-internship-form">Post Internship</a></li>
+                    <li><a href="/admin-view-internships-posted">Manage Internships</a></li>
                 </ul>
             </ul>
 
@@ -92,13 +92,13 @@
                 </ul>
                 <a href="#">Job</a>
                 <ul class="sidenav-item">
-                    <li><a href="#">Post Job</a></li>
-                    <li><a href="#">Manage Jobs</a></li>
+                    <li><a href="/admin-post-job-form">Post Job</a></li>
+                    <li><a href="/admin-view-jobs-posted">Manage Jobs</a></li>
                 </ul>
                 <a href="#">Internship</a>
                 <ul class="sidenav-item">
-                    <li><a href="#">Post Internship</a></li>
-                    <li><a href="#">Manage Internships</a></li>
+                    <li><a href="/admin-post-internship-form">Post Internship</a></li>
+                    <li><a href="/admin-view-internships-posted">Manage Internships</a></li>
                 </ul>
             </ul>
         </div>

@@ -12,6 +12,7 @@ use App\Counselor;
 use App\Expert;
 use App\Article;
 use App\Projects;
+use App\Jobs;
 use DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -509,7 +510,7 @@ class AdminController extends Controller
             $jobobj->save();
             DB::commit();
 
-            return redirect('/admintdashboard');
+            return redirect('/admindashboard');
         } catch (\Exception $e) {
             DB::rollBack();
         }

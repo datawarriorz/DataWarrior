@@ -219,6 +219,7 @@ Route::get('/admin-view-jobs-posted', 'AdminController@viewjobsposted');
 Route::post('/admin-view-job-details', 'AdminController@viewjobdetails');
 Route::post('/admin-delete-job', 'AdminController@deletejob');
 
+//Admin Internship
 Route::get('/admin-post-internship-form', 'AdminController@postinternshipform');
 Route::post('/admin-post-internship', 'AdminController@postinternship');
 Route::get('/admin-view-internships-posted', 'AdminController@viewinternshipsposted');

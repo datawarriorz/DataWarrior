@@ -33,8 +33,8 @@ return [
     'google' => [
         'client_id' => '259858951754-b9oh7ddgd1isi5ve6ekikb5js6grvo9i.apps.googleusercontent.com',
         'client_secret' => 'vwPYMbO5LC5QikzRUtW3Eq09',
-        //'redirect' => 'http://localhost:8000/login/google/callback',
-        'redirect' => 'http://datawarriors.co.in/login/google/callback',
+        'redirect' => 'http://localhost:8000/login/google/callback',
+        // 'redirect' => 'http://datawarriors.co.in/login/google/callback',
     ],
 
     

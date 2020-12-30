@@ -2,13 +2,12 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/user/user-3-register.css') }}" />
-<br>
-<div class="container">
+<div class="register-wrapper p-3">
     <div class="row justify-content-center">
-        <div class="col-md-10 col-lg-8">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-8">
             <div class="card">
-                <div class="card-header text-center">
-                    <h5> Register</h5>
+                <div class="text-center p-4">
+                    <h5><b>REGISTRATION FORM</b></h5>
                 </div>
                 <div class="text-center">
                     <div class="container loginContainer">
@@ -122,8 +121,8 @@
                         <div class="form-group">
                             <div class="col-lg-10 offset-lg-1 text-center">
                                 <small name="agreement" class="form-text text-muted">
-                                    By clicking Register, you agree to our Terms, Data Policy and Cookie Policy. You may
-                                    receive SMS notifications from us.
+                                    By clicking Register, you agree to our Terms, Data Policy and Cookie Policy.<br>
+                                    You may receive Email notifications from us.
                                 </small>
                             </div>
                         </div>
@@ -145,5 +144,4 @@
         </div>
     </div>
 </div>
-<br>
 @endsection

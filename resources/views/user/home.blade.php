@@ -4,6 +4,8 @@
 <link rel="stylesheet" href="{{ asset('css/main/home.css') }}" />
 {{ Session::forget('process') }}
 @guest
+    <div class="hero-container">
+    </div>
     <div class="jumbotron" style="">
         <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="row">
@@ -15,15 +17,14 @@
                 <div class="col-sm-12 col-md-12 col-lg-7">
                     <div class="data-wrapper" style="">
                         <div class="col-12">
-                            <h3>Maximize your potential</h3>
+                            <h3 style="color:white;font-weight:600">Maximize your potential</h3>
                             <h1 class="text-orange"><b>Be a Data Warrior <img width="30rem" height="auto"
                                         src="./images/torch1.png" alt="Logo" /></b></h1>
                         </div>
-                        <br>
-                        <div class="col-12">
+                        <div class="col-12 p-3">
                             <a class="register-link" href="{{ route('register') }}">
                                 <button type="button" class="btn register-btn">
-                                    Join Us!
+                                    GET STARTED
                                 </button>
                             </a>
                         </div>
@@ -32,11 +33,18 @@
             </div>
         </div>
     </div>
-    <div class="col-12 text-center p-4" style="font-size: 2.5rem;">
+    {{-- <div class="col-12 text-center p-4" style="font-size: 2.5rem;">
         <a href="#seperator2" style="color:#bdbdbd;text-shadow: 0px 14px #d2d2d2;"><i
                 class="fas fa-chevron-down"></i></a>
+    </div> --}}
+    <div class="whatwedo-container">
+        <div class="col-12 col-md-8 offset-md-2 offset text-center pt-5 mt-4">
+            <h4><b>WHAT WE DO</b></h4>
+            <p class="p-2">We offer you the opportunity of a Better Career by providing Jobs, Internships, Training,
+                Projects and
+                Knowledge Sharing. Talk to our Counsellors and Experts they will lead you to a better future! </p>
+        </div>
     </div>
-
 @else
     <br><br>
     <div class="container">
@@ -44,7 +52,6 @@
             Welcome {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}!
         </h2>
     </div>
-
 @endguest
 <br><br>
 {{-- <hr class="seperator2">
@@ -205,8 +212,9 @@
         <br>
         <br>
     </div>
-    <div class="row container-column">
-        {{-- <div class="col-sm-12 col-md-4">
+    <div class="container">
+        <div class="row container-column">
+            {{-- <div class="col-sm-12 col-md-4">
             <div class="knowledge-items">
                 style="background-image: linear-gradient(225deg,#fdfdfd,#7BBAD2);"
                 <img src="./images/blogs.png" alt="First slide" height="100%">
@@ -214,24 +222,25 @@
                 <small>COMING SOON</small>
             </div>
         </div> --}}
-        <div class="col-sm-12 col-md-6">
-            <a href="/eshome" style="text-decoration:none">
-                <div class="knowledge-items">
-                    <img src="./images/expertspeak.png" alt="First slide" height="100%">
-                    <h6 class="knowledge-items-header">EXPERT SPEAK</h6>
-                    <small>KNOW MORE ></small>
-                </div>
-            </a>
-        </div>
-        <div class="col-sm-12 col-md-6">
-            <a href="/user-list-articles" style="text-decoration:none">
-                <div class="knowledge-items">
-                    {{-- style="background-image: linear-gradient(225deg,#fff,#f4e88c);" --}}
-                    <img src="./images/article.png" alt="First slide" height="100%">
-                    <h6 class="knowledge-items-header">ARTICLES</h6>
-                    <small>KNOW MORE ></small>
-                </div>
-            </a>
+            <div class="col-sm-12 col-md-6">
+                <a href="/eshome" style="text-decoration:none">
+                    <div class="knowledge-items">
+                        <img src="./images/expertspeak.png" alt="First slide" height="100%">
+                        <h6 class="knowledge-items-header">EXPERT SPEAK</h6>
+                        <small>KNOW MORE ></small>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <a href="/user-list-articles" style="text-decoration:none">
+                    <div class="knowledge-items">
+                        {{-- style="background-image: linear-gradient(225deg,#fff,#f4e88c);" --}}
+                        <img src="./images/article.png" alt="First slide" height="100%">
+                        <h6 class="knowledge-items-header">ARTICLES</h6>
+                        <small>KNOW MORE ></small>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </div>

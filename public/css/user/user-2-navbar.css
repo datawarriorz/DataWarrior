@@ -15,6 +15,7 @@
     padding: 0px;
     color: White;
     background-color: #171f2a;
+    z-index: 999;
 }
 
 .navbar-brand {
@@ -96,7 +97,7 @@
     background-color: #171f2a;
     border: 2px solid #fa7817;
     border-radius: 25px;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .nav-link-right {
